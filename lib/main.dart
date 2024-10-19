@@ -1,69 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:levy/features/address/data/models/address_model.dart';
+import 'package:levy/features/address/presentation/pages/address_page.dart';
+import 'package:levy/features/notification/presentation/pages/notification_page.dart';
+import 'package:levy/features/search/data/models/search_model.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final searchEntity = SearchModel(
+    departureAddress: const AddressModel(
+      street: 'First St',
+      city: 'Cityville',
+      state: 'State',
+      postalCode: '12345',
+      country: 'Country',
+      latitude: 12.34,
+      longitude: 56.78,
+    ),
+    returnAddress: const AddressModel(
+      street: 'Second St',
+      city: 'Townsville',
+      state: 'State',
+      postalCode: '67890',
+      country: 'Country',
+      latitude: 98.76,
+      longitude: 54.32,
+    ),
+    departureTime: '08:00',
+    returnTime: '17:00', // 17:00
+  );
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      // home: BusPage(search: searchEntity),
+      home: NotificationPage(),
     );
   }
 }
