@@ -9,7 +9,7 @@ class AddressPage extends ConsumerStatefulWidget {
   });
 
   @override
-  _AddressPageState createState() => _AddressPageState();
+  ConsumerState<AddressPage> createState() => _AddressPageState();
 }
 
 class _AddressPageState extends ConsumerState<AddressPage> {

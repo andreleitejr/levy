@@ -9,7 +9,7 @@ class NotificationPage extends ConsumerStatefulWidget {
   });
 
   @override
-  _NotificationPageState createState() => _NotificationPageState();
+  ConsumerState<NotificationPage> createState() => _NotificationPageState();
 }
 
 class _NotificationPageState extends ConsumerState<NotificationPage> {

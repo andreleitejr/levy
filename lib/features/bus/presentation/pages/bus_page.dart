@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
-import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/bus/providers/bus_notifier_provider.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 
@@ -16,7 +15,7 @@ class BusPage extends ConsumerStatefulWidget {
   final BusResultType resultType;
 
   @override
-  _BusPageState createState() => _BusPageState();
+  ConsumerState<BusPage> createState() => _BusPageState();
 }
 
 class _BusPageState extends ConsumerState<BusPage> {
