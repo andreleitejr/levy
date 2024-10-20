@@ -7,16 +7,16 @@ part 'search_model.g.dart';
 @JsonSerializable(createToJson: false)
 final class SearchModel extends SearchEntity {
   const SearchModel({
-    this.departureAddress = const AddressModel(),
-    this.returnAddress = const AddressModel(),
+    this.homeAddress = const AddressModel(),
+    this.workAddress = const AddressModel(),
     this.departureTime = '',
     this.returnTime = '',
   });
 
   @override
-  final AddressModel departureAddress;
+  final AddressModel homeAddress;
   @override
-  final AddressModel returnAddress;
+  final AddressModel workAddress;
   @override
   final String departureTime;
   @override

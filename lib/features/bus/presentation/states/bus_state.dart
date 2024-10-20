@@ -17,18 +17,24 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 //   BusState({this.buses = const [], this.isLoading = false, this.errorMessage});
 // }
 
-// TODO: INSERIR STATE DE ERRO
 class BusState extends Equatable {
   final List<BusEntity> buses;
+  final String? errorMessage;
 
   const BusState({
     required this.buses,
+    this.errorMessage,
   });
 
   const BusState.initial({
     this.buses = const [],
+    this.errorMessage,
   });
 
+  const BusState.error(String message)
+      : buses = const [],
+        errorMessage = message;
+
   @override
-  List<Object> get props => [buses];
+  List<Object?> get props => [buses, errorMessage];
 }

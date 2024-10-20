@@ -1,0 +1,4 @@
+enum BusResultType {
+  home,
+  work,
+}

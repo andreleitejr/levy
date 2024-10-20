@@ -7,14 +7,12 @@ part of 'search_model.dart';
 // **************************************************************************
 
 SearchModel _$SearchModelFromJson(Map<String, dynamic> json) => SearchModel(
-      departureAddress: json['departureAddress'] == null
+      homeAddress: json['homeAddress'] == null
           ? const AddressModel()
-          : AddressModel.fromJson(
-              json['departureAddress'] as Map<String, dynamic>),
-      returnAddress: json['returnAddress'] == null
+          : AddressModel.fromJson(json['homeAddress'] as Map<String, dynamic>),
+      workAddress: json['workAddress'] == null
           ? const AddressModel()
-          : AddressModel.fromJson(
-              json['returnAddress'] as Map<String, dynamic>),
+          : AddressModel.fromJson(json['workAddress'] as Map<String, dynamic>),
       departureTime: json['departureTime'] as String? ?? '',
       returnTime: json['returnTime'] as String? ?? '',
     );
