@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: BusPage(search: searchEntity),
-      home: BusPage(search: search, resultType: BusResultType.work),
+      home: BusPage(search: search, resultType: BusResultType.home),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/address/providers/address_notifier_provider.dart';
+import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
 
 class AddressPage extends ConsumerStatefulWidget {

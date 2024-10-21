@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/notification/providers/notification_notifier_provider.dart';
+import 'package:levy/features/notification/presentation/providers/notification_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
 
 class NotificationPage extends ConsumerStatefulWidget {
