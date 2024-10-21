@@ -47,6 +47,7 @@ void main() {
       );
 
       expect(result, expectedBuses);
+
       verify(
         () => mockDataSource.get(
           search: searchEntity,
@@ -69,6 +70,7 @@ void main() {
       );
 
       expect(call, throwsA(isA<Exception>()));
+
       verify(
         () => mockDataSource.get(
           search: searchEntity,
