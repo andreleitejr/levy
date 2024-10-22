@@ -12,6 +12,7 @@ import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
 import 'package:levy/features/address/presentation/pages/address_page.dart'
     as _i1;
+import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i9;
 import 'package:levy/features/bus/enums/bus_result_type.dart' as _i8;
 import 'package:levy/features/bus/presentation/pages/bus_page.dart' as _i2;
 import 'package:levy/features/notification/presentation/pages/notification_page.dart'
@@ -46,6 +47,7 @@ class BusRoute extends _i5.PageRouteInfo<BusRouteArgs> {
     _i6.Key? key,
     required _i7.SearchEntity search,
     required _i8.BusResultType resultType,
+    _i9.BusEntity? departureBus,
     List<_i5.PageRouteInfo>? children,
   }) : super(
           BusRoute.name,
@@ -53,6 +55,7 @@ class BusRoute extends _i5.PageRouteInfo<BusRouteArgs> {
             key: key,
             search: search,
             resultType: resultType,
+            departureBus: departureBus,
           ),
           initialChildren: children,
         );
@@ -67,6 +70,7 @@ class BusRoute extends _i5.PageRouteInfo<BusRouteArgs> {
         key: args.key,
         search: args.search,
         resultType: args.resultType,
+        departureBus: args.departureBus,
       );
     },
   );
@@ -77,6 +81,7 @@ class BusRouteArgs {
     this.key,
     required this.search,
     required this.resultType,
+    this.departureBus,
   });
 
   final _i6.Key? key;
@@ -85,9 +90,11 @@ class BusRouteArgs {
 
   final _i8.BusResultType resultType;
 
+  final _i9.BusEntity? departureBus;
+
   @override
   String toString() {
-    return 'BusRouteArgs{key: $key, search: $search, resultType: $resultType}';
+    return 'BusRouteArgs{key: $key, search: $search, resultType: $resultType, departureBus: $departureBus}';
   }
 }
 

@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
+import 'package:levy/core/commons/domain/enums/inject_env.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/external/bus_mock.dart';
-import 'package:levy/core/commons/domain/enums/inject_env.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 
 @Injectable(as: BusDataSource, env: [InjectEnv.mock])
@@ -24,8 +24,8 @@ final class BusDataSourceMock implements BusDataSource {
     final filteredBuses = buses.where((bus) {
       return bus.routes.any((route) {
         return resultType == BusResultType.home
-            ? route.origin.street.contains(search.homeAddress.street)
-            : route.origin.street.contains(search.workAddress.street);
+            ? route.origin.street.contains(search.homeDeparture.address.street)
+            : route.origin.street.contains(search.workDeparture.address.street);
       });
     }).toList();
 

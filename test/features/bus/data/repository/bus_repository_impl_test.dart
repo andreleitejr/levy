@@ -1,11 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/data/repositories/bus_repository_impl.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
+import 'package:levy/features/commons/models/departure_model.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:mocktail/mocktail.dart';
 
 class BusDataSourceMock extends Mock implements BusDataSource {}
 
@@ -19,9 +20,19 @@ void main() {
   });
 
   group('BusRepositoryImpl - get', () {
-    final searchEntity = SearchModel(
-      homeAddress: AddressModel(street: 'Home St'),
-      workAddress: AddressModel(street: 'Work St'),
+    final homeDeparture = DepartureModel(
+      address: AddressModel(street: 'Home St'),
+      time: '06:00',
+    );
+
+    final workDeparture = DepartureModel(
+      address: AddressModel(street: 'Work St'),
+      time: '17:00',
+    );
+
+    final search = SearchModel(
+      homeDeparture: homeDeparture,
+      workDeparture: workDeparture,
     );
 
     test('should return List<BusEntity> when the call is successful', () async {
@@ -36,13 +47,13 @@ void main() {
 
       when(
         () => mockDataSource.get(
-          search: searchEntity,
+          search: search,
           resultType: BusResultType.home,
         ),
       ).thenAnswer((_) async => expectedBuses);
 
       final result = await repository.get(
-        search: searchEntity,
+        search: search,
         resultType: BusResultType.home,
       );
 
@@ -50,7 +61,7 @@ void main() {
 
       verify(
         () => mockDataSource.get(
-          search: searchEntity,
+          search: search,
           resultType: BusResultType.home,
         ),
       ).called(1);
@@ -59,13 +70,13 @@ void main() {
     test('should throw an exception when the call fails', () async {
       when(
         () => mockDataSource.get(
-          search: searchEntity,
+          search: search,
           resultType: BusResultType.home,
         ),
       ).thenThrow(Exception('Generic Error'));
 
       final call = repository.get(
-        search: searchEntity,
+        search: search,
         resultType: BusResultType.home,
       );
 
@@ -73,7 +84,7 @@ void main() {
 
       verify(
         () => mockDataSource.get(
-          search: searchEntity,
+          search: search,
           resultType: BusResultType.home,
         ),
       ).called(1);

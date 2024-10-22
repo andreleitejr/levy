@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
 
@@ -36,6 +37,7 @@ class _AddressPageState extends ConsumerState<AddressPage> {
               itemBuilder: (context, index) {
                 final address = state.addresses[index];
                 return ListTile(
+                  onTap: () => context.router.maybePop<AddressEntity>(address),
                   title: Text(address.street),
                   subtitle: Text(address.city),
                 );

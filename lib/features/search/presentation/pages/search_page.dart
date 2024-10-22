@@ -5,7 +5,7 @@ import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
-import 'package:levy/features/bus/presentation/pages/bus_page.dart';
+import 'package:levy/features/commons/models/departure_model.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/search/presentation/providers/search_notifier_provider.dart';
 
@@ -31,7 +31,8 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Endereço de Partida',
               ),
               onTap: () async {
-                final selectedAddress = await context.router.push<AddressEntity>(AddressRoute());
+                final selectedAddress =
+                    await context.router.push<AddressEntity>(AddressRoute());
 
                 if (selectedAddress != null) {
                   searchNotifier.updateHomeAddress(selectedAddress);
@@ -48,8 +49,9 @@ class SearchPage extends ConsumerWidget {
               onTap: () async {
                 // Navega para a feature de seleção de endereço (address feature)
                 final selectedAddress =
-                    await Navigator.pushNamed(context, '/address');
-                if (selectedAddress is AddressEntity) {
+                    await context.router.push<AddressEntity>(AddressRoute());
+
+                if (selectedAddress != null) {
                   searchNotifier.updateWorkAddress(selectedAddress);
                 }
               },
@@ -63,11 +65,12 @@ class SearchPage extends ConsumerWidget {
               ),
               onTap: () async {
                 // Navega para a feature de seleção de horário (time feature)
-                final selectedTime =
-                    await Navigator.pushNamed(context, '/time');
-                if (selectedTime is String) {
-                  searchNotifier.updateDepartureTime(selectedTime);
-                }
+                // final selectedTime =
+                //     await Navigator.pushNamed(context, '/time');
+                // if (selectedTime is String) {
+                //   searchNotifier.updateHomeTime(selectedTime);
+                // }
+                searchNotifier.updateHomeTime('06:00');
               },
               readOnly: true,
               controller:
@@ -78,12 +81,14 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Horário de Retorno',
               ),
               onTap: () async {
-                // Navega para a feature de seleção de horário (time feature)
-                final selectedTime =
-                    await Navigator.pushNamed(context, '/time');
-                if (selectedTime is String) {
-                  searchNotifier.updateReturnTime(selectedTime);
-                }
+                // // Navega para a feature de seleção de horário (time feature)
+                // final selectedTime =
+                //     await Navigator.pushNamed(context, '/time');
+                // if (selectedTime is String) {
+                //   searchNotifier.updateWorkTime(selectedTime);
+                // }
+
+                searchNotifier.updateWorkTime('17:00');
               },
               readOnly: true,
               controller: TextEditingController(text: searchState.returnTime),
@@ -92,13 +97,19 @@ class SearchPage extends ConsumerWidget {
             ElevatedButton(
               onPressed: searchState.isValid
                   ? () {
-                      final searchModel = SearchModel(
-                        homeAddress:
+                      final homeDeparture = DepartureModel(
+                        address:
                             AddressModel.fromEntity(searchState.homeAddress!),
-                        workAddress:
+                        time: searchState.departureTime!,
+                      );
+                      final workDeparture = DepartureModel(
+                        address:
                             AddressModel.fromEntity(searchState.workAddress!),
-                        departureTime: searchState.departureTime!,
-                        returnTime: searchState.returnTime!,
+                        time: searchState.returnTime!,
+                      );
+                      final searchModel = SearchModel(
+                        homeDeparture: homeDeparture,
+                        workDeparture: workDeparture,
                       );
                       context.router.push(
                         BusRoute(
@@ -108,11 +119,11 @@ class SearchPage extends ConsumerWidget {
                       ); // Navega para a AddressPage
                     }
                   : null,
-              child: const Text('Ir para Ônibus'),
               style: ElevatedButton.styleFrom(
                 backgroundColor:
                     searchState.isValid ? Colors.blue : Colors.grey,
               ),
+              child: const Text('Ir para Ônibus'),
             ),
           ],
         ),

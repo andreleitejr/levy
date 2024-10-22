@@ -13,11 +13,11 @@ class SearchNotifier extends StateNotifier<SearchState> {
     state = state.copyWith(workAddress: address);
   }
 
-  void updateDepartureTime(String time) {
+  void updateHomeTime(String time) {
     state = state.copyWith(departureTime: time);
   }
 
-  void updateReturnTime(String time) {
+  void updateWorkTime(String time) {
     state = state.copyWith(returnTime: time);
   }
 }
