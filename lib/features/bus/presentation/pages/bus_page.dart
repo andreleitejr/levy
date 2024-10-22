@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 
+@RoutePage()
 class BusPage extends ConsumerStatefulWidget {
   const BusPage({
     super.key,

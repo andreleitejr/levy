@@ -43,6 +43,8 @@ dependencies:
   get_it: ^8.0.0
   rxdart: ^0.28.0
   equatable: ^2.0.5
+  auto_route: ^9.2.2
+  auto_route_generator: ^9.0.0
 
 dev_dependencies:
   flutter_test:
