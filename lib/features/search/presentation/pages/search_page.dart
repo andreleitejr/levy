@@ -47,7 +47,6 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Endereço de Retorno',
               ),
               onTap: () async {
-                // Navega para a feature de seleção de endereço (address feature)
                 final selectedAddress =
                     await context.router.push<AddressEntity>(AddressRoute());
 
@@ -64,13 +63,11 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Horário de Partida',
               ),
               onTap: () async {
-                // Navega para a feature de seleção de horário (time feature)
-                // final selectedTime =
-                //     await Navigator.pushNamed(context, '/time');
-                // if (selectedTime is String) {
-                //   searchNotifier.updateHomeTime(selectedTime);
-                // }
-                searchNotifier.updateHomeTime('06:00');
+                final selectedTime = await context.router.push<String>(TimeRoute());
+
+                if (selectedTime != null) {
+                  searchNotifier.updateHomeTime(selectedTime);
+                }
               },
               readOnly: true,
               controller:
@@ -81,14 +78,11 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Horário de Retorno',
               ),
               onTap: () async {
-                // // Navega para a feature de seleção de horário (time feature)
-                // final selectedTime =
-                //     await Navigator.pushNamed(context, '/time');
-                // if (selectedTime is String) {
-                //   searchNotifier.updateWorkTime(selectedTime);
-                // }
+                final selectedTime = await context.router.push<String>(TimeRoute());
 
-                searchNotifier.updateWorkTime('17:00');
+                if (selectedTime != null) {
+                  searchNotifier.updateWorkTime(selectedTime);
+                }
               },
               readOnly: true,
               controller: TextEditingController(text: searchState.returnTime),
