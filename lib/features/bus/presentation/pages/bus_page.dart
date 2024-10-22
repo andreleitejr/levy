@@ -6,6 +6,7 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
+import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
 @RoutePage()
 class BusPage extends ConsumerStatefulWidget {
@@ -14,11 +15,13 @@ class BusPage extends ConsumerStatefulWidget {
     required this.search,
     required this.resultType,
     this.departureBus,
+    this.departureSeat,
   });
 
   final SearchEntity search;
   final BusResultType resultType;
   final BusEntity? departureBus;
+  final SeatEntity? departureSeat;
 
   @override
   ConsumerState<BusPage> createState() => _BusPageState();
@@ -50,21 +53,33 @@ class _BusPageState extends ConsumerState<BusPage> {
               ? Center(child: Text('Bus not found'))
               : Column(
                   children: [
-                    if(widget.departureBus != null)
+                    if (widget.departureBus != null)
                       Text('Departure bus: ${widget.departureBus?.brand}'),
+                    if (widget.departureSeat != null)
+                      Text('Departure Seat: ${widget.departureSeat?.letter}:${widget.departureSeat?.number}'),
                     Expanded(
                       child: ListView.builder(
                         itemCount: state.buses.length,
                         itemBuilder: (context, index) {
                           final bus = state.buses[index];
                           return ListTile(
-                            onTap: (){
-                              if(widget.resultType == BusResultType.home){
-                                context.router.push(
+                            onTap: () async {
+                              final router = context.router;
+
+                              if (widget.resultType == BusResultType.home) {
+                                final selectedSeat =
+                                    await router.push<SeatEntity>(
+                                  SeatRoute(
+                                    seats: bus.seats,
+                                  ),
+                                );
+
+                                router.push(
                                   BusRoute(
                                     search: widget.search,
                                     resultType: BusResultType.work,
                                     departureBus: bus,
+                                    departureSeat: selectedSeat,
                                   ),
                                 );
                               }

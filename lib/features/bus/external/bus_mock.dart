@@ -76,15 +76,51 @@ final class BusMock {
       'seats': [
         {
           'id': '1',
-          'label': '1A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '2',
-          'label': '1B',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': 'user_001',
+        },
+        {
+          'id': '2',
+          'letter': 'A',
+          'number': 3,
+          'reservedBy': 'user_002',
+        },
+        {
+          'id': '2',
+          'letter': 'A',
+          'number': 4,
+          'reservedBy': null,
+        },
+        {
+          'id': '1',
+          'letter': 'B',
+          'number': 1,
+          'reservedBy': null,
+        },
+        {
+          'id': '2',
+          'letter': 'B',
+          'number': 2,
+          'reservedBy': 'user_003',
+        },
+        {
+          'id': '2',
+          'letter': 'B',
+          'number': 3,
+          'reservedBy': null,
+        },
+        {
+          'id': '2',
+          'letter': 'B',
+          'number': 4,
+          'reservedBy': null,
         },
       ],
     },
@@ -143,14 +179,14 @@ final class BusMock {
       'seats': [
         {
           'id': '3',
-          'label': '2A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '4',
-          'label': '2B',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': 'user_002',
         },
       ],
@@ -210,14 +246,14 @@ final class BusMock {
       'seats': [
         {
           'id': '5',
-          'label': '3A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '6',
-          'label': '3B',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': null,
         },
       ],
@@ -277,14 +313,14 @@ final class BusMock {
       'seats': [
         {
           'id': '7',
-          'label': '4A',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': 'user_003',
         },
         {
           'id': '8',
-          'label': '4B',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': null,
         },
       ],
@@ -344,14 +380,14 @@ final class BusMock {
       'seats': [
         {
           'id': '9',
-          'label': '5A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '10',
-          'label': '5B',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': 'user_004',
         },
       ],
@@ -433,14 +469,14 @@ final class BusMock {
       'seats': [
         {
           'id': '1',
-          'label': '1A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '2',
-          'label': '1B',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': 'user_001',
         },
       ],
@@ -500,14 +536,14 @@ final class BusMock {
       'seats': [
         {
           'id': '3',
-          'label': '2A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '4',
-          'label': '2B',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': 'user_002',
         },
       ],
@@ -567,14 +603,14 @@ final class BusMock {
       'seats': [
         {
           'id': '5',
-          'label': '3A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '6',
-          'label': '3B',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': null,
         },
       ],
@@ -634,14 +670,14 @@ final class BusMock {
       'seats': [
         {
           'id': '7',
-          'label': '4A',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': 'user_003',
         },
         {
           'id': '8',
-          'label': '4B',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': null,
         },
       ],
@@ -701,14 +737,14 @@ final class BusMock {
       'seats': [
         {
           'id': '9',
-          'label': '5A',
-          'isReserved': false,
+          'letter': 'A',
+          'number': 1,
           'reservedBy': null,
         },
         {
           'id': '10',
-          'label': '5B',
-          'isReserved': true,
+          'letter': 'A',
+          'number': 2,
           'reservedBy': 'user_004',
         },
       ],

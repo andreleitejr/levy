@@ -2,7 +2,9 @@ abstract class SeatEntity {
   const SeatEntity();
 
   String get id;
-  String get label;
-  bool get isReserved;
+  String get letter;
+  int get number;
   String? get reservedBy;
+
+  bool get isReserved => reservedBy != null;
 }

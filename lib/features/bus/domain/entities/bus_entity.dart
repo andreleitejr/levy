@@ -1,4 +1,4 @@
-import 'package:levy/features/bus/domain/entities/seat_entity.dart';
+import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/commons/entities/route_entity.dart';
 import 'package:levy/features/driver/domain/entities/driver_entity.dart';
 
