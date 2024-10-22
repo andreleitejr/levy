@@ -30,5 +30,17 @@ final class AddressModel extends AddressEntity {
   @override
   final double longitude;
 
+  factory AddressModel.fromEntity(AddressEntity entity) {
+    return AddressModel(
+      street: entity.street,
+      city: entity.city,
+      state: entity.state,
+      postalCode: entity.postalCode,
+      country: entity.country,
+      latitude: entity.latitude,
+      longitude: entity.longitude,
+    );
+  }
+
   factory AddressModel.fromJson(Map<String, dynamic> data) => _$AddressModelFromJson(data);
 }

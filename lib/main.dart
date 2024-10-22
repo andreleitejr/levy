@@ -5,6 +5,7 @@ import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/presentation/pages/bus_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/search/presentation/pages/search_page.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: BusPage(search: searchEntity),
-      home: BusPage(search: search, resultType: BusResultType.home),
+      home: SearchPage(),
     );
   }
 }
