@@ -1,4 +1,0 @@
-enum BusResultType {
-  home,
-  work,
-}

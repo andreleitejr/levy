@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
-import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 
@@ -9,12 +8,9 @@ final class BusNotifier extends StateNotifier<BusState> {
 
   BusNotifier(this._usecase) : super(BusState.initial());
 
-  Future<void> init({
-    required SearchEntity search,
-    required BusResultType resultType,
-  }) async {
+  Future<void> init(SearchEntity search,) async {
     try {
-      final buses = await _usecase.execute(search: search, resultType: resultType);
+      final buses = await _usecase.execute(search);
 
       state = BusState(buses: buses);
     } catch (e) {

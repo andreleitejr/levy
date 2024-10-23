@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/presentation/enums/bus_selection_stage.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/providers/bus_selection_notifier_provider.dart';
@@ -27,10 +26,7 @@ class _BusPageState extends ConsumerState<BusPage> {
   @override
   void initState() {
     super.initState();
-    ref.read(busNotifierProvider.notifier).init(
-          search: widget.search,
-          resultType: BusResultType.home,
-        );
+    ref.read(busNotifierProvider.notifier).init(widget.search);
   }
 
   @override
@@ -77,16 +73,21 @@ class _BusPageState extends ConsumerState<BusPage> {
 
                   if (selectedSeat != null) {
                     if (isOutbound) {
-                      ref.read(busSelectionNotifierProvider.notifier).selectDepartureBus(bus, selectedSeat);
+                      ref
+                          .read(busSelectionNotifierProvider.notifier)
+                          .selectDepartureBus(bus, selectedSeat);
                     } else {
-                      ref.read(busSelectionNotifierProvider.notifier).selectReturnBus(bus, selectedSeat);
+                      ref
+                          .read(busSelectionNotifierProvider.notifier)
+                          .selectReturnBus(bus, selectedSeat);
                       context.router.push(PaymentRoute(
                         transactionId: 'teste001',
                         onPaymentSuccess: () async {
-                          final reservationState = ref.read(reservationNotifierProvider.notifier);
+                          final reservationState =
+                              ref.read(reservationNotifierProvider.notifier);
                           await reservationState.createReservation(
                             seatNumber: selectedSeat.number.toString(),
-                            busId: bus.id, 
+                            busId: bus.id,
                           );
                           context.router.replace(ReservationRoute());
                         },
