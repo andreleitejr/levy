@@ -42,6 +42,18 @@ import 'package:levy/features/notification/domain/usecases/get_notification_usec
     as _i565;
 import 'package:levy/features/notification/domain/usecases/get_notification_usecase_impl.dart'
     as _i420;
+import 'package:levy/features/payment/data/datasources/payment_datasource.dart'
+    as _i294;
+import 'package:levy/features/payment/data/datasources/payment_datasource_mock.dart'
+    as _i958;
+import 'package:levy/features/payment/data/repositories/payment_repository_impl.dart'
+    as _i913;
+import 'package:levy/features/payment/domain/repositories/payment_repository.dart'
+    as _i322;
+import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart'
+    as _i1050;
+import 'package:levy/features/payment/domain/usecases/process_payment_usecase_impl.dart'
+    as _i784;
 
 const String _mock = 'mock';
 
@@ -59,6 +71,10 @@ class LevyPackageModule extends _i526.MicroPackageModule {
     );
     gh.factory<_i690.NotificationRepository>(() =>
         _i1035.NotificationRepositoryImpl(gh<_i746.NotificationDataSource>()));
+    gh.factory<_i294.PaymentDataSource>(
+      () => _i958.PaymentDataSourceMock(),
+      registerFor: {_mock},
+    );
     gh.factory<_i255.AddressDataSource>(
       () => _i845.AddressDataSourceMock(),
       registerFor: {_mock},
@@ -67,8 +83,12 @@ class LevyPackageModule extends _i526.MicroPackageModule {
         _i420.GetNotificationUseCaseImpl(gh<_i690.NotificationRepository>()));
     gh.factory<_i834.AddressRepository>(
         () => _i944.AddressRepositoryImpl(gh<_i255.AddressDataSource>()));
+    gh.factory<_i322.PaymentRepository>(
+        () => _i913.PaymentRepositoryImpl(gh<_i294.PaymentDataSource>()));
     gh.factory<_i757.GetAddressUseCase>(
         () => _i473.GetAddressUseCaseImpl(gh<_i834.AddressRepository>()));
+    gh.factory<_i1050.ProcessPaymentUseCase>(
+        () => _i784.ProcessPaymentUseCaseImpl(gh<_i322.PaymentRepository>()));
     gh.factory<_i452.BusRepository>(
         () => _i36.BusRepositoryImpl(gh<_i63.BusDataSource>()));
     gh.factory<_i245.GetBusUseCase>(

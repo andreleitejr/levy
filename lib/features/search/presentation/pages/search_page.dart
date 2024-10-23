@@ -119,6 +119,17 @@ class SearchPage extends ConsumerWidget {
               ),
               child: const Text('Ir para Ônibus'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                // Navegando para PaymentRoute e simulando um reservationId
+                context.router.push(
+                  PaymentRoute(
+                    reservationId: '13dlH30yr5omFprrK21dmM',
+                  ),
+                );
+              },
+              child: Text('Ir para Payment'),
+            )
           ],
         ),
       ),

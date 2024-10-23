@@ -12,7 +12,7 @@ final class GetBusUseCaseImpl implements GetBusUseCase {
   final BusRepository _repository;
 
   @override
-  Future<List<BusEntity>> get({
+  Future<List<BusEntity>> execute({
     required SearchEntity search,
     required BusResultType resultType,
   }) async {

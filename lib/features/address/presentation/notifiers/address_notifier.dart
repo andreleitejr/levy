@@ -13,7 +13,7 @@ final class AddressNotifier extends StateNotifier<AddressState> {
 
   Future<void> loadAddresses() async {
     try {
-      final addresses = await _usecase.get();
+      final addresses = await _usecase.execute();
       state = AddressState(addresses: addresses);
     } catch (e) {
       /// TODO: Implementar State de Erro

@@ -14,7 +14,7 @@ final class BusNotifier extends StateNotifier<BusState> {
     required BusResultType resultType,
   }) async {
     try {
-      final buses = await _usecase.get(search: search, resultType: resultType);
+      final buses = await _usecase.execute(search: search, resultType: resultType);
 
       state = BusState(buses: buses);
     } catch (e) {
