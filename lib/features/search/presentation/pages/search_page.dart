@@ -124,7 +124,8 @@ class SearchPage extends ConsumerWidget {
                 // Navegando para PaymentRoute e simulando um reservationId
                 context.router.push(
                   PaymentRoute(
-                    reservationId: '13dlH30yr5omFprrK21dmM',
+                    transactionId: '13dlH30yr5omFprrK21dmM',
+                    onPaymentSuccess: (){},
                   ),
                 );
               },

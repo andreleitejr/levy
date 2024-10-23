@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:levy/features/seat/data/models/seat_model.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/models/route_model.dart';
 import 'package:levy/features/driver/data/models/driver_model.dart';
+import 'package:levy/features/seat/data/models/seat_model.dart';
 
 part 'bus_model.g.dart';
 

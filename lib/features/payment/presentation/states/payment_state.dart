@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:levy/features/payment/domain/entities/payment_entity.dart';
-import 'package:levy/features/payment/enums/payment_result.dart';
 
 class PaymentState extends Equatable {
   final PaymentEntity? payment;

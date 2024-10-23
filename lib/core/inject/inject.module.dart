@@ -54,6 +54,18 @@ import 'package:levy/features/payment/domain/usecases/process_payment_usecase.da
     as _i1050;
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase_impl.dart'
     as _i784;
+import 'package:levy/features/reservation/data/datasources/reservation_datasource.dart'
+    as _i580;
+import 'package:levy/features/reservation/data/datasources/reservation_datasource_mock.dart'
+    as _i660;
+import 'package:levy/features/reservation/data/repositories/reservation_repository_impl.dart'
+    as _i28;
+import 'package:levy/features/reservation/domain/repositories/reservation_repository.dart'
+    as _i426;
+import 'package:levy/features/reservation/domain/usecases/create_reservation_usecase.dart'
+    as _i125;
+import 'package:levy/features/reservation/domain/usecases/create_reservation_usecase_impl.dart'
+    as _i718;
 
 const String _mock = 'mock';
 
@@ -63,6 +75,10 @@ class LevyPackageModule extends _i526.MicroPackageModule {
   _i687.FutureOr<void> init(_i526.GetItHelper gh) {
     gh.factory<_i746.NotificationDataSource>(
       () => _i23.NotificationDataSourceMock(),
+      registerFor: {_mock},
+    );
+    gh.factory<_i580.ReservationDataSource>(
+      () => _i660.ReservationDataSourceMock(),
       registerFor: {_mock},
     );
     gh.factory<_i63.BusDataSource>(
@@ -81,6 +97,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
     );
     gh.factory<_i565.GetNotificationUseCase>(() =>
         _i420.GetNotificationUseCaseImpl(gh<_i690.NotificationRepository>()));
+    gh.factory<_i426.ReservationRepository>(() =>
+        _i28.ReservationRepositoryImpl(gh<_i580.ReservationDataSource>()));
     gh.factory<_i834.AddressRepository>(
         () => _i944.AddressRepositoryImpl(gh<_i255.AddressDataSource>()));
     gh.factory<_i322.PaymentRepository>(
@@ -91,6 +109,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
         () => _i784.ProcessPaymentUseCaseImpl(gh<_i322.PaymentRepository>()));
     gh.factory<_i452.BusRepository>(
         () => _i36.BusRepositoryImpl(gh<_i63.BusDataSource>()));
+    gh.factory<_i125.CreateReservationUseCase>(() =>
+        _i718.CreateReservationUseCaseImpl(gh<_i426.ReservationRepository>()));
     gh.factory<_i245.GetBusUseCase>(
         () => _i988.GetBusUseCaseImpl(gh<_i452.BusRepository>()));
   }

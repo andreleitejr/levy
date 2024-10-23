@@ -9,9 +9,11 @@ class PaymentPage extends ConsumerStatefulWidget {
   const PaymentPage({
     super.key,
     required this.transactionId,
+    required this.onPaymentSuccess,
   });
 
   final String transactionId;
+  final VoidCallback onPaymentSuccess;
 
   @override
   ConsumerState<PaymentPage> createState() => _PaymentPageState();
@@ -47,10 +49,17 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
           ElevatedButton(
             onPressed: _selectedMethod != null
                 ? () {
-                    ref.read(paymentNotifierProvider.notifier).processPayment(
+                    ref
+                        .read(paymentNotifierProvider.notifier)
+                        .processPayment(
                           transactionId: widget.transactionId,
                           paymentMethod: _selectedMethod!,
-                        );
+                        )
+                        .then((_) {
+                      if (state.payment?.isSuccessful ?? false) {
+                        widget.onPaymentSuccess();
+                      }
+                    });
                   }
                 : null,
             child: Text('Pay'),

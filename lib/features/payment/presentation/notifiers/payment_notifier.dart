@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/payment/domain/entities/payment_entity.dart';
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart';
 import 'package:levy/features/payment/enums/payment_method_type.dart';
 import 'package:levy/features/payment/presentation/states/payment_state.dart';

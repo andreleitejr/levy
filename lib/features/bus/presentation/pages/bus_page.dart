@@ -5,6 +5,7 @@ import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
+import 'package:levy/features/reservation/presentation/providers/reservation_notifier_provider.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
@@ -65,21 +66,23 @@ class _BusPageState extends ConsumerState<BusPage> {
                           return ListTile(
                             onTap: () async {
                               final router = context.router;
+                              final selectedSeat = await router.push<SeatEntity>(
+                                SeatRoute(seats: bus.seats), // Assumindo que você tem uma rota de seleção de assento
+                              );
 
-                              if (widget.resultType == BusResultType.home) {
-                                final selectedSeat =
-                                    await router.push<SeatEntity>(
-                                  SeatRoute(
-                                    seats: bus.seats,
-                                  ),
-                                );
+                              if (selectedSeat != null) {
+                                await router.push(
+                                  PaymentRoute(
+                                    transactionId: 'your-transaction-id', // Substitua pelo seu ID de transação
+                                    onPaymentSuccess: () async {
+                                      final reservationState = ref.read(reservationNotifierProvider.notifier);
+                                      await reservationState.createReservation(
+                                        seatNumber: selectedSeat.number.toString(),
+                                        busId: widget.departureBus?.id ?? '',
+                                      );
 
-                                router.push(
-                                  BusRoute(
-                                    search: widget.search,
-                                    resultType: BusResultType.work,
-                                    departureBus: bus,
-                                    departureSeat: selectedSeat,
+                                      router.replace(ReservationRoute());
+                                    },
                                   ),
                                 );
                               }
