@@ -12,8 +12,6 @@ import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
 import 'package:levy/features/address/presentation/pages/address_page.dart'
     as _i1;
-import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i13;
-import 'package:levy/features/bus/enums/bus_result_type.dart' as _i12;
 import 'package:levy/features/bus/presentation/pages/bus_page.dart' as _i2;
 import 'package:levy/features/notification/presentation/pages/notification_page.dart'
     as _i3;
@@ -25,7 +23,7 @@ import 'package:levy/features/search/domain/entities/search_entity.dart'
     as _i11;
 import 'package:levy/features/search/presentation/pages/search_page.dart'
     as _i6;
-import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i14;
+import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i12;
 import 'package:levy/features/seat/presentation/pages/seat_page.dart' as _i7;
 import 'package:levy/features/time/presentation/pages/time_page.dart' as _i8;
 
@@ -54,18 +52,12 @@ class BusRoute extends _i9.PageRouteInfo<BusRouteArgs> {
   BusRoute({
     _i10.Key? key,
     required _i11.SearchEntity search,
-    required _i12.BusResultType resultType,
-    _i13.BusEntity? departureBus,
-    _i14.SeatEntity? departureSeat,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           BusRoute.name,
           args: BusRouteArgs(
             key: key,
             search: search,
-            resultType: resultType,
-            departureBus: departureBus,
-            departureSeat: departureSeat,
           ),
           initialChildren: children,
         );
@@ -79,9 +71,6 @@ class BusRoute extends _i9.PageRouteInfo<BusRouteArgs> {
       return _i2.BusPage(
         key: args.key,
         search: args.search,
-        resultType: args.resultType,
-        departureBus: args.departureBus,
-        departureSeat: args.departureSeat,
       );
     },
   );
@@ -91,24 +80,15 @@ class BusRouteArgs {
   const BusRouteArgs({
     this.key,
     required this.search,
-    required this.resultType,
-    this.departureBus,
-    this.departureSeat,
   });
 
   final _i10.Key? key;
 
   final _i11.SearchEntity search;
 
-  final _i12.BusResultType resultType;
-
-  final _i13.BusEntity? departureBus;
-
-  final _i14.SeatEntity? departureSeat;
-
   @override
   String toString() {
-    return 'BusRouteArgs{key: $key, search: $search, resultType: $resultType, departureBus: $departureBus, departureSeat: $departureSeat}';
+    return 'BusRouteArgs{key: $key, search: $search}';
   }
 }
 
@@ -226,7 +206,7 @@ class SearchRoute extends _i9.PageRouteInfo<void> {
 class SeatRoute extends _i9.PageRouteInfo<SeatRouteArgs> {
   SeatRoute({
     _i10.Key? key,
-    required List<_i14.SeatEntity> seats,
+    required List<_i12.SeatEntity> seats,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           SeatRoute.name,
@@ -259,7 +239,7 @@ class SeatRouteArgs {
 
   final _i10.Key? key;
 
-  final List<_i14.SeatEntity> seats;
+  final List<_i12.SeatEntity> seats;
 
   @override
   String toString() {

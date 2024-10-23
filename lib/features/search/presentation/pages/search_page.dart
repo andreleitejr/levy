@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/bus/enums/bus_result_type.dart';
 import 'package:levy/features/commons/models/departure_model.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/search/presentation/providers/search_notifier_provider.dart';
@@ -108,7 +107,6 @@ class SearchPage extends ConsumerWidget {
                       context.router.push(
                         BusRoute(
                           search: searchModel,
-                          resultType: BusResultType.home,
                         ),
                       ); // Navega para a AddressPage
                     }
