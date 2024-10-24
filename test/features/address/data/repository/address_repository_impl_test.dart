@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:levy/features/address/data/datasources/address_datasource.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/data/repositories/address_repository_impl.dart';
+import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
 class AddressDataSourceMock extends Mock implements AddressDataSource {}
@@ -34,6 +35,7 @@ void main() {
 
       final result = await repository.get();
 
+      expect(result, isA<List<AddressEntity>>());
       expect(result, expectedAddresses);
 
       verify(() => mockDataSource.get()).called(1);

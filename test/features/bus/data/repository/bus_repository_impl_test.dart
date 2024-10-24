@@ -3,6 +3,7 @@ import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/data/repositories/bus_repository_impl.dart';
+import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/models/departure_model.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:mocktail/mocktail.dart';
@@ -50,10 +51,11 @@ void main() {
 
       final result = await repository.get(search: search);
 
+      expect(result, isA<List<BusEntity>>());
       expect(result, expectedBuses);
 
       verify(
-        () => mockDataSource.get(search: search),
+        () => mockDataSource.get(search: search, isReturn: false),
       ).called(1);
     });
 
@@ -67,7 +69,7 @@ void main() {
       expect(call, throwsA(isA<Exception>()));
 
       verify(
-        () => mockDataSource.get(search: search),
+        () => mockDataSource.get(search: search, isReturn: false),
       ).called(1);
     });
   });

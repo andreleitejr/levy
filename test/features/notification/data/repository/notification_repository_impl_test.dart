@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:levy/features/notification/data/datasources/notification_datasource.dart';
 import 'package:levy/features/notification/data/models/notification_model.dart';
 import 'package:levy/features/notification/data/repositories/notification_repository_impl.dart';
+import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
 class NotificationDataSourceMock extends Mock
@@ -34,6 +35,7 @@ void main() {
 
       final result = await repository.get();
 
+      expect(result, isA<List<NotificationEntity>>());
       expect(result, expectedNotifications);
 
       verify(() => mockDataSource.get()).called(1);
