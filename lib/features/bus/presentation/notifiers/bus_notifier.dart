@@ -8,13 +8,16 @@ final class BusNotifier extends StateNotifier<BusState> {
 
   BusNotifier(this._usecase) : super(BusState.initial());
 
-  Future<void> init(SearchModel search) async {
+  Future<void> init({
+    required SearchModel search,
+    bool isReturn = false,
+  }) async {
     try {
-      final buses = await _usecase(search);
+      final returnBuses = await _usecase(search: search, isReturn: isReturn);
 
-      state = BusState(buses: buses);
+      state = BusState(buses: returnBuses);
     } catch (e) {
-      state = BusState.error('Failed to load buses: ${e.toString()}');
+      state = BusState.error('Failed to load return buses: ${e.toString()}');
     }
   }
 }

@@ -13,6 +13,7 @@ final class DepartureModel extends DepartureEntity {
 
   @override
   final AddressModel address;
+
   @override
   final String time;
 

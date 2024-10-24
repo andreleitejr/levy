@@ -45,29 +45,29 @@ void main() {
       ];
 
       when(
-        () => mockDataSource.get(search),
+        () => mockDataSource.get(search: search),
       ).thenAnswer((_) async => expectedBuses);
 
-      final result = await repository.get(search);
+      final result = await repository.get(search: search);
 
       expect(result, expectedBuses);
 
       verify(
-        () => mockDataSource.get(search),
+        () => mockDataSource.get(search: search),
       ).called(1);
     });
 
     test('should throw an exception when the call fails', () async {
       when(
-        () => mockDataSource.get(search),
+        () => mockDataSource.get(search: search),
       ).thenThrow(Exception('Generic Error'));
 
-      final call = repository.get(search);
+      final call = repository.get(search: search);
 
       expect(call, throwsA(isA<Exception>()));
 
       verify(
-        () => mockDataSource.get(search),
+        () => mockDataSource.get(search: search),
       ).called(1);
     });
   });

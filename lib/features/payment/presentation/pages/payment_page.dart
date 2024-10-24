@@ -48,18 +48,17 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
           ),
           ElevatedButton(
             onPressed: _selectedMethod != null
-                ? () {
-                    ref
+                ? () async {
+                    await ref
                         .read(paymentNotifierProvider.notifier)
                         .processPayment(
                           transactionId: widget.transactionId,
                           paymentMethod: _selectedMethod!,
-                        )
-                        .then((_) {
-                      if (state.payment?.isSuccessful ?? false) {
-                        widget.onPaymentSuccess();
-                      }
-                    });
+                        );
+
+                    if (state.payment?.isSuccessful ?? false) {
+                      widget.onPaymentSuccess();
+                    }
                   }
                 : null,
             child: Text('Pay'),

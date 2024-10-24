@@ -23,7 +23,7 @@ final class BusSelectionState extends Equatable {
         departureSeat = null,
         returnBus = null,
         returnSeat = null,
-        stage = BusSelectionStage.initial;
+        stage = BusSelectionStage.departureSelection;
 
   BusSelectionState copyWith({
     BusEntity? departureBus,

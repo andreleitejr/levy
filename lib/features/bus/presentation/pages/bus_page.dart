@@ -26,7 +26,7 @@ class _BusPageState extends ConsumerState<BusPage> {
   @override
   void initState() {
     super.initState();
-    ref.read(busNotifierProvider.notifier).init(widget.search);
+    ref.read(busNotifierProvider.notifier).init(search: widget.search);
   }
 
   @override
@@ -35,26 +35,24 @@ class _BusPageState extends ConsumerState<BusPage> {
 
     return Scaffold(
       appBar: AppBar(title: Text('Select a Bus')),
-      body: state.stage == BusSelectionStage.initial
-          ? _buildBusSelection(context, ref, isOutbound: true)
-          : _buildBusSelection(context, ref, isOutbound: false),
+      body: _buildBusSelection(context, ref, state.stage),
     );
   }
 
-  Widget _buildBusSelection(BuildContext context, WidgetRef ref,
-      {required bool isOutbound}) {
+  Widget _buildBusSelection(
+      BuildContext context, WidgetRef ref, BusSelectionStage stage) {
     final buses = ref.watch(busNotifierProvider).buses;
-    final selectedBus = ref.watch(busSelectionNotifierProvider).departureBus;
-    final selectedSeat = ref.watch(busSelectionNotifierProvider).departureSeat;
+    final departureBus = ref.watch(busSelectionNotifierProvider).departureBus;
+    final departureSeat = ref.watch(busSelectionNotifierProvider).departureSeat;
 
     return Column(
       children: [
-        if (selectedBus != null)
+        if (departureBus != null)
           Column(
             children: [
-              Text('Selected Bus: ${selectedBus.brand}'),
+              Text('Selected Bus: ${departureBus.brand}'),
               Text(
-                  'Selected Seat: ${selectedSeat?.letter}:${selectedSeat?.number}'),
+                  'Selected Seat: ${departureSeat?.letter}:${departureSeat?.number}'),
             ],
           ),
         Expanded(
@@ -65,22 +63,39 @@ class _BusPageState extends ConsumerState<BusPage> {
 
               return ListTile(
                 title: Text(bus.brand),
-                subtitle: Text('Seats available: ${bus.seats.length}'),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Address Street: ${bus.routes.first.origin.street}'),
+                    Text('Description Route: ${bus.routes.first.name}'),
+                    Text('Departure: ${bus.routes.first.departureTime}'),
+                    Text('Arrival: ${bus.routes.first.arrivalTime}'),
+                    Text('Duration: ${bus.routes.first.duration}'),
+                    Text('Seats available: ${bus.seats.length}'),
+                  ],
+                ),
                 onTap: () async {
+                  final router = context.router;
+
                   final selectedSeat = await context.router.push<SeatEntity>(
                     SeatRoute(seats: bus.seats),
                   );
 
                   if (selectedSeat != null) {
-                    if (isOutbound) {
+                    if (stage == BusSelectionStage.departureSelection) {
                       ref
                           .read(busSelectionNotifierProvider.notifier)
                           .selectDepartureBus(bus, selectedSeat);
-                    } else {
+
+                      await ref
+                          .read(busNotifierProvider.notifier)
+                          .init(search: widget.search, isReturn: true);
+                    } else if (stage == BusSelectionStage.returnSelection) {
                       ref
                           .read(busSelectionNotifierProvider.notifier)
                           .selectReturnBus(bus, selectedSeat);
-                      context.router.push(PaymentRoute(
+
+                      router.push(PaymentRoute(
                         transactionId: 'teste001',
                         onPaymentSuccess: () async {
                           final reservationState =
@@ -89,7 +104,7 @@ class _BusPageState extends ConsumerState<BusPage> {
                             seatNumber: selectedSeat.number.toString(),
                             busId: bus.id,
                           );
-                          context.router.replace(ReservationRoute());
+                          router.replace(ReservationRoute());
                         },
                       ));
                     }

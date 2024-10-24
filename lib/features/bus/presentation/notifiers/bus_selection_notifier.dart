@@ -11,7 +11,7 @@ final class BusSelectionNotifier extends StateNotifier<BusSelectionState> {
     state = state.copyWith(
       departureBus: bus,
       departureSeat: seat,
-      stage: BusSelectionStage.selected,
+      stage: BusSelectionStage.returnSelection,
     );
   }
 
