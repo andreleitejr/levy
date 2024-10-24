@@ -12,11 +12,11 @@ final class PaymentRepositoryImpl implements PaymentRepository {
 
   @override
   Future<PaymentEntity> processPayment({
-    required String transactionId,
+    required String paymentId,
     required PaymentMethodType paymentMethod,
   }) async {
     return _datasource.processPayment(
-      transactionId: transactionId,
+      paymentId: paymentId,
       paymentMethod: paymentMethod,
     );
   }

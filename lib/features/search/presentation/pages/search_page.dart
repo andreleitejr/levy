@@ -62,7 +62,8 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Horário de Partida',
               ),
               onTap: () async {
-                final selectedTime = await context.router.push<String>(TimeRoute());
+                final selectedTime =
+                    await context.router.push<String>(TimeRoute());
 
                 if (selectedTime != null) {
                   searchNotifier.updateHomeTime(selectedTime);
@@ -77,7 +78,8 @@ class SearchPage extends ConsumerWidget {
                 labelText: 'Horário de Retorno',
               ),
               onTap: () async {
-                final selectedTime = await context.router.push<String>(TimeRoute());
+                final selectedTime =
+                    await context.router.push<String>(TimeRoute());
 
                 if (selectedTime != null) {
                   searchNotifier.updateWorkTime(selectedTime);
@@ -91,13 +93,11 @@ class SearchPage extends ConsumerWidget {
               onPressed: searchState.isValid
                   ? () {
                       final homeDeparture = DepartureModel(
-                        address:
-                            AddressModel.fromEntity(searchState.homeAddress!),
+                        address: searchState.homeAddress! as AddressModel,
                         time: searchState.departureTime!,
                       );
                       final workDeparture = DepartureModel(
-                        address:
-                            AddressModel.fromEntity(searchState.workAddress!),
+                        address: searchState.workAddress! as AddressModel,
                         time: searchState.returnTime!,
                       );
                       final searchModel = SearchModel(
@@ -122,8 +122,8 @@ class SearchPage extends ConsumerWidget {
                 // Navegando para PaymentRoute e simulando um reservationId
                 context.router.push(
                   PaymentRoute(
-                    transactionId: '13dlH30yr5omFprrK21dmM',
-                    onPaymentSuccess: (){},
+                    paymentId: '13dlH30yr5omFprrK21dmM',
+                    onPaymentSuccess: () {},
                   ),
                 );
               },

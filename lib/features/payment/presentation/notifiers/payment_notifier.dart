@@ -9,17 +9,17 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
   PaymentNotifier(this._usecase) : super(PaymentState.initial());
 
   Future<void> processPayment({
-    required String transactionId,
+    required String paymentId,
     required PaymentMethodType paymentMethod,
   }) async {
     try {
-      final payment = await _usecase(
-        transactionId: transactionId,
+      final result = await _usecase(
+        paymentId: paymentId,
         paymentMethod: paymentMethod,
       );
 
-      if (payment.isSuccessful) {
-        state = PaymentState.success(payment);
+      if (result.isSuccessful) {
+        state = PaymentState.success(result);
       } else {
         state = PaymentState.error('Payment failed');
       }

@@ -7,10 +7,7 @@ import 'package:levy/features/reservation/external/reservation_mock.dart';
 @Injectable(as: ReservationDataSource, env: [InjectEnv.mock])
 final class ReservationDataSourceMock implements ReservationDataSource {
   @override
-  Future<ReservationModel> createReservation({
-    required String seatNumber,
-    required String busId,
-  }) async {
+  Future<ReservationModel> createReservation(ReservationModel reservation) async {
     return ReservationModel.fromJson(ReservationMock.response);
   }
 }

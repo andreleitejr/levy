@@ -20,9 +20,9 @@ void main() {
   group('PaymentRepositoryImpl - get', () {
     test('should return List<PaymentEntity> when the call is successful',
         () async {
-      final transactionId = 'transaction_001';
+      final paymentId = 'transaction_001';
       final expectedPayment = PaymentModel(
-        transaction: transactionId,
+        transaction: paymentId,
         amount: 399.90,
         method: 'Credit Card',
         currency: 'BRL',
@@ -32,12 +32,12 @@ void main() {
       );
 
       when(() => mockDataSource.processPayment(
-            transactionId: transactionId,
+            paymentId: paymentId,
             paymentMethod: PaymentMethodType.creditCard,
           )).thenAnswer((_) async => expectedPayment);
 
       final result = await repository.processPayment(
-        transactionId: transactionId,
+        paymentId: paymentId,
         paymentMethod: PaymentMethodType.creditCard,
       );
 
@@ -45,26 +45,26 @@ void main() {
       expect(result, expectedPayment);
 
       verify(() => mockDataSource.processPayment(
-            transactionId: transactionId,
+            paymentId: paymentId,
             paymentMethod: PaymentMethodType.creditCard,
           )).called(1);
     });
 
     test('should throw an exception when the call fails', () async {
       when(() => mockDataSource.processPayment(
-            transactionId: '',
+            paymentId: '',
             paymentMethod: PaymentMethodType.creditCard,
           )).thenThrow(Exception('Generic Error'));
 
       final call = repository.processPayment(
-        transactionId: '',
+        paymentId: '',
         paymentMethod: PaymentMethodType.creditCard,
       );
 
       expect(call, throwsA(isA<Exception>()));
 
       verify(() => mockDataSource.processPayment(
-            transactionId: '',
+            paymentId: '',
             paymentMethod: PaymentMethodType.creditCard,
           )).called(1);
     });

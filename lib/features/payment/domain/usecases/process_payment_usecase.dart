@@ -3,7 +3,7 @@ import 'package:levy/features/payment/enums/payment_method_type.dart';
 
 abstract class ProcessPaymentUseCase {
   Future<PaymentEntity> call({
-    required String transactionId,
+    required String paymentId,
     required PaymentMethodType paymentMethod,
   });
 }

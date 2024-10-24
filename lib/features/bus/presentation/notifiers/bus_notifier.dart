@@ -13,9 +13,9 @@ final class BusNotifier extends StateNotifier<BusState> {
     bool isReturn = false,
   }) async {
     try {
-      final returnBuses = await _usecase(search: search, isReturn: isReturn);
+      final result = await _usecase(search: search, isReturn: isReturn);
 
-      state = BusState(buses: returnBuses);
+      state = BusState(buses: result);
     } catch (e) {
       state = BusState.error('Failed to load return buses: ${e.toString()}');
     }

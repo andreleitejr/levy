@@ -8,11 +8,11 @@ import 'package:levy/features/payment/presentation/providers/payment_notifier_pr
 class PaymentPage extends ConsumerStatefulWidget {
   const PaymentPage({
     super.key,
-    required this.transactionId,
+    required this.paymentId,
     required this.onPaymentSuccess,
   });
 
-  final String transactionId;
+  final String paymentId;
   final VoidCallback onPaymentSuccess;
 
   @override
@@ -52,7 +52,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
                     await ref
                         .read(paymentNotifierProvider.notifier)
                         .processPayment(
-                          transactionId: widget.transactionId,
+                          paymentId: widget.paymentId,
                           paymentMethod: _selectedMethod!,
                         );
 

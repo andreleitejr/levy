@@ -10,5 +10,7 @@ final class GetAddressUseCaseImpl implements GetAddressUseCase {
   final AddressRepository _repository;
 
   @override
-  Future<List<AddressEntity>> call() async => _repository.get();
+  Future<List<AddressEntity>> call() async {
+    return _repository.get();
+  }
 }

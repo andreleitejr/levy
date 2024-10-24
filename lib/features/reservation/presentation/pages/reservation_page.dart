@@ -14,7 +14,7 @@ class ReservationPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Reservations')),
       body: state.reservation != null
-          ? Center(child: Text('Reservation successful: ${state.reservation!.seatNumber}'))
+          ? Center(child: Text('Reservation successful: ${state.reservation?.reservationId}'))
           : state.errorMessage != null
           ? Center(child: Text(state.errorMessage!))
           : Center(child: CircularProgressIndicator()),

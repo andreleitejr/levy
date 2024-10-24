@@ -9,7 +9,7 @@ import 'package:levy/features/payment/external/payment_mock.dart';
 final class PaymentDataSourceMock implements PaymentDataSource {
   @override
   Future<PaymentModel> processPayment({
-    required String transactionId,
+    required String paymentId,
     required PaymentMethodType paymentMethod,
   }) async {
     return PaymentModel.fromJson(PaymentMock.response);

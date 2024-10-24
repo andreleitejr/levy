@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
+import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/presentation/enums/bus_selection_stage.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/providers/bus_selection_notifier_provider.dart';
+import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/presentation/providers/reservation_notifier_provider.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
@@ -44,6 +46,8 @@ class _BusPageState extends ConsumerState<BusPage> {
     final buses = ref.watch(busNotifierProvider).buses;
     final departureBus = ref.watch(busSelectionNotifierProvider).departureBus;
     final departureSeat = ref.watch(busSelectionNotifierProvider).departureSeat;
+    final returnBus = ref.watch(busSelectionNotifierProvider).returnBus;
+    final returnSeat = ref.watch(busSelectionNotifierProvider).returnSeat;
 
     return Column(
       children: [
@@ -95,15 +99,23 @@ class _BusPageState extends ConsumerState<BusPage> {
                           .read(busSelectionNotifierProvider.notifier)
                           .selectReturnBus(bus, selectedSeat);
 
+                      final paymentId = 'teste001';
+
                       router.push(PaymentRoute(
-                        transactionId: 'teste001',
+                        paymentId: 'teste001',
                         onPaymentSuccess: () async {
                           final reservationState =
                               ref.read(reservationNotifierProvider.notifier);
-                          await reservationState.createReservation(
-                            seatNumber: selectedSeat.number.toString(),
-                            busId: bus.id,
+
+                          final reservation = ReservationModel(
+                            userId: 'user_001',
+                            paymentId: paymentId,
+                            date: DateTime.now().toString(),
+                            departureBus: departureBus as BusModel,
+                            returnBus: departureBus,
                           );
+
+                          await reservationState.createReservation(reservation);
                           router.replace(ReservationRoute());
                         },
                       ));

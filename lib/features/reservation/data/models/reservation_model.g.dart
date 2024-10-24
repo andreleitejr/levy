@@ -8,6 +8,14 @@ part of 'reservation_model.dart';
 
 ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) =>
     ReservationModel(
-      seatNumber: json['seatNumber'] as String,
-      busId: json['busId'] as String,
+      reservationId: json['reservationId'] as String? ?? '',
+      userId: json['userId'] as String? ?? '',
+      paymentId: json['paymentId'] as String? ?? '',
+      date: json['date'] as String? ?? '',
+      departureBus: json['departureBus'] == null
+          ? const BusModel()
+          : BusModel.fromJson(json['departureBus'] as Map<String, dynamic>),
+      returnBus: json['returnBus'] == null
+          ? const BusModel()
+          : BusModel.fromJson(json['returnBus'] as Map<String, dynamic>),
     );

@@ -115,14 +115,14 @@ class NotificationRoute extends _i9.PageRouteInfo<void> {
 class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
     _i10.Key? key,
-    required String transactionId,
+    required String paymentId,
     required _i10.VoidCallback onPaymentSuccess,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           PaymentRoute.name,
           args: PaymentRouteArgs(
             key: key,
-            transactionId: transactionId,
+            paymentId: paymentId,
             onPaymentSuccess: onPaymentSuccess,
           ),
           initialChildren: children,
@@ -136,7 +136,7 @@ class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
       final args = data.argsAs<PaymentRouteArgs>();
       return _i4.PaymentPage(
         key: args.key,
-        transactionId: args.transactionId,
+        paymentId: args.paymentId,
         onPaymentSuccess: args.onPaymentSuccess,
       );
     },
@@ -146,19 +146,19 @@ class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
 class PaymentRouteArgs {
   const PaymentRouteArgs({
     this.key,
-    required this.transactionId,
+    required this.paymentId,
     required this.onPaymentSuccess,
   });
 
   final _i10.Key? key;
 
-  final String transactionId;
+  final String paymentId;
 
   final _i10.VoidCallback onPaymentSuccess;
 
   @override
   String toString() {
-    return 'PaymentRouteArgs{key: $key, transactionId: $transactionId, onPaymentSuccess: $onPaymentSuccess}';
+    return 'PaymentRouteArgs{key: $key, paymentId: $paymentId, onPaymentSuccess: $onPaymentSuccess}';
   }
 }
 

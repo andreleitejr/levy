@@ -12,11 +12,11 @@ final class ProcessPaymentUseCaseImpl implements ProcessPaymentUseCase {
 
   @override
   Future<PaymentEntity> call({
-    required String transactionId,
+    required String paymentId,
     required PaymentMethodType paymentMethod,
   }) async {
     return _repository.processPayment(
-      transactionId: transactionId,
+      paymentId: paymentId,
       paymentMethod: paymentMethod,
     );
   }
