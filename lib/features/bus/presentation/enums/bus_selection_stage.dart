@@ -1,5 +1,5 @@
 enum BusSelectionStage {
-  empty,
+  initial,
   selected,
   completed,
 }

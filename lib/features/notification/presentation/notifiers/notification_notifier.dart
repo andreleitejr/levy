@@ -13,7 +13,7 @@ final class NotificationNotifier extends StateNotifier<NotificationState> {
 
   Future<void> loadNotifications() async {
     try {
-      final notifications = await _usecase.get();
+      final notifications = await _usecase.call();
       state = NotificationState(notifications: notifications);
     } catch (e) {
       /// TODO: Implementar State de Erro

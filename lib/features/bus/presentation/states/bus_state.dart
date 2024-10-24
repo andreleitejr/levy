@@ -10,10 +10,9 @@ class BusState extends Equatable {
     this.errorMessage,
   });
 
-  const BusState.initial({
-    this.buses = const [],
-    this.errorMessage,
-  });
+  const BusState.initial()
+      : buses = const [],
+        errorMessage = null;
 
   const BusState.error(String message)
       : buses = const [],

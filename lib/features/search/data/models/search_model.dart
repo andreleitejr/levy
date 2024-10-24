@@ -13,6 +13,7 @@ final class SearchModel extends SearchEntity {
 
   @override
   final DepartureModel homeDeparture;
+
   @override
   final DepartureModel workDeparture;
 

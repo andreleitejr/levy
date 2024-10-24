@@ -27,30 +27,43 @@ final class BusModel extends BusEntity {
 
   @override
   final String id;
+
   @override
   final String image;
+
   @override
   final String brand;
+
   @override
   final String model;
+
   @override
   final String year;
+
   @override
   final String color;
+
   @override
   final int capacity;
+
   @override
   final List<String> amenities;
+
   @override
   final String licensePlate;
+
   @override
   final String chassisNumber;
+
   @override
   final bool isAccessible;
+
   @override
   final DriverModel driver;
+
   @override
   final List<RouteModel> routes;
+
   @override
   final List<SeatModel> seats;
 

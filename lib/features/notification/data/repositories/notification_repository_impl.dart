@@ -10,5 +10,7 @@ final class NotificationRepositoryImpl implements NotificationRepository {
   final NotificationDataSource _datasource;
 
   @override
-  Future<List<NotificationEntity>> get() async => _datasource.get();
+  Future<List<NotificationEntity>> get() async {
+    return _datasource.get();
+  }
 }

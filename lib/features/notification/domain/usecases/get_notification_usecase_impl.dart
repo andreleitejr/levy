@@ -10,5 +10,5 @@ final class GetNotificationUseCaseImpl implements GetNotificationUseCase {
   final NotificationRepository _repository;
 
   @override
-  Future<List<NotificationEntity>> get() async => _repository.get();
+  Future<List<NotificationEntity>> call() async => _repository.get();
 }

@@ -19,8 +19,7 @@ import 'package:levy/features/payment/presentation/pages/payment_page.dart'
     as _i4;
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
     as _i5;
-import 'package:levy/features/search/domain/entities/search_entity.dart'
-    as _i11;
+import 'package:levy/features/search/data/models/search_model.dart' as _i11;
 import 'package:levy/features/search/presentation/pages/search_page.dart'
     as _i6;
 import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i12;
@@ -51,7 +50,7 @@ class AddressRoute extends _i9.PageRouteInfo<void> {
 class BusRoute extends _i9.PageRouteInfo<BusRouteArgs> {
   BusRoute({
     _i10.Key? key,
-    required _i11.SearchEntity search,
+    required _i11.SearchModel search,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           BusRoute.name,
@@ -84,7 +83,7 @@ class BusRouteArgs {
 
   final _i10.Key? key;
 
-  final _i11.SearchEntity search;
+  final _i11.SearchModel search;
 
   @override
   String toString() {

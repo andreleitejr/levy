@@ -13,7 +13,7 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
     required PaymentMethodType paymentMethod,
   }) async {
     try {
-      final payment = await _usecase.execute(
+      final payment = await _usecase(
         transactionId: transactionId,
         paymentMethod: paymentMethod,
       );

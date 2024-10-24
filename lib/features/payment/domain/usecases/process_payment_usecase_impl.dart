@@ -11,7 +11,7 @@ final class ProcessPaymentUseCaseImpl implements ProcessPaymentUseCase {
   final PaymentRepository _repository;
 
   @override
-  Future<PaymentEntity> execute({
+  Future<PaymentEntity> call({
     required String transactionId,
     required PaymentMethodType paymentMethod,
   }) async {

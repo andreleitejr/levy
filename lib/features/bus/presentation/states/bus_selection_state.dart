@@ -3,7 +3,7 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/enums/bus_selection_stage.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
-class BusSelectionState extends Equatable {
+final class BusSelectionState extends Equatable {
   final BusEntity? departureBus;
   final SeatEntity? departureSeat;
   final BusEntity? returnBus;
@@ -18,9 +18,12 @@ class BusSelectionState extends Equatable {
     required this.stage,
   });
 
-  factory BusSelectionState.initial() {
-    return const BusSelectionState(stage: BusSelectionStage.empty);
-  }
+  const BusSelectionState.initial()
+      : departureBus = null,
+        departureSeat = null,
+        returnBus = null,
+        returnSeat = null,
+        stage = BusSelectionStage.initial;
 
   BusSelectionState copyWith({
     BusEntity? departureBus,
@@ -39,5 +42,6 @@ class BusSelectionState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [departureBus, departureSeat, returnBus, returnSeat, stage];
+  List<Object?> get props =>
+      [departureBus, departureSeat, returnBus, returnSeat, stage];
 }

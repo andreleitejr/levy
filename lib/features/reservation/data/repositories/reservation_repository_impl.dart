@@ -4,17 +4,17 @@ import 'package:levy/features/reservation/domain/entities/reservation_entity.dar
 import 'package:levy/features/reservation/domain/repositories/reservation_repository.dart';
 
 @Injectable(as: ReservationRepository)
-class ReservationRepositoryImpl implements ReservationRepository {
-  final ReservationDataSource _dataSource;
+final class ReservationRepositoryImpl implements ReservationRepository {
+  const ReservationRepositoryImpl(this._datasource);
 
-  const ReservationRepositoryImpl(this._dataSource);
+  final ReservationDataSource _datasource;
 
   @override
   Future<ReservationEntity> createReservation({
     required String seatNumber,
     required String busId,
   }) async {
-    return await _dataSource.createReservation(
+    return await _datasource.createReservation(
       seatNumber: seatNumber,
       busId: busId,
     );

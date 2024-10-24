@@ -3,16 +3,16 @@ import 'package:levy/features/reservation/domain/usecases/create_reservation_use
 import 'package:levy/features/reservation/presentation/states/reservation_state.dart';
 
 class ReservationNotifier extends StateNotifier<ReservationState> {
-  final CreateReservationUseCase _useCase;
+  final CreateReservationUseCase _usecase;
 
-  ReservationNotifier(this._useCase) : super(ReservationState.initial());
+  ReservationNotifier(this._usecase) : super(ReservationState.initial());
 
   Future<void> createReservation({
     required String seatNumber,
     required String busId,
   }) async {
     try {
-      final reservation = await _useCase.execute(
+      final reservation = await _usecase(
         seatNumber: seatNumber,
         busId: busId,
       );

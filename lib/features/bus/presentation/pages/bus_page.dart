@@ -6,7 +6,7 @@ import 'package:levy/features/bus/presentation/enums/bus_selection_stage.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/providers/bus_selection_notifier_provider.dart';
 import 'package:levy/features/reservation/presentation/providers/reservation_notifier_provider.dart';
-import 'package:levy/features/search/domain/entities/search_entity.dart';
+import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
 @RoutePage()
@@ -16,7 +16,7 @@ class BusPage extends ConsumerStatefulWidget {
     required this.search,
   });
 
-  final SearchEntity search;
+  final SearchModel search;
 
   @override
   ConsumerState<BusPage> createState() => _BusPageState();
@@ -35,7 +35,7 @@ class _BusPageState extends ConsumerState<BusPage> {
 
     return Scaffold(
       appBar: AppBar(title: Text('Select a Bus')),
-      body: state.stage == BusSelectionStage.empty
+      body: state.stage == BusSelectionStage.initial
           ? _buildBusSelection(context, ref, isOutbound: true)
           : _buildBusSelection(context, ref, isOutbound: false),
     );

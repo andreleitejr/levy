@@ -17,16 +17,22 @@ final class PaymentModel extends PaymentEntity {
 
   @override
   final String transaction;
+
   @override
   final double amount;
+
   @override
   final String method;
+
   @override
   final String currency;
+
   @override
   final String description;
+
   @override
   final String datetime;
+
   @override
   final bool isSuccessful;
 

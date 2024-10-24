@@ -2,14 +2,14 @@ import 'package:injectable/injectable.dart';
 import 'package:levy/core/commons/domain/enums/inject_env.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
-import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/external/bus_mock.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
+
 @Injectable(as: BusDataSource, env: [InjectEnv.mock])
 final class BusDataSourceMock implements BusDataSource {
   @override
   Future<List<BusModel>> get(SearchEntity search) async {
-    final List<BusModel> buses = BusMock.response.map((bus) => BusModel.fromJson(bus)).toList();
+    final buses = BusMock.response.map((bus) => BusModel.fromJson(bus)).toList();
 
     Duration parseTime(String time) {
       final parts = time.split(':');
@@ -40,7 +40,7 @@ final class BusDataSourceMock implements BusDataSource {
 
     final returnBuses = buses.where((bus) {
       final route = bus.routes.last;
-      final Duration busReturnTime = parseTime(route.departureTime);
+      final busReturnTime = parseTime(route.departureTime);
 
       return busReturnTime >= workReturnStartTime &&
           busReturnTime <= workReturnEndTime &&

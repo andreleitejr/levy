@@ -12,6 +12,7 @@ class ReservationModel extends ReservationEntity {
 
   @override
   final String seatNumber;
+
   @override
   final String busId;
 

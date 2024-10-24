@@ -14,10 +14,13 @@ final class SeatModel extends SeatEntity {
 
   @override
   final String id;
+
   @override
   final String letter;
+
   @override
   final int number;
+
   @override
   final String? reservedBy;
 

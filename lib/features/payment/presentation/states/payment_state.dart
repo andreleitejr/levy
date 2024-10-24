@@ -14,8 +14,8 @@ class PaymentState extends Equatable {
       : payment = null,
         errorMessage = null;
 
-  const PaymentState.success(PaymentEntity payment)
-      : payment = payment,
+  const PaymentState.success(PaymentEntity value)
+      : payment = value,
         errorMessage = null;
 
   const PaymentState.error(String message)

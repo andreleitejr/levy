@@ -17,16 +17,22 @@ final class AddressModel extends AddressEntity {
 
   @override
   final String street;
+
   @override
   final String city;
+
   @override
   final String state;
+
   @override
   final String postalCode;
+
   @override
   final String country;
+
   @override
   final double latitude;
+
   @override
   final double longitude;
 

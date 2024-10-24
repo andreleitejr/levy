@@ -97,8 +97,6 @@ class LevyPackageModule extends _i526.MicroPackageModule {
     );
     gh.factory<_i565.GetNotificationUseCase>(() =>
         _i420.GetNotificationUseCaseImpl(gh<_i690.NotificationRepository>()));
-    gh.factory<_i426.ReservationRepository>(() =>
-        _i28.ReservationRepositoryImpl(gh<_i580.ReservationDataSource>()));
     gh.factory<_i834.AddressRepository>(
         () => _i944.AddressRepositoryImpl(gh<_i255.AddressDataSource>()));
     gh.factory<_i322.PaymentRepository>(
@@ -107,6 +105,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
         () => _i473.GetAddressUseCaseImpl(gh<_i834.AddressRepository>()));
     gh.factory<_i1050.ProcessPaymentUseCase>(
         () => _i784.ProcessPaymentUseCaseImpl(gh<_i322.PaymentRepository>()));
+    gh.factory<_i426.ReservationRepository>(() =>
+        _i28.ReservationRepositoryImpl(gh<_i580.ReservationDataSource>()));
     gh.factory<_i452.BusRepository>(
         () => _i36.BusRepositoryImpl(gh<_i63.BusDataSource>()));
     gh.factory<_i125.CreateReservationUseCase>(() =>

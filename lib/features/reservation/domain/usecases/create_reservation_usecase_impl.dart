@@ -10,7 +10,7 @@ class CreateReservationUseCaseImpl implements CreateReservationUseCase {
   const CreateReservationUseCaseImpl(this._repository);
 
   @override
-  Future<ReservationEntity> execute({
+  Future<ReservationEntity> call({
     required String seatNumber,
     required String busId,
   }) async {

@@ -1,7 +1,7 @@
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
+import 'package:levy/features/reservation/data/models/reservation_model.dart';
 
 abstract class ReservationDataSource {
-  Future<ReservationEntity> createReservation({
+  Future<ReservationModel> createReservation({
     required String seatNumber,
     required String busId,
   });
