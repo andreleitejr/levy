@@ -18,3 +18,15 @@ DriverModel _$DriverModelFromJson(Map<String, dynamic> json) => DriverModel(
           ? const AddressModel()
           : AddressModel.fromJson(json['address'] as Map<String, dynamic>),
     );
+
+Map<String, dynamic> _$DriverModelToJson(DriverModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'image': instance.image,
+      'name': instance.name,
+      'birthday': instance.birthday,
+      'licenseNumber': instance.licenseNumber,
+      'licenseType': instance.licenseType,
+      'experienceYears': instance.experienceYears,
+      'address': instance.address,
+    };

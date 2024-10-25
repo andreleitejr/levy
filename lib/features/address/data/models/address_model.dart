@@ -3,7 +3,7 @@ import 'package:levy/features/address/domain/entities/address_entity.dart';
 
 part 'address_model.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable(createToJson: true)
 final class AddressModel extends AddressEntity {
   const AddressModel({
     this.street = '',
@@ -37,4 +37,6 @@ final class AddressModel extends AddressEntity {
   final double longitude;
 
   factory AddressModel.fromJson(Map<String, dynamic> data) => _$AddressModelFromJson(data);
+
+  Map<String, dynamic> toJson() => _$AddressModelToJson(this);
 }

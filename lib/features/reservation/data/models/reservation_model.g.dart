@@ -19,3 +19,13 @@ ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) =>
           ? const BusModel()
           : BusModel.fromJson(json['returnBus'] as Map<String, dynamic>),
     );
+
+Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
+    <String, dynamic>{
+      'reservationId': instance.reservationId,
+      'userId': instance.userId,
+      'paymentId': instance.paymentId,
+      'date': instance.date,
+      'departureBus': instance.departureBus,
+      'returnBus': instance.returnBus,
+    };

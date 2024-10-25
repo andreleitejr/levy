@@ -66,6 +66,10 @@ import 'package:levy/features/reservation/domain/usecases/create_reservation_use
     as _i125;
 import 'package:levy/features/reservation/domain/usecases/create_reservation_usecase_impl.dart'
     as _i718;
+import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase.dart'
+    as _i243;
+import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase_impl.dart'
+    as _i1024;
 
 const String _mock = 'mock';
 
@@ -111,6 +115,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
         () => _i36.BusRepositoryImpl(gh<_i63.BusDataSource>()));
     gh.factory<_i125.CreateReservationUseCase>(() =>
         _i718.CreateReservationUseCaseImpl(gh<_i426.ReservationRepository>()));
+    gh.factory<_i243.GetReservationUseCase>(() =>
+        _i1024.GetReservationUseCaseImpl(gh<_i426.ReservationRepository>()));
     gh.factory<_i245.GetBusUseCase>(
         () => _i988.GetBusUseCaseImpl(gh<_i452.BusRepository>()));
   }

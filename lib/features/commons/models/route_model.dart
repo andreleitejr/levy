@@ -4,7 +4,7 @@ import 'package:levy/features/commons/entities/route_entity.dart';
 
 part 'route_model.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable(createToJson: true)
 final class RouteModel extends RouteEntity {
   const RouteModel({
     this.id = '',
@@ -41,4 +41,6 @@ final class RouteModel extends RouteEntity {
   final bool isActive;
 
   factory RouteModel.fromJson(Map<String, dynamic> data) => _$RouteModelFromJson(data);
+
+  Map<String, dynamic> toJson() => _$RouteModelToJson(this);
 }

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 
-class AddressState extends Equatable {
+final class AddressState extends Equatable {
   final List<AddressEntity> addresses;
   final String? errorMessage;
 

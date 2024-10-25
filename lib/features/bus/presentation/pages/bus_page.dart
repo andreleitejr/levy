@@ -7,7 +7,7 @@ import 'package:levy/features/bus/presentation/enums/bus_selection_stage.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/providers/bus_selection_notifier_provider.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
-import 'package:levy/features/reservation/presentation/providers/reservation_notifier_provider.dart';
+import 'package:levy/features/reservation/presentation/providers/create_reservation_usecase_provider.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
@@ -104,8 +104,7 @@ class _BusPageState extends ConsumerState<BusPage> {
                       router.push(PaymentRoute(
                         paymentId: 'teste001',
                         onPaymentSuccess: () async {
-                          final reservationState =
-                              ref.read(reservationNotifierProvider.notifier);
+                          final createReservationUseCase = ref.read(createReservationUseCaseProvider);
 
                           final reservation = ReservationModel(
                             userId: 'user_001',
@@ -115,7 +114,7 @@ class _BusPageState extends ConsumerState<BusPage> {
                             returnBus: departureBus,
                           );
 
-                          await reservationState.createReservation(reservation);
+                          await createReservationUseCase.call(reservation);
                           router.replace(ReservationRoute());
                         },
                       ));

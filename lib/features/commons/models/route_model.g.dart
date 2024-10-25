@@ -25,3 +25,17 @@ RouteModel _$RouteModelFromJson(Map<String, dynamic> json) => RouteModel(
       arrivalTime: json['arrivalTime'] as String? ?? '',
       isActive: json['isActive'] as bool? ?? true,
     );
+
+Map<String, dynamic> _$RouteModelToJson(RouteModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'origin': instance.origin,
+      'destination': instance.destination,
+      'stops': instance.stops,
+      'distance': instance.distance,
+      'duration': instance.duration,
+      'departureTime': instance.departureTime,
+      'arrivalTime': instance.arrivalTime,
+      'isActive': instance.isActive,
+    };

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 
-class BusState extends Equatable {
+final class BusState extends Equatable {
   final List<BusEntity> buses;
   final String? errorMessage;
 

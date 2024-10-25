@@ -2,7 +2,7 @@ final class ReservationMock {
   const ReservationMock._();
 
   static final response = {
-    'reservationId': 'reservation_001',
+    'reservationId': 'reservation_00d1',
     'userId': 'user_001',
     'paymentId': 'payment_001',
     'date': '2023-10-10',

@@ -3,7 +3,7 @@ import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
 part 'seat_model.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable(createToJson: true)
 final class SeatModel extends SeatEntity {
   const SeatModel({
     this.letter = '',
@@ -21,4 +21,6 @@ final class SeatModel extends SeatEntity {
   final String? reservedBy;
 
   factory SeatModel.fromJson(Map<String, dynamic> data) => _$SeatModelFromJson(data);
+
+  Map<String, dynamic> toJson() => _$SeatModelToJson(this);
 }

@@ -33,3 +33,20 @@ BusModel _$BusModelFromJson(Map<String, dynamic> json) => BusModel(
               .toList() ??
           const <SeatModel>[],
     );
+
+Map<String, dynamic> _$BusModelToJson(BusModel instance) => <String, dynamic>{
+      'id': instance.id,
+      'image': instance.image,
+      'brand': instance.brand,
+      'model': instance.model,
+      'year': instance.year,
+      'color': instance.color,
+      'capacity': instance.capacity,
+      'amenities': instance.amenities,
+      'licensePlate': instance.licensePlate,
+      'chassisNumber': instance.chassisNumber,
+      'isAccessible': instance.isAccessible,
+      'driver': instance.driver,
+      'routes': instance.routes,
+      'seats': instance.seats,
+    };

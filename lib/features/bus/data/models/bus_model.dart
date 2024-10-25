@@ -6,7 +6,7 @@ import 'package:levy/features/seat/data/models/seat_model.dart';
 
 part 'bus_model.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable(createToJson: true)
 final class BusModel extends BusEntity {
   const BusModel({
     this.id = '',
@@ -68,4 +68,6 @@ final class BusModel extends BusEntity {
   final List<SeatModel> seats;
 
   factory BusModel.fromJson(Map<String, dynamic> data) => _$BusModelFromJson(data);
+
+  Map<String, dynamic> toJson() => _$BusModelToJson(this);
 }

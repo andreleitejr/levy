@@ -4,7 +4,7 @@ import 'package:levy/features/driver/domain/entities/driver_entity.dart';
 
 part 'driver_model.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable(createToJson: true)
 final class DriverModel extends DriverEntity {
   const DriverModel({
     this.id = '',
@@ -35,4 +35,6 @@ final class DriverModel extends DriverEntity {
   final AddressModel address;
 
   factory DriverModel.fromJson(Map<String, dynamic> data) => _$DriverModelFromJson(data);
+
+  Map<String, dynamic> toJson() => _$DriverModelToJson(this);
 }
