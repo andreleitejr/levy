@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
+import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
 
 class AddressWidget extends StatelessWidget {
   const AddressWidget({
@@ -23,7 +24,10 @@ class AddressWidget extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           final item = items[index];
-          return Text(item.street);
+          return ThemeListItemWidget(
+            title: item.street,
+            subtitle: item.state,
+          );
         },
       ),
     );
