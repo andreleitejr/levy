@@ -10,7 +10,7 @@ class GetReservationUseCaseImpl implements GetReservationUseCase {
   final ReservationRepository _repository;
 
   @override
-  Future<ReservationEntity> call(String reservationId) async {
+  Future<List<ReservationEntity>> call(String reservationId) async {
     return _repository.getReservation(reservationId);
   }
 }

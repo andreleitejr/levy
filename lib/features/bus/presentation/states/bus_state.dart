@@ -2,22 +2,31 @@ import 'package:equatable/equatable.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 
 final class BusState extends Equatable {
-  final List<BusEntity> buses;
+  final List<BusEntity>? data;
   final String? errorMessage;
+  final bool isLoading;
 
   const BusState({
-    required this.buses,
+    this.data,
     this.errorMessage,
+    this.isLoading = false,
   });
 
-  const BusState.initial()
-      : buses = const [],
-        errorMessage = null;
+  const BusState.loading()
+      : data = null,
+        errorMessage = null,
+        isLoading = true;
+
+  const BusState.success(List<BusEntity> value)
+      : data = value,
+        errorMessage = null,
+        isLoading = false;
 
   const BusState.error(String message)
-      : buses = const [],
-        errorMessage = message;
+      : data = null,
+        errorMessage = message,
+        isLoading = false;
 
   @override
-  List<Object?> get props => [buses, errorMessage];
+  List<Object?> get props => [data, errorMessage, isLoading];
 }

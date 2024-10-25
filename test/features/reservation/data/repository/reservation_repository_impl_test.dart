@@ -61,24 +61,24 @@ void main() {
 
   group('ReservationRepositoryImpl - get', () {
     test('should return ReservationEntity when the call is successful', () async {
-      final expectedReservation = ReservationModel(
+      final expectedReservation = [ReservationModel(
         reservationId: 'reservation_001',
         userId: 'user_001',
         paymentId: 'payment_001',
         date: DateTime.now().toString(),
         departureBus: BusModel(id: '1', brand: 'Brand', model: 'Model', capacity: 30, isAccessible: true),
         returnBus: BusModel(id: '1', brand: 'Brand', model: 'Model', capacity: 30, isAccessible: true),
-      );
+      )];
 
-      when(() => mockDataSource.getReservation(expectedReservation.reservationId))
+      when(() => mockDataSource.getReservation(expectedReservation.first.reservationId))
           .thenAnswer((_) async => expectedReservation);
 
-      final result = await repository.getReservation(expectedReservation.reservationId);
+      final result = await repository.getReservation(expectedReservation.first.reservationId);
 
       expect(result, isA<ReservationEntity>());
       expect(result, expectedReservation);
 
-      verify(() => mockDataSource.getReservation(expectedReservation.reservationId))
+      verify(() => mockDataSource.getReservation(expectedReservation.first.reservationId))
           .called(1);
     });
 

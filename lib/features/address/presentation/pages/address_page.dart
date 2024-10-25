@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
+import 'package:levy/features/address/presentation/states/address_state.dart';
+import 'package:levy/features/address/presentation/widgets/address_widget.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
+import 'package:levy/features/commons/widgets/state_builder.dart';
 
 @RoutePage()
 class AddressPage extends ConsumerStatefulWidget {
@@ -26,23 +29,15 @@ class _AddressPageState extends ConsumerState<AddressPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(addressNotifierProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Address List'),
+    return StateBuilder<AddressState, AddressEntity>(
+      state: state,
+      loadingBuilder: () => const Center(child: CircularProgressIndicator()),
+      errorBuilder: (message) => Text('Error'),
+      successBuilder: (data) => AddressWidget(
+        items: data,
+        onPop: () => context.router.back(),
+        onItemPressed: (item) => context.router.maybePop<AddressEntity>(item),
       ),
-      body: state == BusState.initial()
-          ? Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: state.addresses.length,
-              itemBuilder: (context, index) {
-                final address = state.addresses[index];
-                return ListTile(
-                  onTap: () => context.router.maybePop<AddressEntity>(address),
-                  title: Text(address.street),
-                  subtitle: Text(address.city),
-                );
-              },
-            ),
     );
   }
 }

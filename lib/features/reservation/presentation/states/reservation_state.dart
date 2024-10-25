@@ -2,26 +2,31 @@ import 'package:equatable/equatable.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 class ReservationState extends Equatable {
-  final ReservationEntity? reservation;
+  final List<ReservationEntity>? data;
   final String? errorMessage;
+  final bool isLoading;
 
   const ReservationState({
-    this.reservation,
+    this.data,
     this.errorMessage,
+    this.isLoading = false,
   });
 
-  const ReservationState.initial()
-      : reservation = null,
-        errorMessage = null;
+  const ReservationState.loading()
+      : data = null,
+        errorMessage = null,
+        isLoading = true;
 
-  const ReservationState.success(ReservationEntity value)
-      : reservation = value,
-        errorMessage = null;
+  const ReservationState.success(List<ReservationEntity> value)
+      : data = value,
+        errorMessage = null,
+        isLoading = false;
 
   const ReservationState.error(String message)
-      : reservation = null,
-        errorMessage = message;
+      : data = null,
+        errorMessage = message,
+        isLoading = false;
 
   @override
-  List<Object?> get props => [reservation, errorMessage];
+  List<Object?> get props => [data, errorMessage, isLoading];
 }

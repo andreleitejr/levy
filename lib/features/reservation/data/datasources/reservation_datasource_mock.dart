@@ -14,7 +14,7 @@ final class ReservationDataSourceMock implements ReservationDataSource {
   }
 
   @override
-  Future<ReservationModel> getReservation(String reservationId) async {
-    return ReservationModel.fromJson(ReservationMock.response);
+  Future<List<ReservationModel>> getReservation(String reservationId) async {
+    return ReservationMock.response.map((reservation) => ReservationModel.fromJson(reservation)).toList();
   }
 }

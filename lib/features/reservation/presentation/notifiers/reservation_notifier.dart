@@ -5,14 +5,15 @@ import 'package:levy/features/reservation/presentation/states/reservation_state.
 final class ReservationNotifier extends StateNotifier<ReservationState> {
   final GetReservationUseCase _usecase;
 
-  ReservationNotifier(this._usecase) : super(ReservationState.initial());
+  ReservationNotifier(this._usecase) : super(ReservationState.loading());
 
-  Future<void> get(String reservationId) async {
+  Future<void> init(String reservationId) async {
     try {
       final result = await _usecase(reservationId);
+
       state = ReservationState.success(result);
     } catch (e) {
-      state = ReservationState.error('Failed to create reservation: ${e.toString()}');
+      state = ReservationState.error('Failed to load reservation: ${e.toString()}');
     }
   }
 }

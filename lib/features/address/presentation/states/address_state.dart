@@ -2,22 +2,31 @@ import 'package:equatable/equatable.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 
 final class AddressState extends Equatable {
-  final List<AddressEntity> addresses;
+  final List<AddressEntity>? data;
   final String? errorMessage;
+  final bool isLoading;
 
   const AddressState({
-    required this.addresses,
+    this.data,
     this.errorMessage,
+    this.isLoading = false,
   });
 
-  const AddressState.initial()
-      : addresses = const [],
-        errorMessage = null;
+  const AddressState.loading()
+      : data = null,
+        errorMessage = null,
+        isLoading = true;
+
+  const AddressState.success(List<AddressEntity> value)
+      : data = value,
+        errorMessage = null,
+        isLoading = false;
 
   const AddressState.error(String message)
-      : addresses = const [],
-        errorMessage = message;
+      : data = null,
+        errorMessage = message,
+        isLoading = false;
 
   @override
-  List<Object?> get props => [addresses, errorMessage];
+  List<Object?> get props => [data, errorMessage, isLoading];
 }

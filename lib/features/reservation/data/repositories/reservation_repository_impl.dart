@@ -16,7 +16,7 @@ final class ReservationRepositoryImpl implements ReservationRepository {
   }
 
   @override
-  Future<ReservationEntity> getReservation(String reservationId) async {
+  Future<List<ReservationEntity>> getReservation(String reservationId) async {
     return _datasource.getReservation(reservationId);
   }
 }

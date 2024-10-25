@@ -5,19 +5,15 @@ import 'package:levy/features/address/presentation/states/address_state.dart';
 final class AddressNotifier extends StateNotifier<AddressState> {
   final GetAddressUseCase _usecase;
 
-  AddressNotifier(this._usecase) : super(AddressState.initial());
+  AddressNotifier(this._usecase) : super(AddressState.loading());
 
   Future<void> init() async {
-    await loadAddresses();
-  }
-
-  Future<void> loadAddresses() async {
     try {
-      final result = await _usecase.call();
-      state = AddressState(addresses: result);
+      final result = await _usecase();
+
+      state = AddressState.success(result);
     } catch (e) {
-      /// TODO: Implementar State de Erro
-      // state = BusState(errorMessage: 'Failed to load buses');
+      state = AddressState.error('Failed to load return buses: ${e.toString()}');
     }
   }
 }

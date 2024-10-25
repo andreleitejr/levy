@@ -29,7 +29,7 @@ class _NotificationPageState extends ConsumerState<NotificationPage> {
       appBar: AppBar(
         title: Text('Notification List'),
       ),
-      body: state == BusState.initial()
+      body: state == BusState.loading()
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: state.notifications.length,

@@ -42,6 +42,5 @@ final class BusSelectionState extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [departureBus, departureSeat, returnBus, returnSeat, stage];
+  List<Object?> get props => [departureBus, departureSeat, returnBus, returnSeat, stage];
 }
