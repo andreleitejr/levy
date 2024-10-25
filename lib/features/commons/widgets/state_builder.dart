@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-class StateBuilder<S, T> extends StatelessWidget {
-  final S state;
-  final Widget Function() loadingBuilder;
-  final Widget Function(String message) errorBuilder;
-  final Widget Function(List<T> data) successBuilder;
-
+final class StateBuilder<S, T> extends StatelessWidget {
   const StateBuilder({
     super.key,
     required this.state,
@@ -13,6 +8,11 @@ class StateBuilder<S, T> extends StatelessWidget {
     required this.errorBuilder,
     required this.successBuilder,
   });
+
+  final S state;
+  final Widget Function() loadingBuilder;
+  final Widget Function(String message) errorBuilder;
+  final Widget Function(List<T> data) successBuilder;
 
   @override
   Widget build(BuildContext context) {

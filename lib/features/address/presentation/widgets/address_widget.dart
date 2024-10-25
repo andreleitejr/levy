@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
+import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
 
 class AddressWidget extends StatelessWidget {
@@ -17,9 +18,7 @@ class AddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Address List'),
-      ),
+      appBar: ThemeAppBarWidget(title: 'Address List'),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
