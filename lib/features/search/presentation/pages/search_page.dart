@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
+import 'package:levy/core/utils/i18n/strings.g.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/commons/models/departure_model.dart';
@@ -16,10 +17,9 @@ class SearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final searchState = ref.watch(searchNotifierProvider);
     final searchNotifier = ref.read(searchNotifierProvider.notifier);
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Buscar Ônibus'),
+        title: Text('Search'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

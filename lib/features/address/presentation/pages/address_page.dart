@@ -5,7 +5,6 @@ import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
 import 'package:levy/features/address/presentation/states/address_state.dart';
 import 'package:levy/features/address/presentation/widgets/address_widget.dart';
-import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 
 @RoutePage()
