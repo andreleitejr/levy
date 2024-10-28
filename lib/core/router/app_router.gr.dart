@@ -19,7 +19,8 @@ import 'package:levy/features/payment/presentation/pages/payment_page.dart'
     as _i4;
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
     as _i5;
-import 'package:levy/features/search/data/models/search_model.dart' as _i11;
+import 'package:levy/features/search/domain/entities/search_entity.dart'
+    as _i11;
 import 'package:levy/features/search/presentation/pages/search_page.dart'
     as _i6;
 import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i12;
@@ -50,7 +51,7 @@ class AddressRoute extends _i9.PageRouteInfo<void> {
 class BusRoute extends _i9.PageRouteInfo<BusRouteArgs> {
   BusRoute({
     _i10.Key? key,
-    required _i11.SearchModel search,
+    required _i11.SearchEntity search,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           BusRoute.name,
@@ -83,7 +84,7 @@ class BusRouteArgs {
 
   final _i10.Key? key;
 
-  final _i11.SearchModel search;
+  final _i11.SearchEntity search;
 
   @override
   String toString() {
@@ -205,13 +206,13 @@ class SearchRoute extends _i9.PageRouteInfo<void> {
 class SeatRoute extends _i9.PageRouteInfo<SeatRouteArgs> {
   SeatRoute({
     _i10.Key? key,
-    required List<_i12.SeatEntity> seats,
+    required List<_i12.SeatEntity> items,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           SeatRoute.name,
           args: SeatRouteArgs(
             key: key,
-            seats: seats,
+            items: items,
           ),
           initialChildren: children,
         );
@@ -224,7 +225,7 @@ class SeatRoute extends _i9.PageRouteInfo<SeatRouteArgs> {
       final args = data.argsAs<SeatRouteArgs>();
       return _i7.SeatPage(
         key: args.key,
-        seats: args.seats,
+        items: args.items,
       );
     },
   );
@@ -233,16 +234,16 @@ class SeatRoute extends _i9.PageRouteInfo<SeatRouteArgs> {
 class SeatRouteArgs {
   const SeatRouteArgs({
     this.key,
-    required this.seats,
+    required this.items,
   });
 
   final _i10.Key? key;
 
-  final List<_i12.SeatEntity> seats;
+  final List<_i12.SeatEntity> items;
 
   @override
   String toString() {
-    return 'SeatRouteArgs{key: $key, seats: $seats}';
+    return 'SeatRouteArgs{key: $key, items: $items}';
   }
 }
 

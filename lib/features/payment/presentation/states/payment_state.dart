@@ -2,26 +2,26 @@ import 'package:equatable/equatable.dart';
 import 'package:levy/features/payment/domain/entities/payment_entity.dart';
 
 class PaymentState extends Equatable {
-  final PaymentEntity? payment;
+  final PaymentEntity? data;
   final String? errorMessage;
 
   const PaymentState({
-    this.payment,
+    this.data,
     this.errorMessage,
   });
 
   const PaymentState.initial()
-      : payment = null,
+      : data = null,
         errorMessage = null;
 
   const PaymentState.success(PaymentEntity value)
-      : payment = value,
+      : data = value,
         errorMessage = null;
 
   const PaymentState.error(String message)
-      : payment = null,
+      : data = null,
         errorMessage = message;
 
   @override
-  List<Object?> get props => [payment, errorMessage];
+  List<Object?> get props => [data, errorMessage];
 }

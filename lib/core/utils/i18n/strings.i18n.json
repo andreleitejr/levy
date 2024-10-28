@@ -3,5 +3,40 @@
     "header": {
       "title": "Select Address"
     }
+  },
+  "bus": {
+    "header": {
+      "title": "Select Bus"
+    }
+  },
+  "notification": {
+    "header": {
+      "title": "Notifications"
+    }
+  },
+  "payment": {
+    "header": {
+      "title": "Payment"
+    }
+  },
+  "reservation": {
+    "header": {
+      "title": "Reservation"
+    }
+  },
+  "search": {
+    "header": {
+      "title": "Search"
+    }
+  },
+  "seat": {
+    "header": {
+      "title": "Select Seat"
+    }
+  },
+  "time": {
+    "header": {
+      "title": "Select Time"
+    }
   }
 }

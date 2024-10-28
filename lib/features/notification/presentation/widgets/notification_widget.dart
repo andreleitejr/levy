@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/address/presentation/utils/address_translation.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
+import 'package:levy/features/notification/domain/entities/notification_entity.dart';
+import 'package:levy/features/notification/presentation/utils/notification_translation.dart';
 
-final class AddressWidget extends StatelessWidget {
-  const AddressWidget({
+class NotificationWidget extends StatelessWidget {
+  const NotificationWidget({
     super.key,
     required this.items,
     required this.onPop,
     required this.onItemPressed,
   });
 
-  final List<AddressEntity> items;
+  final List<NotificationEntity> items;
   final VoidCallback onPop;
-  final Function(AddressEntity item) onItemPressed;
+  final Function(NotificationEntity item) onItemPressed;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ThemeAppBarWidget(
-        title: AddressTranslation.header.title,
+        title: NotificationTranslation.header.title,
       ),
       body: ListView.builder(
         itemCount: items.length,
@@ -28,9 +28,8 @@ final class AddressWidget extends StatelessWidget {
           final item = items[index];
 
           return ThemeListItemWidget(
-            onItemPressed: () => onItemPressed(item),
-            title: item.street,
-            subtitle: item.state,
+            title: item.title,
+            subtitle: item.subtitle,
           );
         },
       ),

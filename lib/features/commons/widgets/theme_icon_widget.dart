@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemeIconWidget extends StatelessWidget {
+final class ThemeIconWidget extends StatelessWidget {
   const ThemeIconWidget({
     super.key,
     required this.icon,

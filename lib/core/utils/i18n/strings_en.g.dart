@@ -38,7 +38,13 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final TranslationsAddressEn address = TranslationsAddressEn._(_root);
-	late final TranslationsHomeEn home = TranslationsHomeEn._(_root);
+	late final TranslationsBusEn bus = TranslationsBusEn._(_root);
+	late final TranslationsNotificationEn notification = TranslationsNotificationEn._(_root);
+	late final TranslationsPaymentEn payment = TranslationsPaymentEn._(_root);
+	late final TranslationsReservationEn reservation = TranslationsReservationEn._(_root);
+	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
+	late final TranslationsSeatEn seat = TranslationsSeatEn._(_root);
+	late final TranslationsTimeEn time = TranslationsTimeEn._(_root);
 }
 
 // Path: address
@@ -51,14 +57,74 @@ class TranslationsAddressEn {
 	late final TranslationsAddressHeaderEn header = TranslationsAddressHeaderEn._(_root);
 }
 
-// Path: home
-class TranslationsHomeEn {
-	TranslationsHomeEn._(this._root);
+// Path: bus
+class TranslationsBusEn {
+	TranslationsBusEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final TranslationsHomeHeaderEn header = TranslationsHomeHeaderEn._(_root);
+	late final TranslationsBusHeaderEn header = TranslationsBusHeaderEn._(_root);
+}
+
+// Path: notification
+class TranslationsNotificationEn {
+	TranslationsNotificationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsNotificationHeaderEn header = TranslationsNotificationHeaderEn._(_root);
+}
+
+// Path: payment
+class TranslationsPaymentEn {
+	TranslationsPaymentEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPaymentHeaderEn header = TranslationsPaymentHeaderEn._(_root);
+}
+
+// Path: reservation
+class TranslationsReservationEn {
+	TranslationsReservationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsReservationHeaderEn header = TranslationsReservationHeaderEn._(_root);
+}
+
+// Path: search
+class TranslationsSearchEn {
+	TranslationsSearchEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsSearchHeaderEn header = TranslationsSearchHeaderEn._(_root);
+}
+
+// Path: seat
+class TranslationsSeatEn {
+	TranslationsSeatEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsSeatHeaderEn header = TranslationsSeatHeaderEn._(_root);
+}
+
+// Path: time
+class TranslationsTimeEn {
+	TranslationsTimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsTimeHeaderEn header = TranslationsTimeHeaderEn._(_root);
 }
 
 // Path: address.header
@@ -71,14 +137,74 @@ class TranslationsAddressHeaderEn {
 	String get title => 'Select Address';
 }
 
-// Path: home.header
-class TranslationsHomeHeaderEn {
-	TranslationsHomeHeaderEn._(this._root);
+// Path: bus.header
+class TranslationsBusHeaderEn {
+	TranslationsBusHeaderEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Teste';
+	String get title => 'Select Bus';
+}
+
+// Path: notification.header
+class TranslationsNotificationHeaderEn {
+	TranslationsNotificationHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Notifications';
+}
+
+// Path: payment.header
+class TranslationsPaymentHeaderEn {
+	TranslationsPaymentHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Payment';
+}
+
+// Path: reservation.header
+class TranslationsReservationHeaderEn {
+	TranslationsReservationHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Reservation';
+}
+
+// Path: search.header
+class TranslationsSearchHeaderEn {
+	TranslationsSearchHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Search';
+}
+
+// Path: seat.header
+class TranslationsSeatHeaderEn {
+	TranslationsSeatHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select Seat';
+}
+
+// Path: time.header
+class TranslationsTimeHeaderEn {
+	TranslationsTimeHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select Time';
 }
 
 /// Flat map(s) containing all translations.
@@ -87,7 +213,13 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'address.header.title': return 'Select Address';
-			case 'home.header.title': return 'Teste';
+			case 'bus.header.title': return 'Select Bus';
+			case 'notification.header.title': return 'Notifications';
+			case 'payment.header.title': return 'Payment';
+			case 'reservation.header.title': return 'Reservation';
+			case 'search.header.title': return 'Search';
+			case 'seat.header.title': return 'Select Seat';
+			case 'time.header.title': return 'Select Time';
 			default: return null;
 		}
 	}

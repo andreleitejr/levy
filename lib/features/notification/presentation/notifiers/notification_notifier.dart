@@ -5,19 +5,15 @@ import 'package:levy/features/notification/presentation/states/notification_stat
 final class NotificationNotifier extends StateNotifier<NotificationState> {
   final GetNotificationUseCase _usecase;
 
-  NotificationNotifier(this._usecase) : super(NotificationState.initial());
+  NotificationNotifier(this._usecase) : super(NotificationState.loading());
 
   Future<void> init() async {
-    await loadNotifications();
-  }
-
-  Future<void> loadNotifications() async {
     try {
-      final result = await _usecase.call();
-      state = NotificationState(notifications: result);
+      final result = await _usecase();
+
+      state = NotificationState.success(result);
     } catch (e) {
-      /// TODO: Implementar State de Erro
-      // state = BusState(errorMessage: 'Failed to load buses');
+      state = NotificationState.error('Failed to load addresses: ${e.toString()}');
     }
   }
 }

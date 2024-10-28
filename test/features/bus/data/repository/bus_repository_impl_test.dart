@@ -20,19 +20,11 @@ void main() {
   });
 
   group('BusRepositoryImpl - get', () {
-    final homeDeparture = DepartureModel(
-      address: AddressModel(street: 'Home St'),
-      time: '06:00',
-    );
-
-    final workDeparture = DepartureModel(
-      address: AddressModel(street: 'Work St'),
-      time: '17:00',
-    );
-
     final search = SearchModel(
-      homeDeparture: homeDeparture,
-      workDeparture: workDeparture,
+      departureAddress: AddressModel(street: 'Home St'),
+      returnAddress: AddressModel(street: 'Work St'),
+      departureTime: '06:00',
+      returnTime: '17:00',
     );
 
     test('should return List<BusEntity> when the call is successful', () async {

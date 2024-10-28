@@ -2,136 +2,110 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/utils/i18n/strings.g.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/commons/models/departure_model.dart';
+import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/search/presentation/notifiers/search_notifier.dart';
 import 'package:levy/features/search/presentation/providers/search_notifier_provider.dart';
+import 'package:levy/features/search/presentation/states/search_state.dart';
+import 'package:levy/features/search/presentation/widgets/search_widget.dart';
 
 @RoutePage()
-class SearchPage extends ConsumerWidget {
-  const SearchPage({super.key});
+final class SearchPage extends ConsumerStatefulWidget {
+  const SearchPage({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final searchState = ref.watch(searchNotifierProvider);
-    final searchNotifier = ref.read(searchNotifierProvider.notifier);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Search'),
+  ConsumerState<SearchPage> createState() => _SearchPageState();
+}
+
+final class _SearchPageState extends ConsumerState<SearchPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    ref.read(searchNotifierProvider.notifier).init();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = ref.watch(searchNotifierProvider);
+    final notifier = ref.read(searchNotifierProvider.notifier);
+
+    return StateBuilder(
+      state: state,
+      loading: ThemeLoadingWidget(),
+      success: SearchWidget(
+        departureAddress: state.departureAddress?.street,
+        returnAddress: state.returnAddress?.street,
+        departureTime: state.departureTime,
+        returnTime: state.returnTime,
+        onDepartureAddressSelect: () => _onDepartureAddressSelect(notifier),
+        onReturnAddressSelect: () => _onReturnAddressSelect(notifier),
+        onDepartureTimeSelect: () => _onDepartureTimeSelect(notifier),
+        onReturnTimeSelect: () => _onReturnTimeSelect(notifier),
+        onButtonPressed: () => _onButtonPressed(state),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Endereço de Partida',
-              ),
-              onTap: () async {
-                final selectedAddress =
-                    await context.router.push<AddressEntity>(AddressRoute());
-
-                if (selectedAddress != null) {
-                  searchNotifier.updateHomeAddress(selectedAddress);
-                }
-              },
-              readOnly: true,
-              controller: TextEditingController(
-                  text: searchState.homeAddress?.street ?? ''),
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Endereço de Retorno',
-              ),
-              onTap: () async {
-                final selectedAddress =
-                    await context.router.push<AddressEntity>(AddressRoute());
-
-                if (selectedAddress != null) {
-                  searchNotifier.updateWorkAddress(selectedAddress);
-                }
-              },
-              readOnly: true,
-              controller: TextEditingController(
-                  text: searchState.workAddress?.street ?? ''),
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Horário de Partida',
-              ),
-              onTap: () async {
-                final selectedTime =
-                    await context.router.push<String>(TimeRoute());
-
-                if (selectedTime != null) {
-                  searchNotifier.updateHomeTime(selectedTime);
-                }
-              },
-              readOnly: true,
-              controller:
-                  TextEditingController(text: searchState.departureTime),
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Horário de Retorno',
-              ),
-              onTap: () async {
-                final selectedTime =
-                    await context.router.push<String>(TimeRoute());
-
-                if (selectedTime != null) {
-                  searchNotifier.updateWorkTime(selectedTime);
-                }
-              },
-              readOnly: true,
-              controller: TextEditingController(text: searchState.returnTime),
-            ),
-            const Spacer(),
-            ElevatedButton(
-              onPressed: searchState.isValid
-                  ? () {
-                      final homeDeparture = DepartureModel(
-                        address: searchState.homeAddress! as AddressModel,
-                        time: searchState.departureTime!,
-                      );
-                      final workDeparture = DepartureModel(
-                        address: searchState.workAddress! as AddressModel,
-                        time: searchState.returnTime!,
-                      );
-                      final searchModel = SearchModel(
-                        homeDeparture: homeDeparture,
-                        workDeparture: workDeparture,
-                      );
-                      context.router.push(
-                        BusRoute(
-                          search: searchModel,
-                        ),
-                      ); // Navega para a AddressPage
-                    }
-                  : null,
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    searchState.isValid ? Colors.blue : Colors.grey,
-              ),
-              child: const Text('Ir para Ônibus'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Navegando para PaymentRoute e simulando um reservationId
-                context.router.push(
-                  PaymentRoute(
-                    paymentId: '13dlH30yr5omFprrK21dmM',
-                    onPaymentSuccess: () {},
-                  ),
-                );
-              },
-              child: Text('Ir para Payment'),
-            )
-          ],
-        ),
-      ),
+      error: ThemeErrorWidget(),
     );
+  }
+
+  Future<void> _onDepartureAddressSelect(SearchNotifier notifier) async {
+    final selectedAddress =
+        await context.router.push<AddressEntity>(AddressRoute());
+
+    if (selectedAddress != null) {
+      notifier.updateDepartureAddress(selectedAddress);
+    }
+  }
+
+  Future<void> _onReturnAddressSelect(SearchNotifier notifier) async {
+    final selectedAddress =
+        await context.router.push<AddressEntity>(AddressRoute());
+
+    if (selectedAddress != null) {
+      notifier.updateReturnAddress(selectedAddress);
+    }
+  }
+
+  Future<void> _onDepartureTimeSelect(SearchNotifier notifier) async {
+    final selectedTime = await context.router.push<String>(TimeRoute());
+
+    if (selectedTime != null) {
+      notifier.updateDepartureTime(selectedTime);
+    }
+  }
+
+  Future<void> _onReturnTimeSelect(SearchNotifier notifier) async {
+    final selectedTime = await context.router.push<String>(TimeRoute());
+
+    if (selectedTime != null) {
+      notifier.updateReturnTime(selectedTime);
+    }
+  }
+
+  Future<void> _onButtonPressed(SearchState state) async {
+    final departureAddress = state.departureAddress;
+    final returnAddress = state.departureAddress;
+    final departureTime = state.departureTime;
+    final returnTime = state.returnTime;
+
+    if (departureAddress != null &&
+        returnAddress != null &&
+        departureTime != null &&
+        returnTime != null) {
+      final search = SearchModel(
+        departureAddress: departureAddress as AddressModel,
+        returnAddress: returnAddress as AddressModel,
+        departureTime: departureTime,
+        returnTime: returnTime,
+      );
+
+      context.router.push(BusRoute(search: search));
+    }
   }
 }

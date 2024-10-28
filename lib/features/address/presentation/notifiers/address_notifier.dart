@@ -13,7 +13,7 @@ final class AddressNotifier extends StateNotifier<AddressState> {
 
       state = AddressState.success(result);
     } catch (e) {
-      state = AddressState.error('Failed to load return buses: ${e.toString()}');
+      state = AddressState.error('Failed to load addresses: ${e.toString()}');
     }
   }
 }

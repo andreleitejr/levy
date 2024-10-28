@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
 
-final class StateBuilder<S, T> extends StatelessWidget {
+abstract class GenericStateBase {
+  String? get errorMessage;
+
+  bool get isLoading;
+}
+
+class StateBuilder extends StatelessWidget {
   const StateBuilder({
     super.key,
     required this.state,
-    required this.loadingBuilder,
-    required this.errorBuilder,
-    required this.successBuilder,
+    required this.loading,
+    required this.success,
+    required this.error,
   });
 
-  final S state;
-  final Widget Function() loadingBuilder;
-  final Widget Function(String message) errorBuilder;
-  final Widget Function(List<T> data) successBuilder;
+  final GenericStateBase state;
+  final Widget loading;
+  final Widget success;
+  final Widget error;
 
   @override
   Widget build(BuildContext context) {
-    if ((state as dynamic).isLoading) {
-      return loadingBuilder();
-    } else if ((state as dynamic).errorMessage != null) {
-      return errorBuilder((state as dynamic).errorMessage!);
-    } else if ((state as dynamic).data != null) {
-      return successBuilder((state as dynamic).data);
+    if (state.isLoading) {
+      return loading;
+    } else if (state.errorMessage != null) {
+      return error;
+    } else {
+      return success;
     }
-
-    return const SizedBox.shrink();
   }
 }

@@ -1,11 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/bus/presentation/states/bus_state.dart';
+import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/widgets/theme_loading_page.dart';
+import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 import 'package:levy/features/notification/presentation/providers/notification_notifier_provider.dart';
+import 'package:levy/features/notification/presentation/states/notification_state.dart';
+import 'package:levy/features/notification/presentation/widgets/notification_widget.dart';
 
 @RoutePage()
-class NotificationPage extends ConsumerStatefulWidget {
+final class NotificationPage extends ConsumerStatefulWidget {
   const NotificationPage({
     super.key,
   });
@@ -14,10 +19,11 @@ class NotificationPage extends ConsumerStatefulWidget {
   ConsumerState<NotificationPage> createState() => _NotificationPageState();
 }
 
-class _NotificationPageState extends ConsumerState<NotificationPage> {
+final class _NotificationPageState extends ConsumerState<NotificationPage> {
   @override
   void initState() {
     super.initState();
+
     ref.read(notificationNotifierProvider.notifier).init();
   }
 
@@ -25,22 +31,17 @@ class _NotificationPageState extends ConsumerState<NotificationPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(notificationNotifierProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Notification List'),
+    return StateBuilder(
+      state: state,
+      loading: ThemeLoadingWidget(),
+      success: NotificationWidget(
+        items: state.data!,
+        onPop: () => context.router.back(),
+        onItemPressed: (item) {},
       ),
-      body: state == BusState.loading()
-          ? Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: state.notifications.length,
-              itemBuilder: (context, index) {
-                final notification = state.notifications[index];
-                return ListTile(
-                  title: Text(notification.title),
-                  subtitle: Text(notification.subtitle),
-                );
-              },
-            ),
+      error: ThemeErrorWidget(
+        message: state.errorMessage,
+      ),
     );
   }
 }

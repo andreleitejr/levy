@@ -1,9 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
+import 'package:levy/features/commons/widgets/state_builder.dart';
 
-final class AddressState extends Equatable {
+final class AddressState extends Equatable implements GenericStateBase {
   final List<AddressEntity>? data;
+  @override
   final String? errorMessage;
+  @override
   final bool isLoading;
 
   const AddressState({

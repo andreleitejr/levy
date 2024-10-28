@@ -2,14 +2,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/seat/presentation/states/seat_state.dart';
 
-class SeatNotifier extends StateNotifier<SeatState> {
-  SeatNotifier(List<SeatEntity> seats)
-      : super(SeatState(seats: seats));
+final class SeatNotifier extends StateNotifier<SeatState> {
+  SeatNotifier(List<SeatEntity> seats) : super(SeatState.loading());
+
+  Future<void> init(List<SeatEntity> seats) async {
+    try {
+      state = SeatState.success(seats);
+    } catch (e) {
+      state = SeatState.error('Failed to load seats: ${e.toString()}');
+    }
+  }
 
   void selectSeat(SeatEntity seat) {
-    state = SeatState(
-      seats: state.seats,
-      selectedSeat: seat,
+    state = SeatState.selected(
+      seats: state.data,
+      selected: seat,
     );
   }
 }

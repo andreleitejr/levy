@@ -1,75 +1,58 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
-import 'package:levy/features/seat/presentation/providers/seat_provider.dart';
+import 'package:levy/features/seat/presentation/providers/seat_notifier_provider.dart';
+import 'package:levy/features/seat/presentation/widgets/seat_widget.dart';
 
 @RoutePage()
-class SeatPage extends ConsumerWidget {
-  final List<SeatEntity> seats;
+final class SeatPage extends ConsumerStatefulWidget {
+  const SeatPage({
+    super.key,
+    required this.items,
+  });
 
-  const SeatPage({super.key, required this.seats});
+  final List<SeatEntity> items;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final seatNotifier = ref.watch(seatProvider(seats));
+  ConsumerState<SeatPage> createState() => _SeatPageState();
+}
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Seleção de Assentos'),
+final class _SeatPageState extends ConsumerState<SeatPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    ref.read(seatNotifierProvider.notifier).init(widget.items);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = ref.watch(seatNotifierProvider);
+
+    return StateBuilder(
+      state: state,
+      loading: ThemeLoadingWidget(),
+      success: SeatWidget(
+        items: state.data!,
+        selectedItem: state.selectedSeat,
+        onItemPressed: (item) {
+          ref.read(seatNotifierProvider.notifier).selectSeat(item);
+        },
+        onButtonPressed: () {
+          final selectedSeat = state.selectedSeat;
+
+          if (selectedSeat != null) {
+            context.router.maybePop(selectedSeat);
+          }
+        },
+        onPop: () => context.router.back(),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, // 4 colunas
-                childAspectRatio: 1,
-              ),
-              itemCount: seatNotifier.seats.length,
-              itemBuilder: (context, index) {
-                final seat = seatNotifier.seats[index];
-                final isSelected =
-                    seatNotifier.selectedSeat?.letter == seat.letter &&
-                        seatNotifier.selectedSeat?.number == seat.number;
-
-                return GestureDetector(
-                  onTap: seat.isReserved
-                      ? null
-                      : () {
-                          ref
-                              .read(seatProvider(seats).notifier)
-                              .selectSeat(seat);
-                        },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: seat.isReserved
-                          ? Colors.grey
-                          : isSelected
-                              ? Colors.black
-                              : Colors.blue,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      '${seat.letter}${seat.number}',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              final selectedSeat = seatNotifier.selectedSeat;
-              if (selectedSeat != null) {
-                context.router.maybePop(selectedSeat);
-              }
-            },
-            child: const Text('Confirmar Seleção'),
-          ),
-        ],
+      error: ThemeErrorWidget(
+        message: state.errorMessage,
       ),
     );
   }

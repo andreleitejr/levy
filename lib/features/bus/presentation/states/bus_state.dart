@@ -1,9 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
+import 'package:levy/features/commons/widgets/state_builder.dart';
 
-final class BusState extends Equatable {
+final class BusState extends Equatable implements GenericStateBase {
   final List<BusEntity>? data;
+  @override
   final String? errorMessage;
+  @override
   final bool isLoading;
 
   const BusState({

@@ -32,7 +32,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
         children: [
           if (state.errorMessage != null)
             Center(child: Text(state.errorMessage!)),
-          if (state.payment != null && state.payment!.isSuccessful)
+          if (state.data != null && state.data!.isSuccessful)
             Center(child: Text('Payment successful!')),
           DropdownButton<PaymentMethodType>(
             value: _selectedMethod,
@@ -56,7 +56,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
                           paymentMethod: _selectedMethod!,
                         );
 
-                    if (state.payment?.isSuccessful ?? false) {
+                    if (state.data?.isSuccessful ?? false) {
                       widget.onPaymentSuccess();
                     }
                   }

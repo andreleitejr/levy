@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/search/domain/entities/search_entity.dart';
 
 final class BusNotifier extends StateNotifier<BusState> {
   final GetBusUseCase _usecase;
@@ -9,7 +10,7 @@ final class BusNotifier extends StateNotifier<BusState> {
   BusNotifier(this._usecase) : super(BusState.loading());
 
   Future<void> init({
-    required SearchModel search,
+    required SearchEntity search,
     bool isReturn = false,
   }) async {
     try {

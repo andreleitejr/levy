@@ -3,6 +3,7 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/domain/repositories/bus_repository.dart';
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/search/domain/entities/search_entity.dart';
 
 @Injectable(as: GetBusUseCase)
 final class GetBusUseCaseImpl implements GetBusUseCase {
@@ -12,7 +13,7 @@ final class GetBusUseCaseImpl implements GetBusUseCase {
 
   @override
   Future<List<BusEntity>> call({
-    required SearchModel search,
+    required SearchEntity search,
     bool isReturn = false,
   }) async {
     return _repository.get(search: search, isReturn: isReturn);

@@ -4,12 +4,13 @@ import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/external/bus_mock.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/search/domain/entities/search_entity.dart';
 
 @Injectable(as: BusDataSource, env: [InjectEnv.mock])
 final class BusDataSourceMock implements BusDataSource {
   @override
   Future<List<BusModel>> get({
-    required SearchModel search,
+    required SearchEntity search,
     bool isReturn = false,
   }) async {
     final buses =
@@ -18,14 +19,14 @@ final class BusDataSourceMock implements BusDataSource {
     if (isReturn) {
       return buses.where((bus) {
         return bus.routes.any((route) =>
-            route.origin.street == search.workDeparture.address.street &&
-            route.departureTime.compareTo(search.workDeparture.time) >= 0);
+            route.origin.street == search.returnAddress.street &&
+            route.departureTime.compareTo(search.returnTime) >= 0);
       }).toList();
     } else {
       return buses.where((bus) {
         return bus.routes.any((route) =>
-            route.origin.street == search.homeDeparture.address.street &&
-            route.departureTime.compareTo(search.homeDeparture.time) >= 0);
+            route.origin.street == search.departureAddress.street &&
+            route.departureTime.compareTo(search.departureTime) >= 0);
       }).toList();
     }
   }
