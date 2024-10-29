@@ -22,29 +22,9 @@ final class SearchState implements GenericStateBase {
     this.isLoading = false,
   });
 
-  const SearchState.loading()
-      : departureAddress = null,
-        returnAddress = null,
-        departureTime = null,
-        returnTime = null,
-        errorMessage = null,
-        isLoading = true;
-
-  const SearchState.success()
-      : departureAddress = null,
-        returnAddress = null,
-        departureTime = null,
-        returnTime = null,
-        errorMessage = null,
-        isLoading = false;
-
-  const SearchState.error(String message)
-      : departureAddress = null,
-        returnAddress = null,
-        departureTime = null,
-        returnTime = null,
-        errorMessage = message,
-        isLoading = false;
+  const SearchState.loading() : this(isLoading: true);
+  const SearchState.success() : this();
+  const SearchState.error(String message) : this(errorMessage: message);
 
   SearchState copyWith({
     AddressEntity? departureAddress,

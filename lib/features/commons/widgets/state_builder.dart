@@ -6,7 +6,7 @@ abstract class GenericStateBase {
   bool get isLoading;
 }
 
-class StateBuilder extends StatelessWidget {
+final class StateBuilder extends StatelessWidget {
   const StateBuilder({
     super.key,
     required this.state,

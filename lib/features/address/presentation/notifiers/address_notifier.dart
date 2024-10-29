@@ -11,6 +11,8 @@ final class AddressNotifier extends StateNotifier<AddressState> {
     try {
       final result = await _usecase();
 
+      await Future.delayed(const Duration(milliseconds: 500));
+
       state = AddressState.success(result);
     } catch (e) {
       state = AddressState.error('Failed to load addresses: ${e.toString()}');

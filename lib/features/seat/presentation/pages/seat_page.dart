@@ -6,6 +6,7 @@ import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/seat/presentation/providers/seat_notifier_provider.dart';
+import 'package:levy/features/seat/presentation/states/seat_state.dart';
 import 'package:levy/features/seat/presentation/widgets/seat_widget.dart';
 
 @RoutePage()
@@ -39,23 +40,25 @@ final class _SeatPageState extends ConsumerState<SeatPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: SeatWidget(
-        items: state.data!,
+        items: state.data,
         selectedItem: state.selectedSeat,
         onItemPressed: (item) {
-          ref.read(seatNotifierProvider.notifier).selectSeat(item);
+          ref.read(seatNotifierProvider.notifier).updateSeat(item);
         },
-        onButtonPressed: () {
-          final selectedSeat = state.selectedSeat;
-
-          if (selectedSeat != null) {
-            context.router.maybePop(selectedSeat);
-          }
-        },
+        onButtonPressed: () => _onButtonPressed(state),
         onPop: () => context.router.back(),
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
       ),
     );
+  }
+
+  void _onButtonPressed(SeatState state) {
+    final selectedSeat = state.selectedSeat;
+
+    if (selectedSeat != null) {
+      context.router.maybePop(selectedSeat);
+    }
   }
 }

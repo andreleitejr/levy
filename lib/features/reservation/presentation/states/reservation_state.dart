@@ -14,18 +14,7 @@ class ReservationState implements GenericStateBase {
     this.isLoading = false,
   });
 
-  const ReservationState.loading()
-      : data = null,
-        errorMessage = null,
-        isLoading = true;
-
-  const ReservationState.success(List<ReservationEntity> value)
-      : data = value,
-        errorMessage = null,
-        isLoading = false;
-
-  const ReservationState.error(String message)
-      : data = null,
-        errorMessage = message,
-        isLoading = false;
+  const ReservationState.loading() : this(isLoading: true);
+  const ReservationState.success(List<ReservationEntity> data) : this(data: data);
+  const ReservationState.error(String message) : this(errorMessage: message);
 }

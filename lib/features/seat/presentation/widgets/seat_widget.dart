@@ -3,7 +3,7 @@ import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/seat/presentation/utils/seat_translation.dart';
 
-class SeatWidget extends StatelessWidget {
+final class SeatWidget extends StatelessWidget {
   const SeatWidget({
     super.key,
     required this.items,
@@ -31,7 +31,7 @@ class SeatWidget extends StatelessWidget {
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, // 4 colunas
+                crossAxisCount: 4,
                 childAspectRatio: 1,
               ),
               itemCount: items.length,
@@ -41,7 +41,7 @@ class SeatWidget extends StatelessWidget {
                     selectedItem?.number == item.number;
 
                 return GestureDetector(
-                  onTap: item.isReserved ? null : () => onItemPressed,
+                  onTap: item.isReserved ? null : () => onItemPressed(item),
                   child: Container(
                     decoration: BoxDecoration(
                       color: item.isReserved

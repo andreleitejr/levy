@@ -10,24 +10,14 @@ final class AddressState implements GenericStateBase {
   @override
   final bool isLoading;
 
+
   const AddressState({
     this.data = const [],
     this.errorMessage,
     this.isLoading = false,
   });
 
-  const AddressState.loading()
-      : data  = const [],
-        errorMessage = null,
-        isLoading = true;
-
-  const AddressState.success(List<AddressEntity> value)
-      : data = value,
-        errorMessage = null,
-        isLoading = false;
-
-  const AddressState.error(String message)
-      : data = const [],
-        errorMessage = message,
-        isLoading = false;
+  const AddressState.loading() : this(isLoading: true);
+  const AddressState.success(List<AddressEntity> data) : this(data: data);
+  const AddressState.error(String message) : this(errorMessage: message);
 }

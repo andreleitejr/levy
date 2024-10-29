@@ -17,23 +17,9 @@ final class TimeState implements GenericStateBase {
     this.isLoading = false,
   });
 
-  const TimeState.loading()
-      : hour = null,
-        minute = null,
-        errorMessage = null,
-        isLoading = true;
-
-  const TimeState.success()
-      : hour = null,
-        minute = null,
-        errorMessage = null,
-        isLoading = false;
-
-  const TimeState.error(String message)
-      : hour = null,
-        minute = null,
-        errorMessage = message,
-        isLoading = false;
+  const TimeState.loading() : this(isLoading: true);
+  const TimeState.success() : this();
+  const TimeState.error(String message) : this(errorMessage: message);
 
   TimeState copyWith({
     int? hour,

@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 
-class ThemeButton extends StatelessWidget {
+final class ThemeButton extends StatelessWidget {
   const ThemeButton({
     super.key,
     required this.onPressed,
     required this.title,
-    this.color,
+    this.valid = true,
   });
 
   final VoidCallback onPressed;
   final String title;
-  final Color? color;
+  final bool valid;
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        backgroundColor: color,
-      ),
-      child: Text(
-        title,
-        style: ThemeTypography.pattern,
+    return SizedBox(
+      height: 50,
+      width: double.infinity,
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(ThemeSizes.medium), // <-- Radius
+          ),
+          backgroundColor: ThemeColors.pattern,
+        ),
+        child: Text(
+          title,
+          style: ThemeTypography.pattern.copyWith(color: Colors.white),
+        ),
       ),
     );
   }

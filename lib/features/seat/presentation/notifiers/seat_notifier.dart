@@ -15,10 +15,10 @@ final class SeatNotifier extends StateNotifier<SeatState> {
     }
   }
 
-  void selectSeat(SeatEntity seat) {
-    state = SeatState.selected(
-      seats: state.data,
-      selected: seat,
+  void updateSeat(SeatEntity seat) {
+    state = state.copyWith(
+      data: state.data,
+      selectedSeat: seat,
     );
   }
 }

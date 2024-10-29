@@ -1,12 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:levy/core/router/app_router.gr.dart';
+import 'package:levy/features/bus/data/models/bus_model.dart';
+import 'package:levy/features/bus/domain/entities/bus_entity.dart';
+import 'package:levy/features/bus/presentation/notifiers/bus_notifier.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
+import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
+import 'package:levy/features/reservation/data/models/reservation_model.dart';
+import 'package:levy/features/reservation/presentation/providers/create_reservation_usecase_provider.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
+import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
 @RoutePage()
 final class BusPage extends ConsumerStatefulWidget {
@@ -27,21 +35,28 @@ final class _BusPageState extends ConsumerState<BusPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(busNotifierProvider.notifier).init(search: widget.search);
+      ref.read(busNotifierProvider.notifier).init(widget.search);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(busNotifierProvider);
+    final notifier = ref.read(busNotifierProvider.notifier);
 
     return StateBuilder(
       state: state,
-      loading: ThemeLoadingWidget(),
+      loading: const ThemeLoadingWidget(),
       success: BusWidget(
         items: state.data,
         onPop: () => context.router.back(),
-        onItemPressed: (item) async {},
+        onItemPressed: (item) async {
+          await _onItemPressed(
+            state: state,
+            notifier: notifier,
+            item: item,
+          );
+        },
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
@@ -49,55 +64,53 @@ final class _BusPageState extends ConsumerState<BusPage> {
     );
   }
 
-// final state = ref.watch(busSelectionNotifierProvider);
-//
-// final departureBus =
-//     ref.watch(busSelectionNotifierProvider).departureBus;
-// final departureSeat =
-//     ref.watch(busSelectionNotifierProvider).departureSeat;
-// final returnBus = ref.watch(busSelectionNotifierProvider).returnBus;
-// final returnSeat = ref.watch(busSelectionNotifierProvider).returnSeat;
-//
-// final router = context.router;
-//
-// final selectedSeat = await context.router.push<SeatEntity>(
-// SeatRoute(seats: item.seats),
-// );
-//
-// if (selectedSeat != null) {
-// if (state.stage == BusSelectionStage.departureSelection) {
-// ref
-//     .read(busSelectionNotifierProvider.notifier)
-//     .selectDepartureBus(item, selectedSeat);
-//
-// await ref
-//     .read(busNotifierProvider.notifier)
-//     .init(search: widget.search as SearchModel, isReturn: true);
-// } else if (state.stage == BusSelectionStage.returnSelection) {
-// ref
-//     .read(busSelectionNotifierProvider.notifier)
-//     .selectReturnBus(item, selectedSeat);
-//
-// final paymentId = 'teste001';
-//
-// router.push(PaymentRoute(
-// paymentId: 'teste001',
-// onPaymentSuccess: () async {
-// final createReservationUseCase =
-// ref.read(createReservationUseCaseProvider);
-//
-// final reservation = ReservationModel(
-// userId: 'user_001',
-// paymentId: paymentId,
-// date: DateTime.now().toString(),
-// departureBus: departureBus as BusModel,
-// returnBus: returnBus as BusModel,
-// );
-//
-// await createReservationUseCase.call(reservation);
-// router.replace(ReservationRoute());
-// },
-// ));
-// }
-// }
+  Future<void> _onItemPressed({
+    required BusState state,
+    required BusNotifier notifier,
+    required BusEntity item,
+  }) async {
+    final seat = await _selectSeat(context, item);
+    if (seat == null) return;
+
+    if (state.departureBus == null) {
+      await notifier.updateDepartureBus(bus: item, seat: seat);
+    } else {
+      notifier.updateReturnBus(bus: item, seat: seat);
+
+      _proceedToPayment();
+    }
+  }
+
+  Future<SeatEntity?> _selectSeat(BuildContext context, BusEntity item) async {
+    return await context.router.push<SeatEntity>(SeatRoute(items: item.seats));
+  }
+
+  void _proceedToPayment() {
+    const paymentId = 'payment001';
+
+    context.router.push(
+      PaymentRoute(
+        paymentId: paymentId,
+        onPaymentSuccess: () => _handlePaymentSuccess(paymentId),
+      ),
+    );
+  }
+
+  Future<void> _handlePaymentSuccess(String paymentId) async {
+    final reservationUseCase = ref.read(createReservationUseCaseProvider);
+    final state = ref.read(busNotifierProvider);
+    final router = context.router;
+
+    final reservation = ReservationModel(
+      userId: 'user_001',
+      paymentId: paymentId,
+      date: DateTime.now().toString(),
+      departureBus: state.departureBus as BusModel,
+      returnBus: state.returnBus as BusModel,
+    );
+
+    await reservationUseCase.call(reservation);
+
+    router.replace(ReservationRoute());
+  }
 }

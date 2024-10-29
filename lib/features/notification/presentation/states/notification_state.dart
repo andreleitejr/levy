@@ -16,18 +16,7 @@ final class NotificationState implements GenericStateBase {
     this.isLoading = false,
   });
 
-  const NotificationState.loading()
-      : data = const [],
-        errorMessage = null,
-        isLoading = true;
-
-  const NotificationState.success(List<NotificationEntity> value)
-      : data = value,
-        errorMessage = null,
-        isLoading = false;
-
-  const NotificationState.error(String message)
-      : data = const [],
-        errorMessage = message,
-        isLoading = false;
+  const NotificationState.loading() : this(isLoading: true);
+  const NotificationState.success(List<NotificationEntity> data) : this(data: data);
+  const NotificationState.error(String message) : this(errorMessage: message);
 }

@@ -61,7 +61,7 @@ final class SearchWidget extends StatelessWidget {
           ThemeButton(
             onPressed: onButtonPressed,
             title: 'Ir para Payment',
-            color: isValid ? Colors.yellow : Colors.grey,
+            valid: isValid,
           ),
         ],
       ),

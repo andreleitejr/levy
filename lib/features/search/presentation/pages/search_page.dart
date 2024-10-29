@@ -88,7 +88,7 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
 
   Future<void> _onButtonPressed(SearchState state) async {
     final departureAddress = state.departureAddress;
-    final returnAddress = state.departureAddress;
+    final returnAddress = state.returnAddress;
     final departureTime = state.departureTime;
     final returnTime = state.returnTime;
 

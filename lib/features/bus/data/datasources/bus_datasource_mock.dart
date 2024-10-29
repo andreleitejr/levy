@@ -12,8 +12,7 @@ final class BusDataSourceMock implements BusDataSource {
     required SearchEntity search,
     bool isReturn = false,
   }) async {
-    final buses =
-        BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
+    final buses = BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
 
     if (isReturn) {
       return buses.where((bus) {
