@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
-final class SeatState extends Equatable implements GenericStateBase {
+final class SeatState implements GenericStateBase {
   final List<SeatEntity>? data;
   final SeatEntity? selectedSeat;
   @override
@@ -42,7 +41,4 @@ final class SeatState extends Equatable implements GenericStateBase {
         selectedSeat = null,
         errorMessage = message,
         isLoading = false;
-
-  @override
-  List<Object?> get props => [data, selectedSeat, errorMessage, isLoading];
 }

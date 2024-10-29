@@ -11,6 +11,8 @@ final class ReservationNotifier extends StateNotifier<ReservationState> {
     try {
       final result = await _usecase(reservationId);
 
+      await Future.delayed(const Duration(milliseconds: 500));
+
       state = ReservationState.success(result);
     } catch (e) {
       state = ReservationState.error('Failed to load reservation: ${e.toString()}');

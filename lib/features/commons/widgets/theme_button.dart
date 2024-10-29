@@ -6,15 +6,20 @@ class ThemeButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.title,
+    this.color,
   });
 
   final VoidCallback onPressed;
   final String title;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return TextButton(
       onPressed: onPressed,
+      style: TextButton.styleFrom(
+        backgroundColor: color,
+      ),
       child: Text(
         title,
         style: ThemeTypography.pattern,

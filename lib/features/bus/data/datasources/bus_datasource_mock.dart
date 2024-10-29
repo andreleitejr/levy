@@ -3,7 +3,6 @@ import 'package:levy/core/commons/domain/enums/inject_env.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/external/bus_mock.dart';
-import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 
 @Injectable(as: BusDataSource, env: [InjectEnv.mock])

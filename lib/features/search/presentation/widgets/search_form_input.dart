@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SearchFormInput extends StatelessWidget {
+final class SearchFormInput extends StatelessWidget {
   const SearchFormInput({
     super.key,
     required this.controller,
@@ -21,11 +21,3 @@ class SearchFormInput extends StatelessWidget {
     );
   }
 }
-// () async {
-// final selectedAddress =
-//     await context.router.push<AddressEntity>(AddressRoute());
-//
-// if (selectedAddress != null) {
-// searchNotifier.updateHomeAddress(selectedAddress);
-// }
-// },

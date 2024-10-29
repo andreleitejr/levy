@@ -21,6 +21,7 @@ final class AddressWidget extends StatelessWidget {
     return Scaffold(
       appBar: ThemeAppBarWidget(
         title: AddressTranslation.header.title,
+        onLeadingPressed: onPop,
       ),
       body: ListView.builder(
         itemCount: items.length,

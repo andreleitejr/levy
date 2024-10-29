@@ -1,14 +1,24 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/time/presentation/states/time_state.dart';
 
-class TimeNotifier extends StateNotifier<TimeState> {
-  TimeNotifier() : super(TimeState(hour: DateTime.now().hour, minute: 0));
+final class TimeNotifier extends StateNotifier<TimeState> {
+  TimeNotifier() : super(TimeState.loading());
 
-  void selectHour(int hour) {
-    state = TimeState(hour: hour, minute: state.minute);
+  Future<void> init() async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      state = TimeState.success();
+    } catch (e) {
+      state = TimeState.error('Failed to load time: ${e.toString()}');
+    }
   }
 
-  void selectMinute(int minute) {
-    state = TimeState(hour: state.hour, minute: minute);
+  void updateHour(int hour) {
+    state = state.copyWith(hour: hour);
+  }
+
+  void updateMinute(int minute) {
+    state = state.copyWith(minute: minute);
   }
 }

@@ -1,10 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/search/data/models/search_model.dart';
-import 'package:levy/features/search/domain/entities/search_entity.dart';
 
-final class SearchState extends Equatable implements GenericStateBase {
+final class SearchState implements GenericStateBase {
   final AddressEntity? departureAddress;
   final AddressEntity? returnAddress;
   final String? departureTime;
@@ -49,13 +46,6 @@ final class SearchState extends Equatable implements GenericStateBase {
         errorMessage = message,
         isLoading = false;
 
-  bool get isValid {
-    return departureAddress != null &&
-        returnAddress != null &&
-        departureTime != null &&
-        returnTime != null;
-  }
-
   SearchState copyWith({
     AddressEntity? departureAddress,
     AddressEntity? returnAddress,
@@ -73,15 +63,4 @@ final class SearchState extends Equatable implements GenericStateBase {
       isLoading: isLoading ?? this.isLoading,
     );
   }
-
-  @override
-  List<Object?> get props =>
-      [
-        departureAddress,
-        returnAddress,
-        departureTime,
-        returnTime,
-        errorMessage,
-        isLoading
-      ];
 }

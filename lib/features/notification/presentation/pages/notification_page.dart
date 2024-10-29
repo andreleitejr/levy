@@ -4,9 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
-import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 import 'package:levy/features/notification/presentation/providers/notification_notifier_provider.dart';
-import 'package:levy/features/notification/presentation/states/notification_state.dart';
 import 'package:levy/features/notification/presentation/widgets/notification_widget.dart';
 
 @RoutePage()
@@ -24,7 +22,9 @@ final class _NotificationPageState extends ConsumerState<NotificationPage> {
   void initState() {
     super.initState();
 
-    ref.read(notificationNotifierProvider.notifier).init();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(notificationNotifierProvider.notifier).init();
+    });
   }
 
   @override
@@ -35,7 +35,7 @@ final class _NotificationPageState extends ConsumerState<NotificationPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: NotificationWidget(
-        items: state.data!,
+        items: state.data,
         onPop: () => context.router.back(),
         onItemPressed: (item) {},
       ),

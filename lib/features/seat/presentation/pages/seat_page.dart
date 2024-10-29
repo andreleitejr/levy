@@ -26,7 +26,9 @@ final class _SeatPageState extends ConsumerState<SeatPage> {
   void initState() {
     super.initState();
 
-    ref.read(seatNotifierProvider.notifier).init(widget.items);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(seatNotifierProvider.notifier).init(widget.items);
+    });
   }
 
   @override

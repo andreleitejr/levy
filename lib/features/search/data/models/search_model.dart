@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
-import 'package:levy/features/commons/models/departure_model.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 
 part 'search_model.g.dart';

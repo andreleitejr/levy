@@ -5,7 +5,7 @@ import 'package:levy/features/address/presentation/states/address_state.dart';
 final class AddressNotifier extends StateNotifier<AddressState> {
   final GetAddressUseCase _usecase;
 
-  AddressNotifier(this._usecase) : super(AddressState.loading());
+  AddressNotifier(this._usecase) : super(const AddressState.loading());
 
   Future<void> init() async {
     try {

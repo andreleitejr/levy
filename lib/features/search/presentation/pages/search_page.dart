@@ -15,9 +15,7 @@ import 'package:levy/features/search/presentation/widgets/search_widget.dart';
 
 @RoutePage()
 final class SearchPage extends ConsumerStatefulWidget {
-  const SearchPage({
-    super.key,
-  });
+  const SearchPage({super.key});
 
   @override
   ConsumerState<SearchPage> createState() => _SearchPageState();
@@ -28,7 +26,9 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
   void initState() {
     super.initState();
 
-    ref.read(searchNotifierProvider.notifier).init();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(searchNotifierProvider.notifier).init();
+    });
   }
 
   @override
@@ -55,36 +55,34 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
   }
 
   Future<void> _onDepartureAddressSelect(SearchNotifier notifier) async {
-    final selectedAddress =
-        await context.router.push<AddressEntity>(AddressRoute());
+    final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
 
-    if (selectedAddress != null) {
-      notifier.updateDepartureAddress(selectedAddress);
+    if (departureAddress != null) {
+      notifier.updateDepartureAddress(departureAddress);
     }
   }
 
   Future<void> _onReturnAddressSelect(SearchNotifier notifier) async {
-    final selectedAddress =
-        await context.router.push<AddressEntity>(AddressRoute());
+    final returnAddress = await context.router.push<AddressEntity>(AddressRoute());
 
-    if (selectedAddress != null) {
-      notifier.updateReturnAddress(selectedAddress);
+    if (returnAddress != null) {
+      notifier.updateReturnAddress(returnAddress);
     }
   }
 
   Future<void> _onDepartureTimeSelect(SearchNotifier notifier) async {
-    final selectedTime = await context.router.push<String>(TimeRoute());
+    final departureTime = await context.router.push<String>(TimeRoute());
 
-    if (selectedTime != null) {
-      notifier.updateDepartureTime(selectedTime);
+    if (departureTime != null) {
+      notifier.updateDepartureTime(departureTime);
     }
   }
 
   Future<void> _onReturnTimeSelect(SearchNotifier notifier) async {
-    final selectedTime = await context.router.push<String>(TimeRoute());
+    final returnTime = await context.router.push<String>(TimeRoute());
 
-    if (selectedTime != null) {
-      notifier.updateReturnTime(selectedTime);
+    if (returnTime != null) {
+      notifier.updateReturnTime(returnTime);
     }
   }
 
@@ -94,10 +92,12 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
     final departureTime = state.departureTime;
     final returnTime = state.returnTime;
 
-    if (departureAddress != null &&
+    final isValid = departureAddress != null &&
         returnAddress != null &&
         departureTime != null &&
-        returnTime != null) {
+        returnTime != null;
+
+    if (isValid) {
       final search = SearchModel(
         departureAddress: departureAddress as AddressModel,
         returnAddress: returnAddress as AddressModel,

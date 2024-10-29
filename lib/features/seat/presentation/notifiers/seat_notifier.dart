@@ -7,6 +7,8 @@ final class SeatNotifier extends StateNotifier<SeatState> {
 
   Future<void> init(List<SeatEntity> seats) async {
     try {
+      await Future.delayed(const Duration(milliseconds: 500));
+
       state = SeatState.success(seats);
     } catch (e) {
       state = SeatState.error('Failed to load seats: ${e.toString()}');

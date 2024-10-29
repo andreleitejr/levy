@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
-class ReservationState extends Equatable implements GenericStateBase {
+class ReservationState implements GenericStateBase {
   final List<ReservationEntity>? data;
   @override
   final String? errorMessage;
@@ -29,7 +28,4 @@ class ReservationState extends Equatable implements GenericStateBase {
       : data = null,
         errorMessage = message,
         isLoading = false;
-
-  @override
-  List<Object?> get props => [data, errorMessage, isLoading];
 }

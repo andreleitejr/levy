@@ -1,22 +1,23 @@
-import 'package:equatable/equatable.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 
-final class NotificationState extends Equatable implements GenericStateBase {
-  final List<NotificationEntity>? data;
+final class NotificationState implements GenericStateBase {
+  final List<NotificationEntity> data;
+
   @override
   final String? errorMessage;
+
   @override
   final bool isLoading;
 
   const NotificationState({
-    this.data,
+    this.data = const [],
     this.errorMessage,
     this.isLoading = false,
   });
 
   const NotificationState.loading()
-      : data = null,
+      : data = const [],
         errorMessage = null,
         isLoading = true;
 
@@ -26,10 +27,7 @@ final class NotificationState extends Equatable implements GenericStateBase {
         isLoading = false;
 
   const NotificationState.error(String message)
-      : data = null,
+      : data = const [],
         errorMessage = message,
         isLoading = false;
-
-  @override
-  List<Object?> get props => [data, errorMessage, isLoading];
 }

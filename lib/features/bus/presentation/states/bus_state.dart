@@ -1,22 +1,22 @@
-import 'package:equatable/equatable.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 
-final class BusState extends Equatable implements GenericStateBase {
-  final List<BusEntity>? data;
+final class BusState implements GenericStateBase {
+  final List<BusEntity> data;
+
   @override
   final String? errorMessage;
   @override
   final bool isLoading;
 
   const BusState({
-    this.data,
+    this.data = const [],
     this.errorMessage,
     this.isLoading = false,
   });
 
   const BusState.loading()
-      : data = null,
+      : data = const [],
         errorMessage = null,
         isLoading = true;
 
@@ -26,10 +26,7 @@ final class BusState extends Equatable implements GenericStateBase {
         isLoading = false;
 
   const BusState.error(String message)
-      : data = null,
+      : data = const [],
         errorMessage = message,
         isLoading = false;
-
-  @override
-  List<Object?> get props => [data, errorMessage, isLoading];
 }

@@ -1,23 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/features/bus/data/models/bus_model.dart';
-import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/bus/presentation/enums/bus_selection_stage.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
-import 'package:levy/features/bus/presentation/providers/bus_selection_notifier_provider.dart';
-import 'package:levy/features/bus/data/models/bus_model.dart';
-import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
-import 'package:levy/features/reservation/data/models/reservation_model.dart';
-import 'package:levy/features/reservation/presentation/providers/create_reservation_usecase_provider.dart';
-import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
-import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
 @RoutePage()
 final class BusPage extends ConsumerStatefulWidget {
@@ -37,7 +26,9 @@ final class _BusPageState extends ConsumerState<BusPage> {
   void initState() {
     super.initState();
 
-    ref.read(busNotifierProvider.notifier).init(search: widget.search);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(busNotifierProvider.notifier).init(search: widget.search);
+    });
   }
 
   @override
@@ -48,7 +39,7 @@ final class _BusPageState extends ConsumerState<BusPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: BusWidget(
-        items: state.data!,
+        items: state.data,
         onPop: () => context.router.back(),
         onItemPressed: (item) async {},
       ),

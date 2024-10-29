@@ -11,9 +11,7 @@ final class ThemeErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Text(message ?? 'Message'),
-      ),
+      body: Text(message ?? 'Message'),
     );
   }
 }

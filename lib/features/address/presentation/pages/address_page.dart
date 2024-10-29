@@ -9,9 +9,7 @@ import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 
 @RoutePage()
 final class AddressPage extends ConsumerStatefulWidget {
-  const AddressPage({
-    super.key,
-  });
+  const AddressPage({super.key});
 
   @override
   ConsumerState<AddressPage> createState() => _AddressPageState();
@@ -21,7 +19,10 @@ final class _AddressPageState extends ConsumerState<AddressPage> {
   @override
   void initState() {
     super.initState();
-    ref.read(addressNotifierProvider.notifier).init();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(addressNotifierProvider.notifier).init();
+    });
   }
 
   @override
@@ -32,8 +33,8 @@ final class _AddressPageState extends ConsumerState<AddressPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: AddressWidget(
-        items: state.data!,
-        onPop: () {},
+        items: state.data,
+        onPop: () => context.router.back(),
         onItemPressed: (item) => context.router.maybePop(item),
       ),
       error: ThemeErrorWidget(

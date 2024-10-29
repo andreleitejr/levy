@@ -4,7 +4,7 @@ import 'package:levy/features/commons/widgets/theme_button.dart';
 import 'package:levy/features/search/presentation/utils/search_translation.dart';
 import 'package:levy/features/search/presentation/widgets/search_form_input.dart';
 
-class SearchWidget extends StatelessWidget {
+final class SearchWidget extends StatelessWidget {
   const SearchWidget({
     super.key,
     this.departureAddress,
@@ -27,6 +27,8 @@ class SearchWidget extends StatelessWidget {
   final VoidCallback onDepartureTimeSelect;
   final VoidCallback onReturnTimeSelect;
   final VoidCallback onButtonPressed;
+
+  bool get isValid => departureAddress != null && returnAddress != null;
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,7 @@ class SearchWidget extends StatelessWidget {
           ThemeButton(
             onPressed: onButtonPressed,
             title: 'Ir para Payment',
+            color: isValid ? Colors.yellow : Colors.grey,
           ),
         ],
       ),
