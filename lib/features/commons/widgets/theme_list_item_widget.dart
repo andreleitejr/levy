@@ -48,7 +48,7 @@ final class ThemeListItemWidget extends StatelessWidget {
           leadingImage,
           width: 48,
           height: 48,
-          fit: BoxFit.cover,
+          fit: BoxFit.fitWidth,
         ),
       );
     }

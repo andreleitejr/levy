@@ -6,6 +6,7 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
+import 'package:levy/features/payment/enums/payment_method_type.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment/presentation/notifiers/payment_notifier.dart';
 import 'package:levy/features/payment/presentation/providers/payment_notifier_provider.dart';
@@ -19,10 +20,10 @@ import 'package:levy/features/reservation/presentation/providers/create_reservat
 class PaymentPage extends ConsumerStatefulWidget {
   const PaymentPage({
     super.key,
-    required this.item,
+    required this.reservation,
   });
 
-  final ReservationEntity item;
+  final ReservationEntity reservation;
 
   @override
   ConsumerState<PaymentPage> createState() => _PaymentPageState();
@@ -34,7 +35,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(paymentNotifierProvider.notifier).init();
+      ref.read(paymentNotifierProvider.notifier).init(widget.reservation);
     });
   }
 
@@ -47,7 +48,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: PaymentWidget(
-        item: widget.item,
+        reservation: state.reservation,
         onPop: () => context.router.back(),
         onButtonPressed: () => _onButtonPressed(
           state: state,
@@ -68,11 +69,11 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
 
     if (paymentMethod != null) {
       await notifier.processPayment(
-        reservation: widget.item,
+        reservation: widget.reservation,
         method: paymentMethod,
       );
 
-      final isSuccess = state.data == PaymentResult.success;
+      final isSuccess = state.result == PaymentResult.success;
 
       if (isSuccess) {
         await _handleReservation();
@@ -85,7 +86,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
 
     final reservationUseCase = ref.read(createReservationUseCaseProvider);
 
-    await reservationUseCase.call(widget.item as ReservationModel);
+    await reservationUseCase.call(widget.reservation as ReservationModel);
 
     router.replace(ReservationRoute());
   }

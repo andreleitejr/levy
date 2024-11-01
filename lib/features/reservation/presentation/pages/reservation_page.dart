@@ -33,7 +33,7 @@ final class _ReservationPageState extends ConsumerState<ReservationPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: ReservationWidget(
-        items: state.data!,
+        reservations: state.data!,
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,

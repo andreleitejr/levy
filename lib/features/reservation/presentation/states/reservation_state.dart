@@ -2,14 +2,14 @@ import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 class ReservationState implements GenericStateBase {
-  final List<ReservationEntity>? data;
+  final List<ReservationEntity> data;
   @override
   final String? errorMessage;
   @override
   final bool isLoading;
 
   const ReservationState({
-    this.data,
+    this.data = const [],
     this.errorMessage,
     this.isLoading = false,
   });

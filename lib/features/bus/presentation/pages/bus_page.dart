@@ -99,6 +99,6 @@ final class _BusPageState extends ConsumerState<BusPage> {
       returnBus: state.returnBus as BusModel,
     );
 
-    router.push(PaymentRoute(item: reservation));
+    router.push(PaymentRoute(reservation: reservation));
   }
 }

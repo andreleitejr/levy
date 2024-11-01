@@ -7,7 +7,9 @@ part of 'address_model.dart';
 // **************************************************************************
 
 AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
+      name: json['name'] as String? ?? '',
       street: json['street'] as String? ?? '',
+      number: json['number'] as String? ?? '',
       city: json['city'] as String? ?? '',
       state: json['state'] as String? ?? '',
       postalCode: json['postalCode'] as String? ?? '',
@@ -18,7 +20,9 @@ AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
 
 Map<String, dynamic> _$AddressModelToJson(AddressModel instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'street': instance.street,
+      'number': instance.number,
       'city': instance.city,
       'state': instance.state,
       'postalCode': instance.postalCode,

@@ -118,13 +118,13 @@ class NotificationRoute extends _i9.PageRouteInfo<void> {
 class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
     _i10.Key? key,
-    required _i12.ReservationEntity item,
+    required _i12.ReservationEntity reservation,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           PaymentRoute.name,
           args: PaymentRouteArgs(
             key: key,
-            item: item,
+            reservation: reservation,
           ),
           initialChildren: children,
         );
@@ -137,7 +137,7 @@ class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
       final args = data.argsAs<PaymentRouteArgs>();
       return _i4.PaymentPage(
         key: args.key,
-        item: args.item,
+        reservation: args.reservation,
       );
     },
   );
@@ -146,16 +146,16 @@ class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
 class PaymentRouteArgs {
   const PaymentRouteArgs({
     this.key,
-    required this.item,
+    required this.reservation,
   });
 
   final _i10.Key? key;
 
-  final _i12.ReservationEntity item;
+  final _i12.ReservationEntity reservation;
 
   @override
   String toString() {
-    return 'PaymentRouteArgs{key: $key, item: $item}';
+    return 'PaymentRouteArgs{key: $key, reservation: $reservation}';
   }
 }
 

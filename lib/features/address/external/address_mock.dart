@@ -3,7 +3,9 @@ final class AddressMock {
 
   static final response = [
     {
-      'street': 'First St',
+      'name': 'First St',
+      'street': 'First Street',
+      'number': '123',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -12,7 +14,9 @@ final class AddressMock {
       'longitude': -74.0060,
     },
     {
-      'street': 'Main St',
+      'name': 'Main St',
+      'street': 'Main Street',
+      'number': '321',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10002',
@@ -21,7 +25,9 @@ final class AddressMock {
       'longitude': -74.0070,
     },
     {
-      'street': 'Second St',
+      'name': 'Second St',
+      'street': 'Second Street',
+      'number': '456',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -30,7 +36,9 @@ final class AddressMock {
       'longitude': -74.0050,
     },
     {
-      'street': 'Third St',
+      'name': 'Third St',
+      'street': 'Third Street',
+      'number': '789',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -39,7 +47,9 @@ final class AddressMock {
       'longitude': -74.0040,
     },
     {
-      'street': 'Airport Rd',
+      'name': 'Airport Rd',
+      'street': 'Airport Road',
+      'number': '123',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -48,7 +58,9 @@ final class AddressMock {
       'longitude': -74.0060,
     },
     {
+      'name': 'Fifth Avenue',
       'street': 'Fifth Ave',
+      'number': '321',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10002',
@@ -57,7 +69,9 @@ final class AddressMock {
       'longitude': -74.0070,
     },
     {
-      'street': 'Uptown Rd',
+      'name': 'Uptown Rd',
+      'street': 'Uptown Road',
+      'number': '456',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -66,7 +80,9 @@ final class AddressMock {
       'longitude': -74.0060,
     },
     {
-      'street': 'Suburb St',
+      'name': 'Suburb St',
+      'street': 'Suburb Street',
+      'number': '654',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10002',
@@ -75,7 +91,9 @@ final class AddressMock {
       'longitude': -74.0070,
     },
     {
-      'street': 'Downtown Ave',
+      'name': 'Downtown Ave',
+      'street': 'Downtown Avenue',
+      'number': '987',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -84,7 +102,9 @@ final class AddressMock {
       'longitude': -74.0060,
     },
     {
-      'street': 'Park Ave',
+      'name': 'Park Ave',
+      'street': 'Park Avenue',
+      'number': '123',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10002',
@@ -93,7 +113,9 @@ final class AddressMock {
       'longitude': -74.0070,
     },
     {
-      'street': 'City Center Blvd',
+      'name': 'City Center Blvd',
+      'street': 'City Center Boulevard',
+      'number': '456',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10001',
@@ -102,7 +124,9 @@ final class AddressMock {
       'longitude': -74.0060,
     },
     {
-      'street': 'Shopping St',
+      'name': 'Shopping St',
+      'street': 'Shopping Street',
+      'number': '789',
       'city': 'Metropolis',
       'state': 'NY',
       'postalCode': '10002',
