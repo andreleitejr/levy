@@ -11,17 +11,15 @@ class PaymentDataSourceMock extends Mock implements PaymentDataSource {}
 void main() {
   late PaymentDataSourceMock mockDataSource;
   late PaymentRepositoryImpl repository;
-  late ReservationModel reservation;
-  late PaymentMethodModel paymentMethod;
 
   setUp(() {
     mockDataSource = PaymentDataSourceMock();
     repository = PaymentRepositoryImpl(mockDataSource);
-    reservation = ReservationModel();
-    paymentMethod = PaymentMethodModel();
   });
 
   group('PaymentRepositoryImpl - get', () {
+    final reservation = const ReservationModel();
+    final paymentMethod = const PaymentMethodModel();
     test('should return List<PaymentEntity> when the call is successful',
         () async {
       when(() => mockDataSource.processPayment(

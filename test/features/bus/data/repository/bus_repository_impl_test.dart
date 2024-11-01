@@ -19,21 +19,11 @@ void main() {
   });
 
   group('BusRepositoryImpl - get', () {
-    final search = SearchModel(
-      departureAddress: AddressModel(street: 'Home St'),
-      returnAddress: AddressModel(street: 'Work St'),
-      departureTime: '06:00',
-      returnTime: '17:00',
-    );
+    final search = SearchModel();
 
     test('should return List<BusEntity> when the call is successful', () async {
       final expectedBuses = [
-        BusModel(
-            id: '1',
-            brand: 'Brand',
-            model: 'Model',
-            capacity: 30,
-            isAccessible: true),
+        const BusModel(),
       ];
 
       when(

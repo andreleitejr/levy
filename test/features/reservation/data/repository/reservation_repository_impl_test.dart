@@ -18,33 +18,26 @@ void main() {
   });
 
   group('ReservationRepositoryImpl - create', () {
-    final bus = BusModel(
-      id: '1',
-      brand: 'Brand',
-      model: 'Model',
-      capacity: 30,
-      isAccessible: true,
-    );
-
     final expectedReservation = ReservationModel(
       reservationId: 'reservation_001',
       userId: 'user_001',
       paymentId: 'payment_001',
       date: DateTime.now().toString(),
-      departureBus: bus,
-      returnBus: bus,
+      departureBus: const BusModel(),
+      returnBus: const BusModel(),
     );
 
     test('should return true when the reservation is created successfully',
         () async {
-      when(() => mockDataSource.createReservation(expectedReservation))
+      when(() => mockDataSource.createReservation(const ReservationModel()))
           .thenAnswer((_) async => true);
 
-      final result = await repository.createReservation(expectedReservation);
+      final result = await repository.createReservation(const ReservationModel());
 
+      expect(result, isA<bool>());
       expect(result, isTrue);
 
-      verify(() => mockDataSource.createReservation(expectedReservation))
+      verify(() => mockDataSource.createReservation(const ReservationModel()))
           .called(1);
     });
 
