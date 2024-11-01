@@ -40,6 +40,7 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: SearchWidget(
+        user: state.user,
         departureAddress: state.departureAddress?.street,
         returnAddress: state.returnAddress?.street,
         departureTime: state.departureTime,

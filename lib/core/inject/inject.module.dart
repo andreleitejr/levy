@@ -82,6 +82,18 @@ import 'package:levy/features/reservation/domain/usecases/get_reservation_usecas
     as _i243;
 import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase_impl.dart'
     as _i1024;
+import 'package:levy/features/user/data/datasources/user_datasource.dart'
+    as _i717;
+import 'package:levy/features/user/data/datasources/user_datasource_mock.dart'
+    as _i968;
+import 'package:levy/features/user/data/repositories/user_repository_impl.dart'
+    as _i496;
+import 'package:levy/features/user/domain/repositories/user_repository.dart'
+    as _i902;
+import 'package:levy/features/user/domain/usecases/get_user_usecase.dart'
+    as _i817;
+import 'package:levy/features/user/domain/usecases/get_user_usecase_impl.dart'
+    as _i48;
 
 const String _mock = 'mock';
 
@@ -93,6 +105,10 @@ class LevyPackageModule extends _i526.MicroPackageModule {
       () => _i23.NotificationDataSourceMock(),
       registerFor: {_mock},
     );
+    gh.factory<_i717.UserDataSource>(
+      () => _i968.UserDataSourceMock(),
+      registerFor: {_mock},
+    );
     gh.factory<_i580.ReservationDataSource>(
       () => _i660.ReservationDataSourceMock(),
       registerFor: {_mock},
@@ -101,6 +117,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
       () => _i142.BusDataSourceMock(),
       registerFor: {_mock},
     );
+    gh.factory<_i902.UserRepository>(
+        () => _i496.UserRepositoryImpl(gh<_i717.UserDataSource>()));
     gh.factory<_i370.PaymentMethodDataSource>(
       () => _i127.PaymentMethodDataSourceMock(),
       registerFor: {_mock},
@@ -108,6 +126,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
     gh.factory<_i438.PaymentMethodRepository>(() =>
         _i1058.PaymentMethodRepositoryImpl(
             gh<_i370.PaymentMethodDataSource>()));
+    gh.factory<_i817.GetUserUseCase>(
+        () => _i48.GetUserUseCaseImpl(gh<_i902.UserRepository>()));
     gh.factory<_i690.NotificationRepository>(() =>
         _i1035.NotificationRepositoryImpl(gh<_i746.NotificationDataSource>()));
     gh.factory<_i294.PaymentDataSource>(

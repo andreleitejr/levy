@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_button.dart';
+import 'package:levy/features/commons/widgets/theme_user_app_bar.dart';
 import 'package:levy/features/search/presentation/utils/search_translation.dart';
 import 'package:levy/features/search/presentation/widgets/search_form_input.dart';
+import 'package:levy/features/user/domain/entities/user_entity.dart';
 
 final class SearchWidget extends StatelessWidget {
   const SearchWidget({
     super.key,
+    required this.user,
     this.departureAddress,
     this.returnAddress,
     this.departureTime,
@@ -18,6 +21,7 @@ final class SearchWidget extends StatelessWidget {
     required this.onButtonPressed,
   });
 
+  final UserEntity user;
   final String? departureAddress;
   final String? returnAddress;
   final String? departureTime;
@@ -33,8 +37,8 @@ final class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ThemeAppBarWidget(
-        title: SearchTranslation.header.title,
+      appBar: ThemeUserAppBar(
+        user: user,
       ),
       body: Column(
         children: [
