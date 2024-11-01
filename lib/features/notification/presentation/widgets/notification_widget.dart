@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
@@ -20,6 +21,8 @@ class NotificationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ThemeAppBarWidget(
+        leadingIcon: ThemeIcons.pattern,
+        onLeadingPressed: onPop,
         title: NotificationTranslation.header.title,
       ),
       body: ListView.builder(

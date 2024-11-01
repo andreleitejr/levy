@@ -45,6 +45,7 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
         returnAddress: state.returnAddress?.street,
         departureTime: state.departureTime,
         returnTime: state.returnTime,
+        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
         onDepartureAddressSelect: () => _onDepartureAddressSelect(notifier),
         onReturnAddressSelect: () => _onReturnAddressSelect(notifier),
         onDepartureTimeSelect: () => _onDepartureTimeSelect(notifier),
@@ -58,6 +59,7 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
   Future<void> _onDepartureAddressSelect(SearchNotifier notifier) async {
     final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
 
+    print('######################################## ${departureAddress?.street}');
     if (departureAddress != null) {
       notifier.updateDepartureAddress(departureAddress);
     }

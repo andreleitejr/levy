@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/router/app_router.dart';
+import 'package:levy/core/router/app_router.gr.dart';
+import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_button.dart';
-import 'package:levy/features/commons/widgets/theme_user_app_bar.dart';
+import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
 import 'package:levy/features/search/presentation/utils/search_translation.dart';
-import 'package:levy/features/search/presentation/widgets/search_form_input.dart';
+import 'package:levy/features/search/presentation/widgets/search_form_input_widget.dart';
+import 'package:levy/features/search/presentation/widgets/search_form_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
 final class SearchWidget extends StatelessWidget {
@@ -14,6 +19,7 @@ final class SearchWidget extends StatelessWidget {
     this.returnAddress,
     this.departureTime,
     this.returnTime,
+    required this.onNotificationButtonPressed,
     required this.onDepartureAddressSelect,
     required this.onReturnAddressSelect,
     required this.onDepartureTimeSelect,
@@ -26,48 +32,34 @@ final class SearchWidget extends StatelessWidget {
   final String? returnAddress;
   final String? departureTime;
   final String? returnTime;
+  final VoidCallback onNotificationButtonPressed;
   final VoidCallback onDepartureAddressSelect;
   final VoidCallback onReturnAddressSelect;
   final VoidCallback onDepartureTimeSelect;
   final VoidCallback onReturnTimeSelect;
   final VoidCallback onButtonPressed;
 
-  bool get isValid => departureAddress != null && returnAddress != null;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ThemeUserAppBar(
+      appBar: ThemeUserAppBarWidget(
         user: user,
+        onActionPressed: onNotificationButtonPressed,
       ),
-      body: Column(
-        children: [
-          SearchFormInput(
-            controller: TextEditingController(text: departureAddress),
-            labelText: 'Endereço de Partida',
-            onPressed: onDepartureAddressSelect,
-          ),
-          SearchFormInput(
-            controller: TextEditingController(text: returnAddress),
-            labelText: 'Endereço de Retorno',
-            onPressed: onReturnAddressSelect,
-          ),
-          SearchFormInput(
-            controller: TextEditingController(text: departureTime),
-            labelText: 'Horário de Partida',
-            onPressed: onDepartureTimeSelect,
-          ),
-          SearchFormInput(
-            controller: TextEditingController(text: returnTime),
-            labelText: 'Horário de Partida',
-            onPressed: onReturnTimeSelect,
-          ),
-          ThemeButton(
-            onPressed: onButtonPressed,
-            title: 'Ir para Payment',
-            valid: isValid,
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(ThemeSizes.large),
+        child: SearchFormWidget(
+          departureAddress: departureAddress,
+          returnAddress: returnAddress,
+          departureTime: departureTime,
+          returnTime: returnTime,
+          onNotificationButtonPressed: onNotificationButtonPressed,
+          onDepartureAddressSelect: onDepartureAddressSelect,
+          onReturnAddressSelect: onReturnAddressSelect,
+          onDepartureTimeSelect: onDepartureTimeSelect,
+          onReturnTimeSelect: onReturnTimeSelect,
+          onButtonPressed: onButtonPressed,
+        ),
       ),
     );
   }

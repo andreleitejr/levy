@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/theme/theme_sizes.dart';
 
-final class SearchFormInput extends StatelessWidget {
-  const SearchFormInput({
+final class SearchFormInputWidget extends StatelessWidget {
+  const SearchFormInputWidget({
     super.key,
     required this.controller,
     required this.labelText,
@@ -15,7 +16,10 @@ final class SearchFormInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      decoration: InputDecoration(labelText: labelText),
+      decoration: InputDecoration(
+        contentPadding: const EdgeInsets.all(ThemeSizes.medium),
+        labelText: labelText,
+      ),
       onTap: onPressed,
       controller: controller,
     );

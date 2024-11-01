@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_icons.dart';
+import 'package:levy/core/theme/theme_sizes.dart';
+import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
-final class ThemeUserAppBar extends StatelessWidget
+final class ThemeUserAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
-  const ThemeUserAppBar({
+  const ThemeUserAppBarWidget({
     super.key,
     required this.user,
+    required this.onActionPressed,
   });
 
   final UserEntity user;
+  final VoidCallback onActionPressed;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ThemeColors.pattern,
+      titleSpacing: ThemeSizes.large,
       title: Row(
         children: [
           CircleAvatar(
@@ -27,27 +33,18 @@ final class ThemeUserAppBar extends StatelessWidget
             children: [
               Text(
                 'Welcome,',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
+                style: ThemeTypography.pattern,
               ),
               Text(
                 '${user.name} ${user.lastName}',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: ThemeTypography.pattern,
               ),
             ],
           ),
           Spacer(),
-          IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {
-              print('Notifications tapped');
-            },
+          ThemeIconWidget(
+            onIconPressed: onActionPressed,
+            icon: ThemeIcons.pattern,
           ),
         ],
       ),
