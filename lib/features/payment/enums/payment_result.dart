@@ -1,0 +1,4 @@
+enum PaymentResult {
+  failed,
+  success,
+}

@@ -57,6 +57,7 @@ final class _BusPageState extends ConsumerState<BusPage> {
             item: item,
           );
         },
+        selected: state.departureBus,
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
@@ -70,6 +71,7 @@ final class _BusPageState extends ConsumerState<BusPage> {
     required BusEntity item,
   }) async {
     final seat = await _selectSeat(context, item);
+
     if (seat == null) return;
 
     if (state.departureBus == null) {
@@ -85,32 +87,18 @@ final class _BusPageState extends ConsumerState<BusPage> {
     return await context.router.push<SeatEntity>(SeatRoute(items: item.seats));
   }
 
-  void _proceedToPayment() {
-    const paymentId = 'payment001';
-
-    context.router.push(
-      PaymentRoute(
-        paymentId: paymentId,
-        onPaymentSuccess: () => _handlePaymentSuccess(paymentId),
-      ),
-    );
-  }
-
-  Future<void> _handlePaymentSuccess(String paymentId) async {
-    final reservationUseCase = ref.read(createReservationUseCaseProvider);
+  Future<void> _proceedToPayment() async {
     final state = ref.read(busNotifierProvider);
     final router = context.router;
 
     final reservation = ReservationModel(
       userId: 'user_001',
-      paymentId: paymentId,
+      paymentId: '',
       date: DateTime.now().toString(),
       departureBus: state.departureBus as BusModel,
       returnBus: state.returnBus as BusModel,
     );
 
-    await reservationUseCase.call(reservation);
-
-    router.replace(ReservationRoute());
+    router.push(PaymentRoute(item: reservation));
   }
 }

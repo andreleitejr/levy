@@ -32,22 +32,23 @@ final class TimeWidget extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(child:
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildHourList(selectedHour),
-                const SizedBox(width: 20),
-                _buildMinuteList(selectedMinute),
-              ],
+          Expanded(
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildHourList(selectedHour),
+                  const SizedBox(width: 20),
+                  _buildMinuteList(selectedMinute),
+                ],
+              ),
             ),
-          ),),
+          ),
           ThemeButton(
             onPressed: onButtonPressed,
-            title: 'Ir para Payment',
+            title: 'Confirm Time',
             valid: isValid,
-          )
+          ),
         ],
       ),
     );

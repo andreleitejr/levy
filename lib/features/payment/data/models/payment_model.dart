@@ -6,17 +6,16 @@ part 'payment_model.g.dart';
 @JsonSerializable(createToJson: false)
 final class PaymentModel extends PaymentEntity {
   const PaymentModel({
-    this.transaction = '',
+    this.id = '',
     this.amount = 0,
     this.method = '',
     this.currency = '',
     this.description = '',
     this.datetime = '',
-    this.isSuccessful = false,
   });
 
   @override
-  final String transaction;
+  final String id;
 
   @override
   final double amount;
@@ -32,9 +31,6 @@ final class PaymentModel extends PaymentEntity {
 
   @override
   final String datetime;
-
-  @override
-  final bool isSuccessful;
 
   factory PaymentModel.fromJson(Map<String, dynamic> data) => _$PaymentModelFromJson(data);
 }

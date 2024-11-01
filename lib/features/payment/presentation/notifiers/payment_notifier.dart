@@ -1,24 +1,36 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart';
 import 'package:levy/features/payment/enums/payment_method_type.dart';
+import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment/presentation/states/payment_state.dart';
+import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 final class PaymentNotifier extends StateNotifier<PaymentState> {
   final ProcessPaymentUseCase _usecase;
 
-  PaymentNotifier(this._usecase) : super(PaymentState.initial());
+  PaymentNotifier(this._usecase) : super(PaymentState.loading());
+
+  Future<void> init() async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      state = PaymentState.initial();
+    } catch (e) {
+      state = PaymentState.error('Failed to init payment: ${e.toString()}');
+    }
+  }
 
   Future<void> processPayment({
-    required String paymentId,
-    required PaymentMethodType paymentMethod,
+    required ReservationEntity reservation,
+    required PaymentMethodType method,
   }) async {
     try {
       final result = await _usecase(
-        paymentId: paymentId,
-        paymentMethod: paymentMethod,
+        reservation: reservation,
+        method: method,
       );
 
-      if (result.isSuccessful) {
+      if (result == PaymentResult.success) {
         state = PaymentState.success(result);
       } else {
         state = PaymentState.error('Payment failed');

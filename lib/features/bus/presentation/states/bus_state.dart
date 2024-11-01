@@ -11,6 +11,7 @@ final class BusState implements GenericStateBase {
 
   @override
   final String? errorMessage;
+
   @override
   final bool isLoading;
 

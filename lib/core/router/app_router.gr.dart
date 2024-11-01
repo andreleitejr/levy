@@ -17,13 +17,15 @@ import 'package:levy/features/notification/presentation/pages/notification_page.
     as _i3;
 import 'package:levy/features/payment/presentation/pages/payment_page.dart'
     as _i4;
+import 'package:levy/features/reservation/domain/entities/reservation_entity.dart'
+    as _i12;
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
     as _i5;
 import 'package:levy/features/search/domain/entities/search_entity.dart'
     as _i11;
 import 'package:levy/features/search/presentation/pages/search_page.dart'
     as _i6;
-import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i12;
+import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i13;
 import 'package:levy/features/seat/presentation/pages/seat_page.dart' as _i7;
 import 'package:levy/features/time/presentation/pages/time_page.dart' as _i8;
 
@@ -116,15 +118,13 @@ class NotificationRoute extends _i9.PageRouteInfo<void> {
 class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
     _i10.Key? key,
-    required String paymentId,
-    required _i10.VoidCallback onPaymentSuccess,
+    required _i12.ReservationEntity item,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           PaymentRoute.name,
           args: PaymentRouteArgs(
             key: key,
-            paymentId: paymentId,
-            onPaymentSuccess: onPaymentSuccess,
+            item: item,
           ),
           initialChildren: children,
         );
@@ -137,8 +137,7 @@ class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
       final args = data.argsAs<PaymentRouteArgs>();
       return _i4.PaymentPage(
         key: args.key,
-        paymentId: args.paymentId,
-        onPaymentSuccess: args.onPaymentSuccess,
+        item: args.item,
       );
     },
   );
@@ -147,19 +146,16 @@ class PaymentRoute extends _i9.PageRouteInfo<PaymentRouteArgs> {
 class PaymentRouteArgs {
   const PaymentRouteArgs({
     this.key,
-    required this.paymentId,
-    required this.onPaymentSuccess,
+    required this.item,
   });
 
   final _i10.Key? key;
 
-  final String paymentId;
-
-  final _i10.VoidCallback onPaymentSuccess;
+  final _i12.ReservationEntity item;
 
   @override
   String toString() {
-    return 'PaymentRouteArgs{key: $key, paymentId: $paymentId, onPaymentSuccess: $onPaymentSuccess}';
+    return 'PaymentRouteArgs{key: $key, item: $item}';
   }
 }
 
@@ -206,7 +202,7 @@ class SearchRoute extends _i9.PageRouteInfo<void> {
 class SeatRoute extends _i9.PageRouteInfo<SeatRouteArgs> {
   SeatRoute({
     _i10.Key? key,
-    required List<_i12.SeatEntity> items,
+    required List<_i13.SeatEntity> items,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           SeatRoute.name,
@@ -239,7 +235,7 @@ class SeatRouteArgs {
 
   final _i10.Key? key;
 
-  final List<_i12.SeatEntity> items;
+  final List<_i13.SeatEntity> items;
 
   @override
   String toString() {
