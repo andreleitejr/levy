@@ -12,7 +12,6 @@ import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
-import 'package:levy/features/reservation/presentation/providers/create_reservation_usecase_provider.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 

@@ -12,6 +12,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: BusRoute.page),
         AutoRoute(page: SeatRoute.page),
         AutoRoute(page: PaymentRoute.page),
+        AutoRoute(page: PaymentMethodRoute.page),
         AutoRoute(page: ReservationRoute.page),
       ];
 }

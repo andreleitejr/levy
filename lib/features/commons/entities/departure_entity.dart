@@ -1,4 +1,4 @@
-// import 'package:levy/features/address/domain/entities/address_entity.dart';
+// import 'package:levy/features/address/domain/entities/payment_method_entity.dart';
 //
 // abstract class DepartureEntity {
 //   const DepartureEntity();

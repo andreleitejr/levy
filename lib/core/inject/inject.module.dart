@@ -54,6 +54,18 @@ import 'package:levy/features/payment/domain/usecases/process_payment_usecase.da
     as _i1050;
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase_impl.dart'
     as _i784;
+import 'package:levy/features/payment_method/data/datasources/payment_method_datasource.dart'
+    as _i370;
+import 'package:levy/features/payment_method/data/datasources/payment_method_datasource_mock.dart'
+    as _i127;
+import 'package:levy/features/payment_method/data/repositories/payment_method_repository_impl.dart'
+    as _i1058;
+import 'package:levy/features/payment_method/domain/repositories/payment_method_repository.dart'
+    as _i438;
+import 'package:levy/features/payment_method/domain/usecases/get_payment_method_usecase.dart'
+    as _i177;
+import 'package:levy/features/payment_method/domain/usecases/get_payment_method_usecase_impl.dart'
+    as _i805;
 import 'package:levy/features/reservation/data/datasources/reservation_datasource.dart'
     as _i580;
 import 'package:levy/features/reservation/data/datasources/reservation_datasource_mock.dart'
@@ -89,6 +101,13 @@ class LevyPackageModule extends _i526.MicroPackageModule {
       () => _i142.BusDataSourceMock(),
       registerFor: {_mock},
     );
+    gh.factory<_i370.PaymentMethodDataSource>(
+      () => _i127.PaymentMethodDataSourceMock(),
+      registerFor: {_mock},
+    );
+    gh.factory<_i438.PaymentMethodRepository>(() =>
+        _i1058.PaymentMethodRepositoryImpl(
+            gh<_i370.PaymentMethodDataSource>()));
     gh.factory<_i690.NotificationRepository>(() =>
         _i1035.NotificationRepositoryImpl(gh<_i746.NotificationDataSource>()));
     gh.factory<_i294.PaymentDataSource>(
@@ -99,6 +118,8 @@ class LevyPackageModule extends _i526.MicroPackageModule {
       () => _i845.AddressDataSourceMock(),
       registerFor: {_mock},
     );
+    gh.factory<_i177.GetPaymentMethodUseCase>(() =>
+        _i805.GetPaymentMethodUseCaseImpl(gh<_i438.PaymentMethodRepository>()));
     gh.factory<_i565.GetNotificationUseCase>(() =>
         _i420.GetNotificationUseCaseImpl(gh<_i690.NotificationRepository>()));
     gh.factory<_i834.AddressRepository>(

@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart';
-import 'package:levy/features/payment/enums/payment_method_type.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment/presentation/states/payment_state.dart';
+import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 final class PaymentNotifier extends StateNotifier<PaymentState> {
@@ -20,23 +20,22 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
     }
   }
 
-  Future<void> processPayment({
+  Future<PaymentResult> processPayment({
     required ReservationEntity reservation,
-    required PaymentMethodType method,
+    required PaymentMethodEntity method,
   }) async {
     try {
-      final result = await _usecase(
+      return _usecase(
         reservation: reservation,
         method: method,
       );
-
-      if (result == PaymentResult.success) {
-        state = PaymentState.success(result);
-      } else {
-        state = PaymentState.error('Payment failed');
-      }
     } catch (e) {
       state = PaymentState.error('Failed to process payment: ${e.toString()}');
+      return PaymentResult.failed;
     }
+  }
+
+  void updatePaymentMethod(PaymentMethodEntity method) {
+    state = state.copyWith(paymentMethod: method);
   }
 }

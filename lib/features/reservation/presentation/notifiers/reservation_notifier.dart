@@ -11,7 +11,7 @@ final class ReservationNotifier extends StateNotifier<ReservationState> {
     try {
       final result = await _usecase(reservationId);
 
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(const Duration(milliseconds: 1000));
 
       state = ReservationState.success(result);
     } catch (e) {

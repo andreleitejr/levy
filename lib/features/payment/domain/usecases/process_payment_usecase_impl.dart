@@ -1,9 +1,8 @@
 import 'package:injectable/injectable.dart';
-import 'package:levy/features/payment/domain/entities/payment_entity.dart';
 import 'package:levy/features/payment/domain/repositories/payment_repository.dart';
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart';
-import 'package:levy/features/payment/enums/payment_method_type.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
+import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 @Injectable(as: ProcessPaymentUseCase)
@@ -15,7 +14,7 @@ final class ProcessPaymentUseCaseImpl implements ProcessPaymentUseCase {
   @override
   Future<PaymentResult> call({
     required ReservationEntity reservation,
-    required PaymentMethodType method,
+    required PaymentMethodEntity method,
   }) async {
     return _repository.processPayment(
       reservation: reservation,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
-import 'package:levy/features/commons/widgets/theme_ticket_widget.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/presentation/utils/reservation_translation.dart';
 
@@ -21,9 +20,9 @@ class ReservationWidget extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ThemeTicketWidget(bus: reservations.first.departureBus),
+          // ThemeTicketWidget(bus: reservations.first.departureBus),
           SizedBox(height: ThemeSizes.large),
-          ThemeTicketWidget(bus: reservations.first.returnBus),
+          // ThemeTicketWidget(bus: reservations.first.returnBus),
           SizedBox(height: ThemeSizes.large),
         ],
       ),
