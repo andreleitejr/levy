@@ -65,7 +65,7 @@ final class ThemeAppBarWidget extends StatelessWidget implements PreferredSizeWi
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(
             text,
-            style: ThemeTypography.pattern,
+            style: ThemeTypography.regular14,
           ),
         ),
       );

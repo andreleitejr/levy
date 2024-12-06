@@ -59,7 +59,6 @@ final class _SearchPageState extends ConsumerState<SearchPage> {
   Future<void> _onDepartureAddressSelect(SearchNotifier notifier) async {
     final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
 
-    print('######################################## ${departureAddress?.street}');
     if (departureAddress != null) {
       notifier.updateDepartureAddress(departureAddress);
     }

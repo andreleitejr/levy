@@ -60,7 +60,7 @@ final class BusWidget extends StatelessWidget {
         padding: const EdgeInsets.all(ThemeSizes.medium),
         decoration: BoxDecoration(
           border: Border.all(
-            color: ThemeColors.pattern,
+            color: ThemeColors.dark,
           ),
           borderRadius: BorderRadius.circular(ThemeSizes.medium),
         ),
@@ -70,19 +70,19 @@ final class BusWidget extends StatelessWidget {
           children: [
             Text(
               'Departure Info',
-              style: ThemeTypography.pattern,
+              style: ThemeTypography.regular14,
             ),
             const SizedBox(height: ThemeSizes.micro),
             Row(
               children: [
                 Text(
                   item.routes.first.origin.street,
-                  style: ThemeTypography.pattern,
+                  style: ThemeTypography.regular14,
                 ),
                 const SizedBox(width: ThemeSizes.medium),
                 Text(
                   item.routes.first.destination.street,
-                  style: ThemeTypography.pattern,
+                  style: ThemeTypography.regular14,
                 ),
               ],
             ),

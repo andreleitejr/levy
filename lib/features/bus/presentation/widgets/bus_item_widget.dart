@@ -22,7 +22,7 @@ final class BusItemWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: ThemeColors.pattern,
+          color: ThemeColors.dark,
         ),
         borderRadius: BorderRadius.circular(ThemeSizes.medium),
       ),
@@ -46,19 +46,19 @@ final class BusItemWidget extends StatelessWidget {
         children: [
           Text(
             'Best Route',
-            style: ThemeTypography.pattern,
+            style: ThemeTypography.regular14,
           ),
           const SizedBox(height: ThemeSizes.micro),
           Row(
             children: [
               Text(
                 item.routes.first.origin.street,
-                style: ThemeTypography.pattern,
+                style: ThemeTypography.regular14,
               ),
               const SizedBox(width: ThemeSizes.medium),
               Text(
                 item.routes.first.destination.street,
-                style: ThemeTypography.pattern,
+                style: ThemeTypography.regular14,
               ),
             ],
           ),

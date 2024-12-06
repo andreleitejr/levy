@@ -21,7 +21,7 @@ class NotificationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ThemeAppBarWidget(
-        leadingIcon: ThemeIcons.pattern,
+        leadingIcon: ThemeIcons.arrowLeft,
         onLeadingPressed: onPop,
         title: NotificationTranslation.header.title,
       ),

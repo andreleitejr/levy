@@ -21,7 +21,7 @@ final class ThemeTicketWidget extends StatelessWidget {
           padding: const EdgeInsets.all(ThemeSizes.large),
           decoration: BoxDecoration(
             border: Border.all(
-              color: ThemeColors.pattern,
+              color: ThemeColors.dark,
             ),
             borderRadius: BorderRadius.circular(ThemeSizes.medium),
           ),
@@ -29,19 +29,19 @@ final class ThemeTicketWidget extends StatelessWidget {
             children: [
               Text(
                 'Best Route',
-                style: ThemeTypography.pattern,
+                style: ThemeTypography.regular14,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     bus.routes.first.departureTime,
-                    style: ThemeTypography.pattern,
+                    style: ThemeTypography.regular14,
                   ),
                   Icon(Icons.bus_alert_rounded),
                   Text(
                     bus.routes.first.arrivalTime,
-                    style: ThemeTypography.pattern,
+                    style: ThemeTypography.regular14,
                   ),
                 ],
               ),
@@ -50,11 +50,11 @@ final class ThemeTicketWidget extends StatelessWidget {
                 children: [
                   Text(
                     bus.routes.first.origin.name,
-                    style: ThemeTypography.pattern,
+                    style: ThemeTypography.regular14,
                   ),
                   Text(
                     bus.routes.first.destination.name,
-                    style: ThemeTypography.pattern,
+                    style: ThemeTypography.regular14,
                   ),
                 ],
               ),
@@ -63,11 +63,11 @@ final class ThemeTicketWidget extends StatelessWidget {
                 children: [
                   Text(
                     '${bus.routes.first.origin.street}, ${bus.routes.first.origin.number}',
-                    style: ThemeTypography.pattern,
+                    style: ThemeTypography.regular14,
                   ),
                   Text(
                     '${bus.routes.first.destination.street}, ${bus.routes.first.destination.number}',
-                    style: ThemeTypography.pattern,
+                    style: ThemeTypography.regular14,
                   ),
                 ],
               ),
@@ -77,7 +77,7 @@ final class ThemeTicketWidget extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             border: Border.all(
-              color: ThemeColors.pattern,
+              color: ThemeColors.dark,
             ),
             borderRadius: BorderRadius.circular(ThemeSizes.medium),
           ),

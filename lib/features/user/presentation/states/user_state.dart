@@ -1,6 +1,6 @@
+import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/user/data/models/user_model.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
 
 final class UserState implements GenericStateBase {
   final UserEntity data;

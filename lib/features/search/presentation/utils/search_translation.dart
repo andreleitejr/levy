@@ -4,4 +4,5 @@ final class SearchTranslation {
   const SearchTranslation._();
 
   static final header = t.search.header;
+  static final form = t.search.form;
 }

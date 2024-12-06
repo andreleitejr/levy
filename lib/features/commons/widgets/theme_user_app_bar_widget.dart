@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
+import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:levy/features/user/presentation/utils/user_translation.dart';
 
 final class ThemeUserAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
@@ -24,7 +26,7 @@ final class ThemeUserAppBarWidget extends StatelessWidget
       title: Row(
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(user.image),
+            backgroundImage: AssetImage(ThemeImages.getImageByString(user.image)),
             radius: 24,
           ),
           SizedBox(width: 16),
@@ -32,19 +34,20 @@ final class ThemeUserAppBarWidget extends StatelessWidget
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Welcome,',
-                style: ThemeTypography.pattern,
+                UserTranslation.header.welcome,
+                style: ThemeTypography.regular12,
               ),
               Text(
                 '${user.name} ${user.lastName}',
-                style: ThemeTypography.pattern,
+                style: ThemeTypography.semi16.apply(color: ThemeColors.primary),
               ),
             ],
           ),
           Spacer(),
           ThemeIconWidget(
             onIconPressed: onActionPressed,
-            icon: ThemeIcons.pattern,
+            icon: ThemeIcons.bell,
+            color: ThemeColors.dark,
           ),
         ],
       ),

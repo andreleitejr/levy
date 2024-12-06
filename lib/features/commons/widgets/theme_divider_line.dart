@@ -9,7 +9,7 @@ final class ThemeDividerLine extends StatelessWidget {
     return Container(
       height: 1,
       width: double.infinity,
-      color: ThemeColors.pattern,
+      color: ThemeColors.dark,
     );
   }
 }

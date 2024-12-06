@@ -15,10 +15,10 @@ final class ThemePill extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       padding: const EdgeInsets.symmetric(horizontal: ThemeSizes.medium),
-      surfaceTintColor: ThemeColors.pattern,
+      surfaceTintColor: ThemeColors.dark,
       label: Text(
         title,
-        style: ThemeTypography.pattern,
+        style: ThemeTypography.regular14,
       ),
     );
   }

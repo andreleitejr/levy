@@ -9,7 +9,7 @@ final class UserMock {
     'email': 'john.doe@example.com',
     'phoneNumber': '+1234567890',
     'birthday': '1993-01-15T00:00:00.000',
-    'image': 'https://img.freepik.com/fotos-gratis/mulher-de-negocios-africana-confiante-sorrindo-closeup-retrato-para-empregos-e-campanha-de-carreira_53876-143280.jpg',
+    'image': 'user',
     'address': {
       'name': 'First St',
       'street': 'First Street',

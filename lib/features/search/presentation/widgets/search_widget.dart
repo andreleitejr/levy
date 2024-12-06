@@ -1,13 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:levy/core/router/app_router.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
-import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
-import 'package:levy/features/commons/widgets/theme_button.dart';
+import 'package:levy/features/commons/widgets/theme_bottom_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
-import 'package:levy/features/search/presentation/utils/search_translation.dart';
-import 'package:levy/features/search/presentation/widgets/search_form_input_widget.dart';
 import 'package:levy/features/search/presentation/widgets/search_form_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
@@ -60,6 +57,24 @@ final class SearchWidget extends StatelessWidget {
           onReturnTimeSelect: onReturnTimeSelect,
           onButtonPressed: onButtonPressed,
         ),
+      ),
+      bottomNavigationBar: ThemeBottomBarWidget(
+        onFirstItemTap: () {
+          context.router.push(ReservationRoute());
+        },
+        onSecondItemTap:  () {
+          context.router.push(ReservationRoute());
+        },
+        onThirdItemTap:  () {
+          context.router.push(ReservationRoute());
+        },
+        onProfileTap:  () {
+          context.router.push(ReservationRoute());
+        },
+        firstItemIcon: ThemeIcons.home,
+        secondItemIcon:  ThemeIcons.ticket,
+        thirdItemIcon: ThemeIcons.map,
+        profileImage: user.image,
       ),
     );
   }

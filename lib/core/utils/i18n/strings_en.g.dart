@@ -45,6 +45,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
 	late final TranslationsSeatEn seat = TranslationsSeatEn._(_root);
 	late final TranslationsTimeEn time = TranslationsTimeEn._(_root);
+	late final TranslationsUserEn user = TranslationsUserEn._(_root);
 }
 
 // Path: address
@@ -105,6 +106,7 @@ class TranslationsSearchEn {
 
 	// Translations
 	late final TranslationsSearchHeaderEn header = TranslationsSearchHeaderEn._(_root);
+	late final TranslationsSearchFormEn form = TranslationsSearchFormEn._(_root);
 }
 
 // Path: seat
@@ -125,6 +127,16 @@ class TranslationsTimeEn {
 
 	// Translations
 	late final TranslationsTimeHeaderEn header = TranslationsTimeHeaderEn._(_root);
+}
+
+// Path: user
+class TranslationsUserEn {
+	TranslationsUserEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsUserHeaderEn header = TranslationsUserHeaderEn._(_root);
 }
 
 // Path: address.header
@@ -187,6 +199,20 @@ class TranslationsSearchHeaderEn {
 	String get title => 'Search';
 }
 
+// Path: search.form
+class TranslationsSearchFormEn {
+	TranslationsSearchFormEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get homeAddress => 'Home Address';
+	String get workAddress => 'Work Address';
+	String get departureTime => 'Departure Time';
+	String get returnTime => 'Return Time';
+	String get buttonText => 'Search';
+}
+
 // Path: seat.header
 class TranslationsSeatHeaderEn {
 	TranslationsSeatHeaderEn._(this._root);
@@ -207,6 +233,16 @@ class TranslationsTimeHeaderEn {
 	String get title => 'Select Time';
 }
 
+// Path: user.header
+class TranslationsUserHeaderEn {
+	TranslationsUserHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get welcome => 'Welcome';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -218,8 +254,14 @@ extension on Translations {
 			case 'payment.header.title': return 'Payment';
 			case 'reservation.header.title': return 'Reservation';
 			case 'search.header.title': return 'Search';
+			case 'search.form.homeAddress': return 'Home Address';
+			case 'search.form.workAddress': return 'Work Address';
+			case 'search.form.departureTime': return 'Departure Time';
+			case 'search.form.returnTime': return 'Return Time';
+			case 'search.form.buttonText': return 'Search';
 			case 'seat.header.title': return 'Select Seat';
 			case 'time.header.title': return 'Select Time';
+			case 'user.header.welcome': return 'Welcome';
 			default: return null;
 		}
 	}

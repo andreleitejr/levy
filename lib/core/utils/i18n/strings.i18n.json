@@ -27,6 +27,13 @@
   "search": {
     "header": {
       "title": "Search"
+    },
+    "form": {
+      "homeAddress": "Home Address",
+      "workAddress": "Work Address",
+      "departureTime": "Departure Time",
+      "returnTime": "Return Time",
+      "buttonText": "Search"
     }
   },
   "seat": {
@@ -37,6 +44,11 @@
   "time": {
     "header": {
       "title": "Select Time"
+    }
+  },
+  "user": {
+    "header": {
+      "welcome": "Welcome"
     }
   }
 }
