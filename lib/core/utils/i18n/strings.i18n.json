@@ -46,7 +46,10 @@
   },
   "time": {
     "header": {
-      "title": "Select Time"
+      "title": "Select time"
+    },
+    "button": {
+      "title": "Confirm"
     }
   },
   "user": {

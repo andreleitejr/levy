@@ -1,8 +1,8 @@
 import 'package:levy/features/commons/widgets/state_builder.dart';
 
 final class TimeState implements GenericStateBase {
-  final int? hour;
-  final int? minute;
+  final int hour;
+  final int minute;
 
   @override
   final String? errorMessage;
@@ -11,15 +11,15 @@ final class TimeState implements GenericStateBase {
   final bool isLoading;
 
   const TimeState({
-    this.hour,
-    this.minute,
+    required this.hour,
+    required this.minute,
     this.errorMessage,
     this.isLoading = false,
   });
 
-  const TimeState.loading() : this(isLoading: true);
-  const TimeState.success() : this();
-  const TimeState.error(String message) : this(errorMessage: message);
+  const TimeState.loading() : this(hour: 0, minute: 0, isLoading: true);
+  const TimeState.success(int hour, int minute) : this(hour: hour, minute: minute);
+  const TimeState.error(String message) : this(hour: 0, minute: 0, errorMessage: message);
 
   TimeState copyWith({
     int? hour,

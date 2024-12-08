@@ -128,6 +128,7 @@ class TranslationsTimeEn {
 
 	// Translations
 	late final TranslationsTimeHeaderEn header = TranslationsTimeHeaderEn._(_root);
+	late final TranslationsTimeButtonEn button = TranslationsTimeButtonEn._(_root);
 }
 
 // Path: user
@@ -241,7 +242,17 @@ class TranslationsTimeHeaderEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Select Time';
+	String get title => 'Select time';
+}
+
+// Path: time.button
+class TranslationsTimeButtonEn {
+	TranslationsTimeButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Confirm';
 }
 
 // Path: user.header
@@ -272,7 +283,8 @@ extension on Translations {
 			case 'search.form.returnTime': return 'Return Time';
 			case 'search.form.buttonText': return 'Search';
 			case 'seat.header.title': return 'Select Seat';
-			case 'time.header.title': return 'Select Time';
+			case 'time.header.title': return 'Select time';
+			case 'time.button.title': return 'Confirm';
 			case 'user.header.welcome': return 'Welcome';
 			default: return null;
 		}

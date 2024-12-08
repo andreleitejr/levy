@@ -68,4 +68,11 @@ final class ThemeTypography {
     fontFamily: ThemeFontFamilies.gilroy,
     letterSpacing: 1,
   );
+
+  static const medium42 = TextStyle(
+    fontWeight: ThemeFontWeights.medium,
+    fontSize: 42,
+    fontFamily: ThemeFontFamilies.gilroy,
+    letterSpacing: 1,
+  );
 }
