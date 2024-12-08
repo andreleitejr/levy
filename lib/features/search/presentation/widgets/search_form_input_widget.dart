@@ -31,12 +31,14 @@ final class SearchFormInputWidget extends StatelessWidget {
             height: 16,
           ),
         ),
+
         contentPadding: const EdgeInsets.all(ThemeSizes.medium),
         labelText: labelText,
         labelStyle: controller.text.isNotEmpty
             ? ThemeTypography.regular12
             : ThemeTypography.regular14.apply(
                 color: ThemeColors.grey4,
+
               ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
