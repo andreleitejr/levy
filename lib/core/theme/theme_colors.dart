@@ -12,5 +12,4 @@ final class ThemeColors {
   static const primary = Color(0xFF0081C9);
   static const secondary = Color(0xFF5BC0F8);
   static const tertiary = Color(0xFF86E5FF);
-
 }

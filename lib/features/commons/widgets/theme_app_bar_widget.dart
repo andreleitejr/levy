@@ -39,9 +39,6 @@ final class ThemeAppBarWidget extends StatelessWidget
       ),
       centerTitle: true,
       actions: [_buildAction()],
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      surfaceTintColor: Colors.transparent,
     );
   }
 

@@ -30,7 +30,6 @@ final class ThemeButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(ThemeSizes.small),
           ),
-          backgroundColor: ThemeColors.primary,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +37,7 @@ final class ThemeButton extends StatelessWidget {
             _buildIcon(),
             Text(
               title,
-              style: ThemeTypography.semi16.copyWith(color: Colors.white),
+              style: ThemeTypography.semi16,
             ),
           ],
         ),

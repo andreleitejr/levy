@@ -22,7 +22,7 @@ final class ThemeUserAppBarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      titleSpacing: ThemeSizes.large,
+      titleSpacing: 24,
       title: Row(
         children: [
           CircleAvatar(
