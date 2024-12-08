@@ -1,7 +1,10 @@
 {
   "address": {
     "header": {
-      "title": "Select Address"
+      "title": "Select address"
+    },
+    "searchInput": {
+      "hintText": "What’s your address?"
     }
   },
   "bus": {

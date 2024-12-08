@@ -6,6 +6,12 @@ import 'package:levy/core/theme/theme_font_weights.dart';
 final class ThemeTypography {
   const ThemeTypography._();
 
+  static const regular10 = TextStyle(
+    fontWeight: ThemeFontWeights.regular,
+    fontSize: ThemeFontSizes.micro,
+    fontFamily: ThemeFontFamilies.inter,
+  );
+
   static const regular12 = TextStyle(
     fontWeight: ThemeFontWeights.regular,
     fontSize: ThemeFontSizes.small,

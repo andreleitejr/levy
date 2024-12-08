@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 
@@ -20,19 +21,27 @@ final class ThemeListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(ThemeSizes.large),
+    return Container(
+      height: 96,
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: ThemeColors.grey2,
+          )
+        )
+      ),
       child: ListTile(
         onTap: onItemPressed,
-        contentPadding: EdgeInsets.zero,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+        minVerticalPadding: 28,
         leading: _buildLeadingImage(),
         title: Text(
           title,
-          style: ThemeTypography.regular14,
+          style: ThemeTypography.semi14,
         ),
         subtitle: Text(
           subtitle,
-          style: ThemeTypography.regular14,
+          style: ThemeTypography.regular10,
         ),
         trailing: trailing,
       ),

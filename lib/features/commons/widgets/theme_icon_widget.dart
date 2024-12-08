@@ -13,6 +13,7 @@ final class ThemeIconWidget extends StatelessWidget {
   });
 
   final String icon;
+
   final VoidCallback? onIconPressed;
   final Color color;
   final double width;
@@ -24,7 +25,6 @@ final class ThemeIconWidget extends StatelessWidget {
       onTap: onIconPressed,
       child: SvgPicture.asset(
         icon,
-        semanticsLabel: 'Acme Logo',
         colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
         width: width,
         height: height,

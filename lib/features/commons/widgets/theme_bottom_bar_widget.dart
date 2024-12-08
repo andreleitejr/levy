@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_images.dart';
 
-class ThemeBottomBarWidget extends StatelessWidget {
+final class ThemeBottomBarWidget extends StatelessWidget {
   const ThemeBottomBarWidget({
     super.key,
     required this.onFirstItemTap,

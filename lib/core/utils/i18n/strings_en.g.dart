@@ -56,6 +56,7 @@ class TranslationsAddressEn {
 
 	// Translations
 	late final TranslationsAddressHeaderEn header = TranslationsAddressHeaderEn._(_root);
+	late final TranslationsAddressSearchInputEn searchInput = TranslationsAddressSearchInputEn._(_root);
 }
 
 // Path: bus
@@ -146,7 +147,17 @@ class TranslationsAddressHeaderEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Select Address';
+	String get title => 'Select address';
+}
+
+// Path: address.searchInput
+class TranslationsAddressSearchInputEn {
+	TranslationsAddressSearchInputEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get hintText => 'What’s your address?';
 }
 
 // Path: bus.header
@@ -248,7 +259,8 @@ class TranslationsUserHeaderEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'address.header.title': return 'Select Address';
+			case 'address.header.title': return 'Select address';
+			case 'address.searchInput.hintText': return 'What’s your address?';
 			case 'bus.header.title': return 'Select Bus';
 			case 'notification.header.title': return 'Notifications';
 			case 'payment.header.title': return 'Payment';

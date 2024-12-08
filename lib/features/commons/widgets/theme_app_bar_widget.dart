@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 
-final class ThemeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+final class ThemeAppBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
   const ThemeAppBarWidget({
     super.key,
     this.leadingIcon,
@@ -26,19 +28,20 @@ final class ThemeAppBarWidget extends StatelessWidget implements PreferredSizeWi
     return AppBar(
       leading: GestureDetector(
         onTap: onLeadingPressed,
-        child: _buildLeading(),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: _buildLeading(),
+        ),
       ),
       title: Text(
         title,
-        style: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+        style: ThemeTypography.semi16,
       ),
       centerTitle: true,
       actions: [_buildAction()],
       elevation: 0,
       backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
     );
   }
 
@@ -49,6 +52,7 @@ final class ThemeAppBarWidget extends StatelessWidget implements PreferredSizeWi
       return ThemeIconWidget(
         onIconPressed: onLeadingPressed,
         icon: icon,
+        color: ThemeColors.primary,
       );
     }
 
