@@ -3,7 +3,7 @@ import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/user/data/models/user_model.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
-final class SearchState implements GenericStateBase {
+final class HomeState implements GenericStateBase {
   final UserEntity user;
   final AddressEntity? departureAddress;
   final AddressEntity? returnAddress;
@@ -16,7 +16,7 @@ final class SearchState implements GenericStateBase {
   @override
   final bool isLoading;
 
-  const SearchState({
+  const HomeState({
     this.user = const UserModel(),
     this.departureAddress,
     this.returnAddress,
@@ -26,11 +26,11 @@ final class SearchState implements GenericStateBase {
     this.isLoading = false,
   });
 
-  const SearchState.loading() : this(isLoading: true);
-  const SearchState.success(UserEntity user) : this(user: user);
-  const SearchState.error(String message) : this(errorMessage: message);
+  const HomeState.loading() : this(isLoading: true);
+  const HomeState.success(UserEntity user) : this(user: user);
+  const HomeState.error(String message) : this(errorMessage: message);
 
-  SearchState copyWith({
+  HomeState copyWith({
     UserEntity? user,
     AddressEntity? departureAddress,
     AddressEntity? returnAddress,
@@ -39,7 +39,7 @@ final class SearchState implements GenericStateBase {
     String? errorMessage,
     bool? isLoading,
   }) {
-    return SearchState(
+    return HomeState(
       user: user ?? this.user,
       departureAddress: departureAddress ?? this.departureAddress,
       returnAddress: returnAddress ?? this.returnAddress,

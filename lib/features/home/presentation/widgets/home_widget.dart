@@ -5,7 +5,7 @@ import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/features/commons/widgets/theme_bottom_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
-import 'package:levy/features/search/presentation/widgets/search_form_widget.dart';
+import 'package:levy/features/home/presentation/widgets/home_form_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
 final class SearchWidget extends StatelessWidget {
@@ -58,24 +58,6 @@ final class SearchWidget extends StatelessWidget {
           onButtonPressed: onButtonPressed,
           isValid: departureAddress != null && returnAddress != null,
         ),
-      ),
-      bottomNavigationBar: ThemeBottomBarWidget(
-        onFirstItemTap: () {
-          context.router.push(ReservationRoute());
-        },
-        onSecondItemTap:  () {
-          context.router.push(ReservationRoute());
-        },
-        onThirdItemTap:  () {
-          context.router.push(ReservationRoute());
-        },
-        onProfileTap:  () {
-          context.router.push(ReservationRoute());
-        },
-        firstItemIcon: ThemeIcons.home,
-        secondItemIcon:  ThemeIcons.ticket,
-        thirdItemIcon: ThemeIcons.map,
-        profileImage: user.image,
       ),
     );
   }

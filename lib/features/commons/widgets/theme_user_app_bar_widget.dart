@@ -23,37 +23,41 @@ final class ThemeUserAppBarWidget extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       titleSpacing: 24,
-      title: Row(
-        children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(ThemeImages.getImageByString(user.image)),
-            radius: 24,
-          ),
-          SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                UserTranslation.header.welcome,
-                style: ThemeTypography.regular12,
-              ),
-              Text(
-                '${user.name} ${user.lastName}',
-                style: ThemeTypography.semiBold16.apply(color: ThemeColors.primary),
-              ),
-            ],
-          ),
-          Spacer(),
-          ThemeIconWidget(
-            onIconPressed: onActionPressed,
-            icon: ThemeIcons.bell,
-            color: ThemeColors.dark,
-          ),
-        ],
+      toolbarHeight: 72,
+      title: Padding(
+        padding: const EdgeInsets.only(top: 24),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage(ThemeImages.getImageByString(user.image)),
+              radius: 24,
+            ),
+            SizedBox(width: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  UserTranslation.header.welcome,
+                  style: ThemeTypography.regular12,
+                ),
+                Text(
+                  '${user.name} ${user.lastName}',
+                  style: ThemeTypography.semiBold16.apply(color: ThemeColors.primary),
+                ),
+              ],
+            ),
+            Spacer(),
+            ThemeIconWidget(
+              onIconPressed: onActionPressed,
+              icon: ThemeIcons.bell,
+              color: ThemeColors.dark,
+            ),
+          ],
+        ),
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(60);
+  Size get preferredSize => Size.fromHeight(72);
 }

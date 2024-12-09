@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/search/presentation/states/search_state.dart';
+import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/user/domain/usecases/get_user_usecase.dart';
 
-final class SearchNotifier extends StateNotifier<SearchState> {
+final class HomeNotifier extends StateNotifier<HomeState> {
   final GetUserUseCase _getUserUseCase;
 
-  SearchNotifier(this._getUserUseCase) : super(const SearchState.loading());
+  HomeNotifier(this._getUserUseCase) : super(const HomeState.loading());
 
   Future<void> init() async {
     try {
@@ -14,9 +14,9 @@ final class SearchNotifier extends StateNotifier<SearchState> {
 
       final user = await _getUserUseCase();
       
-      state = SearchState.success(user);
+      state = HomeState.success(user);
     } catch (e) {
-      state = SearchState.error('Failed to load search page: ${e.toString()}');
+      state = HomeState.error('Failed to load search page: ${e.toString()}');
     }
   }
 

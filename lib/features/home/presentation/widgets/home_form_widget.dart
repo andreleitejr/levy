@@ -3,8 +3,8 @@ import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/features/commons/widgets/theme_button.dart';
-import 'package:levy/features/search/presentation/utils/search_translation.dart';
-import 'package:levy/features/search/presentation/widgets/search_form_input_widget.dart';
+import 'package:levy/features/home/presentation/utils/home_translation.dart';
+import 'package:levy/features/home/presentation/widgets/home_form_input_widget.dart';
 
 class SearchFormWidget extends StatelessWidget {
   const SearchFormWidget({
@@ -46,15 +46,15 @@ class SearchFormWidget extends StatelessWidget {
         children: [
           SearchFormInputWidget(
             controller: TextEditingController(text: departureAddress),
-            labelText: SearchTranslation.inputs.departureAddress.labelText,
-            hintText: SearchTranslation.inputs.departureAddress.hintText,
+            labelText: HomeTranslation.inputs.departureAddress.labelText,
+            hintText: HomeTranslation.inputs.departureAddress.hintText,
             onPressed: onDepartureAddressSelect,
             icon: ThemeIcons.home,
           ),
           SearchFormInputWidget(
             controller: TextEditingController(text: returnAddress),
-            labelText: SearchTranslation.inputs.returnAddress.labelText,
-            hintText: SearchTranslation.inputs.returnAddress.hintText,
+            labelText: HomeTranslation.inputs.returnAddress.labelText,
+            hintText: HomeTranslation.inputs.returnAddress.hintText,
             onPressed: onReturnAddressSelect,
             icon: ThemeIcons.briefcase,
           ),
@@ -63,8 +63,8 @@ class SearchFormWidget extends StatelessWidget {
               Expanded(
                 child: SearchFormInputWidget(
                   controller: TextEditingController(text: departureTime),
-                  labelText: SearchTranslation.inputs.departureTime.labelText,
-                  hintText: SearchTranslation.inputs.departureTime.hintText,
+                  labelText: HomeTranslation.inputs.departureTime.labelText,
+                  hintText: HomeTranslation.inputs.departureTime.hintText,
                   onPressed: onDepartureTimeSelect,
                   icon: ThemeIcons.calendar,
                 ),
@@ -73,8 +73,8 @@ class SearchFormWidget extends StatelessWidget {
               Expanded(
                 child: SearchFormInputWidget(
                   controller: TextEditingController(text: returnTime),
-                  labelText: SearchTranslation.inputs.returnTime.labelText,
-                  hintText: SearchTranslation.inputs.returnTime.hintText,
+                  labelText: HomeTranslation.inputs.returnTime.labelText,
+                  hintText: HomeTranslation.inputs.returnTime.hintText,
                   onPressed: onReturnTimeSelect,
                   icon: ThemeIcons.calendar,
                 ),
@@ -82,11 +82,11 @@ class SearchFormWidget extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(ThemeSizes.medium),
+            padding: const EdgeInsets.all(16),
             child: ThemeButton(
               onPressed: onButtonPressed,
-              title: SearchTranslation.button.title,
-              valid: isValid,
+              title: HomeTranslation.button.title,
+              isValid: isValid,
               icon: ThemeIcons.search,
             ),
           ),

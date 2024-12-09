@@ -1,7 +1,7 @@
 import 'package:levy/core/utils/i18n/strings.g.dart';
 
-final class SearchTranslation {
-  const SearchTranslation._();
+final class HomeTranslation {
+  const HomeTranslation._();
 
   static final header = t.search.header;
   static final inputs = t.search.inputs;

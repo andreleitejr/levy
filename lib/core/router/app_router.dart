@@ -5,7 +5,7 @@ import 'package:levy/core/router/app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: SearchRoute.page, initial: true),
+        AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: AddressRoute.page),
         AutoRoute(page: TimeRoute.page),
         AutoRoute(page: NotificationRoute.page),

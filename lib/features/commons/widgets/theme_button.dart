@@ -10,13 +10,13 @@ final class ThemeButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.title,
-    this.valid = true,
+    this.isValid = true,
     this.icon,
   });
 
   final VoidCallback onPressed;
   final String title;
-  final bool valid;
+  final bool isValid;
   final String? icon;
 
   @override
@@ -27,7 +27,7 @@ final class ThemeButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: valid ? ThemeColors.primary : ThemeColors.grey2,
+          backgroundColor: isValid ? ThemeColors.primary : ThemeColors.grey2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(ThemeSizes.small),
           ),

@@ -13,20 +13,19 @@ import 'package:flutter/material.dart' as _i11;
 import 'package:levy/features/address/presentation/pages/address_page.dart'
     as _i1;
 import 'package:levy/features/bus/presentation/pages/bus_page.dart' as _i2;
+import 'package:levy/features/home/presentation/pages/home_page.dart' as _i3;
 import 'package:levy/features/notification/presentation/pages/notification_page.dart'
-    as _i3;
-import 'package:levy/features/payment/presentation/pages/payment_page.dart'
-    as _i5;
-import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart'
     as _i4;
+import 'package:levy/features/payment/presentation/pages/payment_page.dart'
+    as _i6;
+import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart'
+    as _i5;
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart'
     as _i13;
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
-    as _i6;
+    as _i7;
 import 'package:levy/features/search/domain/entities/search_entity.dart'
     as _i12;
-import 'package:levy/features/search/presentation/pages/search_page.dart'
-    as _i7;
 import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i14;
 import 'package:levy/features/seat/presentation/pages/seat_page.dart' as _i8;
 import 'package:levy/features/time/presentation/pages/time_page.dart' as _i9;
@@ -97,7 +96,26 @@ class BusRouteArgs {
 }
 
 /// generated route for
-/// [_i3.NotificationPage]
+/// [_i3.HomePage]
+class HomeRoute extends _i10.PageRouteInfo<void> {
+  const HomeRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static _i10.PageInfo page = _i10.PageInfo(
+    name,
+    builder: (data) {
+      return const _i3.HomePage();
+    },
+  );
+}
+
+/// generated route for
+/// [_i4.NotificationPage]
 class NotificationRoute extends _i10.PageRouteInfo<void> {
   const NotificationRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -110,13 +128,13 @@ class NotificationRoute extends _i10.PageRouteInfo<void> {
   static _i10.PageInfo page = _i10.PageInfo(
     name,
     builder: (data) {
-      return const _i3.NotificationPage();
+      return const _i4.NotificationPage();
     },
   );
 }
 
 /// generated route for
-/// [_i4.PaymentMethodPage]
+/// [_i5.PaymentMethodPage]
 class PaymentMethodRoute extends _i10.PageRouteInfo<void> {
   const PaymentMethodRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -129,13 +147,13 @@ class PaymentMethodRoute extends _i10.PageRouteInfo<void> {
   static _i10.PageInfo page = _i10.PageInfo(
     name,
     builder: (data) {
-      return const _i4.PaymentMethodPage();
+      return const _i5.PaymentMethodPage();
     },
   );
 }
 
 /// generated route for
-/// [_i5.PaymentPage]
+/// [_i6.PaymentPage]
 class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
     _i11.Key? key,
@@ -156,7 +174,7 @@ class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<PaymentRouteArgs>();
-      return _i5.PaymentPage(
+      return _i6.PaymentPage(
         key: args.key,
         reservation: args.reservation,
       );
@@ -181,7 +199,7 @@ class PaymentRouteArgs {
 }
 
 /// generated route for
-/// [_i6.ReservationPage]
+/// [_i7.ReservationPage]
 class ReservationRoute extends _i10.PageRouteInfo<void> {
   const ReservationRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -194,26 +212,7 @@ class ReservationRoute extends _i10.PageRouteInfo<void> {
   static _i10.PageInfo page = _i10.PageInfo(
     name,
     builder: (data) {
-      return const _i6.ReservationPage();
-    },
-  );
-}
-
-/// generated route for
-/// [_i7.SearchPage]
-class SearchRoute extends _i10.PageRouteInfo<void> {
-  const SearchRoute({List<_i10.PageRouteInfo>? children})
-      : super(
-          SearchRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SearchRoute';
-
-  static _i10.PageInfo page = _i10.PageInfo(
-    name,
-    builder: (data) {
-      return const _i7.SearchPage();
+      return const _i7.ReservationPage();
     },
   );
 }
