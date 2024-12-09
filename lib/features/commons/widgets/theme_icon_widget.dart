@@ -7,28 +7,31 @@ final class ThemeIconWidget extends StatelessWidget {
     super.key,
     required this.icon,
     this.onIconPressed,
-    this.color = ThemeColors.primary,
-    this.width = 20,
-    this.height = 20,
+    this.color = ThemeColors.dark,
+    this.size = 20,
+    this.padding = EdgeInsets.zero,
   });
 
   final String icon;
 
   final VoidCallback? onIconPressed;
   final Color color;
-  final double width;
-  final double height;
+  final double size;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onIconPressed,
-      child: SvgPicture.asset(
-        icon,
-        colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-        width: width,
-        height: height,
-        fit: BoxFit.contain,
+      child: Padding(
+        padding: padding,
+        child: SvgPicture.asset(
+          icon,
+          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+          width: size,
+          height: size,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }

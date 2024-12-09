@@ -10,36 +10,46 @@ final class SearchFormInputWidget extends StatelessWidget {
     super.key,
     required this.controller,
     required this.labelText,
+    required this.hintText,
     required this.onPressed,
     required this.icon,
   });
 
   final TextEditingController controller;
   final String labelText;
+  final String hintText;
   final VoidCallback onPressed;
   final String icon;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      readOnly: true,
       decoration: InputDecoration(
-        prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+        prefix: Align(
+          widthFactor: 1,
+          heightFactor: 0.75,
           child: ThemeIconWidget(
             icon: icon,
-            width: 16,
-            height: 16,
+            padding: const EdgeInsets.only(right: 8, top: 6),
+            color: ThemeColors.primary,
+            size: 16,
           ),
         ),
-
-        contentPadding: const EdgeInsets.all(ThemeSizes.medium),
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        prefixIconConstraints: BoxConstraints(),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         labelText: labelText,
         labelStyle: controller.text.isNotEmpty
-            ? ThemeTypography.regular12
+            ? ThemeTypography.regular14
             : ThemeTypography.regular14.apply(
                 color: ThemeColors.grey4,
-
               ),
+        hintText: hintText,
+        hintStyle: ThemeTypography.regular14.apply(
+          color: ThemeColors.grey4,
+        ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: ThemeColors.grey2,
@@ -53,7 +63,7 @@ final class SearchFormInputWidget extends StatelessWidget {
       ),
       onTap: onPressed,
       controller: controller,
-      style: ThemeTypography.semi14,
+      style: ThemeTypography.semiBold14,
     );
   }
 }

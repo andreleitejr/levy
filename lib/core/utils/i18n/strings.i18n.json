@@ -31,12 +31,26 @@
     "header": {
       "title": "Search"
     },
-    "form": {
-      "homeAddress": "Home Address",
-      "workAddress": "Work Address",
-      "departureTime": "Departure Time",
-      "returnTime": "Return Time",
-      "buttonText": "Search"
+    "inputs": {
+      "departureAddress": {
+        "labelText": "Departure Address",
+        "hintText": "Select your departure address"
+      },
+      "returnAddress": {
+        "labelText": "Return Address",
+        "hintText": "Select your return address"
+      },
+      "departureTime": {
+        "labelText": "Departure Time",
+        "hintText": "05:00"
+      },
+      "returnTime": {
+        "labelText": "Return Time",
+        "hintText": "17:30"
+      }
+    },
+    "button": {
+      "title": "Search"
     }
   },
   "seat": {

@@ -35,7 +35,7 @@ final class ThemeAppBarWidget extends StatelessWidget
       ),
       title: Text(
         title,
-        style: ThemeTypography.semi16,
+        style: ThemeTypography.semiBold16,
       ),
       centerTitle: true,
       actions: [_buildAction()],

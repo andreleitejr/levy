@@ -50,8 +50,7 @@ final class ThemeSearchInputWidget extends StatelessWidget {
   Widget _buildIcon() {
     return ThemeIconWidget(
       icon: icon,
-      width: 20,
-      height: 20,
+      size: 20,
       color: ThemeColors.grey3,
     );
   }

@@ -49,9 +49,8 @@ flutter:
   fonts:
     - family: Gilroy
       fonts:
-        - asset: assets/fonts/Gilroy-Medium.otf
-          weight: 500
-        - asset: assets/fonts/Gilroy-Bold.otf
+        - asset: assets/fonts/Gilroy-SemiBold.ttf
+
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter-Regular.ttf

@@ -40,6 +40,7 @@ class AppTheme {
         backgroundColor: Colors.white,
         foregroundColor: ThemeColors.dark,
         elevation: 0,
+        surfaceTintColor: Colors.transparent,
       ),
     );
   }

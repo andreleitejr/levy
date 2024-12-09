@@ -107,7 +107,8 @@ class TranslationsSearchEn {
 
 	// Translations
 	late final TranslationsSearchHeaderEn header = TranslationsSearchHeaderEn._(_root);
-	late final TranslationsSearchFormEn form = TranslationsSearchFormEn._(_root);
+	late final TranslationsSearchInputsEn inputs = TranslationsSearchInputsEn._(_root);
+	late final TranslationsSearchButtonEn button = TranslationsSearchButtonEn._(_root);
 }
 
 // Path: seat
@@ -211,18 +212,27 @@ class TranslationsSearchHeaderEn {
 	String get title => 'Search';
 }
 
-// Path: search.form
-class TranslationsSearchFormEn {
-	TranslationsSearchFormEn._(this._root);
+// Path: search.inputs
+class TranslationsSearchInputsEn {
+	TranslationsSearchInputsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get homeAddress => 'Home Address';
-	String get workAddress => 'Work Address';
-	String get departureTime => 'Departure Time';
-	String get returnTime => 'Return Time';
-	String get buttonText => 'Search';
+	late final TranslationsSearchInputsDepartureAddressEn departureAddress = TranslationsSearchInputsDepartureAddressEn._(_root);
+	late final TranslationsSearchInputsReturnAddressEn returnAddress = TranslationsSearchInputsReturnAddressEn._(_root);
+	late final TranslationsSearchInputsDepartureTimeEn departureTime = TranslationsSearchInputsDepartureTimeEn._(_root);
+	late final TranslationsSearchInputsReturnTimeEn returnTime = TranslationsSearchInputsReturnTimeEn._(_root);
+}
+
+// Path: search.button
+class TranslationsSearchButtonEn {
+	TranslationsSearchButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Search';
 }
 
 // Path: seat.header
@@ -265,6 +275,50 @@ class TranslationsUserHeaderEn {
 	String get welcome => 'Welcome';
 }
 
+// Path: search.inputs.departureAddress
+class TranslationsSearchInputsDepartureAddressEn {
+	TranslationsSearchInputsDepartureAddressEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get labelText => 'Departure Address';
+	String get hintText => 'Select your departure address';
+}
+
+// Path: search.inputs.returnAddress
+class TranslationsSearchInputsReturnAddressEn {
+	TranslationsSearchInputsReturnAddressEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get labelText => 'Return Address';
+	String get hintText => 'Select your return address';
+}
+
+// Path: search.inputs.departureTime
+class TranslationsSearchInputsDepartureTimeEn {
+	TranslationsSearchInputsDepartureTimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get labelText => 'Departure Time';
+	String get hintText => '05:00';
+}
+
+// Path: search.inputs.returnTime
+class TranslationsSearchInputsReturnTimeEn {
+	TranslationsSearchInputsReturnTimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get labelText => 'Return Time';
+	String get hintText => '17:30';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -277,11 +331,15 @@ extension on Translations {
 			case 'payment.header.title': return 'Payment';
 			case 'reservation.header.title': return 'Reservation';
 			case 'search.header.title': return 'Search';
-			case 'search.form.homeAddress': return 'Home Address';
-			case 'search.form.workAddress': return 'Work Address';
-			case 'search.form.departureTime': return 'Departure Time';
-			case 'search.form.returnTime': return 'Return Time';
-			case 'search.form.buttonText': return 'Search';
+			case 'search.inputs.departureAddress.labelText': return 'Departure Address';
+			case 'search.inputs.departureAddress.hintText': return 'Select your departure address';
+			case 'search.inputs.returnAddress.labelText': return 'Return Address';
+			case 'search.inputs.returnAddress.hintText': return 'Select your return address';
+			case 'search.inputs.departureTime.labelText': return 'Departure Time';
+			case 'search.inputs.departureTime.hintText': return '05:00';
+			case 'search.inputs.returnTime.labelText': return 'Return Time';
+			case 'search.inputs.returnTime.hintText': return '17:30';
+			case 'search.button.title': return 'Search';
 			case 'seat.header.title': return 'Select Seat';
 			case 'time.header.title': return 'Select time';
 			case 'time.button.title': return 'Confirm';

@@ -56,6 +56,7 @@ final class SearchWidget extends StatelessWidget {
           onDepartureTimeSelect: onDepartureTimeSelect,
           onReturnTimeSelect: onReturnTimeSelect,
           onButtonPressed: onButtonPressed,
+          isValid: departureAddress != null && returnAddress != null,
         ),
       ),
       bottomNavigationBar: ThemeBottomBarWidget(

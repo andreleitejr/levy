@@ -51,22 +51,16 @@ final class _TimePageState extends ConsumerState<TimePage> {
     );
   }
 
-  Future<void> _onButtonPressed(TimeState state) async {
-    final hour = state.hour;
-    final minute = state.minute;
+  void _onButtonPressed(TimeState state) {
+    final formattedTime = _getFormattedTime( state.hour, state.minute);
 
-    final isValid = hour != null && minute != null;
-
-    if (isValid) {
-      final formattedTime = _getFormattedTime(hour, minute);
-
-      context.router.maybePop(formattedTime);
-    }
+    context.router.maybePop(formattedTime);
   }
 
   String _getFormattedTime(int hour, int minute) {
     final String formattedHour = hour.toString().padLeft(2, '0');
     final String formattedMinute = minute.toString().padLeft(2, '0');
+
     return '$formattedHour:$formattedMinute';
   }
 }

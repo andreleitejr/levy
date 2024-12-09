@@ -39,7 +39,7 @@ final class ThemeUserAppBarWidget extends StatelessWidget
               ),
               Text(
                 '${user.name} ${user.lastName}',
-                style: ThemeTypography.semi16.apply(color: ThemeColors.primary),
+                style: ThemeTypography.semiBold16.apply(color: ThemeColors.primary),
               ),
             ],
           ),

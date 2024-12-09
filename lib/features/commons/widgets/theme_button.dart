@@ -27,6 +27,7 @@ final class ThemeButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
+          backgroundColor: valid ? ThemeColors.primary : ThemeColors.grey2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(ThemeSizes.small),
           ),
@@ -37,7 +38,7 @@ final class ThemeButton extends StatelessWidget {
             _buildIcon(),
             Text(
               title,
-              style: ThemeTypography.semi16,
+              style: ThemeTypography.semiBold16,
             ),
           ],
         ),

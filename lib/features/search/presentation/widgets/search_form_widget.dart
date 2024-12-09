@@ -19,6 +19,7 @@ class SearchFormWidget extends StatelessWidget {
     required this.onDepartureTimeSelect,
     required this.onReturnTimeSelect,
     required this.onButtonPressed,
+    this.isValid = true,
   });
 
   final String? departureAddress;
@@ -31,30 +32,29 @@ class SearchFormWidget extends StatelessWidget {
   final VoidCallback onDepartureTimeSelect;
   final VoidCallback onReturnTimeSelect;
   final VoidCallback onButtonPressed;
-
-  bool get isValid => departureAddress != null && returnAddress != null;
+  final bool isValid;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          color: ThemeColors.primary,
-        ),
-        borderRadius: BorderRadius.circular(ThemeSizes.medium),
+        border: Border.all(color: ThemeColors.primary),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SearchFormInputWidget(
             controller: TextEditingController(text: departureAddress),
-            labelText: SearchTranslation.form.homeAddress,
+            labelText: SearchTranslation.inputs.departureAddress.labelText,
+            hintText: SearchTranslation.inputs.departureAddress.hintText,
             onPressed: onDepartureAddressSelect,
             icon: ThemeIcons.home,
           ),
           SearchFormInputWidget(
             controller: TextEditingController(text: returnAddress),
-            labelText: SearchTranslation.form.workAddress,
+            labelText: SearchTranslation.inputs.returnAddress.labelText,
+            hintText: SearchTranslation.inputs.returnAddress.hintText,
             onPressed: onReturnAddressSelect,
             icon: ThemeIcons.briefcase,
           ),
@@ -63,7 +63,8 @@ class SearchFormWidget extends StatelessWidget {
               Expanded(
                 child: SearchFormInputWidget(
                   controller: TextEditingController(text: departureTime),
-                  labelText: SearchTranslation.form.departureTime,
+                  labelText: SearchTranslation.inputs.departureTime.labelText,
+                  hintText: SearchTranslation.inputs.departureTime.hintText,
                   onPressed: onDepartureTimeSelect,
                   icon: ThemeIcons.calendar,
                 ),
@@ -72,7 +73,8 @@ class SearchFormWidget extends StatelessWidget {
               Expanded(
                 child: SearchFormInputWidget(
                   controller: TextEditingController(text: returnTime),
-                  labelText: SearchTranslation.form.returnTime,
+                  labelText: SearchTranslation.inputs.returnTime.labelText,
+                  hintText: SearchTranslation.inputs.returnTime.hintText,
                   onPressed: onReturnTimeSelect,
                   icon: ThemeIcons.calendar,
                 ),
@@ -83,7 +85,7 @@ class SearchFormWidget extends StatelessWidget {
             padding: const EdgeInsets.all(ThemeSizes.medium),
             child: ThemeButton(
               onPressed: onButtonPressed,
-              title: SearchTranslation.form.buttonText,
+              title: SearchTranslation.button.title,
               valid: isValid,
               icon: ThemeIcons.search,
             ),

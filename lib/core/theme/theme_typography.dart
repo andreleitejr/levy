@@ -24,11 +24,11 @@ final class ThemeTypography {
     fontFamily: ThemeFontFamilies.inter,
   );
 
-  static const semi12 = TextStyle(
-    fontWeight: ThemeFontWeights.semibold,
+  static const semiBold12 = TextStyle(
+    fontWeight: ThemeFontWeights.semiBold,
     fontSize: ThemeFontSizes.small,
     fontFamily: ThemeFontFamilies.gilroy,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   );
 
   static const regular14 = TextStyle(
@@ -43,11 +43,11 @@ final class ThemeTypography {
     fontFamily: ThemeFontFamilies.inter,
   );
 
-  static const semi14 = TextStyle(
-    fontWeight: ThemeFontWeights.semibold,
+  static const semiBold14 = TextStyle(
+    fontWeight: ThemeFontWeights.semiBold,
     fontSize: ThemeFontSizes.medium,
     fontFamily: ThemeFontFamilies.gilroy,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   );
 
   static const regular16 = TextStyle(
@@ -62,17 +62,17 @@ final class ThemeTypography {
     fontFamily: ThemeFontFamilies.inter,
   );
 
-  static const semi16 = TextStyle(
-    fontWeight: ThemeFontWeights.semibold,
+  static const semiBold16 = TextStyle(
+    fontWeight: ThemeFontWeights.bold,
     fontSize: ThemeFontSizes.large,
     fontFamily: ThemeFontFamilies.gilroy,
-    letterSpacing: 1,
+    letterSpacing: 0.75,
   );
 
   static const medium42 = TextStyle(
     fontWeight: ThemeFontWeights.medium,
     fontSize: 42,
     fontFamily: ThemeFontFamilies.gilroy,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   );
 }

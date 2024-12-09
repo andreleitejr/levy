@@ -37,7 +37,7 @@ final class ThemeListItemWidget extends StatelessWidget {
         leading: _buildLeadingImage(),
         title: Text(
           title,
-          style: ThemeTypography.semi14,
+          style: ThemeTypography.semiBold14,
         ),
         subtitle: Text(
           subtitle,

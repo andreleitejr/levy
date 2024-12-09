@@ -28,7 +28,6 @@ final class TimeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: ThemeAppBarWidget(
         title: TimeTranslation.header.title,
         onLeadingPressed: onPop,
