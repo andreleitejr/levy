@@ -22,9 +22,9 @@ class ReservationWidget extends StatelessWidget {
       body: Column(
         children: [
           ThemeTicketWidget(bus: reservations.first.departureBus),
-          SizedBox(height: ThemeSizes.large),
+          SizedBox(height: 24),
           ThemeTicketWidget(bus: reservations.first.returnBus),
-          SizedBox(height: ThemeSizes.large),
+          SizedBox(height: 24),
         ],
       ),
     );

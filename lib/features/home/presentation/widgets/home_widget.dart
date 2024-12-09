@@ -40,7 +40,7 @@ final class SearchWidget extends StatelessWidget {
         onActionPressed: onNotificationButtonPressed,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(ThemeSizes.large),
+        padding: const EdgeInsets.all(24),
         child: SearchFormWidget(
           departureAddress: departureAddress,
           returnAddress: returnAddress,

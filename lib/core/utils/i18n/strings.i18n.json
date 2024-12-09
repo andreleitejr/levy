@@ -10,6 +10,12 @@
   "bus": {
     "header": {
       "title": "Select Bus"
+    },
+    "results": {
+      "title": "Best Route"
+    },
+    "button": {
+      "title": "Select"
     }
   },
   "notification": {

@@ -9,8 +9,7 @@ final class ReservationMock {
       'date': '2023-10-10',
       'departureBus': {
         'id': '1',
-        'image':
-        'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+        'image': 'bus_1',
         'brand': 'Marcopolo',
         'model': 'Paradiso G8 1800 D',
         'year': '2022',
@@ -22,7 +21,7 @@ final class ReservationMock {
         'isAccessible': true,
         'driver': {
           'id': '1',
-          'image': 'https://example.com/driver_image_1.jpg',
+          'image': 'driver_1',
           'name': 'John Doe',
           'birthday': '1985-05-15',
           'licenseNumber': 'ABCD123456',
@@ -185,11 +184,9 @@ final class ReservationMock {
           },
         ],
       },
-      'returnBus':
-      {
+      'returnBus': {
         'id': '2',
-        'image':
-        'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+        'image': 'bus_2',
         'brand': 'Mercedes-Benz',
         'model': 'Sprinter',
         'year': '2020',
@@ -201,7 +198,7 @@ final class ReservationMock {
         'isAccessible': true,
         'driver': {
           'id': '2',
-          'image': 'https://example.com/driver_image_2.jpg',
+          'image': 'driver_3',
           'name': 'Jane Smith',
           'birthday': '1990-08-12',
           'licenseNumber': 'XYZ987654',

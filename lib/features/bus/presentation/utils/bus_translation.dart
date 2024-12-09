@@ -4,4 +4,6 @@ final class BusTranslation {
   const BusTranslation._();
 
   static final header = t.bus.header;
+  static final results = t.bus.results;
+  static final button = t.bus.button;
 }

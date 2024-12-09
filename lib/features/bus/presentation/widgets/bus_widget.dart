@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
@@ -25,11 +26,12 @@ final class BusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ThemeAppBarWidget(
-        title: BusTranslation.header.title,
+        leadingIcon: ThemeIcons.arrowLeft,
         onLeadingPressed: onPop,
+        title: BusTranslation.header.title,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(ThemeSizes.large),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
             _buildDepartureWidget(),
@@ -41,7 +43,7 @@ final class BusWidget extends StatelessWidget {
                       item: item,
                       onItemPressed: () => onItemPressed(item),
                     ),
-                    const SizedBox(height: ThemeSizes.large),
+                    const SizedBox(height: 24),
                   ],
                 );
               },
@@ -57,14 +59,14 @@ final class BusWidget extends StatelessWidget {
 
     if (item != null) {
       return Container(
-        padding: const EdgeInsets.all(ThemeSizes.medium),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.all(
             color: ThemeColors.dark,
           ),
-          borderRadius: BorderRadius.circular(ThemeSizes.medium),
+          borderRadius: BorderRadius.circular(16),
         ),
-        margin: const EdgeInsets.only(bottom: ThemeSizes.large),
+        margin: const EdgeInsets.only(bottom: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -79,7 +81,7 @@ final class BusWidget extends StatelessWidget {
                   item.routes.first.origin.street,
                   style: ThemeTypography.regular14,
                 ),
-                const SizedBox(width: ThemeSizes.medium),
+                const SizedBox(width: 16),
                 Text(
                   item.routes.first.destination.street,
                   style: ThemeTypography.regular14,

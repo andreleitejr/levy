@@ -34,9 +34,9 @@ final class PaymentWidget extends StatelessWidget {
       body: Column(
         children: [
           ThemeTicketWidget(bus: reservation.departureBus),
-          SizedBox(height: ThemeSizes.large),
+          SizedBox(height: 24),
           ThemeTicketWidget(bus: reservation.returnBus),
-          SizedBox(height: ThemeSizes.large),
+          SizedBox(height: 24),
           ThemeListItemWidget(
             onPressed: onPaymentMethodPressed,
             title: _getPaymentMethodTitle(),

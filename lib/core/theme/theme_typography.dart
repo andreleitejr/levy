@@ -12,6 +12,12 @@ final class ThemeTypography {
     fontFamily: ThemeFontFamilies.inter,
   );
 
+  static const medium10 = TextStyle(
+    fontWeight: ThemeFontWeights.medium,
+    fontSize: ThemeFontSizes.micro,
+    fontFamily: ThemeFontFamilies.inter,
+  );
+
   static const regular12 = TextStyle(
     fontWeight: ThemeFontWeights.regular,
     fontSize: ThemeFontSizes.small,

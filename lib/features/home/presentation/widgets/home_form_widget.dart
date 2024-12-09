@@ -69,7 +69,7 @@ class SearchFormWidget extends StatelessWidget {
                   icon: ThemeIcons.calendar,
                 ),
               ),
-              const SizedBox(width: ThemeSizes.medium),
+              const SizedBox(width: 16),
               Expanded(
                 child: SearchFormInputWidget(
                   controller: TextEditingController(text: returnTime),

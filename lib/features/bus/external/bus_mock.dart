@@ -4,20 +4,19 @@ final class BusMock {
   static final response = [
     {
       'id': '1',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_1',
       'brand': 'Marcopolo',
       'model': 'Paradiso G8 1800 D',
       'year': '2022',
       'color': 'Blue',
       'capacity': 32,
-      'amenities': ['Wi-Fi', 'Coffee', 'TV', 'Netflix'],
+      'amenities': ['Wi-Fi', 'Coffee', 'Smart TV', 'Netflix', 'Mini-bar'],
       'licensePlate': 'PL8R4LYF',
       'chassisNumber': 'CHS-1234567890',
       'isAccessible': true,
       'driver': {
         'id': '1',
-        'image': 'https://example.com/driver_image_1.jpg',
+        'image': 'driver_1',
         'name': 'John Doe',
         'birthday': '1985-05-15',
         'licenseNumber': 'ABCD123456',
@@ -182,20 +181,19 @@ final class BusMock {
     },
     {
       'id': '2',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_2',
       'brand': 'Mercedes-Benz',
       'model': 'Sprinter',
       'year': '2020',
       'color': 'Red',
       'capacity': 20,
-      'amenities': ['Wi-Fi', 'Reclining Seats'],
+      'amenities': ['Wi-Fi',  'Smart TV', 'Coffee', 'Reclining Seats'],
       'licensePlate': 'MB2020',
       'chassisNumber': 'MB-9876543210',
       'isAccessible': true,
       'driver': {
         'id': '2',
-        'image': 'https://example.com/driver_image_2.jpg',
+        'image': 'driver_3',
         'name': 'Jane Smith',
         'birthday': '1990-08-12',
         'licenseNumber': 'XYZ987654',
@@ -284,20 +282,19 @@ final class BusMock {
     },
     {
       'id': '3',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_3',
       'brand': 'Volvo',
       'model': 'B8R',
       'year': '2021',
       'color': 'Green',
       'capacity': 40,
-      'amenities': ['Wi-Fi', 'Air Conditioning'],
+      'amenities': ['Wi-Fi', 'Coffee', 'Smart TV', 'Netflix', 'Air Conditioning', 'Mini-bar'],
       'licensePlate': 'VOL1234',
       'chassisNumber': 'VOL-1357924680',
       'isAccessible': false,
       'driver': {
         'id': '3',
-        'image': 'https://example.com/driver_image_3.jpg',
+        'image': 'driver_2',
         'name': 'Michael Johnson',
         'birthday': '1988-02-22',
         'licenseNumber': 'LMNOP654321',
@@ -415,21 +412,20 @@ final class BusMock {
     },
     {
       'id': '4',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_1',
       'brand': 'Volvo',
       'model': 'B8R',
       'year': '2023',
       'color': 'Yellow',
       'capacity': 40,
-      'amenities': ['Wi-Fi', 'Air Conditioning'],
+      'amenities': ['Wi-Fi', 'Coffee', 'Smart TV', 'Prime Video', 'Netflix', 'Air Conditioning'],
       'licensePlate': 'VOL5678',
       'chassisNumber': 'VOL-9876543210',
       'isAccessible': true,
       'driver': {
         'id': '4',
-        'image': 'https://example.com/driver_image_4.jpg',
-        'name': 'Anna Taylor',
+        'image': 'driver_4',
+        'name': 'Paul Taylor',
         'birthday': '1987-07-11',
         'licenseNumber': 'PQR123456',
         'licenseType': 'C',
@@ -520,20 +516,19 @@ final class BusMock {
     },
     {
       'id': '5',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_3',
       'brand': 'Marcopolo',
       'model': 'Paradiso G8 1800 D',
       'year': '2022',
       'color': 'Green',
       'capacity': 32,
-      'amenities': ['Wi-Fi', 'Coffee', 'TV', 'Netflix'],
+      'amenities': ['Wi-Fi', 'Coffee', 'Smart TV', 'Netflix'],
       'licensePlate': 'MPL1234',
       'chassisNumber': 'CHS-5678901234',
       'isAccessible': false,
       'driver': {
         'id': '5',
-        'image': 'https://example.com/driver_image_5.jpg',
+        'image': 'driver_1',
         'name': 'Carlos Rivera',
         'birthday': '1982-11-23',
         'licenseNumber': 'JKL456789',
@@ -620,8 +615,7 @@ final class BusMock {
     },
     {
       'id': '6',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_2',
       'brand': 'Mercedes-Benz',
       'model': 'Sprinter',
       'year': '2021',
@@ -633,7 +627,7 @@ final class BusMock {
       'isAccessible': true,
       'driver': {
         'id': '6',
-        'image': 'https://example.com/driver_image_6.jpg',
+        'image': 'driver_4',
         'name': 'Lucas Souza',
         'birthday': '1991-03-18',
         'licenseNumber': 'TUV234567',
@@ -715,20 +709,19 @@ final class BusMock {
     },
     {
       'id': '7',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_2',
       'brand': 'Scania',
       'model': 'K360',
       'year': '2022',
       'color': 'Blue',
       'capacity': 45,
-      'amenities': ['Wi-Fi', 'Air Conditioning', 'Restroom'],
+      'amenities': ['Wi-Fi', 'Air Conditioning', 'Restroom', 'Coffee'],
       'licensePlate': 'SCA1234',
       'chassisNumber': 'SCA-1234567890',
       'isAccessible': true,
       'driver': {
         'id': '7',
-        'image': 'https://example.com/driver_image_7.jpg',
+        'image': 'driver_2',
         'name': 'Julia Mendes',
         'birthday': '1985-04-15',
         'licenseNumber': 'DFG456789',
@@ -820,8 +813,7 @@ final class BusMock {
     },
     {
       'id': '8',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_3',
       'brand': 'Irizar',
       'model': 'i6',
       'year': '2023',
@@ -833,7 +825,7 @@ final class BusMock {
       'isAccessible': false,
       'driver': {
         'id': '8',
-        'image': 'https://example.com/driver_image_8.jpg',
+        'image': 'driver_4',
         'name': 'Miguel Fernandes',
         'birthday': '1978-08-10',
         'licenseNumber': 'HIJ567890',
@@ -925,8 +917,7 @@ final class BusMock {
     },
     {
       'id': '9',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_2',
       'brand': 'Volvo',
       'model': 'B11R',
       'year': '2021',
@@ -938,7 +929,7 @@ final class BusMock {
       'isAccessible': true,
       'driver': {
         'id': '9',
-        'image': 'https://example.com/driver_image_9.jpg',
+        'image': 'driver_2',
         'name': 'Carlos Oliveira',
         'birthday': '1975-11-21',
         'licenseNumber': 'XYZ987654',
@@ -1030,8 +1021,7 @@ final class BusMock {
     },
     {
       'id': '10',
-      'image':
-          'https://static5.depositphotos.com/1008336/505/v/450/depositphotos_5050726-stock-illustration-white-bus.jpg',
+      'image': 'bus_1',
       'brand': 'Mercedes-Benz',
       'model': 'Tourismo',
       'year': '2023',
@@ -1043,7 +1033,7 @@ final class BusMock {
       'isAccessible': false,
       'driver': {
         'id': '10',
-        'image': 'https://example.com/driver_image_10.jpg',
+        'image': 'driver',
         'name': 'Roberto Souza',
         'birthday': '1980-03-14',
         'licenseNumber': 'LMN654321',

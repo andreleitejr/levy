@@ -18,12 +18,12 @@ final class ThemeTicketWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.all(ThemeSizes.large),
+          padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
             border: Border.all(
               color: ThemeColors.dark,
             ),
-            borderRadius: BorderRadius.circular(ThemeSizes.medium),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             children: [
@@ -79,15 +79,15 @@ final class ThemeTicketWidget extends StatelessWidget {
             border: Border.all(
               color: ThemeColors.dark,
             ),
-            borderRadius: BorderRadius.circular(ThemeSizes.medium),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             children: [
               ThemeListItemWidget(
-                  image: bus.image,
-                  title: '${bus.brand} ${bus.model}',
-                  subtitle:
-                      '${bus.licensePlate} - Seat: ${bus.seats.first.letter}${bus.seats.first.number}')
+                image: bus.image,
+                title: '${bus.brand} ${bus.model}',
+                subtitle: '${bus.licensePlate} - Seat: ${bus.seats.first.letter}${bus.seats.first.number}',
+              )
             ],
           ),
         ),

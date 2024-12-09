@@ -67,6 +67,8 @@ class TranslationsBusEn {
 
 	// Translations
 	late final TranslationsBusHeaderEn header = TranslationsBusHeaderEn._(_root);
+	late final TranslationsBusResultsEn results = TranslationsBusResultsEn._(_root);
+	late final TranslationsBusButtonEn button = TranslationsBusButtonEn._(_root);
 }
 
 // Path: notification
@@ -170,6 +172,26 @@ class TranslationsBusHeaderEn {
 
 	// Translations
 	String get title => 'Select Bus';
+}
+
+// Path: bus.results
+class TranslationsBusResultsEn {
+	TranslationsBusResultsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Best Route';
+}
+
+// Path: bus.button
+class TranslationsBusButtonEn {
+	TranslationsBusButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select';
 }
 
 // Path: notification.header
@@ -327,6 +349,8 @@ extension on Translations {
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
 			case 'bus.header.title': return 'Select Bus';
+			case 'bus.results.title': return 'Best Route';
+			case 'bus.button.title': return 'Select';
 			case 'notification.header.title': return 'Notifications';
 			case 'payment.header.title': return 'Payment';
 			case 'reservation.header.title': return 'Reservation';

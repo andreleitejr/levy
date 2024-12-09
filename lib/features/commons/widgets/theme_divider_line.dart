@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 
 final class ThemeDividerLine extends StatelessWidget {
-  const ThemeDividerLine({super.key});
+  const ThemeDividerLine({
+    super.key,
+    this.height = 1,
+    this.color = ThemeColors.dark,
+  });
+
+  final double height;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1,
+      height: height,
       width: double.infinity,
-      color: ThemeColors.dark,
+      color: color,
     );
   }
 }
