@@ -6,5 +6,5 @@ abstract class NotificationEntity {
   String? get titleSemantics;
   String get subtitle;
   String? get subtitleSemantics;
-  String? get datetime;
+  String get datetime;
 }

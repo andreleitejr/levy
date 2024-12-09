@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_sizes.dart';
+import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 
 final class ThemeListItemWidget extends StatelessWidget {
@@ -10,14 +10,14 @@ final class ThemeListItemWidget extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.trailing,
-    this.onItemPressed,
+    this.onPressed,
   });
 
   final String? image;
   final String title;
   final String subtitle;
   final Widget? trailing;
-  final VoidCallback? onItemPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +27,11 @@ final class ThemeListItemWidget extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             color: ThemeColors.grey2,
-          )
-        )
+          ),
+        ),
       ),
       child: ListTile(
-        onTap: onItemPressed,
+        onTap: onPressed,
         contentPadding: const EdgeInsets.symmetric(horizontal: 24),
         minVerticalPadding: 28,
         leading: _buildLeadingImage(),
@@ -53,8 +53,8 @@ final class ThemeListItemWidget extends StatelessWidget {
 
     if (leadingImage != null) {
       return ClipOval(
-        child: Image.network(
-          leadingImage,
+        child: Image.asset(
+          ThemeImages.getImageByString(leadingImage),
           width: 48,
           height: 48,
           fit: BoxFit.fitWidth,

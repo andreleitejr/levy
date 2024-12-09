@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:levy/core/router/app_router.dart';
 import 'package:levy/core/theme/app_theme.dart';
-import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/utils/i18n/strings.g.dart';
 
 void main() {

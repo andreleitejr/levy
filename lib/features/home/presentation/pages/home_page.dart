@@ -11,12 +11,12 @@ import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
-import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
-import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/home/presentation/notifiers/home_notifier.dart';
 import 'package:levy/features/home/presentation/providers/home_notifier_provider.dart';
 import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/home/presentation/widgets/home_widget.dart';
+import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
+import 'package:levy/features/search/data/models/search_model.dart';
 
 @RoutePage()
 final class HomePage extends ConsumerStatefulWidget {

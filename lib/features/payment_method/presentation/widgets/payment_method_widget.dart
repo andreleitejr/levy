@@ -29,7 +29,7 @@ final class PaymentMethodWidget extends StatelessWidget {
           final item = items[index];
 
           return ThemeListItemWidget(
-            onItemPressed: () => onItemPressed(item),
+            onPressed: () => onItemPressed(item),
             title: item.methodType,
             subtitle: item.cardNumber,
           );

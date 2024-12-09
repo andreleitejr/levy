@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 
@@ -41,15 +39,9 @@ final class SearchFormInputWidget extends StatelessWidget {
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         labelText: labelText,
-        labelStyle: controller.text.isNotEmpty
-            ? ThemeTypography.regular14
-            : ThemeTypography.regular14.apply(
-                color: ThemeColors.grey4,
-              ),
+        labelStyle: ThemeTypography.regular14.apply(color: ThemeColors.grey4),
         hintText: hintText,
-        hintStyle: ThemeTypography.regular14.apply(
-          color: ThemeColors.grey4,
-        ),
+        hintStyle: ThemeTypography.regular14.apply(color: ThemeColors.grey4),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: ThemeColors.grey2,

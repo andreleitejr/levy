@@ -1,9 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_sizes.dart';
-import 'package:levy/features/commons/widgets/theme_bottom_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_form_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';

@@ -52,7 +52,7 @@ final class AddressWidget extends StatelessWidget {
                     ' ${item.city}, ${item.state} ${item.postalCode}';
 
                 return ThemeListItemWidget(
-                  onItemPressed: () => onItemPressed(item),
+                  onPressed: () => onItemPressed(item),
                   title: item.street,
                   subtitle: formattedAddress,
                 );
