@@ -10,16 +10,18 @@ final class ThemeRouteTitleWidget extends StatelessWidget {
     required this.title,
     required this.firstRouteTitle,
     required this.secondRouteTitle,
+    this.padding,
   });
 
   final String title;
   final String firstRouteTitle;
   final String secondRouteTitle;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
+    return Container(
+      padding: padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

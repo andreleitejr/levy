@@ -35,6 +35,7 @@ final class BusItemWidget extends StatelessWidget {
       child: Column(
         children: [
           ThemeRouteTitleWidget(
+            padding: const EdgeInsets.all(16),
             title: BusTranslation.results.title,
             firstRouteTitle: item.routes.first.origin.street,
             secondRouteTitle: item.routes.first.destination.street,

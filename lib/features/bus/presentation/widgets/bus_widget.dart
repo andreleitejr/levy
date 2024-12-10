@@ -7,6 +7,7 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_item_widget.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
+import 'package:levy/features/commons/widgets/theme_route_title_widget.dart';
 
 final class BusWidget extends StatelessWidget {
   const BusWidget({
@@ -62,33 +63,15 @@ final class BusWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.all(
-            color: ThemeColors.dark,
+            color: ThemeColors.secondary,
           ),
           borderRadius: BorderRadius.circular(16),
         ),
         margin: const EdgeInsets.only(bottom: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Departure Info',
-              style: ThemeTypography.regular14,
-            ),
-            const SizedBox(height: ThemeSizes.micro),
-            Row(
-              children: [
-                Text(
-                  item.routes.first.origin.street,
-                  style: ThemeTypography.regular14,
-                ),
-                const SizedBox(width: 16),
-                Text(
-                  item.routes.first.destination.street,
-                  style: ThemeTypography.regular14,
-                ),
-              ],
-            ),
-          ],
+        child: ThemeRouteTitleWidget(
+          title: BusTranslation.results.title,
+          firstRouteTitle: item.routes.first.origin.street,
+          secondRouteTitle: item.routes.first.destination.street,
         ),
       );
     }
