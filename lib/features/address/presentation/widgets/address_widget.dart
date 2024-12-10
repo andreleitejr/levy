@@ -48,13 +48,10 @@ final class AddressWidget extends StatelessWidget {
               (BuildContext context, int index) {
                 final item = items[index];
 
-                final formattedAddress = '${item.number} ${item.street},'
-                    ' ${item.city}, ${item.state} ${item.postalCode}';
-
                 return ThemeListItemWidget(
                   onPressed: () => onItemPressed(item),
                   title: item.street,
-                  subtitle: formattedAddress,
+                  subtitle: item.line,
                 );
               },
               childCount: items.length,

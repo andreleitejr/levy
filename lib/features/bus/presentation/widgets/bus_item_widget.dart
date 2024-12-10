@@ -10,6 +10,8 @@ import 'package:levy/features/commons/widgets/theme_button.dart';
 import 'package:levy/features/commons/widgets/theme_divider_line.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/commons/widgets/theme_pill.dart';
+import 'package:levy/features/commons/widgets/theme_route_title_widget.dart';
+import 'package:levy/features/commons/widgets/theme_schedule_widget.dart';
 
 final class BusItemWidget extends StatelessWidget {
   const BusItemWidget({
@@ -32,44 +34,29 @@ final class BusItemWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _buildItemTitle(),
+          ThemeRouteTitleWidget(
+            title: BusTranslation.results.title,
+            firstRouteTitle: item.routes.first.origin.street,
+            secondRouteTitle: item.routes.first.destination.street,
+          ),
           _buildItemImage(),
           _buildItemPills(),
           ThemeDividerLine(color: ThemeColors.grey2),
-          _buildItemButton(),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildItemTitle() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            BusTranslation.results.title,
-            style: ThemeTypography.regular12.apply(color: ThemeColors.primary),
+          ThemeScheduleWidget(
+            departureTime: item.routes.first.departureTime,
+            arrivalTime: item.routes.first.arrivalTime,
+            departureAddressTitle: item.routes.first.origin.name,
+            arrivalAddressTitle: item.routes.first.destination.name,
+            departureAddressLine: item.routes.first.origin.line,
+            arrivalAddressLine: item.routes.first.destination.line,
           ),
-          const SizedBox(height: 4),
-          Row(
-            children: [
-              Text(
-                item.routes.first.origin.street,
-                style: ThemeTypography.semiBold16,
-              ),
-              const SizedBox(width: 16),
-              ThemeIconWidget(
-                icon: ThemeIcons.arrowRight,
-                color: ThemeColors.primary,
-              ),
-              const SizedBox(width: 16),
-              Text(
-                item.routes.first.destination.street,
-                style: ThemeTypography.semiBold16,
-              ),
-            ],
+          ThemeDividerLine(color: ThemeColors.grey2),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: ThemeButton(
+              onPressed: onItemPressed,
+              title: BusTranslation.button.title,
+            ),
           ),
         ],
       ),
@@ -92,32 +79,23 @@ final class BusItemWidget extends StatelessWidget {
   }
 
   Widget _buildItemPills() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: SizedBox(
-        height: 24,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: item.amenities.length,
-          itemBuilder: (BuildContext context, int index) {
-            final amenity = item.amenities[index];
+    return SizedBox(
+      height: 56,
+      child: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        scrollDirection: Axis.horizontal,
+        itemCount: item.amenities.length,
+        itemBuilder: (BuildContext context, int index) {
+          final amenity = item.amenities[index];
 
-            return Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: ThemePill(title: amenity),
-            );
-          },
-        ),
-      ),
-    );
-  }
-
-  Widget _buildItemButton() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: ThemeButton(
-        onPressed: onItemPressed,
-        title: BusTranslation.button.title,
+          return Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: ThemePill(
+              icon: ThemeIcons.getIconByString(amenity.icon),
+              title: amenity.title,
+            ),
+          );
+        },
       ),
     );
   }

@@ -10,4 +10,6 @@ abstract class AddressEntity {
   String get country;
   double get latitude;
   double get longitude;
+
+  String get line => '$number $street, $city, $state $postalCode';
 }

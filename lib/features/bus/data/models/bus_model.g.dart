@@ -15,9 +15,9 @@ BusModel _$BusModelFromJson(Map<String, dynamic> json) => BusModel(
       color: json['color'] as String? ?? '',
       capacity: (json['capacity'] as num?)?.toInt() ?? 32,
       amenities: (json['amenities'] as List<dynamic>?)
-              ?.map((e) => e as String)
+              ?.map((e) => AmenityModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <AmenityModel>[],
       licensePlate: json['licensePlate'] as String? ?? '',
       chassisNumber: json['chassisNumber'] as String? ?? '',
       isAccessible: json['isAccessible'] as bool? ?? true,

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
+import 'package:levy/features/commons/models/amenity_model.dart';
 import 'package:levy/features/commons/models/route_model.dart';
 import 'package:levy/features/driver/data/models/driver_model.dart';
 import 'package:levy/features/seat/data/models/seat_model.dart';
@@ -16,7 +17,7 @@ final class BusModel extends BusEntity {
     this.year = '',
     this.color = '',
     this.capacity = 32,
-    this.amenities = const [],
+    this.amenities = const <AmenityModel>[],
     this.licensePlate = '',
     this.chassisNumber = '',
     this.isAccessible = true,
@@ -47,7 +48,7 @@ final class BusModel extends BusEntity {
   final int capacity;
 
   @override
-  final List<String> amenities;
+  final List<AmenityModel> amenities;
 
   @override
   final String licensePlate;

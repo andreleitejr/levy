@@ -8,9 +8,11 @@ import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 final class ThemePill extends StatelessWidget {
   const ThemePill({
     super.key,
+    required this.icon,
     required this.title,
   });
 
+  final String icon;
   final String title;
 
   @override
@@ -26,7 +28,7 @@ final class ThemePill extends StatelessWidget {
       child: Row(
         children: [
           ThemeIconWidget(
-            icon: ThemeIcons.home,
+            icon: icon,
             size: 10,
           ),
           const SizedBox(width: 4),
