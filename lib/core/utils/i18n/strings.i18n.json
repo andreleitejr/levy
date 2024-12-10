@@ -62,6 +62,14 @@
   "seat": {
     "header": {
       "title": "Select Seat"
+    },
+    "descriptions": {
+      "selected": "Selected",
+      "available": "Available",
+      "unavailable": "Unavailable"
+    },
+    "button": {
+      "title": "Confirm Seat"
     }
   },
   "time": {

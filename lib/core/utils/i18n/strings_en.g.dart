@@ -121,6 +121,8 @@ class TranslationsSeatEn {
 
 	// Translations
 	late final TranslationsSeatHeaderEn header = TranslationsSeatHeaderEn._(_root);
+	late final TranslationsSeatDescriptionsEn descriptions = TranslationsSeatDescriptionsEn._(_root);
+	late final TranslationsSeatButtonEn button = TranslationsSeatButtonEn._(_root);
 }
 
 // Path: time
@@ -267,6 +269,28 @@ class TranslationsSeatHeaderEn {
 	String get title => 'Select Seat';
 }
 
+// Path: seat.descriptions
+class TranslationsSeatDescriptionsEn {
+	TranslationsSeatDescriptionsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get selected => 'Selected';
+	String get available => 'Available';
+	String get unavailable => 'Unavailable';
+}
+
+// Path: seat.button
+class TranslationsSeatButtonEn {
+	TranslationsSeatButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Confirm Seat';
+}
+
 // Path: time.header
 class TranslationsTimeHeaderEn {
 	TranslationsTimeHeaderEn._(this._root);
@@ -365,6 +389,10 @@ extension on Translations {
 			case 'search.inputs.returnTime.hintText': return '17:30';
 			case 'search.button.title': return 'Search';
 			case 'seat.header.title': return 'Select Seat';
+			case 'seat.descriptions.selected': return 'Selected';
+			case 'seat.descriptions.available': return 'Available';
+			case 'seat.descriptions.unavailable': return 'Unavailable';
+			case 'seat.button.title': return 'Confirm Seat';
 			case 'time.header.title': return 'Select time';
 			case 'time.button.title': return 'Confirm';
 			case 'user.header.welcome': return 'Welcome';

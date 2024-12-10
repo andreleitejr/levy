@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_icons.dart';
+import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
+import 'package:levy/features/commons/widgets/theme_button.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/seat/presentation/utils/seat_translation.dart';
+import 'package:levy/features/seat/presentation/widgets/seat_description_widget.dart';
+import 'package:levy/features/seat/presentation/widgets/seat_selection_widget.dart';
 
 final class SeatWidget extends StatelessWidget {
   const SeatWidget({
@@ -23,47 +29,36 @@ final class SeatWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ThemeAppBarWidget(
-        title: SeatTranslation.header.title,
+        leadingIcon: ThemeIcons.arrowLeft,
         onLeadingPressed: onPop,
+        title: SeatTranslation.header.title,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SeatDescriptionWidget(),
+          const SizedBox(height: 16),
           Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                childAspectRatio: 1,
-              ),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                final item = items[index];
-                final isSelected = selectedItem?.letter == item.letter &&
-                    selectedItem?.number == item.number;
-
-                return GestureDetector(
-                  onTap: item.isReserved ? null : () => onItemPressed(item),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: item.isReserved
-                          ? Colors.grey
-                          : isSelected
-                              ? Colors.black
-                              : Colors.blue,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      '${item.letter}${item.number}',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                );
-              },
+            child: SeatSelectionWidget(
+              items: items,
+              selectedItem: selectedItem,
+              onItemPressed: onItemPressed,
             ),
           ),
-          ElevatedButton(
-            onPressed: onButtonPressed,
-            child: const Text('Confirmar Seleção'),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: ThemeColors.grey2,
+                  width: 0.5
+                )
+              )
+            ),
+            child: ThemeButton(
+              onPressed: onButtonPressed,
+              title: SeatTranslation.button.title,
+            ),
           ),
         ],
       ),

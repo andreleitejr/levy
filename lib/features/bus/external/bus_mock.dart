@@ -156,22 +156,22 @@ final class BusMock {
         {
           'letter': 'A',
           'number': 2,
-          'reservedBy': 'user_001',
+          'reservedBy': null,
         },
         {
           'letter': 'A',
           'number': 3,
-          'reservedBy': 'user_002',
+          'reservedBy': null,
         },
         {
           'letter': 'A',
           'number': 4,
-          'reservedBy': null,
+          'reservedBy': 'user_001',
         },
         {
           'letter': 'B',
           'number': 1,
-          'reservedBy': null,
+          'reservedBy': 'user_002',
         },
         {
           'letter': 'B',
@@ -181,10 +181,130 @@ final class BusMock {
         {
           'letter': 'B',
           'number': 3,
-          'reservedBy': null,
+          'reservedBy': 'user_004',
         },
         {
           'letter': 'B',
+          'number': 4,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'C',
+          'number': 1,
+          'reservedBy': 'user_005',
+        },
+        {
+          'letter': 'C',
+          'number': 2,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'C',
+          'number': 3,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'C',
+          'number': 4,
+          'reservedBy': 'user_006',
+        },
+        {
+          'letter': 'D',
+          'number': 1,
+          'reservedBy': 'user_007',
+        },
+        {
+          'letter': 'D',
+          'number': 2,
+          'reservedBy': 'user_008',
+        },
+        {
+          'letter': 'D',
+          'number': 3,
+          'reservedBy': 'user_009',
+        },
+        {
+          'letter': 'D',
+          'number': 4,
+          'reservedBy': 'user_010',
+        },
+        {
+          'letter': 'E',
+          'number': 1,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'E',
+          'number': 2,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'E',
+          'number': 3,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'E',
+          'number': 4,
+          'reservedBy': 'user_011',
+        },
+        {
+          'letter': 'F',
+          'number': 1,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'F',
+          'number': 2,
+          'reservedBy': 'user_012',
+        },
+        {
+          'letter': 'F',
+          'number': 3,
+          'reservedBy': 'user_013',
+        },
+        {
+          'letter': 'F',
+          'number': 4,
+          'reservedBy': 'user_014',
+        },
+        {
+          'letter': 'G',
+          'number': 1,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'G',
+          'number': 2,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'G',
+          'number': 3,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'G',
+          'number': 4,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'H',
+          'number': 1,
+          'reservedBy': 'user_015',
+        },
+        {
+          'letter': 'H',
+          'number': 2,
+          'reservedBy': 'user_016',
+        },
+        {
+          'letter': 'H',
+          'number': 3,
+          'reservedBy': null,
+        },
+        {
+          'letter': 'H',
           'number': 4,
           'reservedBy': null,
         },
