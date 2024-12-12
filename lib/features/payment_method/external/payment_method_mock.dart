@@ -5,6 +5,7 @@ final class PaymentMethodMock {
     {
       'methodType': 'Credit Card',
       'brand': 'Visa',
+      'image': 'visa',
       'cardHolderName': 'John Doe',
       'cardNumber': '4111111111111111',
       'expiryDate': '12/25',
@@ -16,6 +17,7 @@ final class PaymentMethodMock {
     {
       'methodType': 'Credit Card',
       'brand': 'MasterCard',
+      'image': 'master',
       'cardHolderName': 'John Doe',
       'cardNumber': '5500000000000004',
       'expiryDate': '11/24',
@@ -27,6 +29,7 @@ final class PaymentMethodMock {
     {
       'methodType': 'Debit Card',
       'brand': 'Visa',
+      'image': 'visa',
       'cardHolderName': 'John Doe',
       'cardNumber': '4000000000000002',
       'expiryDate': '10/23',

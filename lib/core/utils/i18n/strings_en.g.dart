@@ -37,15 +37,28 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	late final TranslationsCommonsEn commons = TranslationsCommonsEn._(_root);
 	late final TranslationsAddressEn address = TranslationsAddressEn._(_root);
 	late final TranslationsBusEn bus = TranslationsBusEn._(_root);
 	late final TranslationsNotificationEn notification = TranslationsNotificationEn._(_root);
 	late final TranslationsPaymentEn payment = TranslationsPaymentEn._(_root);
+	late final TranslationsPaymentMethodEn paymentMethod = TranslationsPaymentMethodEn._(_root);
 	late final TranslationsReservationEn reservation = TranslationsReservationEn._(_root);
 	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
 	late final TranslationsSeatEn seat = TranslationsSeatEn._(_root);
 	late final TranslationsTimeEn time = TranslationsTimeEn._(_root);
 	late final TranslationsUserEn user = TranslationsUserEn._(_root);
+}
+
+// Path: commons
+class TranslationsCommonsEn {
+	TranslationsCommonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsCommonsDepartureTicketEn departureTicket = TranslationsCommonsDepartureTicketEn._(_root);
+	late final TranslationsCommonsReturnTicketEn returnTicket = TranslationsCommonsReturnTicketEn._(_root);
 }
 
 // Path: address
@@ -68,6 +81,7 @@ class TranslationsBusEn {
 	// Translations
 	late final TranslationsBusHeaderEn header = TranslationsBusHeaderEn._(_root);
 	late final TranslationsBusResultsEn results = TranslationsBusResultsEn._(_root);
+	late final TranslationsBusSelectedEn selected = TranslationsBusSelectedEn._(_root);
 	late final TranslationsBusButtonEn button = TranslationsBusButtonEn._(_root);
 }
 
@@ -89,6 +103,19 @@ class TranslationsPaymentEn {
 
 	// Translations
 	late final TranslationsPaymentHeaderEn header = TranslationsPaymentHeaderEn._(_root);
+	late final TranslationsPaymentPaymentMethodEn paymentMethod = TranslationsPaymentPaymentMethodEn._(_root);
+	late final TranslationsPaymentPriceInfoEn priceInfo = TranslationsPaymentPriceInfoEn._(_root);
+	late final TranslationsPaymentButtonEn button = TranslationsPaymentButtonEn._(_root);
+}
+
+// Path: paymentMethod
+class TranslationsPaymentMethodEn {
+	TranslationsPaymentMethodEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPaymentMethodHeaderEn header = TranslationsPaymentMethodHeaderEn._(_root);
 }
 
 // Path: reservation
@@ -146,6 +173,26 @@ class TranslationsUserEn {
 	late final TranslationsUserHeaderEn header = TranslationsUserHeaderEn._(_root);
 }
 
+// Path: commons.departureTicket
+class TranslationsCommonsDepartureTicketEn {
+	TranslationsCommonsDepartureTicketEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Departure Ticket';
+}
+
+// Path: commons.returnTicket
+class TranslationsCommonsReturnTicketEn {
+	TranslationsCommonsReturnTicketEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Return Ticket';
+}
+
 // Path: address.header
 class TranslationsAddressHeaderEn {
 	TranslationsAddressHeaderEn._(this._root);
@@ -186,6 +233,16 @@ class TranslationsBusResultsEn {
 	String get title => 'Best Route';
 }
 
+// Path: bus.selected
+class TranslationsBusSelectedEn {
+	TranslationsBusSelectedEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Departure Info';
+}
+
 // Path: bus.button
 class TranslationsBusButtonEn {
 	TranslationsBusButtonEn._(this._root);
@@ -213,7 +270,49 @@ class TranslationsPaymentHeaderEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Payment';
+	String get title => 'Order tickets';
+}
+
+// Path: payment.paymentMethod
+class TranslationsPaymentPaymentMethodEn {
+	TranslationsPaymentPaymentMethodEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Payment Method';
+	late final TranslationsPaymentPaymentMethodTextButtonEn textButton = TranslationsPaymentPaymentMethodTextButtonEn._(_root);
+}
+
+// Path: payment.priceInfo
+class TranslationsPaymentPriceInfoEn {
+	TranslationsPaymentPriceInfoEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Monthly subscription';
+	String get recurrence  => 'month';
+}
+
+// Path: payment.button
+class TranslationsPaymentButtonEn {
+	TranslationsPaymentButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Confirm Payment';
+}
+
+// Path: paymentMethod.header
+class TranslationsPaymentMethodHeaderEn {
+	TranslationsPaymentMethodHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select payment method';
 }
 
 // Path: reservation.header
@@ -321,6 +420,16 @@ class TranslationsUserHeaderEn {
 	String get welcome => 'Welcome';
 }
 
+// Path: payment.paymentMethod.textButton
+class TranslationsPaymentPaymentMethodTextButtonEn {
+	TranslationsPaymentPaymentMethodTextButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Modify';
+}
+
 // Path: search.inputs.departureAddress
 class TranslationsSearchInputsDepartureAddressEn {
 	TranslationsSearchInputsDepartureAddressEn._(this._root);
@@ -370,13 +479,22 @@ class TranslationsSearchInputsReturnTimeEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'commons.departureTicket.title': return 'Departure Ticket';
+			case 'commons.returnTicket.title': return 'Return Ticket';
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
 			case 'bus.header.title': return 'Select Bus';
 			case 'bus.results.title': return 'Best Route';
+			case 'bus.selected.title': return 'Departure Info';
 			case 'bus.button.title': return 'Select';
 			case 'notification.header.title': return 'Notifications';
-			case 'payment.header.title': return 'Payment';
+			case 'payment.header.title': return 'Order tickets';
+			case 'payment.paymentMethod.title': return 'Payment Method';
+			case 'payment.paymentMethod.textButton.title': return 'Modify';
+			case 'payment.priceInfo.title': return 'Monthly subscription';
+			case 'payment.priceInfo.recurrence ': return 'month';
+			case 'payment.button.title': return 'Confirm Payment';
+			case 'paymentMethod.header.title': return 'Select payment method';
 			case 'reservation.header.title': return 'Reservation';
 			case 'search.header.title': return 'Search';
 			case 'search.inputs.departureAddress.labelText': return 'Departure Address';

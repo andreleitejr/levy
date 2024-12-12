@@ -1,5 +1,37 @@
+import 'dart:math';
+
 final class BusMock {
   const BusMock._();
+
+  static List<Map<String, dynamic>> get amenities => [
+    { "icon": "bed", "title": "Semi-Lie" },
+    { "icon": "wifi", "title": "Wi-Fi" },
+    { "icon": "screen", "title": "Smart TV" },
+    { "icon": "coffee", "title": "Coffee" },
+    { "icon": "screen", "title": "Netflix" },
+    { "icon": "screen", "title": "Prime Video" },
+    { "icon": "game", "title": "Game" },
+    { "icon": "wind", "title": "Air Conditioning" },
+    { "icon": "camera", "title": "Security Cam" },
+    { "icon": "book", "title": "Books" },
+  ];
+
+  static List<Map<String, dynamic>> get seats {
+    final random = Random();
+
+    return List.generate(32, (index) {
+      final letter = String.fromCharCode(65 + (index ~/ 4));
+      final number = (index % 4) + 1;
+
+      final reservedBy = random.nextBool() ? 'user_${index.toString().padLeft(3, '0')}' : null;
+
+      return {
+        'letter': letter,
+        'number': number,
+        'reservedBy': reservedBy,
+      };
+    });
+  }
 
   static final response = [
     {
@@ -10,18 +42,7 @@ final class BusMock {
       'year': '2022',
       'color': 'Blue',
       'capacity': 32,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Netflix" },
-        { "icon": "screen", "title": "Prime Video" },
-        { "icon": "game", "title": "Game" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-        { "icon": "book", "title": "Books" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'PL8R4LYF',
       'chassisNumber': 'CHS-1234567890',
       'isAccessible': true,
@@ -147,168 +168,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 3,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 4,
-          'reservedBy': 'user_001',
-        },
-        {
-          'letter': 'B',
-          'number': 1,
-          'reservedBy': 'user_002',
-        },
-        {
-          'letter': 'B',
-          'number': 2,
-          'reservedBy': 'user_003',
-        },
-        {
-          'letter': 'B',
-          'number': 3,
-          'reservedBy': 'user_004',
-        },
-        {
-          'letter': 'B',
-          'number': 4,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'C',
-          'number': 1,
-          'reservedBy': 'user_005',
-        },
-        {
-          'letter': 'C',
-          'number': 2,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'C',
-          'number': 3,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'C',
-          'number': 4,
-          'reservedBy': 'user_006',
-        },
-        {
-          'letter': 'D',
-          'number': 1,
-          'reservedBy': 'user_007',
-        },
-        {
-          'letter': 'D',
-          'number': 2,
-          'reservedBy': 'user_008',
-        },
-        {
-          'letter': 'D',
-          'number': 3,
-          'reservedBy': 'user_009',
-        },
-        {
-          'letter': 'D',
-          'number': 4,
-          'reservedBy': 'user_010',
-        },
-        {
-          'letter': 'E',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'E',
-          'number': 2,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'E',
-          'number': 3,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'E',
-          'number': 4,
-          'reservedBy': 'user_011',
-        },
-        {
-          'letter': 'F',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'F',
-          'number': 2,
-          'reservedBy': 'user_012',
-        },
-        {
-          'letter': 'F',
-          'number': 3,
-          'reservedBy': 'user_013',
-        },
-        {
-          'letter': 'F',
-          'number': 4,
-          'reservedBy': 'user_014',
-        },
-        {
-          'letter': 'G',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'G',
-          'number': 2,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'G',
-          'number': 3,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'G',
-          'number': 4,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'H',
-          'number': 1,
-          'reservedBy': 'user_015',
-        },
-        {
-          'letter': 'H',
-          'number': 2,
-          'reservedBy': 'user_016',
-        },
-        {
-          'letter': 'H',
-          'number': 3,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'H',
-          'number': 4,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '2',
@@ -318,14 +178,7 @@ final class BusMock {
       'year': '2020',
       'color': 'Red',
       'capacity': 20,
-      'amenities': [
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Prime Video" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'MB2020',
       'chassisNumber': 'MB-9876543210',
       'isAccessible': true,
@@ -405,18 +258,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_002',
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '3',
@@ -426,18 +268,7 @@ final class BusMock {
       'year': '2021',
       'color': 'Green',
       'capacity': 40,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Netflix" },
-        { "icon": "screen", "title": "Prime Video" },
-        { "icon": "game", "title": "Game" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-        { "icon": "book", "title": "Books" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'VOL1234',
       'chassisNumber': 'VOL-1357924680',
       'isAccessible': false,
@@ -536,28 +367,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_004',
-        },
-        {
-          'letter': 'A',
-          'number': 3,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 4,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '4',
@@ -567,15 +377,7 @@ final class BusMock {
       'year': '2023',
       'color': 'Yellow',
       'capacity': 40,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Netflix" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'VOL5678',
       'chassisNumber': 'VOL-9876543210',
       'isAccessible': true,
@@ -653,23 +455,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_005',
-        },
-        {
-          'letter': 'B',
-          'number': 1,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '5',
@@ -679,13 +465,7 @@ final class BusMock {
       'year': '2022',
       'color': 'Green',
       'capacity': 32,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'MPL1234',
       'chassisNumber': 'CHS-5678901234',
       'isAccessible': false,
@@ -763,18 +543,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_006',
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '6',
@@ -784,18 +553,7 @@ final class BusMock {
       'year': '2021',
       'color': 'Red',
       'capacity': 20,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Netflix" },
-        { "icon": "screen", "title": "Prime Video" },
-        { "icon": "game", "title": "Game" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-        { "icon": "book", "title": "Books" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'MBZ5678',
       'chassisNumber': 'MB-1234567890',
       'isAccessible': true,
@@ -873,13 +631,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': 'user_007',
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '7',
@@ -889,15 +641,7 @@ final class BusMock {
       'year': '2022',
       'color': 'Blue',
       'capacity': 45,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-        { "icon": "book", "title": "Books" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'SCA1234',
       'chassisNumber': 'SCA-1234567890',
       'isAccessible': true,
@@ -975,23 +719,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_008',
-        },
-        {
-          'letter': 'B',
-          'number': 1,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '8',
@@ -1001,14 +729,7 @@ final class BusMock {
       'year': '2023',
       'color': 'White',
       'capacity': 50,
-      'amenities': [
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Netflix" },
-        { "icon": "game", "title": "Game" },
-        { "icon": "wind", "title": "Air Conditioning" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'IRZ5678',
       'chassisNumber': 'IRZ-0987654321',
       'isAccessible': false,
@@ -1086,23 +807,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_009',
-        },
-        {
-          'letter': 'B',
-          'number': 1,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '9',
@@ -1112,18 +817,7 @@ final class BusMock {
       'year': '2021',
       'color': 'Silver',
       'capacity': 48,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "screen", "title": "Smart TV" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "screen", "title": "Netflix" },
-        { "icon": "screen", "title": "Prime Video" },
-        { "icon": "game", "title": "Game" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-        { "icon": "book", "title": "Books" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'VOL5678',
       'chassisNumber': 'VOL-9876543210',
       'isAccessible': true,
@@ -1201,23 +895,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_010',
-        },
-        {
-          'letter': 'B',
-          'number': 1,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
     {
       'id': '10',
@@ -1227,13 +905,7 @@ final class BusMock {
       'year': '2023',
       'color': 'Black',
       'capacity': 50,
-      'amenities': [
-        { "icon": "bed", "title": "Semi-Lie" },
-        { "icon": "wifi", "title": "Wi-Fi" },
-        { "icon": "coffee", "title": "Coffee" },
-        { "icon": "wind", "title": "Air Conditioning" },
-        { "icon": "camera", "title": "Security Cam" },
-      ],
+      'amenities': amenities,
       'licensePlate': 'MBZ5432',
       'chassisNumber': 'MBZ-1234567891',
       'isAccessible': false,
@@ -1311,23 +983,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': [
-        {
-          'letter': 'A',
-          'number': 1,
-          'reservedBy': null,
-        },
-        {
-          'letter': 'A',
-          'number': 2,
-          'reservedBy': 'user_011',
-        },
-        {
-          'letter': 'B',
-          'number': 1,
-          'reservedBy': null,
-        },
-      ],
+      'seats': seats,
     },
   ];
 }

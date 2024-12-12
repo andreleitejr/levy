@@ -3,6 +3,7 @@ abstract class PaymentMethodEntity {
 
   String get methodType;
   String get brand;
+  String get image;
   String get cardHolderName;
   String get cardNumber;
   String get expiryDate;

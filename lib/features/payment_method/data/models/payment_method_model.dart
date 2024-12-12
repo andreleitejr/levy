@@ -8,6 +8,7 @@ final class PaymentMethodModel extends PaymentMethodEntity {
   const PaymentMethodModel({
     this.methodType = '',
     this.brand = '',
+    this.image = '',
     this.cardHolderName = '',
     this.cardNumber = '',
     this.expiryDate = '',
@@ -22,6 +23,9 @@ final class PaymentMethodModel extends PaymentMethodEntity {
 
   @override
   final String brand;
+
+  @override
+  final String image;
 
   @override
   final String cardHolderName;

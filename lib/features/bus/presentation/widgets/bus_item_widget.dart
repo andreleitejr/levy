@@ -83,7 +83,7 @@ final class BusItemWidget extends StatelessWidget {
     return SizedBox(
       height: 56,
       child: ListView.builder(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 16, 0, 16),
         scrollDirection: Axis.horizontal,
         itemCount: item.amenities.length,
         itemBuilder: (BuildContext context, int index) {

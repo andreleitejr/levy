@@ -11,6 +11,7 @@ final class ThemeScheduleWidget extends StatelessWidget {
     required this.arrivalAddressTitle,
     required this.departureAddressLine,
     required this.arrivalAddressLine,
+    this.padding = const EdgeInsets.all(16),
   });
 
   final String departureTime;
@@ -19,11 +20,12 @@ final class ThemeScheduleWidget extends StatelessWidget {
   final String arrivalAddressTitle;
   final String departureAddressLine;
   final String arrivalAddressLine;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: padding,
       child: Column(
         children: [
           ThemeTimelineWidget(

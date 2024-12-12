@@ -1,4 +1,12 @@
 {
+  "commons": {
+    "departureTicket": {
+      "title": "Departure Ticket"
+    },
+    "returnTicket": {
+      "title": "Return Ticket"
+    }
+  },
   "address": {
     "header": {
       "title": "Select address"
@@ -14,6 +22,9 @@
     "results": {
       "title": "Best Route"
     },
+    "selected": {
+      "title": "Departure Info"
+    },
     "button": {
       "title": "Select"
     }
@@ -25,7 +36,26 @@
   },
   "payment": {
     "header": {
-      "title": "Payment"
+      "title": "Order tickets"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "textButton": {
+        "title": "Modify"
+      }
+    },
+    "priceInfo": {
+      "title": "Monthly subscription",
+      "recurrence ": "month"
+    },
+    "button": {
+      "title": "Confirm Payment"
+    }
+  },
+
+  "paymentMethod": {
+    "header": {
+      "title": "Select payment method"
     }
   },
   "reservation": {

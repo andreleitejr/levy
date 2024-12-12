@@ -75,6 +75,13 @@ final class ThemeTypography {
     letterSpacing: 0.75,
   );
 
+  static const semiBold24 = TextStyle(
+    fontWeight: ThemeFontWeights.bold,
+    fontSize: ThemeFontSizes.extraLarge,
+    fontFamily: ThemeFontFamilies.gilroy,
+    letterSpacing: 0.75,
+  );
+
   static const medium42 = TextStyle(
     fontWeight: ThemeFontWeights.medium,
     fontSize: 42,

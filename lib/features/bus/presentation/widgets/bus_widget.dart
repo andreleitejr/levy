@@ -69,7 +69,7 @@ final class BusWidget extends StatelessWidget {
         ),
         margin: const EdgeInsets.only(bottom: 24),
         child: ThemeRouteTitleWidget(
-          title: BusTranslation.results.title,
+          title: BusTranslation.selected.title,
           firstRouteTitle: item.routes.first.origin.street,
           secondRouteTitle: item.routes.first.destination.street,
         ),

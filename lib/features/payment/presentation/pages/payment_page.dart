@@ -63,8 +63,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
   }
 
   Future<void> _onPaymentMethodPressed(PaymentNotifier notifier) async {
-    final paymentMethod =
-        await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
+    final paymentMethod = await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
 
     if (paymentMethod != null) {
       notifier.updatePaymentMethod(paymentMethod);

@@ -10,6 +10,7 @@ PaymentMethodModel _$PaymentMethodModelFromJson(Map<String, dynamic> json) =>
     PaymentMethodModel(
       methodType: json['methodType'] as String? ?? '',
       brand: json['brand'] as String? ?? '',
+      image: json['image'] as String? ?? '',
       cardHolderName: json['cardHolderName'] as String? ?? '',
       cardNumber: json['cardNumber'] as String? ?? '',
       expiryDate: json['expiryDate'] as String? ?? '',
@@ -23,6 +24,7 @@ Map<String, dynamic> _$PaymentMethodModelToJson(PaymentMethodModel instance) =>
     <String, dynamic>{
       'methodType': instance.methodType,
       'brand': instance.brand,
+      'image': instance.image,
       'cardHolderName': instance.cardHolderName,
       'cardNumber': instance.cardNumber,
       'expiryDate': instance.expiryDate,

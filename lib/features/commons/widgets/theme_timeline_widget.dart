@@ -24,7 +24,7 @@ class ThemeTimelineWidget extends StatelessWidget {
             color: ThemeColors.primary,
           ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 10),
         Expanded(
           child: Row(
             children: [
@@ -48,7 +48,7 @@ class ThemeTimelineWidget extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 10),
         Text(
           endTime,
           style: ThemeTypography.semiBold16.apply(

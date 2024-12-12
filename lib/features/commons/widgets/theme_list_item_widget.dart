@@ -11,6 +11,7 @@ final class ThemeListItemWidget extends StatelessWidget {
     required this.subtitle,
     this.trailing,
     this.onPressed,
+    this.showBorder = true,
   });
 
   final String? image;
@@ -18,17 +19,18 @@ final class ThemeListItemWidget extends StatelessWidget {
   final String subtitle;
   final Widget? trailing;
   final VoidCallback? onPressed;
+  final bool showBorder;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 96,
       decoration: BoxDecoration(
-        border: Border(
+        border: showBorder ? Border(
           bottom: BorderSide(
             color: ThemeColors.grey2,
           ),
-        ),
+        ) : null,
       ),
       child: ListTile(
         onTap: onPressed,
@@ -38,17 +40,21 @@ final class ThemeListItemWidget extends StatelessWidget {
         title: Text(
           title,
           style: ThemeTypography.semiBold14,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
         subtitle: Text(
           subtitle,
           style: ThemeTypography.regular10,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
         trailing: trailing,
       ),
     );
   }
 
-  Widget? _buildLeadingImage() {
+  Widget _buildLeadingImage() {
     final leadingImage = image;
 
     if (leadingImage != null) {
@@ -62,6 +68,6 @@ final class ThemeListItemWidget extends StatelessWidget {
       );
     }
 
-    return null;
+    return const SizedBox.shrink();
   }
 }

@@ -12,6 +12,7 @@ final class ThemeAppBarWidget extends StatelessWidget
     required this.title,
     this.actionText,
     this.onActionPressed,
+    this.height = 64,
   });
 
   final String? leadingIcon;
@@ -19,9 +20,10 @@ final class ThemeAppBarWidget extends StatelessWidget
   final String title;
   final String? actionText;
   final VoidCallback? onActionPressed;
+  final double height;
 
   @override
-  Size get preferredSize => Size.fromHeight(75);
+  Size get preferredSize => Size.fromHeight(height);
 
   @override
   Widget build(BuildContext context) {
