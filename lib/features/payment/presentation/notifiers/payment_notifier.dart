@@ -10,11 +10,11 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
 
   PaymentNotifier(this._usecase) : super(PaymentState.loading());
 
-  Future<void> init(ReservationEntity reservation) async {
+  Future<void> init() async {
     try {
       await Future.delayed(const Duration(milliseconds: 500));
 
-      state = PaymentState.initial(reservation);
+      state = PaymentState.initial();
     } catch (e) {
       state = PaymentState.error('Failed to init payment: ${e.toString()}');
     }
@@ -25,6 +25,8 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
     required PaymentMethodEntity method,
   }) async {
     try {
+      state = PaymentState.loading();
+
       return _usecase(
         reservation: reservation,
         method: method,

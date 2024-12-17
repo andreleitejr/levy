@@ -3,5 +3,5 @@ import 'package:levy/features/reservation/domain/entities/reservation_entity.dar
 
 abstract class ReservationRepository {
   Future<bool> createReservation(ReservationModel reservation);
-  Future<List<ReservationEntity>> getReservation(String reservationId);
+  Future<ReservationEntity?> getReservation(String reservationId);
 }

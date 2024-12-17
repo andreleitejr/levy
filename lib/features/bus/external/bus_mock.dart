@@ -1,37 +1,7 @@
-import 'dart:math';
+import 'package:levy/features/commons/external/common_mock.dart';
 
 final class BusMock {
   const BusMock._();
-
-  static List<Map<String, dynamic>> get amenities => [
-    { "icon": "bed", "title": "Semi-Lie" },
-    { "icon": "wifi", "title": "Wi-Fi" },
-    { "icon": "screen", "title": "Smart TV" },
-    { "icon": "coffee", "title": "Coffee" },
-    { "icon": "screen", "title": "Netflix" },
-    { "icon": "screen", "title": "Prime Video" },
-    { "icon": "game", "title": "Game" },
-    { "icon": "wind", "title": "Air Conditioning" },
-    { "icon": "camera", "title": "Security Cam" },
-    { "icon": "book", "title": "Books" },
-  ];
-
-  static List<Map<String, dynamic>> get seats {
-    final random = Random();
-
-    return List.generate(32, (index) {
-      final letter = String.fromCharCode(65 + (index ~/ 4));
-      final number = (index % 4) + 1;
-
-      final reservedBy = random.nextBool() ? 'user_${index.toString().padLeft(3, '0')}' : null;
-
-      return {
-        'letter': letter,
-        'number': number,
-        'reservedBy': reservedBy,
-      };
-    });
-  }
 
   static final response = [
     {
@@ -42,7 +12,7 @@ final class BusMock {
       'year': '2022',
       'color': 'Blue',
       'capacity': 32,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'PL8R4LYF',
       'chassisNumber': 'CHS-1234567890',
       'isAccessible': true,
@@ -168,7 +138,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '2',
@@ -178,7 +148,7 @@ final class BusMock {
       'year': '2020',
       'color': 'Red',
       'capacity': 20,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'MB2020',
       'chassisNumber': 'MB-9876543210',
       'isAccessible': true,
@@ -258,7 +228,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '3',
@@ -268,7 +238,7 @@ final class BusMock {
       'year': '2021',
       'color': 'Green',
       'capacity': 40,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'VOL1234',
       'chassisNumber': 'VOL-1357924680',
       'isAccessible': false,
@@ -367,7 +337,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '4',
@@ -377,7 +347,7 @@ final class BusMock {
       'year': '2023',
       'color': 'Yellow',
       'capacity': 40,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'VOL5678',
       'chassisNumber': 'VOL-9876543210',
       'isAccessible': true,
@@ -455,7 +425,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '5',
@@ -465,7 +435,7 @@ final class BusMock {
       'year': '2022',
       'color': 'Green',
       'capacity': 32,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'MPL1234',
       'chassisNumber': 'CHS-5678901234',
       'isAccessible': false,
@@ -543,7 +513,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '6',
@@ -553,7 +523,7 @@ final class BusMock {
       'year': '2021',
       'color': 'Red',
       'capacity': 20,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'MBZ5678',
       'chassisNumber': 'MB-1234567890',
       'isAccessible': true,
@@ -631,7 +601,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '7',
@@ -641,7 +611,7 @@ final class BusMock {
       'year': '2022',
       'color': 'Blue',
       'capacity': 45,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'SCA1234',
       'chassisNumber': 'SCA-1234567890',
       'isAccessible': true,
@@ -719,7 +689,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '8',
@@ -729,7 +699,7 @@ final class BusMock {
       'year': '2023',
       'color': 'White',
       'capacity': 50,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'IRZ5678',
       'chassisNumber': 'IRZ-0987654321',
       'isAccessible': false,
@@ -807,7 +777,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '9',
@@ -817,7 +787,7 @@ final class BusMock {
       'year': '2021',
       'color': 'Silver',
       'capacity': 48,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'VOL5678',
       'chassisNumber': 'VOL-9876543210',
       'isAccessible': true,
@@ -895,7 +865,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
     {
       'id': '10',
@@ -905,7 +875,7 @@ final class BusMock {
       'year': '2023',
       'color': 'Black',
       'capacity': 50,
-      'amenities': amenities,
+      'amenities': CommonMock.amenities,
       'licensePlate': 'MBZ5432',
       'chassisNumber': 'MBZ-1234567891',
       'isAccessible': false,
@@ -983,7 +953,7 @@ final class BusMock {
           'isActive': true,
         },
       ],
-      'seats': seats,
+      'seats': CommonMock.seats,
     },
   ];
 }

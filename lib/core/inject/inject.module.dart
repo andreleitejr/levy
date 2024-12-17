@@ -68,8 +68,8 @@ import 'package:levy/features/payment_method/domain/usecases/get_payment_method_
     as _i805;
 import 'package:levy/features/reservation/data/datasources/reservation_datasource.dart'
     as _i580;
-import 'package:levy/features/reservation/data/datasources/reservation_datasource_mock.dart'
-    as _i660;
+import 'package:levy/features/reservation/data/datasources/reservation_datasource_impl.dart'
+    as _i990;
 import 'package:levy/features/reservation/data/repositories/reservation_repository_impl.dart'
     as _i28;
 import 'package:levy/features/reservation/domain/repositories/reservation_repository.dart'
@@ -109,14 +109,12 @@ class LevyPackageModule extends _i526.MicroPackageModule {
       () => _i968.UserDataSourceMock(),
       registerFor: {_mock},
     );
-    gh.factory<_i580.ReservationDataSource>(
-      () => _i660.ReservationDataSourceMock(),
-      registerFor: {_mock},
-    );
     gh.factory<_i63.BusDataSource>(
       () => _i142.BusDataSourceMock(),
       registerFor: {_mock},
     );
+    gh.factory<_i580.ReservationDataSource>(
+        () => _i990.ReservationDataSourceImpl());
     gh.factory<_i902.UserRepository>(
         () => _i496.UserRepositoryImpl(gh<_i717.UserDataSource>()));
     gh.factory<_i370.PaymentMethodDataSource>(

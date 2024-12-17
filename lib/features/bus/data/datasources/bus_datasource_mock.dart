@@ -9,23 +9,28 @@ import 'package:levy/features/search/domain/entities/search_entity.dart';
 final class BusDataSourceMock implements BusDataSource {
   @override
   Future<List<BusModel>> get({
-    required SearchEntity search,
+    SearchEntity? search,
     bool isReturn = false,
   }) async {
     final buses = BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
 
-    if (isReturn) {
-      return buses.where((bus) {
-        return bus.routes.any((route) =>
-            route.origin.street == search.returnAddress.street &&
-            route.departureTime.compareTo(search.returnTime) >= 0);
-      }).toList();
+    if(search != null){
+
+      if (isReturn) {
+        return buses.where((bus) {
+          return bus.routes.any((route) =>
+          route.origin.street == search.returnAddress.street &&
+              route.departureTime.compareTo(search.returnTime) >= 0);
+        }).toList();
+      } else {
+        return buses.where((bus) {
+          return bus.routes.any((route) =>
+          route.origin.street == search.departureAddress.street &&
+              route.departureTime.compareTo(search.departureTime) >= 0);
+        }).toList();
+      }
     } else {
-      return buses.where((bus) {
-        return bus.routes.any((route) =>
-            route.origin.street == search.departureAddress.street &&
-            route.departureTime.compareTo(search.departureTime) >= 0);
-      }).toList();
+      return buses;
     }
   }
 }

@@ -29,6 +29,7 @@ dependencies:
   slang_flutter: ^4.1.0
   flutter_svg: ^2.0.11
   numberpicker: ^2.1.2
+  sqflite: ^2.4.1
 
 dev_dependencies:
   flutter_test:

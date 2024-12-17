@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/utils/commons_translation.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_button.dart';
-import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
 import 'package:levy/features/commons/widgets/theme_payment_method_item_widget.dart';
 import 'package:levy/features/commons/widgets/theme_ticket_widget.dart';
 import 'package:levy/features/payment/presentation/utils/payment_translation.dart';
@@ -17,6 +16,7 @@ final class PaymentWidget extends StatelessWidget {
   const PaymentWidget({
     super.key,
     required this.reservation,
+    required this.buses,
     required this.paymentMethod,
     required this.onPop,
     required this.onPaymentMethodPressed,
@@ -24,6 +24,7 @@ final class PaymentWidget extends StatelessWidget {
   });
 
   final ReservationEntity reservation;
+  final List<BusEntity> buses;
   final PaymentMethodEntity? paymentMethod;
   final VoidCallback onPop;
   final VoidCallback onPaymentMethodPressed;
@@ -38,21 +39,16 @@ final class PaymentWidget extends StatelessWidget {
         title: PaymentTranslation.header.title,
       ),
       body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: ThemeTicketWidget(
-              title: CommonsTranslation.departureTicket.title,
-              bus: reservation.departureBus,
-            ),
+          ThemeTicketWidget(
+            title: CommonsTranslation.departureTicket.title,
+            bus: buses.first,
           ),
           SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: ThemeTicketWidget(
-              title: CommonsTranslation.returnTicket.title,
-              bus: reservation.returnBus,
-            ),
+          ThemeTicketWidget(
+            title: CommonsTranslation.returnTicket.title,
+            bus: buses.last,
           ),
         ],
       ),
@@ -68,40 +64,13 @@ final class PaymentWidget extends StatelessWidget {
             showTextButton: paymentMethod != null,
           ),
           const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  PaymentTranslation.priceInfo.title,
-                  style: ThemeTypography.regular12.apply(
-                    color: ThemeColors.primary,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'U\$399.90',
-                      style: ThemeTypography.semiBold24,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '/ ${PaymentTranslation.priceInfo.recurrence}',
-                      style: ThemeTypography.regular14.apply(
-                        color: ThemeColors.grey4,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
+          _buildPrice(),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
             child: ThemeButton(
               onPressed: onButtonPressed,
               title: PaymentTranslation.button.title,
+              isValid: paymentMethod != null,
             ),
           ),
         ],
@@ -113,9 +82,42 @@ final class PaymentWidget extends StatelessWidget {
     final method = paymentMethod;
 
     if (method != null) {
-      return '${paymentMethod?.brand} ${paymentMethod?.methodType}';
+      return '${paymentMethod?.methodType}';
     } else {
       return 'Select your payment method';
     }
+  }
+
+  Widget _buildPrice(){
+    return
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              PaymentTranslation.priceInfo.title,
+              style: ThemeTypography.regular12.apply(
+                color: ThemeColors.primary,
+              ),
+            ),
+            Row(
+              children: [
+                Text(
+                  'U\$399.90',
+                  style: ThemeTypography.semiBold24,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  '/ ${PaymentTranslation.priceInfo.recurrence}',
+                  style: ThemeTypography.regular14.apply(
+                    color: ThemeColors.grey4,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      );
   }
 }

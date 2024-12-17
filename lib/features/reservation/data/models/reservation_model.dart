@@ -11,8 +11,10 @@ class ReservationModel extends ReservationEntity {
     this.userId = '',
     this.paymentId = '',
     this.date = '',
-    this.departureBus = const BusModel(),
-    this.returnBus = const BusModel(),
+    this.departureBusId = '',
+    this.returnBusId = '',
+    this.departureBus,
+    this.returnBus,
   });
 
   @override
@@ -28,12 +30,19 @@ class ReservationModel extends ReservationEntity {
   final String date;
 
   @override
-  final BusModel departureBus;
+  final String departureBusId;
 
   @override
-  final BusModel returnBus;
+  final String returnBusId;
 
-  factory ReservationModel.fromJson(Map<String, dynamic> json) => _$ReservationModelFromJson(json);
+  @override
+  final BusModel? departureBus;
+
+  @override
+  final BusModel? returnBus;
+
+  factory ReservationModel.fromJson(Map<String, dynamic> json) =>
+      _$ReservationModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReservationModelToJson(this);
 }

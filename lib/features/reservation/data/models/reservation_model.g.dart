@@ -12,12 +12,8 @@ ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) =>
       userId: json['userId'] as String? ?? '',
       paymentId: json['paymentId'] as String? ?? '',
       date: json['date'] as String? ?? '',
-      departureBus: json['departureBus'] == null
-          ? const BusModel()
-          : BusModel.fromJson(json['departureBus'] as Map<String, dynamic>),
-      returnBus: json['returnBus'] == null
-          ? const BusModel()
-          : BusModel.fromJson(json['returnBus'] as Map<String, dynamic>),
+      departureBusId: json['departureBusId'] as String? ?? '',
+      returnBusId: json['returnBusId'] as String? ?? '',
     );
 
 Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
@@ -26,6 +22,6 @@ Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
       'userId': instance.userId,
       'paymentId': instance.paymentId,
       'date': instance.date,
-      'departureBus': instance.departureBus,
-      'returnBus': instance.returnBus,
+      'departureBusId': instance.departureBusId,
+      'returnBusId': instance.returnBusId,
     };

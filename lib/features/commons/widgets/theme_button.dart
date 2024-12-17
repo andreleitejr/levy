@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_sizes.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 

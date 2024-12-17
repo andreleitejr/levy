@@ -21,7 +21,7 @@ final class _ReservationPageState extends ConsumerState<ReservationPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(reservationNotifierProvider.notifier).init('reservation_id_aqui');
+      ref.read(reservationNotifierProvider.notifier).init('reservation_001');
     });
   }
 
@@ -33,7 +33,7 @@ final class _ReservationPageState extends ConsumerState<ReservationPage> {
       state: state,
       loading: ThemeLoadingWidget(),
       success: ReservationWidget(
-        reservations: state.data,
+        reservation: state.data,
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,

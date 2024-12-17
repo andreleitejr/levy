@@ -126,6 +126,7 @@ class TranslationsReservationEn {
 
 	// Translations
 	late final TranslationsReservationHeaderEn header = TranslationsReservationHeaderEn._(_root);
+	late final TranslationsReservationInactiveEn inactive = TranslationsReservationInactiveEn._(_root);
 }
 
 // Path: search
@@ -325,6 +326,18 @@ class TranslationsReservationHeaderEn {
 	String get title => 'Reservation';
 }
 
+// Path: reservation.inactive
+class TranslationsReservationInactiveEn {
+	TranslationsReservationInactiveEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'No tickets available';
+	String get description => 'What a shame! You do not have any tickets. Make a purchase and try again.';
+	String get buttonText => 'Click here to buy your tickets';
+}
+
 // Path: search.header
 class TranslationsSearchHeaderEn {
 	TranslationsSearchHeaderEn._(this._root);
@@ -496,6 +509,9 @@ extension on Translations {
 			case 'payment.button.title': return 'Confirm Payment';
 			case 'paymentMethod.header.title': return 'Select payment method';
 			case 'reservation.header.title': return 'Reservation';
+			case 'reservation.inactive.title': return 'No tickets available';
+			case 'reservation.inactive.description': return 'What a shame! You do not have any tickets. Make a purchase and try again.';
+			case 'reservation.inactive.buttonText': return 'Click here to buy your tickets';
 			case 'search.header.title': return 'Search';
 			case 'search.inputs.departureAddress.labelText': return 'Departure Address';
 			case 'search.inputs.departureAddress.hintText': return 'Select your departure address';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/core/theme/theme_sizes.dart';
-import 'package:levy/core/theme/theme_typography.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_item_widget.dart';

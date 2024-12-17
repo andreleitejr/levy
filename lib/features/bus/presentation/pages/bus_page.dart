@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/notifiers/bus_notifier.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
@@ -11,7 +10,6 @@ import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
-import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
@@ -90,14 +88,16 @@ final class _BusPageState extends ConsumerState<BusPage> {
     final state = ref.read(busNotifierProvider);
     final router = context.router;
 
-    final reservation = ReservationModel(
-      userId: 'user_001',
-      paymentId: '',
-      date: DateTime.now().toString(),
-      departureBus: state.departureBus as BusModel,
-      returnBus: state.returnBus as BusModel,
-    );
+    final buses = <BusEntity>[];
 
-    router.push(PaymentRoute(reservation: reservation));
+    final departureBus = state.departureBus;
+    final returnBus = state.returnBus;
+
+    if (departureBus != null && returnBus != null) {
+      buses.add(departureBus);
+      buses.add(returnBus);
+
+      router.push(PaymentRoute(buses: buses));
+    }
   }
 }

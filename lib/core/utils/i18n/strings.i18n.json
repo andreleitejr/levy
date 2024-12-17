@@ -52,7 +52,6 @@
       "title": "Confirm Payment"
     }
   },
-
   "paymentMethod": {
     "header": {
       "title": "Select payment method"
@@ -61,6 +60,11 @@
   "reservation": {
     "header": {
       "title": "Reservation"
+    },
+    "inactive": {
+      "title": "No tickets available",
+      "description": "What a shame! You do not have any tickets. Make a purchase and try again.",
+      "buttonText": "Click here to buy your tickets"
     }
   },
   "search": {

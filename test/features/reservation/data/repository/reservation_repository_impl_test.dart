@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/reservation/data/datasources/reservation_datasource.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/data/repositories/reservation_repository_impl.dart';
@@ -23,8 +22,8 @@ void main() {
       userId: 'user_001',
       paymentId: 'payment_001',
       date: DateTime.now().toString(),
-      departureBus: const BusModel(),
-      returnBus: const BusModel(),
+      departureBusId: 'bus_001',
+      returnBusId: 'bus_010',
     );
 
     test('should return true when the reservation is created successfully',
@@ -32,7 +31,8 @@ void main() {
       when(() => mockDataSource.createReservation(const ReservationModel()))
           .thenAnswer((_) async => true);
 
-      final result = await repository.createReservation(const ReservationModel());
+      final result =
+          await repository.createReservation(const ReservationModel());
 
       expect(result, isA<bool>());
       expect(result, isTrue);
@@ -57,36 +57,28 @@ void main() {
   group('ReservationRepositoryImpl - get', () {
     test('should return ReservationEntity when the call is successful',
         () async {
-      final bus = BusModel(
-        id: '1',
-        brand: 'Brand',
-        model: 'Model',
-        capacity: 30,
-        isAccessible: true,
+      final expectedReservation =
+      ReservationModel(
+        reservationId: 'reservation_001',
+        userId: 'user_001',
+        paymentId: 'payment_001',
+        date: DateTime.now().toString(),
+        departureBusId: 'bus_001',
+        returnBusId: 'bus_010',
       );
-      final expectedReservation = [
-        ReservationModel(
-          reservationId: 'reservation_001',
-          userId: 'user_001',
-          paymentId: 'payment_001',
-          date: DateTime.now().toString(),
-          departureBus: bus,
-          returnBus: bus,
-        )
-      ];
 
       when(() => mockDataSource
-              .getReservation(expectedReservation.first.reservationId))
+              .getReservation(expectedReservation.reservationId))
           .thenAnswer((_) async => expectedReservation);
 
       final result = await repository
-          .getReservation(expectedReservation.first.reservationId);
+          .getReservation(expectedReservation.reservationId);
 
       expect(result, isA<List<ReservationEntity>>());
       expect(result, expectedReservation);
 
       verify(() => mockDataSource
-          .getReservation(expectedReservation.first.reservationId)).called(1);
+          .getReservation(expectedReservation.reservationId)).called(1);
     });
 
     test('should throw an exception when the call fails', () async {

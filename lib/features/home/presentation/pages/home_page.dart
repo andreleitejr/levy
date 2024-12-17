@@ -20,7 +20,12 @@ import 'package:levy/features/search/data/models/search_model.dart';
 
 @RoutePage()
 final class HomePage extends ConsumerStatefulWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+    this.initialIndex = 0,
+  });
+
+  final int initialIndex;
 
   @override
   ConsumerState<HomePage> createState() => _SearchPageState();
@@ -44,6 +49,8 @@ final class _SearchPageState extends ConsumerState<HomePage> {
   @override
   void initState() {
     super.initState();
+
+    _selectedIndex = widget.initialIndex;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(searchNotifierProvider.notifier).init();

@@ -12,6 +12,7 @@ final class PaymentDataSourceMock implements PaymentDataSource {
     required ReservationEntity reservation,
     required PaymentMethodEntity method,
   }) async {
+    await Future.delayed(const Duration(seconds: 2));
     return PaymentResult.success;
   }
 }

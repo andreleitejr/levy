@@ -12,6 +12,7 @@ import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:flutter/material.dart' as _i11;
 import 'package:levy/features/address/presentation/pages/address_page.dart'
     as _i1;
+import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i13;
 import 'package:levy/features/bus/presentation/pages/bus_page.dart' as _i2;
 import 'package:levy/features/home/presentation/pages/home_page.dart' as _i3;
 import 'package:levy/features/notification/presentation/pages/notification_page.dart'
@@ -20,8 +21,6 @@ import 'package:levy/features/payment/presentation/pages/payment_page.dart'
     as _i6;
 import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart'
     as _i5;
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart'
-    as _i13;
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
     as _i7;
 import 'package:levy/features/search/domain/entities/search_entity.dart'
@@ -97,10 +96,17 @@ class BusRouteArgs {
 
 /// generated route for
 /// [_i3.HomePage]
-class HomeRoute extends _i10.PageRouteInfo<void> {
-  const HomeRoute({List<_i10.PageRouteInfo>? children})
-      : super(
+class HomeRoute extends _i10.PageRouteInfo<HomeRouteArgs> {
+  HomeRoute({
+    _i11.Key? key,
+    int initialIndex = 0,
+    List<_i10.PageRouteInfo>? children,
+  }) : super(
           HomeRoute.name,
+          args: HomeRouteArgs(
+            key: key,
+            initialIndex: initialIndex,
+          ),
           initialChildren: children,
         );
 
@@ -109,9 +115,30 @@ class HomeRoute extends _i10.PageRouteInfo<void> {
   static _i10.PageInfo page = _i10.PageInfo(
     name,
     builder: (data) {
-      return const _i3.HomePage();
+      final args =
+          data.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
+      return _i3.HomePage(
+        key: args.key,
+        initialIndex: args.initialIndex,
+      );
     },
   );
+}
+
+class HomeRouteArgs {
+  const HomeRouteArgs({
+    this.key,
+    this.initialIndex = 0,
+  });
+
+  final _i11.Key? key;
+
+  final int initialIndex;
+
+  @override
+  String toString() {
+    return 'HomeRouteArgs{key: $key, initialIndex: $initialIndex}';
+  }
 }
 
 /// generated route for
@@ -157,13 +184,13 @@ class PaymentMethodRoute extends _i10.PageRouteInfo<void> {
 class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
     _i11.Key? key,
-    required _i13.ReservationEntity reservation,
+    required List<_i13.BusEntity> buses,
     List<_i10.PageRouteInfo>? children,
   }) : super(
           PaymentRoute.name,
           args: PaymentRouteArgs(
             key: key,
-            reservation: reservation,
+            buses: buses,
           ),
           initialChildren: children,
         );
@@ -176,7 +203,7 @@ class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
       final args = data.argsAs<PaymentRouteArgs>();
       return _i6.PaymentPage(
         key: args.key,
-        reservation: args.reservation,
+        buses: args.buses,
       );
     },
   );
@@ -185,16 +212,16 @@ class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
 class PaymentRouteArgs {
   const PaymentRouteArgs({
     this.key,
-    required this.reservation,
+    required this.buses,
   });
 
   final _i11.Key? key;
 
-  final _i13.ReservationEntity reservation;
+  final List<_i13.BusEntity> buses;
 
   @override
   String toString() {
-    return 'PaymentRouteArgs{key: $key, reservation: $reservation}';
+    return 'PaymentRouteArgs{key: $key, buses: $buses}';
   }
 }
 

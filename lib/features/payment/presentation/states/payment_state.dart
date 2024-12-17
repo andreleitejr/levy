@@ -24,7 +24,7 @@ final class PaymentState implements GenericStateBase {
   });
 
   const PaymentState.loading() : this(isLoading: true);
-  const PaymentState.initial(ReservationEntity reservation) : this(reservation: reservation);
+  const PaymentState.initial() : this();
   const PaymentState.success(PaymentResult result) : this(result: result);
   const PaymentState.error(String message) : this(errorMessage: message);
 

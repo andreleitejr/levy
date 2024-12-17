@@ -12,7 +12,7 @@ final class GetBusUseCaseImpl implements GetBusUseCase {
 
   @override
   Future<List<BusEntity>> call({
-    required SearchEntity search,
+    SearchEntity? search,
     bool isReturn = false,
   }) async {
     return _repository.get(search: search, isReturn: isReturn);

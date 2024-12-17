@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/features/commons/enums/theme_image_geometry.dart';
 
 final class ThemeListItemWidget extends StatelessWidget {
   const ThemeListItemWidget({
@@ -12,6 +13,7 @@ final class ThemeListItemWidget extends StatelessWidget {
     this.trailing,
     this.onPressed,
     this.showBorder = true,
+    this.imageGeometry = ThemeImageGeometry.circle,
   });
 
   final String? image;
@@ -20,17 +22,20 @@ final class ThemeListItemWidget extends StatelessWidget {
   final Widget? trailing;
   final VoidCallback? onPressed;
   final bool showBorder;
+  final ThemeImageGeometry imageGeometry;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 96,
       decoration: BoxDecoration(
-        border: showBorder ? Border(
-          bottom: BorderSide(
-            color: ThemeColors.grey2,
-          ),
-        ) : null,
+        border: showBorder
+            ? Border(
+                bottom: BorderSide(
+                  color: ThemeColors.grey2,
+                ),
+              )
+            : null,
       ),
       child: ListTile(
         onTap: onPressed,
@@ -57,7 +62,11 @@ final class ThemeListItemWidget extends StatelessWidget {
   Widget _buildLeadingImage() {
     final leadingImage = image;
 
-    if (leadingImage != null) {
+    if (leadingImage == null) {
+      return SizedBox.shrink();
+    }
+
+    if (imageGeometry == ThemeImageGeometry.circle) {
       return ClipOval(
         child: Image.asset(
           ThemeImages.getImageByString(leadingImage),
@@ -66,8 +75,15 @@ final class ThemeListItemWidget extends StatelessWidget {
           fit: BoxFit.fitWidth,
         ),
       );
+    } else {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: Image.asset(
+          ThemeImages.getImageByString(leadingImage),
+          fit: BoxFit.fitWidth,
+          height: 24,
+        ),
+      );
     }
-
-    return const SizedBox.shrink();
   }
 }
