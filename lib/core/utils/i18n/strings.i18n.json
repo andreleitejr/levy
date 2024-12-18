@@ -5,6 +5,10 @@
     },
     "returnTicket": {
       "title": "Return Ticket"
+    },
+    "time": {
+      "hours": "Hours",
+      "minutes": "Minutes"
     }
   },
   "address": {
@@ -27,6 +31,45 @@
     },
     "button": {
       "title": "Select"
+    }
+  },
+  "home": {
+    "header": {
+      "title": "Search"
+    },
+    "form": {
+      "inputs": {
+        "departureAddress": {
+          "labelText": "Departure Address",
+          "hintText": "Select your departure address"
+        },
+        "returnAddress": {
+          "labelText": "Return Address",
+          "hintText": "Select your return address"
+        },
+        "departureTime": {
+          "labelText": "Departure Time",
+          "hintText": "05:00"
+        },
+        "returnTime": {
+          "labelText": "Return Time",
+          "hintText": "17:30"
+        }
+      },
+      "button": {
+        "title": "Search"
+      }
+    },
+    "reservation": {
+      "warning": {
+        "title": "Your bus in on the way",
+        "textButton": "View on map",
+        "description": "Your bus will arrive in $time..."
+      },
+
+      "ticket": {
+        "title": "Next trip"
+      }
     }
   },
   "notification": {
@@ -65,32 +108,6 @@
       "title": "No tickets available",
       "description": "What a shame! You do not have any tickets. Make a purchase and try again.",
       "buttonText": "Click here to buy your tickets"
-    }
-  },
-  "search": {
-    "header": {
-      "title": "Search"
-    },
-    "inputs": {
-      "departureAddress": {
-        "labelText": "Departure Address",
-        "hintText": "Select your departure address"
-      },
-      "returnAddress": {
-        "labelText": "Return Address",
-        "hintText": "Select your return address"
-      },
-      "departureTime": {
-        "labelText": "Departure Time",
-        "hintText": "05:00"
-      },
-      "returnTime": {
-        "labelText": "Return Time",
-        "hintText": "17:30"
-      }
-    },
-    "button": {
-      "title": "Search"
     }
   },
   "seat": {

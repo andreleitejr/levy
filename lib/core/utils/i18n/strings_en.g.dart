@@ -40,11 +40,11 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsCommonsEn commons = TranslationsCommonsEn._(_root);
 	late final TranslationsAddressEn address = TranslationsAddressEn._(_root);
 	late final TranslationsBusEn bus = TranslationsBusEn._(_root);
+	late final TranslationsHomeEn home = TranslationsHomeEn._(_root);
 	late final TranslationsNotificationEn notification = TranslationsNotificationEn._(_root);
 	late final TranslationsPaymentEn payment = TranslationsPaymentEn._(_root);
 	late final TranslationsPaymentMethodEn paymentMethod = TranslationsPaymentMethodEn._(_root);
 	late final TranslationsReservationEn reservation = TranslationsReservationEn._(_root);
-	late final TranslationsSearchEn search = TranslationsSearchEn._(_root);
 	late final TranslationsSeatEn seat = TranslationsSeatEn._(_root);
 	late final TranslationsTimeEn time = TranslationsTimeEn._(_root);
 	late final TranslationsUserEn user = TranslationsUserEn._(_root);
@@ -59,6 +59,7 @@ class TranslationsCommonsEn {
 	// Translations
 	late final TranslationsCommonsDepartureTicketEn departureTicket = TranslationsCommonsDepartureTicketEn._(_root);
 	late final TranslationsCommonsReturnTicketEn returnTicket = TranslationsCommonsReturnTicketEn._(_root);
+	late final TranslationsCommonsTimeEn time = TranslationsCommonsTimeEn._(_root);
 }
 
 // Path: address
@@ -83,6 +84,18 @@ class TranslationsBusEn {
 	late final TranslationsBusResultsEn results = TranslationsBusResultsEn._(_root);
 	late final TranslationsBusSelectedEn selected = TranslationsBusSelectedEn._(_root);
 	late final TranslationsBusButtonEn button = TranslationsBusButtonEn._(_root);
+}
+
+// Path: home
+class TranslationsHomeEn {
+	TranslationsHomeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsHomeHeaderEn header = TranslationsHomeHeaderEn._(_root);
+	late final TranslationsHomeFormEn form = TranslationsHomeFormEn._(_root);
+	late final TranslationsHomeReservationEn reservation = TranslationsHomeReservationEn._(_root);
 }
 
 // Path: notification
@@ -127,18 +140,6 @@ class TranslationsReservationEn {
 	// Translations
 	late final TranslationsReservationHeaderEn header = TranslationsReservationHeaderEn._(_root);
 	late final TranslationsReservationInactiveEn inactive = TranslationsReservationInactiveEn._(_root);
-}
-
-// Path: search
-class TranslationsSearchEn {
-	TranslationsSearchEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsSearchHeaderEn header = TranslationsSearchHeaderEn._(_root);
-	late final TranslationsSearchInputsEn inputs = TranslationsSearchInputsEn._(_root);
-	late final TranslationsSearchButtonEn button = TranslationsSearchButtonEn._(_root);
 }
 
 // Path: seat
@@ -192,6 +193,17 @@ class TranslationsCommonsReturnTicketEn {
 
 	// Translations
 	String get title => 'Return Ticket';
+}
+
+// Path: commons.time
+class TranslationsCommonsTimeEn {
+	TranslationsCommonsTimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get hours => 'Hours';
+	String get minutes => 'Minutes';
 }
 
 // Path: address.header
@@ -252,6 +264,38 @@ class TranslationsBusButtonEn {
 
 	// Translations
 	String get title => 'Select';
+}
+
+// Path: home.header
+class TranslationsHomeHeaderEn {
+	TranslationsHomeHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Search';
+}
+
+// Path: home.form
+class TranslationsHomeFormEn {
+	TranslationsHomeFormEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsHomeFormInputsEn inputs = TranslationsHomeFormInputsEn._(_root);
+	late final TranslationsHomeFormButtonEn button = TranslationsHomeFormButtonEn._(_root);
+}
+
+// Path: home.reservation
+class TranslationsHomeReservationEn {
+	TranslationsHomeReservationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsHomeReservationWarningEn warning = TranslationsHomeReservationWarningEn._(_root);
+	late final TranslationsHomeReservationTicketEn ticket = TranslationsHomeReservationTicketEn._(_root);
 }
 
 // Path: notification.header
@@ -338,39 +382,6 @@ class TranslationsReservationInactiveEn {
 	String get buttonText => 'Click here to buy your tickets';
 }
 
-// Path: search.header
-class TranslationsSearchHeaderEn {
-	TranslationsSearchHeaderEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Search';
-}
-
-// Path: search.inputs
-class TranslationsSearchInputsEn {
-	TranslationsSearchInputsEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsSearchInputsDepartureAddressEn departureAddress = TranslationsSearchInputsDepartureAddressEn._(_root);
-	late final TranslationsSearchInputsReturnAddressEn returnAddress = TranslationsSearchInputsReturnAddressEn._(_root);
-	late final TranslationsSearchInputsDepartureTimeEn departureTime = TranslationsSearchInputsDepartureTimeEn._(_root);
-	late final TranslationsSearchInputsReturnTimeEn returnTime = TranslationsSearchInputsReturnTimeEn._(_root);
-}
-
-// Path: search.button
-class TranslationsSearchButtonEn {
-	TranslationsSearchButtonEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Search';
-}
-
 // Path: seat.header
 class TranslationsSeatHeaderEn {
 	TranslationsSeatHeaderEn._(this._root);
@@ -433,6 +444,51 @@ class TranslationsUserHeaderEn {
 	String get welcome => 'Welcome';
 }
 
+// Path: home.form.inputs
+class TranslationsHomeFormInputsEn {
+	TranslationsHomeFormInputsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsHomeFormInputsDepartureAddressEn departureAddress = TranslationsHomeFormInputsDepartureAddressEn._(_root);
+	late final TranslationsHomeFormInputsReturnAddressEn returnAddress = TranslationsHomeFormInputsReturnAddressEn._(_root);
+	late final TranslationsHomeFormInputsDepartureTimeEn departureTime = TranslationsHomeFormInputsDepartureTimeEn._(_root);
+	late final TranslationsHomeFormInputsReturnTimeEn returnTime = TranslationsHomeFormInputsReturnTimeEn._(_root);
+}
+
+// Path: home.form.button
+class TranslationsHomeFormButtonEn {
+	TranslationsHomeFormButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Search';
+}
+
+// Path: home.reservation.warning
+class TranslationsHomeReservationWarningEn {
+	TranslationsHomeReservationWarningEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Your bus in on the way';
+	String get textButton => 'View on map';
+	String description({required Object time}) => 'Your bus will arrive in ${time}...';
+}
+
+// Path: home.reservation.ticket
+class TranslationsHomeReservationTicketEn {
+	TranslationsHomeReservationTicketEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Next trip';
+}
+
 // Path: payment.paymentMethod.textButton
 class TranslationsPaymentPaymentMethodTextButtonEn {
 	TranslationsPaymentPaymentMethodTextButtonEn._(this._root);
@@ -443,9 +499,9 @@ class TranslationsPaymentPaymentMethodTextButtonEn {
 	String get title => 'Modify';
 }
 
-// Path: search.inputs.departureAddress
-class TranslationsSearchInputsDepartureAddressEn {
-	TranslationsSearchInputsDepartureAddressEn._(this._root);
+// Path: home.form.inputs.departureAddress
+class TranslationsHomeFormInputsDepartureAddressEn {
+	TranslationsHomeFormInputsDepartureAddressEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -454,9 +510,9 @@ class TranslationsSearchInputsDepartureAddressEn {
 	String get hintText => 'Select your departure address';
 }
 
-// Path: search.inputs.returnAddress
-class TranslationsSearchInputsReturnAddressEn {
-	TranslationsSearchInputsReturnAddressEn._(this._root);
+// Path: home.form.inputs.returnAddress
+class TranslationsHomeFormInputsReturnAddressEn {
+	TranslationsHomeFormInputsReturnAddressEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -465,9 +521,9 @@ class TranslationsSearchInputsReturnAddressEn {
 	String get hintText => 'Select your return address';
 }
 
-// Path: search.inputs.departureTime
-class TranslationsSearchInputsDepartureTimeEn {
-	TranslationsSearchInputsDepartureTimeEn._(this._root);
+// Path: home.form.inputs.departureTime
+class TranslationsHomeFormInputsDepartureTimeEn {
+	TranslationsHomeFormInputsDepartureTimeEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -476,9 +532,9 @@ class TranslationsSearchInputsDepartureTimeEn {
 	String get hintText => '05:00';
 }
 
-// Path: search.inputs.returnTime
-class TranslationsSearchInputsReturnTimeEn {
-	TranslationsSearchInputsReturnTimeEn._(this._root);
+// Path: home.form.inputs.returnTime
+class TranslationsHomeFormInputsReturnTimeEn {
+	TranslationsHomeFormInputsReturnTimeEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -494,12 +550,28 @@ extension on Translations {
 		switch (path) {
 			case 'commons.departureTicket.title': return 'Departure Ticket';
 			case 'commons.returnTicket.title': return 'Return Ticket';
+			case 'commons.time.hours': return 'Hours';
+			case 'commons.time.minutes': return 'Minutes';
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
 			case 'bus.header.title': return 'Select Bus';
 			case 'bus.results.title': return 'Best Route';
 			case 'bus.selected.title': return 'Departure Info';
 			case 'bus.button.title': return 'Select';
+			case 'home.header.title': return 'Search';
+			case 'home.form.inputs.departureAddress.labelText': return 'Departure Address';
+			case 'home.form.inputs.departureAddress.hintText': return 'Select your departure address';
+			case 'home.form.inputs.returnAddress.labelText': return 'Return Address';
+			case 'home.form.inputs.returnAddress.hintText': return 'Select your return address';
+			case 'home.form.inputs.departureTime.labelText': return 'Departure Time';
+			case 'home.form.inputs.departureTime.hintText': return '05:00';
+			case 'home.form.inputs.returnTime.labelText': return 'Return Time';
+			case 'home.form.inputs.returnTime.hintText': return '17:30';
+			case 'home.form.button.title': return 'Search';
+			case 'home.reservation.warning.title': return 'Your bus in on the way';
+			case 'home.reservation.warning.textButton': return 'View on map';
+			case 'home.reservation.warning.description': return ({required Object time}) => 'Your bus will arrive in ${time}...';
+			case 'home.reservation.ticket.title': return 'Next trip';
 			case 'notification.header.title': return 'Notifications';
 			case 'payment.header.title': return 'Order tickets';
 			case 'payment.paymentMethod.title': return 'Payment Method';
@@ -512,16 +584,6 @@ extension on Translations {
 			case 'reservation.inactive.title': return 'No tickets available';
 			case 'reservation.inactive.description': return 'What a shame! You do not have any tickets. Make a purchase and try again.';
 			case 'reservation.inactive.buttonText': return 'Click here to buy your tickets';
-			case 'search.header.title': return 'Search';
-			case 'search.inputs.departureAddress.labelText': return 'Departure Address';
-			case 'search.inputs.departureAddress.hintText': return 'Select your departure address';
-			case 'search.inputs.returnAddress.labelText': return 'Return Address';
-			case 'search.inputs.returnAddress.hintText': return 'Select your return address';
-			case 'search.inputs.departureTime.labelText': return 'Departure Time';
-			case 'search.inputs.departureTime.hintText': return '05:00';
-			case 'search.inputs.returnTime.labelText': return 'Return Time';
-			case 'search.inputs.returnTime.hintText': return '17:30';
-			case 'search.button.title': return 'Search';
 			case 'seat.header.title': return 'Select Seat';
 			case 'seat.descriptions.selected': return 'Selected';
 			case 'seat.descriptions.available': return 'Available';

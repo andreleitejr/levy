@@ -14,7 +14,8 @@ import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/home/presentation/notifiers/home_notifier.dart';
 import 'package:levy/features/home/presentation/providers/home_notifier_provider.dart';
 import 'package:levy/features/home/presentation/states/home_state.dart';
-import 'package:levy/features/home/presentation/widgets/home_widget.dart';
+import 'package:levy/features/home/presentation/widgets/home_reservation_info_widget.dart';
+import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 
@@ -69,20 +70,9 @@ final class _SearchPageState extends ConsumerState<HomePage> {
         body: IndexedStack(
           index: _selectedIndex,
           children: [
-            SearchWidget(
-              user: state.user,
-              departureAddress: state.departureAddress?.street,
-              returnAddress: state.returnAddress?.street,
-              departureTime: state.departureTime,
-              returnTime: state.returnTime,
-              onNotificationButtonPressed: () =>
-                  context.router.push(NotificationRoute()),
-              onDepartureAddressSelect: () =>
-                  _onDepartureAddressSelect(notifier),
-              onReturnAddressSelect: () => _onReturnAddressSelect(notifier),
-              onDepartureTimeSelect: () => _onDepartureTimeSelect(notifier),
-              onReturnTimeSelect: () => _onReturnTimeSelect(notifier),
-              onButtonPressed: () => _onButtonPressed(state),
+            _buildHomeWidget(
+              state: state,
+              notifier: notifier,
             ),
             ..._pages,
           ],
@@ -134,6 +124,36 @@ final class _SearchPageState extends ConsumerState<HomePage> {
       ),
       error: ThemeErrorWidget(),
     );
+  }
+
+  Widget _buildHomeWidget({
+    required HomeState state,
+    required HomeNotifier notifier,
+  }) {
+    final reservation = state.reservation;
+
+    if (reservation != null) {
+      return HomeReservationInfoWidget(
+        user: state.user,
+        reservation: state.reservation!,
+        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
+      );
+    } else {
+      return HomeSearchWidget(
+        user: state.user,
+        departureAddress: state.departureAddress?.street,
+        returnAddress: state.returnAddress?.street,
+        departureTime: state.departureTime,
+        returnTime: state.returnTime,
+        onNotificationButtonPressed: () =>
+            context.router.push(NotificationRoute()),
+        onDepartureAddressSelect: () => _onDepartureAddressSelect(notifier),
+        onReturnAddressSelect: () => _onReturnAddressSelect(notifier),
+        onDepartureTimeSelect: () => _onDepartureTimeSelect(notifier),
+        onReturnTimeSelect: () => _onReturnTimeSelect(notifier),
+        onButtonPressed: () => _onButtonPressed(state),
+      );
+    }
   }
 
   Future<void> _onDepartureAddressSelect(HomeNotifier notifier) async {

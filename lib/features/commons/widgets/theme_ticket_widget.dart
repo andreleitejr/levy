@@ -11,13 +11,19 @@ final class ThemeTicketWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.bus,
+    this.isReturnBus = false,
+    this.showDriverInfo = false,
   });
 
   final String title;
   final BusEntity bus;
+  final bool isReturnBus;
+  final bool showDriverInfo;
 
   @override
   Widget build(BuildContext context) {
+    final route = isReturnBus ? bus.routes.last : bus.routes.first;
+
     return Column(
       children: [
         Container(
@@ -43,13 +49,22 @@ final class ThemeTicketWidget extends StatelessWidget {
               ),
               ThemeScheduleWidget(
                 padding: const EdgeInsets.fromLTRB(16, 3, 16, 16),
-                departureTime: bus.routes.first.departureTime,
-                arrivalTime: bus.routes.first.arrivalTime,
-                departureAddressTitle: bus.routes.first.origin.name,
-                arrivalAddressTitle: bus.routes.first.destination.name,
-                departureAddressLine: bus.routes.first.origin.line,
-                arrivalAddressLine: bus.routes.first.destination.line,
+                departureTime: route.departureTime,
+                arrivalTime: route.arrivalTime,
+                departureAddressTitle: route.origin.name,
+                arrivalAddressTitle: route.destination.name,
+                departureAddressLine: route.origin.line,
+                arrivalAddressLine: route.destination.line,
               ),
+              if (showDriverInfo)
+                ThemeListItemWidget(
+                  image: bus.driver.image,
+                  title: bus.driver.name,
+                  subtitle: '${bus.licensePlate} - '
+                      'Seat: ${bus.seats.first.letter}'
+                      '${bus.seats.first.number}',
+                  showBorder: false,
+                ),
             ],
           ),
         ),

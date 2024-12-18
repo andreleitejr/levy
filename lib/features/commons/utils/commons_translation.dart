@@ -5,4 +5,5 @@ final class CommonsTranslation {
 
   static final departureTicket = t.commons.departureTicket;
   static final returnTicket = t.commons.returnTicket;
+  static final time = t.commons.time;
 }

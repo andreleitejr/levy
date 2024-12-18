@@ -109,6 +109,6 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
 
     await reservationUseCase.call(reservation);
 
-    router.replace(HomeRoute(initialIndex: 1));
+    router.replace(HomeRoute());
   }
 }

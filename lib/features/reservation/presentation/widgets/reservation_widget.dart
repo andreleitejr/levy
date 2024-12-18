@@ -23,7 +23,7 @@ final class ReservationWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
           ThemeTicketWidget(
-            title: CommonsTranslation.returnTicket.title,
+            title: CommonsTranslation.departureTicket.title,
             bus: reservation.departureBus!,
           ),
           SizedBox(height: 8),

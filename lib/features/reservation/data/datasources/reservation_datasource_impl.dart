@@ -53,14 +53,14 @@ final class ReservationDataSourceImpl implements ReservationDataSource {
   }
 
   @override
-  Future<ReservationModel?> getReservation(String reservationId) async {
+  Future<ReservationModel?> getReservation(String userId) async {
     try {
 
       await _initializeDatabase();
       final List<Map<String, dynamic>> maps = await _database.query(
         'reservations',
-        where: 'reservationId = ?',
-        whereArgs: [reservationId],
+        where: 'userId = ?',
+        whereArgs: [userId],
       );
 
       return List<ReservationModel>.from(

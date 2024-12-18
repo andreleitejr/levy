@@ -1,5 +1,6 @@
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/user/data/models/user_model.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
@@ -9,6 +10,7 @@ final class HomeState implements GenericStateBase {
   final AddressEntity? returnAddress;
   final String? departureTime;
   final String? returnTime;
+  final ReservationEntity? reservation;
 
   @override
   final String? errorMessage;
@@ -22,12 +24,18 @@ final class HomeState implements GenericStateBase {
     this.returnAddress,
     this.departureTime,
     this.returnTime,
+    this.reservation,
     this.errorMessage,
     this.isLoading = false,
   });
 
   const HomeState.loading() : this(isLoading: true);
-  const HomeState.success(UserEntity user) : this(user: user);
+
+  const HomeState.success({
+    required UserEntity user,
+    ReservationEntity? reservation,
+  }) : this(user: user, reservation: reservation);
+
   const HomeState.error(String message) : this(errorMessage: message);
 
   HomeState copyWith({

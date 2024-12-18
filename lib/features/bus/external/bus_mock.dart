@@ -353,7 +353,7 @@ final class BusMock {
       'isAccessible': true,
       'driver': {
         'id': '4',
-        'image': 'driver_4',
+        'image': 'driver_1',
         'name': 'Paul Taylor',
         'birthday': '1987-07-11',
         'licenseNumber': 'PQR123456',
@@ -529,7 +529,7 @@ final class BusMock {
       'isAccessible': true,
       'driver': {
         'id': '6',
-        'image': 'driver_4',
+        'image': 'driver_2',
         'name': 'Lucas Souza',
         'birthday': '1991-03-18',
         'licenseNumber': 'TUV234567',
@@ -705,7 +705,7 @@ final class BusMock {
       'isAccessible': false,
       'driver': {
         'id': '8',
-        'image': 'driver_4',
+        'image': 'driver_3',
         'name': 'Miguel Fernandes',
         'birthday': '1978-08-10',
         'licenseNumber': 'HIJ567890',

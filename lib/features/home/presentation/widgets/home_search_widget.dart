@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
-import 'package:levy/features/home/presentation/widgets/home_form_widget.dart';
+import 'package:levy/features/home/presentation/widgets/home_search_form_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
-final class SearchWidget extends StatelessWidget {
-  const SearchWidget({
+final class HomeSearchWidget extends StatelessWidget {
+  const HomeSearchWidget({
     super.key,
     required this.user,
     this.departureAddress,
@@ -40,7 +40,7 @@ final class SearchWidget extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
-        child: SearchFormWidget(
+        child: HomeFormWidget(
           departureAddress: departureAddress,
           returnAddress: returnAddress,
           departureTime: departureTime,

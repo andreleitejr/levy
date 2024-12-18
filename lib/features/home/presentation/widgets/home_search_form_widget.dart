@@ -3,10 +3,10 @@ import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/features/commons/widgets/theme_button.dart';
 import 'package:levy/features/home/presentation/utils/home_translation.dart';
-import 'package:levy/features/home/presentation/widgets/home_form_input_widget.dart';
+import 'package:levy/features/home/presentation/widgets/home_search_form_input_widget.dart';
 
-class SearchFormWidget extends StatelessWidget {
-  const SearchFormWidget({
+class HomeFormWidget extends StatelessWidget {
+  const HomeFormWidget({
     super.key,
     this.departureAddress,
     this.returnAddress,
