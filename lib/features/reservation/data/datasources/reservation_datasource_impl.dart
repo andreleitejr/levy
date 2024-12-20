@@ -15,17 +15,19 @@ final class ReservationDataSourceImpl implements ReservationDataSource {
     final dbPath = await getDatabasesPath();
 
     debugPrint('Initializing Database...');
-    _database = await openDatabase(join(dbPath, 'reservation.db'),
+
+    _database = await openDatabase(
+      join(dbPath, 'reservation.db'),
       onCreate: (db, version) {
         return db.execute(
           'CREATE TABLE reservations('
-              'reservationId TEXT PRIMARY KEY, '
-              'userId TEXT, '
-              'paymentId TEXT, '
-              'date TEXT, '
-              'departureBusId TEXT, '
-              'returnBusId TEXT'
-              ')',
+          'reservationId TEXT PRIMARY KEY, '
+          'userId TEXT, '
+          'paymentId TEXT, '
+          'date TEXT, '
+          'departureBusId TEXT, '
+          'returnBusId TEXT'
+          ')',
         );
       },
       version: 1,
@@ -55,21 +57,26 @@ final class ReservationDataSourceImpl implements ReservationDataSource {
   @override
   Future<ReservationModel?> getReservation(String userId) async {
     try {
-
       await _initializeDatabase();
+
       final List<Map<String, dynamic>> maps = await _database.query(
         'reservations',
         where: 'userId = ?',
         whereArgs: [userId],
       );
 
-      return List<ReservationModel>.from(
-        maps.map((reservation) => ReservationModel.fromJson(reservation)),
-      ).first;
+      ReservationModel? reservation;
+
+      if (maps.isNotEmpty) {
+        reservation = List<ReservationModel>.from(
+          maps.map((reservation) => ReservationModel.fromJson(reservation)),
+        ).first;
+      }
+
+      return reservation;
     } catch (e) {
       debugPrint('Failed to get Reservations in internal DataBase: $e');
       return null;
     }
   }
 }
-

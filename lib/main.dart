@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:levy/core/router/app_router.dart';
 import 'package:levy/core/theme/app_theme.dart';
 import 'package:levy/core/utils/i18n/strings.g.dart';
+
+final getIt = GetIt.instance;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

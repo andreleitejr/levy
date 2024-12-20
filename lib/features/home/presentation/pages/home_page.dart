@@ -122,7 +122,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
           unselectedItemColor: Colors.grey,
         ),
       ),
-      error: ThemeErrorWidget(),
+      error: ThemeErrorWidget(message: state.errorMessage,),
     );
   }
 
@@ -145,8 +145,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
         returnAddress: state.returnAddress?.street,
         departureTime: state.departureTime,
         returnTime: state.returnTime,
-        onNotificationButtonPressed: () =>
-            context.router.push(NotificationRoute()),
+        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
         onDepartureAddressSelect: () => _onDepartureAddressSelect(notifier),
         onReturnAddressSelect: () => _onReturnAddressSelect(notifier),
         onDepartureTimeSelect: () => _onDepartureTimeSelect(notifier),

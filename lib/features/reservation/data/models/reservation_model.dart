@@ -4,7 +4,7 @@ import 'package:levy/features/reservation/domain/entities/reservation_entity.dar
 
 part 'reservation_model.g.dart';
 
-@JsonSerializable(createToJson: true)
+@JsonSerializable(createToJson: true, includeIfNull: false)
 class ReservationModel extends ReservationEntity {
   const ReservationModel({
     this.reservationId = '',
@@ -41,8 +41,7 @@ class ReservationModel extends ReservationEntity {
   @override
   final BusModel? returnBus;
 
-  factory ReservationModel.fromJson(Map<String, dynamic> json) =>
-      _$ReservationModelFromJson(json);
+  factory ReservationModel.fromJson(Map<String, dynamic> json) => _$ReservationModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReservationModelToJson(this);
 }

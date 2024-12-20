@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
 import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
@@ -14,6 +15,8 @@ import 'package:levy/features/payment/presentation/widgets/payment_widget.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/presentation/providers/create_reservation_usecase_provider.dart';
+import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:uuid/uuid.dart';
 
 @RoutePage()
 class PaymentPage extends ConsumerStatefulWidget {
@@ -52,10 +55,11 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
         paymentMethod: state.paymentMethod,
         onPop: () => context.router.back(),
         onPaymentMethodPressed: () => _onPaymentMethodPressed(notifier),
-        onButtonPressed: () => _onButtonPressed(
-          state: state,
-          notifier: notifier,
-        ),
+        onButtonPressed: () =>
+            _onButtonPressed(
+              state: state,
+              notifier: notifier,
+            ),
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
@@ -65,7 +69,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
 
   Future<void> _onPaymentMethodPressed(PaymentNotifier notifier) async {
     final paymentMethod =
-        await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
+    await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
 
     if (paymentMethod != null) {
       notifier.updatePaymentMethod(paymentMethod);
@@ -95,13 +99,19 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
   Future<void> _handleReservation(PaymentState state) async {
     final router = context.router;
 
+
     final reservationUseCase = ref.read(createReservationUseCaseProvider);
 
-    //TODO: Modificar campos de userId e paymentId.
+    final user = GetIt.instance<UserEntity>();
+
+    final uuid = Uuid();
+    final reservationId = uuid.v4();
+    final paymentId = uuid.v4();
+
     final reservation = ReservationModel(
-      reservationId: 'reservation_001',
-      userId: 'user_001',
-      paymentId: '',
+      reservationId: reservationId,
+      userId: user.id,
+      paymentId: paymentId,
       date: DateTime.now().toString(),
       departureBusId: widget.buses.first.id,
       returnBusId: widget.buses.last.id,

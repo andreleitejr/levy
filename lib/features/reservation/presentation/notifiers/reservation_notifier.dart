@@ -5,6 +5,8 @@ import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase.dart';
 import 'package:levy/features/reservation/presentation/states/reservation_state.dart';
+import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:levy/main.dart';
 
 final class ReservationNotifier extends StateNotifier<ReservationState> {
   final GetReservationUseCase _usecase;
@@ -13,9 +15,11 @@ final class ReservationNotifier extends StateNotifier<ReservationState> {
   ReservationNotifier(this._usecase, this._busUseCase)
       : super(ReservationState.loading());
 
-  Future<void> init(String reservationId) async {
+  Future<void> init() async {
     try {
-      final reservation = await _usecase(reservationId);
+
+      final user = getIt<UserEntity>();
+      final reservation = await _usecase(user.id);
 
       ReservationEntity? updatedReservation;
 
@@ -45,8 +49,7 @@ final class ReservationNotifier extends StateNotifier<ReservationState> {
       }
       state = ReservationState.success(updatedReservation);
     } catch (e) {
-      state =
-          ReservationState.error('Failed to load reservation: ${e.toString()}');
+      state = ReservationState.error('Failed to load reservation: ${e.toString()}');
     }
   }
 }

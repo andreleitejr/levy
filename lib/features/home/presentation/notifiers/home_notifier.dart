@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
@@ -6,7 +7,9 @@ import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase.dart';
+import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/domain/usecases/get_user_usecase.dart';
+import 'package:levy/main.dart';
 
 final class HomeNotifier extends StateNotifier<HomeState> {
   final GetUserUseCase _userUseCase;
@@ -26,8 +29,13 @@ final class HomeNotifier extends StateNotifier<HomeState> {
       final user = await _userUseCase();
       final reservation = await _getUserReservation(user.id);
 
+      if (!getIt.isRegistered<UserEntity>()) {
+        getIt.registerSingleton<UserEntity>(user);
+      }
+
       state = HomeState.success(user: user, reservation: reservation);
     } catch (e) {
+      debugPrint(e.toString());
       state = HomeState.error('Failed to load search page: ${e.toString()}');
     }
   }

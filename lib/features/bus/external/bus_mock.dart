@@ -706,7 +706,7 @@ final class BusMock {
       'driver': {
         'id': '8',
         'image': 'driver_3',
-        'name': 'Miguel Fernandes',
+        'name': 'Maria Fernandes',
         'birthday': '1978-08-10',
         'licenseNumber': 'HIJ567890',
         'licenseType': 'D',

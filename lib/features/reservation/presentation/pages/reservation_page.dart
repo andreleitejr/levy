@@ -26,7 +26,7 @@ final class _ReservationPageState extends ConsumerState<ReservationPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(reservationNotifierProvider.notifier).init('user_001');
+      ref.read(reservationNotifierProvider.notifier).init();
     });
   }
 
@@ -59,8 +59,7 @@ final class _ReservationPageState extends ConsumerState<ReservationPage> {
         description: ReservationTranslation.inactive.description,
         buttonText: ReservationTranslation.inactive.buttonText,
         onButtonPressed: () {
-          context.router.push(HomeRoute(initialIndex: 1));
-        },
+          context.router.push(HomeRoute());        },
       );
     }
   }
