@@ -4,6 +4,6 @@ import 'package:levy/features/search/domain/entities/search_entity.dart';
 abstract class BusDataSource {
   Future<List<BusModel>> get({
     SearchEntity? search,
-    bool isReturn = false,
+    bool isReturnBus = false,
   });
 }

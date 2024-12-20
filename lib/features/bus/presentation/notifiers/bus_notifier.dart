@@ -28,7 +28,7 @@ final class BusNotifier extends StateNotifier<BusState> {
     required BusEntity bus,
     required SeatEntity seat,
   }) async {
-    final result = await _usecase(search: _search, isReturn: true);
+    final result = await _usecase(search: _search, isReturnBus: true);
 
     state = state.copyWith(
       data: result,

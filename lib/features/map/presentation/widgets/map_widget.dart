@@ -26,20 +26,16 @@ final class MapWidget extends StatelessWidget {
     return Scaffold(
       appBar: ThemeAppBarWidget(
         title: 'Map',
-        onLeadingPressed: onPop,
-        leadingIcon: ThemeIcons.arrowLeft,
       ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: userLocation,
-          zoom: 14,
+          zoom: 17,
         ),
         onMapCreated: (GoogleMapController mapController) {
           // Set controller if necessary
         },
         markers: markers,
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
       ),
     );
   }

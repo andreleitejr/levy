@@ -10,13 +10,13 @@ final class BusDataSourceMock implements BusDataSource {
   @override
   Future<List<BusModel>> get({
     SearchEntity? search,
-    bool isReturn = false,
+    bool isReturnBus = false,
   }) async {
     final buses = BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
 
     if(search != null){
 
-      if (isReturn) {
+      if (isReturnBus) {
         return buses.where((bus) {
           return bus.routes.any((route) =>
           route.origin.street == search.returnAddress.street &&

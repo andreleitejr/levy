@@ -35,7 +35,7 @@ void main() {
       expect(result, expectedBuses);
 
       verify(
-        () => mockDataSource.get(search: search, isReturn: false),
+        () => mockDataSource.get(search: search, isReturnBus: false),
       ).called(1);
     });
 
@@ -49,7 +49,7 @@ void main() {
       expect(call, throwsA(isA<Exception>()));
 
       verify(
-        () => mockDataSource.get(search: search, isReturn: false),
+        () => mockDataSource.get(search: search, isReturnBus: false),
       ).called(1);
     });
   });
