@@ -16,6 +16,7 @@ import 'package:levy/features/home/presentation/providers/home_notifier_provider
 import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/home/presentation/widgets/home_reservation_info_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
+import 'package:levy/features/map/presentation/pages/map_page.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 
@@ -37,7 +38,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
 
   final List<Widget> _pages = [
     const ReservationPage(),
-    Center(child: Text('Map Page')),
+    const MapPage(),
     Center(child: Text('Profile Page')),
   ];
 
@@ -122,7 +123,9 @@ final class _SearchPageState extends ConsumerState<HomePage> {
           unselectedItemColor: Colors.grey,
         ),
       ),
-      error: ThemeErrorWidget(message: state.errorMessage,),
+      error: ThemeErrorWidget(
+        message: state.errorMessage,
+      ),
     );
   }
 
@@ -135,8 +138,9 @@ final class _SearchPageState extends ConsumerState<HomePage> {
     if (reservation != null) {
       return HomeReservationInfoWidget(
         user: state.user,
-        reservation: state.reservation!,
-        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
+        reservation: reservation,
+        onNotificationButtonPressed: () =>
+            context.router.push(NotificationRoute()),
       );
     } else {
       return HomeSearchWidget(
@@ -156,8 +160,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _onDepartureAddressSelect(HomeNotifier notifier) async {
-    final departureAddress =
-        await context.router.push<AddressEntity>(AddressRoute());
+    final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
 
     if (departureAddress != null) {
       notifier.updateDepartureAddress(departureAddress);
@@ -165,8 +168,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _onReturnAddressSelect(HomeNotifier notifier) async {
-    final returnAddress =
-        await context.router.push<AddressEntity>(AddressRoute());
+    final returnAddress = await context.router.push<AddressEntity>(AddressRoute());
 
     if (returnAddress != null) {
       notifier.updateReturnAddress(returnAddress);

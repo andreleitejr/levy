@@ -1,3 +1,4 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/models/amenity_model.dart';
@@ -24,6 +25,7 @@ final class BusModel extends BusEntity {
     this.driver = const DriverModel(),
     this.routes = const <RouteModel>[],
     this.seats = const <SeatModel>[],
+    this.lastLocation = const LatLng(0, 0),
   });
 
   @override
@@ -68,7 +70,30 @@ final class BusModel extends BusEntity {
   @override
   final List<SeatModel> seats;
 
+  @override
+  @LatLngConverter()
+  final LatLng lastLocation;
+
   factory BusModel.fromJson(Map<String, dynamic> data) => _$BusModelFromJson(data);
 
   Map<String, dynamic> toJson() => _$BusModelToJson(this);
+}
+
+
+
+class LatLngConverter implements JsonConverter<LatLng, Map<String, double>> {
+  const LatLngConverter();
+
+  @override
+  LatLng fromJson(Map<String, double> json) {
+    return LatLng(json['latitude']!, json['longitude']!);
+  }
+
+  @override
+  Map<String, double> toJson(LatLng object) {
+    return {
+      'latitude': object.latitude,
+      'longitude': object.longitude,
+    };
+  }
 }

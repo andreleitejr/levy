@@ -8,31 +8,32 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i10;
-import 'package:flutter/material.dart' as _i11;
+import 'package:auto_route/auto_route.dart' as _i11;
+import 'package:flutter/material.dart' as _i12;
 import 'package:levy/features/address/presentation/pages/address_page.dart'
     as _i1;
-import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i13;
+import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i14;
 import 'package:levy/features/bus/presentation/pages/bus_page.dart' as _i2;
 import 'package:levy/features/home/presentation/pages/home_page.dart' as _i3;
+import 'package:levy/features/map/presentation/pages/map_page.dart' as _i4;
 import 'package:levy/features/notification/presentation/pages/notification_page.dart'
-    as _i4;
-import 'package:levy/features/payment/presentation/pages/payment_page.dart'
-    as _i6;
-import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart'
     as _i5;
-import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
+import 'package:levy/features/payment/presentation/pages/payment_page.dart'
     as _i7;
+import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart'
+    as _i6;
+import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
+    as _i8;
 import 'package:levy/features/search/domain/entities/search_entity.dart'
-    as _i12;
-import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i14;
-import 'package:levy/features/seat/presentation/pages/seat_page.dart' as _i8;
-import 'package:levy/features/time/presentation/pages/time_page.dart' as _i9;
+    as _i13;
+import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i15;
+import 'package:levy/features/seat/presentation/pages/seat_page.dart' as _i9;
+import 'package:levy/features/time/presentation/pages/time_page.dart' as _i10;
 
 /// generated route for
 /// [_i1.AddressPage]
-class AddressRoute extends _i10.PageRouteInfo<void> {
-  const AddressRoute({List<_i10.PageRouteInfo>? children})
+class AddressRoute extends _i11.PageRouteInfo<void> {
+  const AddressRoute({List<_i11.PageRouteInfo>? children})
       : super(
           AddressRoute.name,
           initialChildren: children,
@@ -40,7 +41,7 @@ class AddressRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'AddressRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
       return const _i1.AddressPage();
@@ -50,11 +51,11 @@ class AddressRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.BusPage]
-class BusRoute extends _i10.PageRouteInfo<BusRouteArgs> {
+class BusRoute extends _i11.PageRouteInfo<BusRouteArgs> {
   BusRoute({
-    _i11.Key? key,
-    required _i12.SearchEntity search,
-    List<_i10.PageRouteInfo>? children,
+    _i12.Key? key,
+    required _i13.SearchEntity search,
+    List<_i11.PageRouteInfo>? children,
   }) : super(
           BusRoute.name,
           args: BusRouteArgs(
@@ -66,7 +67,7 @@ class BusRoute extends _i10.PageRouteInfo<BusRouteArgs> {
 
   static const String name = 'BusRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<BusRouteArgs>();
@@ -84,9 +85,9 @@ class BusRouteArgs {
     required this.search,
   });
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
-  final _i12.SearchEntity search;
+  final _i13.SearchEntity search;
 
   @override
   String toString() {
@@ -96,11 +97,11 @@ class BusRouteArgs {
 
 /// generated route for
 /// [_i3.HomePage]
-class HomeRoute extends _i10.PageRouteInfo<HomeRouteArgs> {
+class HomeRoute extends _i11.PageRouteInfo<HomeRouteArgs> {
   HomeRoute({
-    _i11.Key? key,
+    _i12.Key? key,
     int initialIndex = 0,
-    List<_i10.PageRouteInfo>? children,
+    List<_i11.PageRouteInfo>? children,
   }) : super(
           HomeRoute.name,
           args: HomeRouteArgs(
@@ -112,7 +113,7 @@ class HomeRoute extends _i10.PageRouteInfo<HomeRouteArgs> {
 
   static const String name = 'HomeRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
       final args =
@@ -131,7 +132,7 @@ class HomeRouteArgs {
     this.initialIndex = 0,
   });
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
   final int initialIndex;
 
@@ -142,9 +143,28 @@ class HomeRouteArgs {
 }
 
 /// generated route for
-/// [_i4.NotificationPage]
-class NotificationRoute extends _i10.PageRouteInfo<void> {
-  const NotificationRoute({List<_i10.PageRouteInfo>? children})
+/// [_i4.MapPage]
+class MapRoute extends _i11.PageRouteInfo<void> {
+  const MapRoute({List<_i11.PageRouteInfo>? children})
+      : super(
+          MapRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MapRoute';
+
+  static _i11.PageInfo page = _i11.PageInfo(
+    name,
+    builder: (data) {
+      return const _i4.MapPage();
+    },
+  );
+}
+
+/// generated route for
+/// [_i5.NotificationPage]
+class NotificationRoute extends _i11.PageRouteInfo<void> {
+  const NotificationRoute({List<_i11.PageRouteInfo>? children})
       : super(
           NotificationRoute.name,
           initialChildren: children,
@@ -152,18 +172,18 @@ class NotificationRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'NotificationRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      return const _i4.NotificationPage();
+      return const _i5.NotificationPage();
     },
   );
 }
 
 /// generated route for
-/// [_i5.PaymentMethodPage]
-class PaymentMethodRoute extends _i10.PageRouteInfo<void> {
-  const PaymentMethodRoute({List<_i10.PageRouteInfo>? children})
+/// [_i6.PaymentMethodPage]
+class PaymentMethodRoute extends _i11.PageRouteInfo<void> {
+  const PaymentMethodRoute({List<_i11.PageRouteInfo>? children})
       : super(
           PaymentMethodRoute.name,
           initialChildren: children,
@@ -171,21 +191,21 @@ class PaymentMethodRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'PaymentMethodRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      return const _i5.PaymentMethodPage();
+      return const _i6.PaymentMethodPage();
     },
   );
 }
 
 /// generated route for
-/// [_i6.PaymentPage]
-class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
+/// [_i7.PaymentPage]
+class PaymentRoute extends _i11.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
-    _i11.Key? key,
-    required List<_i13.BusEntity> buses,
-    List<_i10.PageRouteInfo>? children,
+    _i12.Key? key,
+    required List<_i14.BusEntity> buses,
+    List<_i11.PageRouteInfo>? children,
   }) : super(
           PaymentRoute.name,
           args: PaymentRouteArgs(
@@ -197,11 +217,11 @@ class PaymentRoute extends _i10.PageRouteInfo<PaymentRouteArgs> {
 
   static const String name = 'PaymentRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PaymentRouteArgs>();
-      return _i6.PaymentPage(
+      return _i7.PaymentPage(
         key: args.key,
         buses: args.buses,
       );
@@ -215,9 +235,9 @@ class PaymentRouteArgs {
     required this.buses,
   });
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
-  final List<_i13.BusEntity> buses;
+  final List<_i14.BusEntity> buses;
 
   @override
   String toString() {
@@ -226,9 +246,9 @@ class PaymentRouteArgs {
 }
 
 /// generated route for
-/// [_i7.ReservationPage]
-class ReservationRoute extends _i10.PageRouteInfo<void> {
-  const ReservationRoute({List<_i10.PageRouteInfo>? children})
+/// [_i8.ReservationPage]
+class ReservationRoute extends _i11.PageRouteInfo<void> {
+  const ReservationRoute({List<_i11.PageRouteInfo>? children})
       : super(
           ReservationRoute.name,
           initialChildren: children,
@@ -236,21 +256,21 @@ class ReservationRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'ReservationRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      return const _i7.ReservationPage();
+      return const _i8.ReservationPage();
     },
   );
 }
 
 /// generated route for
-/// [_i8.SeatPage]
-class SeatRoute extends _i10.PageRouteInfo<SeatRouteArgs> {
+/// [_i9.SeatPage]
+class SeatRoute extends _i11.PageRouteInfo<SeatRouteArgs> {
   SeatRoute({
-    _i11.Key? key,
-    required List<_i14.SeatEntity> items,
-    List<_i10.PageRouteInfo>? children,
+    _i12.Key? key,
+    required List<_i15.SeatEntity> items,
+    List<_i11.PageRouteInfo>? children,
   }) : super(
           SeatRoute.name,
           args: SeatRouteArgs(
@@ -262,11 +282,11 @@ class SeatRoute extends _i10.PageRouteInfo<SeatRouteArgs> {
 
   static const String name = 'SeatRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SeatRouteArgs>();
-      return _i8.SeatPage(
+      return _i9.SeatPage(
         key: args.key,
         items: args.items,
       );
@@ -280,9 +300,9 @@ class SeatRouteArgs {
     required this.items,
   });
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
-  final List<_i14.SeatEntity> items;
+  final List<_i15.SeatEntity> items;
 
   @override
   String toString() {
@@ -291,9 +311,9 @@ class SeatRouteArgs {
 }
 
 /// generated route for
-/// [_i9.TimePage]
-class TimeRoute extends _i10.PageRouteInfo<void> {
-  const TimeRoute({List<_i10.PageRouteInfo>? children})
+/// [_i10.TimePage]
+class TimeRoute extends _i11.PageRouteInfo<void> {
+  const TimeRoute({List<_i11.PageRouteInfo>? children})
       : super(
           TimeRoute.name,
           initialChildren: children,
@@ -301,10 +321,10 @@ class TimeRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'TimeRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      return const _i9.TimePage();
+      return const _i10.TimePage();
     },
   );
 }

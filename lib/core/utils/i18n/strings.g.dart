@@ -15,6 +15,7 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:slang/generated.dart';
 import 'package:slang_flutter/slang_flutter.dart';
+
 export 'package:slang_flutter/slang_flutter.dart';
 
 part 'strings_en.g.dart';

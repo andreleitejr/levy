@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
+import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
 import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
@@ -27,11 +28,12 @@ final class HomeNotifier extends StateNotifier<HomeState> {
       await Future.delayed(const Duration(milliseconds: 500));
 
       final user = await _userUseCase();
-      final reservation = await _getUserReservation(user.id);
 
       if (!getIt.isRegistered<UserEntity>()) {
         getIt.registerSingleton<UserEntity>(user);
       }
+
+      final reservation = await _getUserReservation();
 
       state = HomeState.success(user: user, reservation: reservation);
     } catch (e) {
@@ -56,9 +58,9 @@ final class HomeNotifier extends StateNotifier<HomeState> {
     state = state.copyWith(returnTime: time);
   }
 
-  Future<ReservationEntity?> _getUserReservation(String userId) async {
-
-    final reservation = await _reservationUseCase(userId);
+  Future<ReservationEntity?> _getUserReservation() async {
+    final user = getIt<UserEntity>();
+    final reservation = await _reservationUseCase(user.id);
 
     ReservationEntity? updatedReservation;
 
@@ -66,11 +68,11 @@ final class HomeNotifier extends StateNotifier<HomeState> {
       final buses = await _busUseCase();
 
       final departureBus = buses.firstWhere(
-            (bus) => bus.id == reservation.departureBusId,
+        (bus) => bus.id == reservation.departureBusId,
       );
 
       final returnBus = buses.firstWhere(
-            (bus) => bus.id == reservation.returnBusId,
+        (bus) => bus.id == reservation.returnBusId,
       );
 
       updatedReservation = ReservationModel(
@@ -85,7 +87,13 @@ final class HomeNotifier extends StateNotifier<HomeState> {
       );
 
       await Future.delayed(const Duration(milliseconds: 1000));
+
+      getIt.registerSingleton<ReservationEntity>(updatedReservation);
+      getIt.registerSingleton<BusEntity>(departureBus,
+          instanceName: 'departure');
+      getIt.registerSingleton<BusEntity>(returnBus, instanceName: 'return');
     }
+
     return updatedReservation;
   }
 }

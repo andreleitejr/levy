@@ -32,6 +32,10 @@ BusModel _$BusModelFromJson(Map<String, dynamic> json) => BusModel(
               ?.map((e) => SeatModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <SeatModel>[],
+      lastLocation: json['lastLocation'] == null
+          ? const LatLng(0, 0)
+          : const LatLngConverter()
+              .fromJson(json['lastLocation'] as Map<String, double>),
     );
 
 Map<String, dynamic> _$BusModelToJson(BusModel instance) => <String, dynamic>{
@@ -49,4 +53,5 @@ Map<String, dynamic> _$BusModelToJson(BusModel instance) => <String, dynamic>{
       'driver': instance.driver,
       'routes': instance.routes,
       'seats': instance.seats,
+      'lastLocation': const LatLngConverter().toJson(instance.lastLocation),
     };
