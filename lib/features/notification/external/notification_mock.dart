@@ -11,7 +11,7 @@ final class NotificationMock {
       'datetime': '2024-10-19 05:36:38',
     },
     {
-      'image': 'driver',
+      'image': 'driver_1',
       'title': 'John Doe sent a message',
       'titleSemantics': 'John Doe sent a message',
       'subtitle': 'Due to traffic, your bus may be a few minutes late.',
@@ -19,7 +19,7 @@ final class NotificationMock {
       'datetime': '2024-10-19 05:30:38',
     },
     {
-      'image': 'driver',
+      'image': 'driver_1',
       'title': 'John Doe sent a message',
       'titleSemantics': 'John Doe sent a message',
       'subtitle': 'Good morning. I am on my way.',

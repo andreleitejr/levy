@@ -5,6 +5,8 @@ final class ThemeIcons {
 
   static const arrowLeft = '$_path/arrow-left.svg';
   static const arrowRight = '$_path/arrow-right.svg';
+  static const arrowSmallLeft = '$_path/arrow-small-left.svg';
+  static const arrowSmallRight = '$_path/arrow-small-right.svg';
   static const bed = '$_path/bed.svg';
   static const bell = '$_path/bell.svg';
   static const book = '$_path/book.svg';

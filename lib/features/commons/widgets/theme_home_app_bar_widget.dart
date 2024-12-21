@@ -7,16 +7,16 @@ import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/utils/user_translation.dart';
 
-final class ThemeUserAppBarWidget extends StatelessWidget
+final class ThemeHomeAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
-  const ThemeUserAppBarWidget({
+  const ThemeHomeAppBarWidget({
     super.key,
     required this.user,
-    required this.onActionPressed,
+    this.onActionPressed,
   });
 
   final UserEntity user;
-  final VoidCallback onActionPressed;
+  final VoidCallback? onActionPressed;
 
   @override
   Widget build(BuildContext context) {

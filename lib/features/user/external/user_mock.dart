@@ -3,12 +3,12 @@ final class UserMock {
 
   static final response =  {
     'id': 'f2c52cfd-c017-4491-b9b2-03f49fe64d68',
-    'name': 'John',
+    'name': 'Jane',
     'lastName': 'Doe',
-    'age': 30,
-    'email': 'john.doe@example.com',
+    'age': 24,
+    'email': 'jane.doe@example.com',
     'phoneNumber': '+1234567890',
-    'birthday': '1993-01-15T00:00:00.000',
+    'birthday': '2000 -01-15T00:00:00.000',
     'image': 'user',
     'address': {
       'name': 'First St',

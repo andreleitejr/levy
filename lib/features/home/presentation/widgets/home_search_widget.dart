@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
+import 'package:levy/features/commons/widgets/theme_home_app_bar_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_form_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
@@ -34,7 +34,7 @@ final class HomeSearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ThemeUserAppBarWidget(
+      appBar: ThemeHomeAppBarWidget(
         user: user,
         onActionPressed: onNotificationButtonPressed,
       ),

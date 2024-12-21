@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
@@ -32,6 +34,7 @@ final class MapPage extends ConsumerStatefulWidget {
 
 final class _MapPageState extends ConsumerState<MapPage> {
   Set<Marker> markers = {};
+  Set<Polyline> polylines = {};
 
   @override
   void initState() {
@@ -63,20 +66,20 @@ final class _MapPageState extends ConsumerState<MapPage> {
 
     if (location != null) {
       return FutureBuilder<void>(
-        future: _initMarkers(state),
+        future: _initMapElements(state),
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return ThemeLoadingWidget();
           } else if (snapshot.hasError) {
-            return Text('Erro: ${snapshot.error}');
+            return ThemeErrorWidget(
+              message: snapshot.error.toString(),
+            );
           } else {
             return MapWidget(
-              userLocation: location,
-              busLocation: state.busLocation,
-              originLocation: state.originLocation,
-              destinationLocation: state.destinationLocation,
               onPop: () => context.router.back(),
+              targetLocation: location,
               markers: markers,
+              polylines: polylines,
             );
           }
         },
@@ -84,6 +87,81 @@ final class _MapPageState extends ConsumerState<MapPage> {
     }
 
     return SizedBox.shrink();
+  }
+
+  Future<void> _initMapElements(MapState state) async {
+    await _initMarkers(state);
+    await _addRoute(state);
+  }
+
+  Future<void> _addRoute(MapState state) async {
+    final origin = state.originLocation;
+    final destination = state.destinationLocation;
+
+    final directions = await _fetchRoutePoints(origin, destination);
+
+    polylines.add(
+      Polyline(
+        polylineId: const PolylineId('Route'),
+        points: directions,
+        color: ThemeColors.secondary,
+        width: 8,
+      ),
+    );
+  }
+
+  Future<List<LatLng>> _fetchRoutePoints(
+    LatLng origin,
+    LatLng destination,
+  ) async {
+    final apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'];
+
+    final url = Uri.parse(
+      'https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&key=$apiKey',
+    );
+
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+
+      final points = data['routes'][0]['overview_polyline']['points'];
+
+      return _decodePolyline(points);
+    } else {
+      throw Exception('Failed to fetch route');
+    }
+  }
+
+  List<LatLng> _decodePolyline(String encoded) {
+    final points = <LatLng>[];
+    int index = 0, len = encoded.length;
+    int lat = 0, lng = 0;
+
+    while (index < len) {
+      int b, shift = 0, result = 0;
+      do {
+        b = encoded.codeUnitAt(index++) - 63;
+        result |= (b & 0x1f) << shift;
+        shift += 5;
+      } while (b >= 0x20);
+      final dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+      lat += dlat;
+
+      shift = 0;
+      result = 0;
+      do {
+        b = encoded.codeUnitAt(index++) - 63;
+        result |= (b & 0x1f) << shift;
+        shift += 5;
+      } while (b >= 0x20);
+      final dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+      lng += dlng;
+
+      points.add(LatLng(lat / 1E5, lng / 1E5));
+    }
+
+    return points;
   }
 
   Future<void> _initMarkers(MapState state) async {
@@ -94,11 +172,14 @@ final class _MapPageState extends ConsumerState<MapPage> {
 
   Future<void> _addUserMarker(MapState state) async {
     final userLocation = state.userLocation;
+
     if (userLocation == null) return;
 
     final userImage = getIt<UserEntity>().image;
-    final userIcon =
-        await _buildMarkerFromImage(ThemeImages.getImageByString(userImage));
+
+    final userIcon = await _buildMarkerFromImage(
+      ThemeImages.getImageByString(userImage),
+    );
 
     markers.add(
       Marker(
@@ -112,8 +193,13 @@ final class _MapPageState extends ConsumerState<MapPage> {
   Future<void> _addStaticMarkers(MapState state) async {
     final configuration = ImageConfiguration();
 
-    final originIcon =
-        await BitmapDescriptor.asset(configuration, ThemeImages.marker, width: 64, height: 64);
+    final originIcon = await BitmapDescriptor.asset(
+      configuration,
+      ThemeImages.marker,
+      width: 64,
+      height: 64,
+    );
+
     markers.add(
       Marker(
         markerId: const MarkerId("Origin"),
@@ -122,8 +208,12 @@ final class _MapPageState extends ConsumerState<MapPage> {
       ),
     );
 
-    final destinationIcon =
-        await BitmapDescriptor.asset(configuration, ThemeImages.marker, width: 64, height: 64);
+    final destinationIcon = await BitmapDescriptor.asset(
+      configuration,
+      ThemeImages.marker,
+      width: 64,
+      height: 64,
+    );
 
     markers.add(
       Marker(
@@ -141,8 +231,10 @@ final class _MapPageState extends ConsumerState<MapPage> {
 
     if (driverImage == null) return;
 
-    final driverIcon =
-        await _buildMarkerFromImage(ThemeImages.getImageByString(driverImage));
+    final driverIcon = await _buildMarkerFromImage(
+      ThemeImages.getImageByString(driverImage),
+    );
+
     markers.add(
       Marker(
         markerId: const MarkerId("Bus"),

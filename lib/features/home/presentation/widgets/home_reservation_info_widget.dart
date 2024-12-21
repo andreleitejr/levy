@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/utils/commons_translation.dart';
 import 'package:levy/features/commons/widgets/theme_ticket_widget.dart';
-import 'package:levy/features/commons/widgets/theme_user_app_bar_widget.dart';
+import 'package:levy/features/commons/widgets/theme_home_app_bar_widget.dart';
 import 'package:levy/features/home/presentation/utils/home_translation.dart';
 import 'package:levy/features/home/presentation/widgets/home_warning_widget.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
@@ -85,7 +85,7 @@ final class HomeReservationInfoWidget extends StatelessWidget {
     final isReturnBus = nextBus == reservation.returnBus;
 
     return Scaffold(
-      appBar: ThemeUserAppBarWidget(
+      appBar: ThemeHomeAppBarWidget(
         user: user,
         onActionPressed: onNotificationButtonPressed,
       ),

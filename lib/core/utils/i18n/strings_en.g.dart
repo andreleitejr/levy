@@ -173,6 +173,7 @@ class TranslationsUserEn {
 
 	// Translations
 	late final TranslationsUserHeaderEn header = TranslationsUserHeaderEn._(_root);
+	late final TranslationsUserItemsEn items = TranslationsUserItemsEn._(_root);
 }
 
 // Path: commons.departureTicket
@@ -441,7 +442,22 @@ class TranslationsUserHeaderEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get title => 'Profile';
 	String get welcome => 'Welcome';
+}
+
+// Path: user.items
+class TranslationsUserItemsEn {
+	TranslationsUserItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsUserItemsAccountEn account = TranslationsUserItemsAccountEn._(_root);
+	late final TranslationsUserItemsReservationsEn reservations = TranslationsUserItemsReservationsEn._(_root);
+	late final TranslationsUserItemsConfigurationsEn configurations = TranslationsUserItemsConfigurationsEn._(_root);
+	late final TranslationsUserItemsSupportEn support = TranslationsUserItemsSupportEn._(_root);
+	late final TranslationsUserItemsAboutEn about = TranslationsUserItemsAboutEn._(_root);
 }
 
 // Path: home.form.inputs
@@ -497,6 +513,61 @@ class TranslationsPaymentPaymentMethodTextButtonEn {
 
 	// Translations
 	String get title => 'Modify';
+}
+
+// Path: user.items.account
+class TranslationsUserItemsAccountEn {
+	TranslationsUserItemsAccountEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Account';
+	String get description => 'Informations about your account';
+}
+
+// Path: user.items.reservations
+class TranslationsUserItemsReservationsEn {
+	TranslationsUserItemsReservationsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Reservations';
+	String get description => 'Informations about your reservations';
+}
+
+// Path: user.items.configurations
+class TranslationsUserItemsConfigurationsEn {
+	TranslationsUserItemsConfigurationsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Preferences & Configurations';
+	String get description => 'Manage your preferences and configurations';
+}
+
+// Path: user.items.support
+class TranslationsUserItemsSupportEn {
+	TranslationsUserItemsSupportEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Support';
+	String get description => 'Tell us your problem and we’ll help you';
+}
+
+// Path: user.items.about
+class TranslationsUserItemsAboutEn {
+	TranslationsUserItemsAboutEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'About Levy';
+	String get description => 'Find out more about our app';
 }
 
 // Path: home.form.inputs.departureAddress
@@ -591,7 +662,18 @@ extension on Translations {
 			case 'seat.button.title': return 'Confirm Seat';
 			case 'time.header.title': return 'Select time';
 			case 'time.button.title': return 'Confirm';
+			case 'user.header.title': return 'Profile';
 			case 'user.header.welcome': return 'Welcome';
+			case 'user.items.account.title': return 'Account';
+			case 'user.items.account.description': return 'Informations about your account';
+			case 'user.items.reservations.title': return 'Reservations';
+			case 'user.items.reservations.description': return 'Informations about your reservations';
+			case 'user.items.configurations.title': return 'Preferences & Configurations';
+			case 'user.items.configurations.description': return 'Manage your preferences and configurations';
+			case 'user.items.support.title': return 'Support';
+			case 'user.items.support.description': return 'Tell us your problem and we’ll help you';
+			case 'user.items.about.title': return 'About Levy';
+			case 'user.items.about.description': return 'Find out more about our app';
 			default: return null;
 		}
 	}

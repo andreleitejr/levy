@@ -105,3 +105,6 @@ app.*.map.json
 # Generated folders
 .android/
 .ios/
+
+# Environment files
+.env

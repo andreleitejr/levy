@@ -59,11 +59,11 @@ final class ThemeListItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildLeadingImage() {
+  Widget? _buildLeadingImage() {
     final leadingImage = image;
 
     if (leadingImage == null) {
-      return SizedBox.shrink();
+      return null;
     }
 
     if (imageGeometry == ThemeImageGeometry.circle) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -9,9 +10,10 @@ import 'package:levy/core/utils/i18n/strings.g.dart';
 
 final getIt = GetIt.instance;
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.useDeviceLocale();
+  await dotenv.load();
   runApp(TranslationProvider(child: ProviderScope(child: MyApp())));
 }
 

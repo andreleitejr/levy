@@ -19,6 +19,7 @@ import 'package:levy/features/home/presentation/widgets/home_search_widget.dart'
 import 'package:levy/features/map/presentation/pages/map_page.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/user/presentation/pages/user_page.dart';
 
 @RoutePage()
 final class HomePage extends ConsumerStatefulWidget {
@@ -39,7 +40,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
   final List<Widget> _pages = [
     const ReservationPage(),
     const MapPage(),
-    Center(child: Text('Profile Page')),
+    const UserPage(),
   ];
 
   void _onBottomNavItemTapped(int index) {
