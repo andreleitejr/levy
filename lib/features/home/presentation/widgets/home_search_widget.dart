@@ -6,7 +6,7 @@ import 'package:levy/features/user/domain/entities/user_entity.dart';
 final class HomeSearchWidget extends StatelessWidget {
   const HomeSearchWidget({
     super.key,
-    required this.user,
+    this.user,
     this.departureAddress,
     this.returnAddress,
     this.departureTime,
@@ -19,7 +19,7 @@ final class HomeSearchWidget extends StatelessWidget {
     required this.onButtonPressed,
   });
 
-  final UserEntity user;
+  final UserEntity? user;
   final String? departureAddress;
   final String? returnAddress;
   final String? departureTime;

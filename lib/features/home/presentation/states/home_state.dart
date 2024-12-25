@@ -5,7 +5,7 @@ import 'package:levy/features/user/data/models/user_model.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
 final class HomeState implements GenericStateBase {
-  final UserEntity user;
+  final UserEntity? user;
   final AddressEntity? departureAddress;
   final AddressEntity? returnAddress;
   final String? departureTime;
@@ -32,7 +32,7 @@ final class HomeState implements GenericStateBase {
   const HomeState.loading() : this(isLoading: true);
 
   const HomeState.success({
-    required UserEntity user,
+    UserEntity? user,
     ReservationEntity? reservation,
   }) : this(user: user, reservation: reservation);
 

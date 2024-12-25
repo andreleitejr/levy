@@ -94,6 +94,7 @@ class TranslationsHomeEn {
 
 	// Translations
 	late final TranslationsHomeHeaderEn header = TranslationsHomeHeaderEn._(_root);
+	late final TranslationsHomeGuestEn guest = TranslationsHomeGuestEn._(_root);
 	late final TranslationsHomeFormEn form = TranslationsHomeFormEn._(_root);
 	late final TranslationsHomeReservationEn reservation = TranslationsHomeReservationEn._(_root);
 }
@@ -275,6 +276,16 @@ class TranslationsHomeHeaderEn {
 
 	// Translations
 	String get title => 'Search';
+}
+
+// Path: home.guest
+class TranslationsHomeGuestEn {
+	TranslationsHomeGuestEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Guest User';
 }
 
 // Path: home.form
@@ -630,6 +641,7 @@ extension on Translations {
 			case 'bus.selected.title': return 'Departure Info';
 			case 'bus.button.title': return 'Select';
 			case 'home.header.title': return 'Search';
+			case 'home.guest.title': return 'Guest User';
 			case 'home.form.inputs.departureAddress.labelText': return 'Departure Address';
 			case 'home.form.inputs.departureAddress.hintText': return 'Select your departure address';
 			case 'home.form.inputs.returnAddress.labelText': return 'Return Address';

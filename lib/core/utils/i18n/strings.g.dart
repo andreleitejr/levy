@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 55
+/// Strings: 56
 ///
-/// Built on 2024-12-21 at 11:11 UTC
+/// Built on 2024-12-25 at 10:34 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -15,6 +15,7 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:slang/generated.dart';
 import 'package:slang_flutter/slang_flutter.dart';
+
 export 'package:slang_flutter/slang_flutter.dart';
 
 part 'strings_en.g.dart';

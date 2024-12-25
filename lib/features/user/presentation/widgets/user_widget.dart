@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
-import 'package:levy/features/commons/widgets/theme_home_app_bar_widget.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
 import 'package:levy/features/commons/widgets/theme_user_profile_header_widget.dart';

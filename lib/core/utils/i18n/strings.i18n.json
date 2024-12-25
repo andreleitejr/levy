@@ -37,6 +37,9 @@
     "header": {
       "title": "Search"
     },
+    "guest": {
+      "title": "Guest User"
+    },
     "form": {
       "inputs": {
         "departureAddress": {

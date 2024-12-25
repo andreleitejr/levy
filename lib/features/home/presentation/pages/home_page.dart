@@ -17,8 +17,10 @@ import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/home/presentation/widgets/home_reservation_info_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
 import 'package:levy/features/map/presentation/pages/map_page.dart';
+import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/pages/user_page.dart';
 
 @RoutePage()
@@ -26,9 +28,13 @@ final class HomePage extends ConsumerStatefulWidget {
   const HomePage({
     super.key,
     this.initialIndex = 0,
+    this.user,
+    this.reservation,
   });
 
   final int initialIndex;
+  final UserEntity? user;
+  final ReservationEntity? reservation;
 
   @override
   ConsumerState<HomePage> createState() => _SearchPageState();
@@ -56,7 +62,10 @@ final class _SearchPageState extends ConsumerState<HomePage> {
     _selectedIndex = widget.initialIndex;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(searchNotifierProvider.notifier).init();
+      ref.read(searchNotifierProvider.notifier).init(
+            user: widget.user,
+            reservation: widget.reservation,
+          );
     });
   }
 
@@ -113,8 +122,7 @@ final class _SearchPageState extends ConsumerState<HomePage> {
             ),
             BottomNavigationBarItem(
               icon: CircleAvatar(
-                backgroundImage:
-                    AssetImage(ThemeImages.getImageByString(state.user.image)),
+                backgroundImage: AssetImage(_getUserImage(state)),
                 radius: 18,
               ),
               label: 'Profile',
@@ -130,18 +138,30 @@ final class _SearchPageState extends ConsumerState<HomePage> {
     );
   }
 
+  String _getUserImage(HomeState state) {
+    final user = state.user;
+
+    if (user != null) {
+      return ThemeImages.getImageByString(user.image);
+    } else {
+      return ThemeImages.avatar;
+    }
+  }
+
   Widget _buildHomeWidget({
     required HomeState state,
     required HomeNotifier notifier,
   }) {
     final reservation = state.reservation;
+    final user = state.user;
 
-    if (reservation != null) {
+    final showReservationInfo = user != null && reservation != null;
+
+    if (showReservationInfo) {
       return HomeReservationInfoWidget(
-        user: state.user,
+        user: user,
         reservation: reservation,
-        onNotificationButtonPressed: () =>
-            context.router.push(NotificationRoute()),
+        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
       );
     } else {
       return HomeSearchWidget(
@@ -161,7 +181,8 @@ final class _SearchPageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _onDepartureAddressSelect(HomeNotifier notifier) async {
-    final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
+    final departureAddress =
+        await context.router.push<AddressEntity>(AddressRoute());
 
     if (departureAddress != null) {
       notifier.updateDepartureAddress(departureAddress);
@@ -169,7 +190,8 @@ final class _SearchPageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _onReturnAddressSelect(HomeNotifier notifier) async {
-    final returnAddress = await context.router.push<AddressEntity>(AddressRoute());
+    final returnAddress =
+        await context.router.push<AddressEntity>(AddressRoute());
 
     if (returnAddress != null) {
       notifier.updateReturnAddress(returnAddress);
