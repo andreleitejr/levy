@@ -10,11 +10,12 @@ import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/home/presentation/notifiers/home_notifier.dart';
 import 'package:levy/features/home/presentation/providers/home_notifier_provider.dart';
+import 'package:levy/features/home/presentation/shimmers/home_reservation_shimmer.dart';
+import 'package:levy/features/home/presentation/shimmers/home_search_shimmer.dart';
 import 'package:levy/features/home/presentation/states/home_state.dart';
-import 'package:levy/features/home/presentation/widgets/home_reservation_info_widget.dart';
+import 'package:levy/features/home/presentation/widgets/home_reservation_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
 import 'package:levy/features/map/presentation/pages/map_page.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
@@ -27,20 +28,18 @@ import 'package:levy/features/user/presentation/pages/user_page.dart';
 final class HomePage extends ConsumerStatefulWidget {
   const HomePage({
     super.key,
-    this.initialIndex = 0,
     this.user,
     this.reservation,
   });
 
-  final int initialIndex;
   final UserEntity? user;
   final ReservationEntity? reservation;
 
   @override
-  ConsumerState<HomePage> createState() => _SearchPageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-final class _SearchPageState extends ConsumerState<HomePage> {
+final class _HomePageState extends ConsumerState<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
@@ -49,17 +48,9 @@ final class _SearchPageState extends ConsumerState<HomePage> {
     const UserPage(),
   ];
 
-  void _onBottomNavItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-
-    _selectedIndex = widget.initialIndex;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(searchNotifierProvider.notifier).init(
@@ -76,65 +67,132 @@ final class _SearchPageState extends ConsumerState<HomePage> {
 
     return StateBuilder(
       state: state,
-      loading: ThemeLoadingWidget(),
+      loading: _buildLoadingWidget(state.reservation),
       success: Scaffold(
         body: IndexedStack(
           index: _selectedIndex,
           children: [
-            _buildHomeWidget(
-              state: state,
-              notifier: notifier,
-            ),
+            _buildHomeWidget(state: state, notifier: notifier),
             ..._pages,
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          enableFeedback: true,
-          onTap: _onBottomNavItemTapped,
-          items: [
-            BottomNavigationBarItem(
-              icon: ThemeIconWidget(icon: ThemeIcons.home),
-              activeIcon: ThemeIconWidget(
-                icon: ThemeIcons.home,
-                color: ThemeColors.primary,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: ThemeIconWidget(icon: ThemeIcons.ticket),
-              activeIcon: ThemeIconWidget(
-                icon: ThemeIcons.ticket,
-                color: ThemeColors.primary,
-              ),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: ThemeIconWidget(icon: ThemeIcons.map),
-              activeIcon: ThemeIconWidget(
-                icon: ThemeIcons.map,
-                color: ThemeColors.primary,
-              ),
-              label: 'Notifications',
-            ),
-            BottomNavigationBarItem(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage(_getUserImage(state)),
-                radius: 18,
-              ),
-              label: 'Profile',
-            ),
-          ],
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          items: _buildBottomNavigationBarItems(state),
         ),
       ),
-      error: ThemeErrorWidget(
-        message: state.errorMessage,
+      error: ThemeErrorWidget(message: state.errorMessage),
+    );
+  }
+
+  List<BottomNavigationBarItem> _buildBottomNavigationBarItems(
+      HomeState state) {
+    return [
+      _buildBottomNavItem(ThemeIcons.home),
+      _buildBottomNavItem(ThemeIcons.ticket),
+      _buildBottomNavItem(ThemeIcons.map),
+      BottomNavigationBarItem(
+        icon: CircleAvatar(
+          backgroundImage: AssetImage(_getUserImage(state)),
+          radius: 18,
+        ),
+        label: '',
       ),
+    ];
+  }
+
+  BottomNavigationBarItem _buildBottomNavItem(String icon) {
+    return BottomNavigationBarItem(
+      icon: ThemeIconWidget(icon: icon),
+      activeIcon: ThemeIconWidget(
+        icon: icon,
+        color: ThemeColors.primary,
+      ),
+      label: '',
+    );
+  }
+
+  Widget _buildLoadingWidget(ReservationEntity? reservation) {
+    if (reservation != null) {
+      return HomeReservationShimmer();
+    } else {
+      return HomeSearchShimmer();
+    }
+  }
+
+  Widget _buildHomeWidget({
+    required HomeState state,
+    required HomeNotifier notifier,
+  }) {
+    final user = state.user;
+    final reservation = state.reservation;
+
+    if (user != null && reservation != null) {
+      return HomeReservationWidget(
+        user: user,
+        reservation: reservation,
+        onNotificationButtonPressed: () =>
+            context.router.push(NotificationRoute()),
+        bus: notifier.getNextBus(),
+        arrivalTime: notifier.calculateArrivalTime(),
+      );
+    } else {
+      return _buildHomeSearchWidget(state, notifier);
+    }
+  }
+
+  Widget _buildHomeSearchWidget(HomeState state, HomeNotifier notifier) {
+    return HomeSearchWidget(
+      user: state.user,
+      departureAddress: state.departureAddress?.street,
+      returnAddress: state.returnAddress?.street,
+      departureTime: state.departureTime,
+      returnTime: state.returnTime,
+      onNotificationButtonPressed: () =>
+          context.router.push(NotificationRoute()),
+      onDepartureAddressSelect: () async {
+        final departureAddress =
+            await context.router.push<AddressEntity>(AddressRoute());
+        if (departureAddress != null) {
+          notifier.updateDepartureAddress(departureAddress);
+        }
+      },
+      onReturnAddressSelect: () async {
+        final returnAddress =
+            await context.router.push<AddressEntity>(AddressRoute());
+        if (returnAddress != null) {
+          notifier.updateReturnAddress(returnAddress);
+        }
+      },
+      onDepartureTimeSelect: () async {
+        final departureTime = await context.router.push<String>(TimeRoute());
+        if (departureTime != null) {
+          notifier.updateDepartureTime(departureTime);
+        }
+      },
+      onReturnTimeSelect: () async {
+        final returnTime = await context.router.push<String>(TimeRoute());
+        if (returnTime != null) {
+          notifier.updateReturnTime(returnTime);
+        }
+      },
+      onButtonPressed: () {
+        if (notifier.isValidSearch(state)) {
+          final search = SearchModel(
+            departureAddress: state.departureAddress as AddressModel,
+            returnAddress: state.returnAddress as AddressModel,
+            departureTime: state.departureTime!,
+            returnTime: state.returnTime!,
+          );
+          context.router.push(BusRoute(search: search));
+        }
+      },
     );
   }
 
@@ -143,97 +201,8 @@ final class _SearchPageState extends ConsumerState<HomePage> {
 
     if (user != null) {
       return ThemeImages.getImageByString(user.image);
-    } else {
-      return ThemeImages.avatar;
     }
-  }
 
-  Widget _buildHomeWidget({
-    required HomeState state,
-    required HomeNotifier notifier,
-  }) {
-    final reservation = state.reservation;
-    final user = state.user;
-
-    final showReservationInfo = user != null && reservation != null;
-
-    if (showReservationInfo) {
-      return HomeReservationInfoWidget(
-        user: user,
-        reservation: reservation,
-        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
-      );
-    } else {
-      return HomeSearchWidget(
-        user: state.user,
-        departureAddress: state.departureAddress?.street,
-        returnAddress: state.returnAddress?.street,
-        departureTime: state.departureTime,
-        returnTime: state.returnTime,
-        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
-        onDepartureAddressSelect: () => _onDepartureAddressSelect(notifier),
-        onReturnAddressSelect: () => _onReturnAddressSelect(notifier),
-        onDepartureTimeSelect: () => _onDepartureTimeSelect(notifier),
-        onReturnTimeSelect: () => _onReturnTimeSelect(notifier),
-        onButtonPressed: () => _onButtonPressed(state),
-      );
-    }
-  }
-
-  Future<void> _onDepartureAddressSelect(HomeNotifier notifier) async {
-    final departureAddress =
-        await context.router.push<AddressEntity>(AddressRoute());
-
-    if (departureAddress != null) {
-      notifier.updateDepartureAddress(departureAddress);
-    }
-  }
-
-  Future<void> _onReturnAddressSelect(HomeNotifier notifier) async {
-    final returnAddress =
-        await context.router.push<AddressEntity>(AddressRoute());
-
-    if (returnAddress != null) {
-      notifier.updateReturnAddress(returnAddress);
-    }
-  }
-
-  Future<void> _onDepartureTimeSelect(HomeNotifier notifier) async {
-    final departureTime = await context.router.push<String>(TimeRoute());
-
-    if (departureTime != null) {
-      notifier.updateDepartureTime(departureTime);
-    }
-  }
-
-  Future<void> _onReturnTimeSelect(HomeNotifier notifier) async {
-    final returnTime = await context.router.push<String>(TimeRoute());
-
-    if (returnTime != null) {
-      notifier.updateReturnTime(returnTime);
-    }
-  }
-
-  Future<void> _onButtonPressed(HomeState state) async {
-    final departureAddress = state.departureAddress;
-    final returnAddress = state.returnAddress;
-    final departureTime = state.departureTime;
-    final returnTime = state.returnTime;
-
-    final isValid = departureAddress != null &&
-        returnAddress != null &&
-        departureTime != null &&
-        returnTime != null;
-
-    if (isValid) {
-      final search = SearchModel(
-        departureAddress: departureAddress as AddressModel,
-        returnAddress: returnAddress as AddressModel,
-        departureTime: departureTime,
-        returnTime: returnTime,
-      );
-
-      context.router.push(BusRoute(search: search));
-    }
+    return ThemeImages.avatar;
   }
 }

@@ -106,7 +106,6 @@ class BusRouteArgs {
 class HomeRoute extends _i13.PageRouteInfo<HomeRouteArgs> {
   HomeRoute({
     _i14.Key? key,
-    int initialIndex = 0,
     _i16.UserEntity? user,
     _i17.ReservationEntity? reservation,
     List<_i13.PageRouteInfo>? children,
@@ -114,7 +113,6 @@ class HomeRoute extends _i13.PageRouteInfo<HomeRouteArgs> {
           HomeRoute.name,
           args: HomeRouteArgs(
             key: key,
-            initialIndex: initialIndex,
             user: user,
             reservation: reservation,
           ),
@@ -130,7 +128,6 @@ class HomeRoute extends _i13.PageRouteInfo<HomeRouteArgs> {
           data.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
       return _i3.HomePage(
         key: args.key,
-        initialIndex: args.initialIndex,
         user: args.user,
         reservation: args.reservation,
       );
@@ -141,14 +138,11 @@ class HomeRoute extends _i13.PageRouteInfo<HomeRouteArgs> {
 class HomeRouteArgs {
   const HomeRouteArgs({
     this.key,
-    this.initialIndex = 0,
     this.user,
     this.reservation,
   });
 
   final _i14.Key? key;
-
-  final int initialIndex;
 
   final _i16.UserEntity? user;
 
@@ -156,7 +150,7 @@ class HomeRouteArgs {
 
   @override
   String toString() {
-    return 'HomeRouteArgs{key: $key, initialIndex: $initialIndex, user: $user, reservation: $reservation}';
+    return 'HomeRouteArgs{key: $key, user: $user, reservation: $reservation}';
   }
 }
 

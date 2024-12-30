@@ -38,6 +38,7 @@ dependencies:
   widget_to_marker: ^1.0.6
   http: ^1.2.2
   flutter_dotenv: ^5.2.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
