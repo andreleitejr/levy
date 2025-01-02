@@ -24,6 +24,7 @@ final class ThemeHomeAppBarWidget extends StatelessWidget
     return AppBar(
       titleSpacing: 24,
       toolbarHeight: 72,
+      automaticallyImplyLeading: false,
       title: Padding(
         padding: const EdgeInsets.only(top: 24),
         child: Row(

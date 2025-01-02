@@ -12,7 +12,7 @@ import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
 import 'package:levy/features/address/presentation/pages/address_page.dart'
     as _i1;
-import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i18;
+import 'package:levy/features/bus/domain/entities/bus_entity.dart' as _i16;
 import 'package:levy/features/bus/presentation/pages/bus_page.dart' as _i2;
 import 'package:levy/features/home/presentation/pages/home_page.dart' as _i3;
 import 'package:levy/features/map/presentation/pages/map_page.dart' as _i4;
@@ -22,18 +22,15 @@ import 'package:levy/features/payment/presentation/pages/payment_page.dart'
     as _i7;
 import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart'
     as _i6;
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart'
-    as _i17;
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart'
     as _i8;
 import 'package:levy/features/search/domain/entities/search_entity.dart'
     as _i15;
-import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i19;
+import 'package:levy/features/seat/domain/entities/seat_entity.dart' as _i17;
 import 'package:levy/features/seat/presentation/pages/seat_page.dart' as _i9;
 import 'package:levy/features/splash/presentation/pages/splash_page.dart'
     as _i10;
 import 'package:levy/features/time/presentation/pages/time_page.dart' as _i11;
-import 'package:levy/features/user/domain/entities/user_entity.dart' as _i16;
 import 'package:levy/features/user/presentation/pages/user_page.dart' as _i12;
 
 /// generated route for
@@ -103,19 +100,10 @@ class BusRouteArgs {
 
 /// generated route for
 /// [_i3.HomePage]
-class HomeRoute extends _i13.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({
-    _i14.Key? key,
-    _i16.UserEntity? user,
-    _i17.ReservationEntity? reservation,
-    List<_i13.PageRouteInfo>? children,
-  }) : super(
+class HomeRoute extends _i13.PageRouteInfo<void> {
+  const HomeRoute({List<_i13.PageRouteInfo>? children})
+      : super(
           HomeRoute.name,
-          args: HomeRouteArgs(
-            key: key,
-            user: user,
-            reservation: reservation,
-          ),
           initialChildren: children,
         );
 
@@ -124,34 +112,9 @@ class HomeRoute extends _i13.PageRouteInfo<HomeRouteArgs> {
   static _i13.PageInfo page = _i13.PageInfo(
     name,
     builder: (data) {
-      final args =
-          data.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
-      return _i3.HomePage(
-        key: args.key,
-        user: args.user,
-        reservation: args.reservation,
-      );
+      return const _i3.HomePage();
     },
   );
-}
-
-class HomeRouteArgs {
-  const HomeRouteArgs({
-    this.key,
-    this.user,
-    this.reservation,
-  });
-
-  final _i14.Key? key;
-
-  final _i16.UserEntity? user;
-
-  final _i17.ReservationEntity? reservation;
-
-  @override
-  String toString() {
-    return 'HomeRouteArgs{key: $key, user: $user, reservation: $reservation}';
-  }
 }
 
 /// generated route for
@@ -244,13 +207,15 @@ class PaymentMethodRoute extends _i13.PageRouteInfo<void> {
 class PaymentRoute extends _i13.PageRouteInfo<PaymentRouteArgs> {
   PaymentRoute({
     _i14.Key? key,
-    required List<_i18.BusEntity> buses,
+    required _i16.BusEntity departureBus,
+    required _i16.BusEntity returnBus,
     List<_i13.PageRouteInfo>? children,
   }) : super(
           PaymentRoute.name,
           args: PaymentRouteArgs(
             key: key,
-            buses: buses,
+            departureBus: departureBus,
+            returnBus: returnBus,
           ),
           initialChildren: children,
         );
@@ -263,7 +228,8 @@ class PaymentRoute extends _i13.PageRouteInfo<PaymentRouteArgs> {
       final args = data.argsAs<PaymentRouteArgs>();
       return _i7.PaymentPage(
         key: args.key,
-        buses: args.buses,
+        departureBus: args.departureBus,
+        returnBus: args.returnBus,
       );
     },
   );
@@ -272,16 +238,19 @@ class PaymentRoute extends _i13.PageRouteInfo<PaymentRouteArgs> {
 class PaymentRouteArgs {
   const PaymentRouteArgs({
     this.key,
-    required this.buses,
+    required this.departureBus,
+    required this.returnBus,
   });
 
   final _i14.Key? key;
 
-  final List<_i18.BusEntity> buses;
+  final _i16.BusEntity departureBus;
+
+  final _i16.BusEntity returnBus;
 
   @override
   String toString() {
-    return 'PaymentRouteArgs{key: $key, buses: $buses}';
+    return 'PaymentRouteArgs{key: $key, departureBus: $departureBus, returnBus: $returnBus}';
   }
 }
 
@@ -309,7 +278,7 @@ class ReservationRoute extends _i13.PageRouteInfo<void> {
 class SeatRoute extends _i13.PageRouteInfo<SeatRouteArgs> {
   SeatRoute({
     _i14.Key? key,
-    required List<_i19.SeatEntity> items,
+    required List<_i17.SeatEntity> items,
     List<_i13.PageRouteInfo>? children,
   }) : super(
           SeatRoute.name,
@@ -342,7 +311,7 @@ class SeatRouteArgs {
 
   final _i14.Key? key;
 
-  final List<_i19.SeatEntity> items;
+  final List<_i17.SeatEntity> items;
 
   @override
   String toString() {

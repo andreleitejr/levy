@@ -70,8 +70,7 @@ final class SplashNotifier extends StateNotifier<SplashState> {
       await Future.delayed(const Duration(milliseconds: 1000));
 
       getIt.registerSingleton<ReservationEntity>(updatedReservation);
-      getIt.registerSingleton<BusEntity>(departureBus,
-          instanceName: 'departure');
+      getIt.registerSingleton<BusEntity>(departureBus, instanceName: 'departure');
       getIt.registerSingleton<BusEntity>(returnBus, instanceName: 'return');
     }
 

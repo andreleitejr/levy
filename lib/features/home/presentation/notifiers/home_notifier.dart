@@ -4,19 +4,30 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:levy/main.dart';
 
 final class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier() : super(const HomeState.loading());
 
-  Future<void> init({
-    required UserEntity? user,
-    ReservationEntity? reservation,
-  }) async {
+  Future<void> init() async {
     try {
       await Future.delayed(const Duration(milliseconds: 1500));
+
+      UserEntity? user;
+
+      ReservationEntity? reservation;
+
+      if (getIt.isRegistered<ReservationEntity>()) {
+        reservation = getIt<ReservationEntity>();
+      }
+
+      if (getIt.isRegistered<UserEntity>()) {
+        user = getIt<UserEntity>();
+      }
+
       state = HomeState.success(user: user, reservation: reservation);
     } catch (e) {
-      state = HomeState.error('Failed to load search page: ${e.toString()}');
+      state = HomeState.error('Failed to load Home Page: ${e.toString()}');
     }
   }
 

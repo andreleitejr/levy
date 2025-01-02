@@ -16,7 +16,8 @@ final class PaymentWidget extends StatelessWidget {
   const PaymentWidget({
     super.key,
     required this.reservation,
-    required this.buses,
+    required this.departureBus,
+    required this.returnBus,
     required this.paymentMethod,
     required this.onPop,
     required this.onPaymentMethodPressed,
@@ -24,7 +25,8 @@ final class PaymentWidget extends StatelessWidget {
   });
 
   final ReservationEntity reservation;
-  final List<BusEntity> buses;
+  final BusEntity departureBus;
+  final BusEntity returnBus;
   final PaymentMethodEntity? paymentMethod;
   final VoidCallback onPop;
   final VoidCallback onPaymentMethodPressed;
@@ -43,12 +45,12 @@ final class PaymentWidget extends StatelessWidget {
         children: [
           ThemeTicketWidget(
             title: CommonsTranslation.departureTicket.title,
-            bus: buses.first,
+            bus: departureBus,
           ),
           SizedBox(height: 8),
           ThemeTicketWidget(
             title: CommonsTranslation.returnTicket.title,
-            bus: buses.last,
+            bus: returnBus,
           ),
         ],
       ),

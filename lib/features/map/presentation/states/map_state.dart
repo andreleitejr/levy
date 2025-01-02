@@ -4,11 +4,12 @@ import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 final class MapState implements GenericStateBase {
-  final ReservationEntity reservation;
+  final ReservationEntity? reservation;
   final LatLng? userLocation;
   final LatLng busLocation;
   final LatLng originLocation;
   final LatLng destinationLocation;
+  final bool isInactive;
 
   @override
   final String? errorMessage;
@@ -24,9 +25,13 @@ final class MapState implements GenericStateBase {
     this.destinationLocation = const LatLng(0, 0),
     this.errorMessage,
     this.isLoading = false,
+    this.isInactive = true,
   });
 
-  const MapState.loading() : this();
+  const MapState.loading() : this(isLoading: true);
+
+
+  const MapState.inactive() : this(isInactive: true);
 
   const MapState.success({
     required ReservationEntity reservation,

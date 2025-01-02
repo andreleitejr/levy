@@ -75,6 +75,16 @@
       }
     }
   },
+  "map": {
+    "header": {
+      "title": "Map"
+    },
+    "inactive": {
+      "title": "No active trips",
+      "description": "You do not have any reservations. Make a purchase to see your bus on the map.",
+      "buttonText": "Click here to make a reservation"
+    }
+  },
   "notification": {
     "header": {
       "title": "Notifications"
@@ -109,7 +119,7 @@
     },
     "inactive": {
       "title": "No tickets available",
-      "description": "What a shame! You do not have any tickets. Make a purchase and try again.",
+      "description": "You do not have any tickets. Make a purchase and come back.",
       "buttonText": "Click here to buy your tickets"
     }
   },

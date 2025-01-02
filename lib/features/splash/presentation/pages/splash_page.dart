@@ -30,10 +30,7 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state.isLoaded) {
-        context.router.replace(HomeRoute(
-          user: state.user,
-          reservation: state.reservation,
-        ));
+        context.router.replace(HomeRoute());
       }
     });
 

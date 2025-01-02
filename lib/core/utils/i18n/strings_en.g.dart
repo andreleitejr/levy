@@ -41,6 +41,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsAddressEn address = TranslationsAddressEn._(_root);
 	late final TranslationsBusEn bus = TranslationsBusEn._(_root);
 	late final TranslationsHomeEn home = TranslationsHomeEn._(_root);
+	late final TranslationsMapEn map = TranslationsMapEn._(_root);
 	late final TranslationsNotificationEn notification = TranslationsNotificationEn._(_root);
 	late final TranslationsPaymentEn payment = TranslationsPaymentEn._(_root);
 	late final TranslationsPaymentMethodEn paymentMethod = TranslationsPaymentMethodEn._(_root);
@@ -97,6 +98,17 @@ class TranslationsHomeEn {
 	late final TranslationsHomeGuestEn guest = TranslationsHomeGuestEn._(_root);
 	late final TranslationsHomeFormEn form = TranslationsHomeFormEn._(_root);
 	late final TranslationsHomeReservationEn reservation = TranslationsHomeReservationEn._(_root);
+}
+
+// Path: map
+class TranslationsMapEn {
+	TranslationsMapEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsMapHeaderEn header = TranslationsMapHeaderEn._(_root);
+	late final TranslationsMapInactiveEn inactive = TranslationsMapInactiveEn._(_root);
 }
 
 // Path: notification
@@ -310,6 +322,28 @@ class TranslationsHomeReservationEn {
 	late final TranslationsHomeReservationTicketEn ticket = TranslationsHomeReservationTicketEn._(_root);
 }
 
+// Path: map.header
+class TranslationsMapHeaderEn {
+	TranslationsMapHeaderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Map';
+}
+
+// Path: map.inactive
+class TranslationsMapInactiveEn {
+	TranslationsMapInactiveEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'No active trips';
+	String get description => 'You do not have any reservations. Make a purchase to see your bus on the map.';
+	String get buttonText => 'Click here to make a reservation';
+}
+
 // Path: notification.header
 class TranslationsNotificationHeaderEn {
 	TranslationsNotificationHeaderEn._(this._root);
@@ -390,7 +424,7 @@ class TranslationsReservationInactiveEn {
 
 	// Translations
 	String get title => 'No tickets available';
-	String get description => 'What a shame! You do not have any tickets. Make a purchase and try again.';
+	String get description => 'You do not have any tickets. Make a purchase and come back.';
 	String get buttonText => 'Click here to buy your tickets';
 }
 
@@ -655,6 +689,10 @@ extension on Translations {
 			case 'home.reservation.warning.textButton': return 'View on map';
 			case 'home.reservation.warning.description': return ({required Object time}) => 'Your bus will arrive in ${time}...';
 			case 'home.reservation.ticket.title': return 'Next trip';
+			case 'map.header.title': return 'Map';
+			case 'map.inactive.title': return 'No active trips';
+			case 'map.inactive.description': return 'You do not have any reservations. Make a purchase to see your bus on the map.';
+			case 'map.inactive.buttonText': return 'Click here to make a reservation';
 			case 'notification.header.title': return 'Notifications';
 			case 'payment.header.title': return 'Order tickets';
 			case 'payment.paymentMethod.title': return 'Payment Method';
@@ -665,7 +703,7 @@ extension on Translations {
 			case 'paymentMethod.header.title': return 'Select payment method';
 			case 'reservation.header.title': return 'Reservation';
 			case 'reservation.inactive.title': return 'No tickets available';
-			case 'reservation.inactive.description': return 'What a shame! You do not have any tickets. Make a purchase and try again.';
+			case 'reservation.inactive.description': return 'You do not have any tickets. Make a purchase and come back.';
 			case 'reservation.inactive.buttonText': return 'Click here to buy your tickets';
 			case 'seat.header.title': return 'Select Seat';
 			case 'seat.descriptions.selected': return 'Selected';

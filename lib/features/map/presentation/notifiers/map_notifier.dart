@@ -10,59 +10,75 @@ final class MapNotifier extends StateNotifier<MapState> {
   MapNotifier() : super(MapState.loading());
 
   Future<void> init({bool isReturnBus = false}) async {
-    var location = Location();
+    try {
+      await _ensureLocationPermissions();
 
-    final reservation = getIt<ReservationEntity>();
-    final departureBus = getIt<BusEntity>(instanceName: 'departure');
-    final returnBus = getIt<BusEntity>(instanceName: 'return');
+      final reservation = _getReservationEntity();
+      final departureBus = _getBusEntity(instanceName: 'departure');
+      final returnBus = _getBusEntity(instanceName: 'return');
 
-    bool serviceEnabled = await location.serviceEnabled();
+      if (reservation == null || departureBus == null || returnBus == null) {
+        state = MapState.inactive();
+        return;
+      }
 
-    if (!serviceEnabled) {
-      serviceEnabled = await location.requestService();
-      if (!serviceEnabled) return;
+      final locationData = await Location().getLocation();
+      final userLocation =
+          LatLng(locationData.latitude!, locationData.longitude!);
+
+      state = _buildMapState(
+        isReturnBus: isReturnBus,
+        reservation: reservation,
+        userLocation: userLocation,
+        departureBus: departureBus,
+        returnBus: returnBus,
+      );
+    } catch (e) {
+      state = MapState.error('Failed to load Map Page: ${e.toString()}');
     }
+  }
 
-    PermissionStatus permissionGranted = await location.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await location.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) return;
+  Future<void> _ensureLocationPermissions() async {
+    final location = Location();
+    if (!await location.serviceEnabled()) {
+      if (!await location.requestService()) {
+        throw Exception('Location service is disabled');
+      }
     }
+    if (await location.hasPermission() == PermissionStatus.denied) {
+      if (await location.requestPermission() != PermissionStatus.granted) {
+        throw Exception('Location permission denied');
+      }
+    }
+  }
 
-    LocationData locationData = await location.getLocation();
+  ReservationEntity? _getReservationEntity() {
+    return getIt.isRegistered<ReservationEntity>()
+        ? getIt<ReservationEntity>()
+        : null;
+  }
 
-    LatLng newUserLocation =
-        LatLng(locationData.latitude!, locationData.longitude!);
+  BusEntity? _getBusEntity({required String instanceName}) {
+    return getIt.isRegistered<BusEntity>(instanceName: instanceName)
+        ? getIt<BusEntity>(instanceName: instanceName)
+        : null;
+  }
 
-    final originLatitude = isReturnBus
-        ? returnBus.routes.first.origin.latitude
-        : departureBus.routes.first.origin.latitude;
+  MapState _buildMapState({
+    required bool isReturnBus,
+    required ReservationEntity reservation,
+    required LatLng userLocation,
+    required BusEntity departureBus,
+    required BusEntity returnBus,
+  }) {
+    final bus = isReturnBus ? returnBus : departureBus;
 
-    final originLongitude = isReturnBus
-        ? returnBus.routes.first.origin.longitude
-        : departureBus.routes.first.origin.longitude;
-
-    final destinationLatitude = isReturnBus
-        ? returnBus.routes.last.origin.latitude
-        : departureBus.routes.last.origin.latitude;
-
-    final destinationLongitude = isReturnBus
-        ? returnBus.routes.last.origin.longitude
-        : departureBus.routes.last.origin.longitude;
-
-    final lastLocation =
-        isReturnBus ? returnBus.lastLocation : departureBus.lastLocation;
-
-    final originLocation = LatLng(originLatitude, originLongitude);
-    final destinationLocation =
-        LatLng(destinationLatitude, destinationLongitude);
-
-    state = MapState.success(
+    return MapState.success(
       reservation: reservation,
-      userLocation: newUserLocation,
-      busLocation: lastLocation,
-      originLocation: originLocation,
-      destinationLocation: destinationLocation,
+      userLocation: userLocation,
+      busLocation: bus.lastLocation,
+      originLocation: LatLng(bus.routes.first.origin.latitude, bus.routes.first.origin.longitude),
+      destinationLocation: LatLng(bus.routes.last.origin.latitude, bus.routes.last.origin.longitude),
     );
   }
 }

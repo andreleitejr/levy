@@ -22,10 +22,12 @@ import 'package:uuid/uuid.dart';
 class PaymentPage extends ConsumerStatefulWidget {
   const PaymentPage({
     super.key,
-    required this.buses,
+    required this.departureBus,
+    required this.returnBus,
   });
 
-  final List<BusEntity> buses;
+  final BusEntity departureBus;
+  final BusEntity returnBus;
 
   @override
   ConsumerState<PaymentPage> createState() => _PaymentPageState();
@@ -37,7 +39,10 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(paymentNotifierProvider.notifier).init();
+      ref.read(paymentNotifierProvider.notifier).init(
+            departureBus: widget.departureBus,
+            returnBus: widget.returnBus,
+          );
     });
   }
 
@@ -51,15 +56,15 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
       loading: ThemeLoadingWidget(),
       success: PaymentWidget(
         reservation: state.reservation,
-        buses: widget.buses,
+        departureBus: state.departureBus,
+        returnBus: state.returnBus,
         paymentMethod: state.paymentMethod,
         onPop: () => context.router.back(),
         onPaymentMethodPressed: () => _onPaymentMethodPressed(notifier),
-        onButtonPressed: () =>
-            _onButtonPressed(
-              state: state,
-              notifier: notifier,
-            ),
+        onButtonPressed: () => _onButtonPressed(
+          state: state,
+          notifier: notifier,
+        ),
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
@@ -68,8 +73,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
   }
 
   Future<void> _onPaymentMethodPressed(PaymentNotifier notifier) async {
-    final paymentMethod =
-    await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
+    final paymentMethod = await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
 
     if (paymentMethod != null) {
       notifier.updatePaymentMethod(paymentMethod);
@@ -85,6 +89,8 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     if (paymentMethod != null) {
       final result = await notifier.processPayment(
         reservation: state.reservation,
+        departureBus: state.departureBus,
+        returnBus: state.returnBus,
         method: paymentMethod,
       );
 
@@ -99,7 +105,6 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
   Future<void> _handleReservation(PaymentState state) async {
     final router = context.router;
 
-
     final reservationUseCase = ref.read(createReservationUseCaseProvider);
 
     final user = GetIt.instance<UserEntity>();
@@ -107,14 +112,15 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     final uuid = Uuid();
     final reservationId = uuid.v4();
     final paymentId = uuid.v4();
+    final date = DateTime.now().toString();
 
     final reservation = ReservationModel(
       reservationId: reservationId,
       userId: user.id,
       paymentId: paymentId,
-      date: DateTime.now().toString(),
-      departureBusId: widget.buses.first.id,
-      returnBusId: widget.buses.last.id,
+      date: date,
+      departureBusId: state.departureBus.id,
+      returnBusId: state.returnBus.id,
     );
 
     await reservationUseCase.call(reservation);

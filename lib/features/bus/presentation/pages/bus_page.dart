@@ -88,16 +88,14 @@ final class _BusPageState extends ConsumerState<BusPage> {
     final state = ref.read(busNotifierProvider);
     final router = context.router;
 
-    final buses = <BusEntity>[];
-
     final departureBus = state.departureBus;
     final returnBus = state.returnBus;
 
     if (departureBus != null && returnBus != null) {
-      buses.add(departureBus);
-      buses.add(returnBus);
-
-      router.push(PaymentRoute(buses: buses));
+      router.push(PaymentRoute(
+        departureBus: departureBus,
+        returnBus: returnBus,
+      ));
     }
   }
 }

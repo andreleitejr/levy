@@ -37,14 +37,14 @@ final class _ReservationPageState extends ConsumerState<ReservationPage> {
     return StateBuilder(
       state: state,
       loading: ThemeLoadingWidget(),
-      success: _buildSuccessStateWidget(state),
+      success: _buildReservationWidget(state),
       error: ThemeErrorWidget(
         message: state.errorMessage,
       ),
     );
   }
 
-  Widget _buildSuccessStateWidget(ReservationState state) {
+  Widget _buildReservationWidget(ReservationState state) {
     final data = state.data;
 
     if (data != null) {

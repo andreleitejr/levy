@@ -21,20 +21,13 @@ import 'package:levy/features/map/presentation/pages/map_page.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
-import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/pages/user_page.dart';
 
 @RoutePage()
 final class HomePage extends ConsumerStatefulWidget {
   const HomePage({
     super.key,
-    this.user,
-    this.reservation,
   });
-
-  final UserEntity? user;
-  final ReservationEntity? reservation;
-
   @override
   ConsumerState<HomePage> createState() => _HomePageState();
 }
@@ -53,10 +46,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(searchNotifierProvider.notifier).init(
-            user: widget.user,
-            reservation: widget.reservation,
-          );
+      ref.read(searchNotifierProvider.notifier).init();
     });
   }
 
@@ -137,8 +127,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
       return HomeReservationWidget(
         user: user,
         reservation: reservation,
-        onNotificationButtonPressed: () =>
-            context.router.push(NotificationRoute()),
+        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
         bus: notifier.getNextBus(),
         arrivalTime: notifier.calculateArrivalTime(),
       );
@@ -154,8 +143,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
       returnAddress: state.returnAddress?.street,
       departureTime: state.departureTime,
       returnTime: state.returnTime,
-      onNotificationButtonPressed: () =>
-          context.router.push(NotificationRoute()),
+      onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
       onDepartureAddressSelect: () async {
         final departureAddress =
             await context.router.push<AddressEntity>(AddressRoute());
