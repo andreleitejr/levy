@@ -30,7 +30,6 @@ final class MapState implements GenericStateBase {
 
   const MapState.loading() : this(isLoading: true);
 
-
   const MapState.inactive() : this(isInactive: true);
 
   const MapState.success({
@@ -45,6 +44,7 @@ final class MapState implements GenericStateBase {
           busLocation: busLocation,
           originLocation: originLocation,
           destinationLocation: destinationLocation,
+          isInactive: false,
         );
 
   const MapState.error(String message) : this(errorMessage: message);

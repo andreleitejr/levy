@@ -121,6 +121,7 @@ final class _MapPageState extends ConsumerState<MapPage> {
   Future<Marker> _buildUserMarker(MapState state) async {
     final userImage = getIt<UserEntity>().image;
     final icon = await _buildMarkerIcon(userImage);
+
     return Marker(
       markerId: const MarkerId("User"),
       position: state.userLocation!,
@@ -168,7 +169,12 @@ final class _MapPageState extends ConsumerState<MapPage> {
   Future<void> _addRoute(MapState state) async {
     final origin = state.originLocation;
     final destination = state.destinationLocation;
-    final points = await _fetchRoutePoints(origin, destination);
+
+    final points = await _fetchRoutePoints(
+      origin: origin,
+      destination: destination,
+    );
+
     polylines.add(
       Polyline(
         polylineId: const PolylineId("Route"),
@@ -179,14 +185,18 @@ final class _MapPageState extends ConsumerState<MapPage> {
     );
   }
 
-  Future<List<LatLng>> _fetchRoutePoints(
-      LatLng origin, LatLng destination) async {
+  Future<List<LatLng>> _fetchRoutePoints({
+    required LatLng origin,
+    required LatLng destination,
+  }) async {
     final response = await http.get(Uri.parse(
         "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&key=${dotenv.env["GOOGLE_MAPS_API_KEY"]}"));
+
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       return _decodePolyline(data['routes'][0]['overview_polyline']['points']);
     }
+
     throw Exception("Failed to fetch route");
   }
 
