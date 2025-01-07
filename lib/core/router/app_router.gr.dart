@@ -123,12 +123,14 @@ class MapRoute extends _i13.PageRouteInfo<MapRouteArgs> {
   MapRoute({
     _i14.Key? key,
     bool isReturnBus = false,
+    bool isTargetBus = false,
     List<_i13.PageRouteInfo>? children,
   }) : super(
           MapRoute.name,
           args: MapRouteArgs(
             key: key,
             isReturnBus: isReturnBus,
+            isTargetBus: isTargetBus,
           ),
           initialChildren: children,
         );
@@ -143,6 +145,7 @@ class MapRoute extends _i13.PageRouteInfo<MapRouteArgs> {
       return _i4.MapPage(
         key: args.key,
         isReturnBus: args.isReturnBus,
+        isTargetBus: args.isTargetBus,
       );
     },
   );
@@ -152,15 +155,18 @@ class MapRouteArgs {
   const MapRouteArgs({
     this.key,
     this.isReturnBus = false,
+    this.isTargetBus = false,
   });
 
   final _i14.Key? key;
 
   final bool isReturnBus;
 
+  final bool isTargetBus;
+
   @override
   String toString() {
-    return 'MapRouteArgs{key: $key, isReturnBus: $isReturnBus}';
+    return 'MapRouteArgs{key: $key, isReturnBus: $isReturnBus, isTargetBus: $isTargetBus}';
   }
 }
 

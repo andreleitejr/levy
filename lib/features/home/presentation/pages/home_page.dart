@@ -12,22 +12,19 @@ import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
 import 'package:levy/features/home/presentation/notifiers/home_notifier.dart';
 import 'package:levy/features/home/presentation/providers/home_notifier_provider.dart';
-import 'package:levy/features/home/presentation/shimmers/home_reservation_shimmer.dart';
 import 'package:levy/features/home/presentation/shimmers/home_search_shimmer.dart';
 import 'package:levy/features/home/presentation/states/home_state.dart';
 import 'package:levy/features/home/presentation/widgets/home_reservation_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
 import 'package:levy/features/map/presentation/pages/map_page.dart';
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/user/presentation/pages/user_page.dart';
 
 @RoutePage()
 final class HomePage extends ConsumerStatefulWidget {
-  const HomePage({
-    super.key,
-  });
+  const HomePage({super.key});
+
   @override
   ConsumerState<HomePage> createState() => _HomePageState();
 }
@@ -57,7 +54,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
 
     return StateBuilder(
       state: state,
-      loading: _buildLoadingWidget(state.reservation),
+      loading: HomeSearchShimmer(),
       success: Scaffold(
         body: IndexedStack(
           index: _selectedIndex,
@@ -108,14 +105,6 @@ final class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 
-  Widget _buildLoadingWidget(ReservationEntity? reservation) {
-    if (reservation != null) {
-      return HomeReservationShimmer();
-    } else {
-      return HomeSearchShimmer();
-    }
-  }
-
   Widget _buildHomeWidget({
     required HomeState state,
     required HomeNotifier notifier,
@@ -127,7 +116,11 @@ final class _HomePageState extends ConsumerState<HomePage> {
       return HomeReservationWidget(
         user: user,
         reservation: reservation,
-        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
+        onNotificationButtonPressed: () =>
+            context.router.push(NotificationRoute()),
+        onViewMapButtonPressed: () {
+          context.router.push(MapRoute(isTargetBus: true));
+        },
         bus: notifier.getNextBus(),
         arrivalTime: notifier.calculateArrivalTime(),
       );
@@ -145,27 +138,29 @@ final class _HomePageState extends ConsumerState<HomePage> {
       returnTime: state.returnTime,
       onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
       onDepartureAddressSelect: () async {
-        final departureAddress =
-            await context.router.push<AddressEntity>(AddressRoute());
+        final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
+
         if (departureAddress != null) {
           notifier.updateDepartureAddress(departureAddress);
         }
       },
       onReturnAddressSelect: () async {
-        final returnAddress =
-            await context.router.push<AddressEntity>(AddressRoute());
+        final returnAddress = await context.router.push<AddressEntity>(AddressRoute());
+
         if (returnAddress != null) {
           notifier.updateReturnAddress(returnAddress);
         }
       },
       onDepartureTimeSelect: () async {
         final departureTime = await context.router.push<String>(TimeRoute());
+
         if (departureTime != null) {
           notifier.updateDepartureTime(departureTime);
         }
       },
       onReturnTimeSelect: () async {
         final returnTime = await context.router.push<String>(TimeRoute());
+
         if (returnTime != null) {
           notifier.updateReturnTime(returnTime);
         }

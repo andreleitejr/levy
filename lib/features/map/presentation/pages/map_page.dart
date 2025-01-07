@@ -24,9 +24,11 @@ final class MapPage extends ConsumerStatefulWidget {
   const MapPage({
     super.key,
     this.isReturnBus = false,
+    this.isTargetBus = false,
   });
 
   final bool isReturnBus;
+  final bool isTargetBus;
 
   @override
   ConsumerState<MapPage> createState() => _MapPageState();
@@ -73,7 +75,8 @@ final class _MapPageState extends ConsumerState<MapPage> {
       );
     }
 
-    final userLocation = state.userLocation;
+    final targetLocation = widget.isTargetBus ? state.busLocation : state.userLocation;
+    final zoom = widget.isTargetBus ? 19.0 : 16.0;
 
     return FutureBuilder<void>(
       future: _initMarkers(state),
@@ -87,8 +90,10 @@ final class _MapPageState extends ConsumerState<MapPage> {
         } else {
           return MapWidget(
             onPop: () => context.router.back(),
-            targetLocation: userLocation,
+            targetLocation: targetLocation,
             markers: markers,
+            zoom: zoom,
+            showLeading: widget.isTargetBus,
           );
         }
       },

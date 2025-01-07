@@ -7,9 +7,11 @@ final class HomeWarningWidget extends StatelessWidget {
   const HomeWarningWidget({
     super.key,
     required this.arrivalTime,
+    required this.onViewMapButtonPressed,
   });
 
   final String arrivalTime;
+  final VoidCallback onViewMapButtonPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +37,13 @@ final class HomeWarningWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Text(
-                HomeTranslation.reservation.warning.textButton,
-                style: ThemeTypography.semiBold12.apply(
-                  color: ThemeColors.primary,
+              GestureDetector(
+                onTap: onViewMapButtonPressed,
+                child: Text(
+                  HomeTranslation.reservation.warning.textButton,
+                  style: ThemeTypography.semiBold12.apply(
+                    color: ThemeColors.primary,
+                  ),
                 ),
               ),
             ],

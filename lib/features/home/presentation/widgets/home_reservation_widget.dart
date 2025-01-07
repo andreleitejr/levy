@@ -13,6 +13,7 @@ final class HomeReservationWidget extends StatelessWidget {
     required this.user,
     required this.reservation,
     required this.onNotificationButtonPressed,
+    required this.onViewMapButtonPressed,
     this.bus,
     required this.arrivalTime,
   });
@@ -20,6 +21,7 @@ final class HomeReservationWidget extends StatelessWidget {
   final UserEntity user;
   final ReservationEntity reservation;
   final VoidCallback onNotificationButtonPressed;
+  final VoidCallback onViewMapButtonPressed;
   final BusEntity? bus;
   final String arrivalTime;
 
@@ -37,7 +39,10 @@ final class HomeReservationWidget extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: ListView(
           children: [
-            HomeWarningWidget(arrivalTime: arrivalTime),
+            HomeWarningWidget(
+              arrivalTime: arrivalTime,
+              onViewMapButtonPressed: onViewMapButtonPressed,
+            ),
             const SizedBox(height: 16),
             if (nextBus != null)
               ThemeTicketWidget(
