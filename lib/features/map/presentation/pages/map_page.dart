@@ -21,6 +21,7 @@ import 'package:levy/features/map/presentation/utils/map_translation.dart';
 import 'package:levy/features/map/presentation/widgets/map_widget.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/main.dart';
+import 'package:widget_to_marker/widget_to_marker.dart';
 
 @RoutePage()
 final class MapPage extends ConsumerStatefulWidget {
@@ -104,6 +105,30 @@ final class _MapPageState extends ConsumerState<MapPage> {
     return SizedBox.shrink();
   }
 
+  Future<BitmapDescriptor> _buildMarkerFromImage(String image) {
+    return Container(
+      height: 64,
+      width: 64,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: ThemeColors.secondary.withOpacity(0.35),
+          width: 8,
+        ),
+        shape: BoxShape.circle,
+      ),
+      child: ClipOval(
+        child: Image(
+          image: AssetImage(
+            image,
+          ),
+          height: 64,
+          width: 64,
+          fit: BoxFit.cover,
+        ),
+      ),
+    ).toBitmapDescriptor();
+  }
+
   Future<void> _initMapElements(MapState state) async {
     await _initMarkers(state);
     await _addRoute(state);
@@ -111,20 +136,21 @@ final class _MapPageState extends ConsumerState<MapPage> {
 
   Future<void> _initMarkers(MapState state) async {
     markers = {
-      await _buildUserMarker(state),
+      await _buildUserMarker(state.userLocation!, 'User'),
       await _buildStaticMarker(state.originLocation, 'Origin'),
       await _buildStaticMarker(state.destinationLocation, 'Destination'),
       await _buildBusMarker(state),
     };
   }
 
-  Future<Marker> _buildUserMarker(MapState state) async {
-    final userImage = getIt<UserEntity>().image;
-    final icon = await _buildMarkerIcon(userImage);
+  Future<Marker> _buildUserMarker(LatLng location, String id) async {
+    final userImage = ThemeImages.getImageByString(getIt<UserEntity>().image);
+
+    final icon = await _buildMarkerFromImage(userImage);
 
     return Marker(
-      markerId: const MarkerId("User"),
-      position: state.userLocation!,
+      markerId: MarkerId(id),
+      position: location,
       icon: icon,
     );
   }
@@ -153,17 +179,15 @@ final class _MapPageState extends ConsumerState<MapPage> {
 
     if (busImage == null) throw Exception("No bus image available");
 
-    final icon = await _buildMarkerIcon(busImage);
+    final image = ThemeImages.getImageByString(busImage);
+
+    final icon = await _buildMarkerFromImage(image);
 
     return Marker(
       markerId: const MarkerId("Bus"),
       position: state.busLocation,
       icon: icon,
     );
-  }
-
-  Future<BitmapDescriptor> _buildMarkerIcon(String imagePath) async {
-    return BitmapDescriptor.defaultMarker;
   }
 
   Future<void> _addRoute(MapState state) async {

@@ -16,6 +16,7 @@ final class MapNotifier extends StateNotifier<MapState> {
 
       if (reservation == null) {
         state = MapState.inactive();
+
         return;
       }
 
@@ -61,25 +62,32 @@ final class MapNotifier extends StateNotifier<MapState> {
         : null;
   }
 
-  MapState _buildMapState(
-      {required bool isReturnBus,
-      required ReservationEntity reservation,
-      required LatLng userLocation}) {
-
+  MapState _buildMapState({
+    required bool isReturnBus,
+    required ReservationEntity reservation,
+    required LatLng userLocation,
+  }) {
     final bus = isReturnBus ? reservation.returnBus : reservation.departureBus;
 
     if (bus == null) {
       throw Exception('Reservation does not have a bus');
     }
 
+    final originLocation = bus.routes.first.origin;
+    final destinationLocation = bus.routes.last.origin;
+
     return MapState.success(
       reservation: reservation,
       userLocation: userLocation,
       busLocation: bus.lastLocation,
       originLocation: LatLng(
-          bus.routes.first.origin.latitude, bus.routes.first.origin.longitude),
+        originLocation.latitude,
+        originLocation.longitude,
+      ),
       destinationLocation: LatLng(
-          bus.routes.last.origin.latitude, bus.routes.last.origin.longitude),
+        destinationLocation.latitude,
+        destinationLocation.longitude,
+      ),
     );
   }
 }
