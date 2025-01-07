@@ -5,7 +5,7 @@ import 'package:levy/features/reservation/domain/entities/reservation_entity.dar
 
 final class MapState implements GenericStateBase {
   final ReservationEntity? reservation;
-  final LatLng? userLocation;
+  final LatLng userLocation;
   final LatLng busLocation;
   final LatLng originLocation;
   final LatLng destinationLocation;
@@ -19,7 +19,7 @@ final class MapState implements GenericStateBase {
 
   const MapState({
     this.reservation = const ReservationModel(),
-    this.userLocation,
+    this.userLocation = const LatLng(0, 0),
     this.busLocation = const LatLng(0, 0),
     this.originLocation = const LatLng(0, 0),
     this.destinationLocation = const LatLng(0, 0),

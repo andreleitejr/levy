@@ -8,13 +8,11 @@ final class MapWidget extends StatelessWidget {
     required this.onPop,
     required this.targetLocation,
     required this.markers,
-    required this.polylines,
   });
 
   final VoidCallback onPop;
   final LatLng targetLocation;
   final Set<Marker> markers;
-  final Set<Polyline> polylines;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,6 @@ final class MapWidget extends StatelessWidget {
           // Set controller if necessary
         },
         markers: markers,
-        polylines: polylines,
       ),
     );
   }
