@@ -35,18 +35,20 @@ final class ThemeListItemShimmer extends StatelessWidget {
                   ),
                 )
               : null,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          title: Row(
             children: [
               Container(
                 constraints: BoxConstraints(maxWidth: 120),
                 height: 16,
                 color: Colors.black,
               ),
+            ],
+          ),
+          subtitle: Row(
+            children: [
               Container(
                 margin: EdgeInsets.only(top: 8),
-                constraints: BoxConstraints(maxWidth: 280),
-                width: double.infinity,
+                constraints: BoxConstraints(maxWidth: 200),
                 height: 12,
                 color: Colors.black,
               ),

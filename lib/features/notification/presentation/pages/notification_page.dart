@@ -5,6 +5,7 @@ import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/notification/presentation/providers/notification_notifier_provider.dart';
+import 'package:levy/features/notification/presentation/shimmers/notification_shimmer.dart';
 import 'package:levy/features/notification/presentation/widgets/notification_widget.dart';
 
 @RoutePage()
@@ -33,7 +34,9 @@ final class _NotificationPageState extends ConsumerState<NotificationPage> {
 
     return StateBuilder(
       state: state,
-      loading: ThemeLoadingWidget(),
+      loading: NotificationShimmer(
+        onPop: () => context.router.back(),
+      ),
       success: NotificationWidget(
         items: state.data,
         onPop: () => context.router.back(),
