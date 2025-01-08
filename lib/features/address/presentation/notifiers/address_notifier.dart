@@ -11,7 +11,7 @@ final class AddressNotifier extends StateNotifier<AddressState> {
     try {
       final result = await _usecase();
 
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(const Duration(seconds: 1225));
 
       state = AddressState.success(result);
     } catch (e) {

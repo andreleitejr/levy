@@ -2,30 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
-final class HomeShimmerAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeShimmerAppBar({super.key});
-
-  Widget _buildShimmerContainer(double width, double height) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(24),
-      ),
-    );
-  }
-
-  Widget _buildShimmerColumn(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildShimmerContainer(100, 12),
-        const SizedBox(height: 4),
-        _buildShimmerContainer(140, 16),
-      ],
-    );
-  }
+final class HomeAppBarShimmer extends StatelessWidget implements PreferredSizeWidget {
+  const HomeAppBarShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +26,28 @@ final class HomeShimmerAppBar extends StatelessWidget implements PreferredSizeWi
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildShimmerContainer(double width, double height) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(24),
+      ),
+    );
+  }
+
+  Widget _buildShimmerColumn(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildShimmerContainer(100, 12),
+        const SizedBox(height: 4),
+        _buildShimmerContainer(140, 16),
+      ],
     );
   }
 

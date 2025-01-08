@@ -10,7 +10,7 @@ final class HomeSearchShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeShimmerAppBar(),
+      appBar: HomeAppBarShimmer(),
       body: _buildShimmerBody(context),
       bottomNavigationBar: HomeBottomBarShimmer(),
     );

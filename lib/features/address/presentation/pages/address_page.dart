@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
+import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart';
 import 'package:levy/features/address/presentation/widgets/address_widget.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
@@ -31,7 +32,9 @@ final class _AddressPageState extends ConsumerState<AddressPage> {
 
     return StateBuilder(
       state: state,
-      loading: ThemeLoadingWidget(),
+      loading: AddressShimmer(
+        onPop: () => context.router.back(),
+      ),
       success: AddressWidget(
         items: state.data,
         onPop: () => context.router.back(),
