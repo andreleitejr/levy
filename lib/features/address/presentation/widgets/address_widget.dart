@@ -12,11 +12,13 @@ final class AddressWidget extends StatelessWidget {
     required this.items,
     required this.onPop,
     required this.onItemPressed,
+    required this.onChanged,
   });
 
   final List<AddressEntity> items;
   final VoidCallback onPop;
   final Function(AddressEntity item) onItemPressed;
+  final Function(String) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,7 @@ final class AddressWidget extends StatelessWidget {
               child: ThemeSearchInputWidget(
                 hintText: AddressTranslation.searchInput.hintText,
                 icon: ThemeIcons.search,
-                onChanged: (value) {},
-                onTap: () {},
+                onChanged: onChanged,
                 enabled: true,
               ),
             ),

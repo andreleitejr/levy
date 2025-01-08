@@ -6,7 +6,6 @@ import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart
 import 'package:levy/features/address/presentation/widgets/address_widget.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 
 @RoutePage()
 final class AddressPage extends ConsumerStatefulWidget {
@@ -29,6 +28,8 @@ final class _AddressPageState extends ConsumerState<AddressPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(addressNotifierProvider);
+    final notifier = ref.read(addressNotifierProvider.notifier);
+
 
     return StateBuilder(
       state: state,
@@ -39,6 +40,7 @@ final class _AddressPageState extends ConsumerState<AddressPage> {
         items: state.data,
         onPop: () => context.router.back(),
         onItemPressed: (item) => context.router.maybePop(item),
+        onChanged: notifier.filterAddresses,
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
