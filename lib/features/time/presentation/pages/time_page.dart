@@ -32,7 +32,7 @@ final class _TimePageState extends ConsumerState<TimePage> {
 
     return StateBuilder(
       state: state,
-      loading: ThemeLoadingWidget(),
+      loading: SizedBox.shrink(),
       success: TimeWidget(
         selectedHour: state.hour,
         selectedMinute: state.minute,

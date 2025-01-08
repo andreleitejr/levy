@@ -6,8 +6,6 @@ final class TimeNotifier extends StateNotifier<TimeState> {
 
   Future<void> init() async {
     try {
-      await Future.delayed(const Duration(milliseconds: 500));
-
       final now = DateTime.now();
       final hour = now.hour;
       int minute = now.minute;
