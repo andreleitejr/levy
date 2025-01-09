@@ -9,8 +9,6 @@ final class NotificationNotifier extends StateNotifier<NotificationState> {
 
   Future<void> init() async {
     try {
-      await Future.delayed(const Duration(milliseconds: 600));
-
       final result = await _usecase();
 
       state = NotificationState.success(result);

@@ -12,6 +12,8 @@ final class BusDataSourceMock implements BusDataSource {
     SearchEntity? search,
     bool isReturnBus = false,
   }) async {
+    await Future.delayed(const Duration(milliseconds: 600));
+
     final buses = BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
 
     if(search != null){

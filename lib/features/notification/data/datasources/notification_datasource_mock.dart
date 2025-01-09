@@ -8,6 +8,8 @@ import 'package:levy/features/notification/external/notification_mock.dart';
 final class NotificationDataSourceMock implements NotificationDataSource {
   @override
   Future<List<NotificationModel>> get() async {
+    await Future.delayed(const Duration(milliseconds: 600));
+
     return NotificationMock.response.map<NotificationModel>((notification) {
       return NotificationModel.fromJson(notification);
     }).toList();

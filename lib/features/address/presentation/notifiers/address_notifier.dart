@@ -11,9 +11,8 @@ final class AddressNotifier extends StateNotifier<AddressState> {
 
   Future<void> init() async {
     try {
-      await Future.delayed(const Duration(milliseconds: 600));
-
       final result = await _usecase();
+
       _allAddresses = result;
 
       state = AddressState.success(result);

@@ -11,8 +11,6 @@ final class UserNotifier extends StateNotifier<UserState> {
     try {
       final result = await _usecase();
 
-      await Future.delayed(const Duration(milliseconds: 500));
-
       state = UserState.success(result);
     } catch (e) {
       state = UserState.error('Failed to load users: ${e.toString()}');

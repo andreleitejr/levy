@@ -8,6 +8,8 @@ import 'package:levy/features/user/external/user_mock.dart';
 final class UserDataSourceMock implements UserDataSource {
   @override
   Future<UserModel> get() async {
+    await Future.delayed(const Duration(milliseconds: 600));
+
     return UserModel.fromJson(UserMock.response);
   }
 }

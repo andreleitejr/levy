@@ -8,6 +8,8 @@ import 'package:levy/features/address/external/address_mock.dart';
 final class AddressDataSourceMock implements AddressDataSource {
   @override
   Future<List<AddressModel>> get() async {
+    await Future.delayed(const Duration(milliseconds: 600));
+
     return AddressMock.response.map<AddressModel>((address) {
       return AddressModel.fromJson(address);
     }).toList();
