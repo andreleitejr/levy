@@ -5,6 +5,7 @@ import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/notifiers/bus_notifier.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
+import 'package:levy/features/bus/presentation/shimmers/bus_shimmer.dart';
 import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
@@ -43,7 +44,9 @@ final class _BusPageState extends ConsumerState<BusPage> {
 
     return StateBuilder(
       state: state,
-      loading: const ThemeLoadingWidget(),
+      loading: BusShimmer(
+        onPop: () => context.router.back(),
+      ),
       success: BusWidget(
         items: state.data,
         onPop: () => context.router.back(),

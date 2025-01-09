@@ -14,6 +14,8 @@ final class BusNotifier extends StateNotifier<BusState> {
 
   Future<void> init(SearchEntity search) async {
     try {
+      await Future.delayed(const Duration(milliseconds: 600));
+
       _search = search;
 
       final result = await _usecase(search: _search);
