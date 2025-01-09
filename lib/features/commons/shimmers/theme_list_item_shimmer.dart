@@ -1,40 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/features/commons/enums/theme_image_geometry.dart';
 import 'package:shimmer/shimmer.dart';
 
 final class ThemeListItemShimmer extends StatelessWidget {
   const ThemeListItemShimmer({
     super.key,
     this.showImageShimmer = true,
+    this.imageGeometry = ThemeImageGeometry.circle,
   });
 
   final bool showImageShimmer;
+  final ThemeImageGeometry imageGeometry;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 96,
       decoration: BoxDecoration(
-          border: Border(
-        bottom: BorderSide(
-          color: ThemeColors.grey2,
+        border: Border(
+          bottom: BorderSide(
+            color: ThemeColors.grey2,
+          ),
         ),
-      )),
+      ),
       child: Shimmer.fromColors(
         baseColor: ThemeColors.grey2,
         highlightColor: ThemeColors.grey1,
         child: ListTile(
           contentPadding: const EdgeInsets.symmetric(horizontal: 24),
           minVerticalPadding: 28,
-          leading: showImageShimmer
-              ? ClipOval(
-                  child: Container(
-                    width: 48,
-                    height: 48,
-                    color: Colors.black,
-                  ),
-                )
-              : null,
+          leading: showImageShimmer ? _buildLeadingImage() : null,
           title: Row(
             children: [
               Container(
@@ -57,5 +53,26 @@ final class ThemeListItemShimmer extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget? _buildLeadingImage() {
+    if (imageGeometry == ThemeImageGeometry.circle) {
+      return ClipOval(
+        child: Container(
+          width: 48,
+          height: 48,
+          color: Colors.black,
+        ),
+      );
+    } else {
+      return Container(
+        height: 24,
+        width: 36,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(4),
+        ),
+      );
+    }
   }
 }

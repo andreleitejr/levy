@@ -8,6 +8,8 @@ import 'package:levy/features/payment_method/external/payment_method_mock.dart';
 final class PaymentMethodDataSourceMock implements PaymentMethodDataSource {
   @override
   Future<List<PaymentMethodModel>> get() async {
+    await Future.delayed(const Duration(milliseconds: 600));
+
     return PaymentMethodMock.response.map<PaymentMethodModel>((address) {
       return PaymentMethodModel.fromJson(address);
     }).toList();

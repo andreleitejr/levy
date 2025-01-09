@@ -11,8 +11,6 @@ final class PaymentMethodNotifier extends StateNotifier<PaymentMethodState> {
     try {
       final result = await _usecase();
 
-      await Future.delayed(const Duration(milliseconds: 500));
-
       state = PaymentMethodState.success(result);
     } catch (e) {
       state = PaymentMethodState.error('Failed to load payment_methods: ${e.toString()}');

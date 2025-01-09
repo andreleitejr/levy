@@ -5,6 +5,7 @@ import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/payment_method/presentation/providers/payment_method_notifier_provider.dart';
+import 'package:levy/features/payment_method/presentation/shimmers/payment_method_shimmer.dart';
 import 'package:levy/features/payment_method/presentation/widgets/payment_method_widget.dart';
 
 @RoutePage()
@@ -31,7 +32,9 @@ final class _PaymentMethodPageState extends ConsumerState<PaymentMethodPage> {
 
     return StateBuilder(
       state: state,
-      loading: ThemeLoadingWidget(),
+      loading: PaymentMethodShimmer(
+        onPop: () => context.router.back(),
+      ),
       success: PaymentMethodWidget(
         items: state.data,
         onPop: () => context.router.back(),

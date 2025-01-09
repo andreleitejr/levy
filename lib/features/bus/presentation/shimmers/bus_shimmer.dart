@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/features/address/presentation/utils/address_translation.dart';
+import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
 import 'package:levy/features/commons/widgets/theme_app_bar_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -17,7 +18,7 @@ final class BusShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: ThemeAppBarWidget(
-          title: AddressTranslation.header.title,
+          title: BusTranslation.header.title,
           onLeadingPressed: onPop,
           leadingIcon: ThemeIcons.arrowLeft,
         ),

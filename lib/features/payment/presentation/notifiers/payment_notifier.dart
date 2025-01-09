@@ -19,8 +19,6 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
     required BusEntity returnBus,
   }) async {
     try {
-      await Future.delayed(const Duration(milliseconds: 500));
-
       state = PaymentState.initial(
         departureBus: departureBus,
         returnBus: returnBus,
@@ -51,7 +49,8 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
       );
 
       getIt.registerSingleton<ReservationEntity>(updateReservation);
-      getIt.registerSingleton<BusEntity>(departureBus, instanceName: 'departure');
+      getIt.registerSingleton<BusEntity>(departureBus,
+          instanceName: 'departure');
       getIt.registerSingleton<BusEntity>(returnBus, instanceName: 'return');
 
       return _usecase(
