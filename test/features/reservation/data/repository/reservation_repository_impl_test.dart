@@ -74,7 +74,7 @@ void main() {
       final result = await repository
           .getReservation(expectedReservation.reservationId);
 
-      expect(result, isA<List<ReservationEntity>>());
+      expect(result, isA<ReservationEntity>());
       expect(result, expectedReservation);
 
       verify(() => mockDataSource
