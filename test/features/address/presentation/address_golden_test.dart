@@ -25,6 +25,8 @@ void main() {
   late AddressRepositoryMock addressRepositoryMock;
   late GetAddressUseCaseMock getAddressUseCaseMock;
   const String folder = 'golden_tests';
+  const double screenWidth = 443; 
+  const double screenHeight = 960; 
 
   setUpAll(() {
     addressDataSourceMock = AddressDataSourceMock();
@@ -38,6 +40,10 @@ void main() {
 
   group('Address Page Golden Test', () {
     testWidgets('Address Page error', (tester) async {
+      tester.view.devicePixelRatio = 1.0;
+      tester.view.physicalSize = Size(screenWidth, screenHeight);
+      addTearDown(tester.view.resetPhysicalSize);
+
       final errorMessage = 'Failed to load addresses';
 
       when(() => getAddressUseCaseMock()).thenThrow(Exception(errorMessage));
@@ -60,6 +66,11 @@ void main() {
     });
 
     testWidgets('AddressPage Loading and Success', (tester) async {
+
+      tester.view.devicePixelRatio = 1.0;
+      tester.view.physicalSize = Size(screenWidth, screenHeight);
+      addTearDown(tester.view.resetPhysicalSize);
+
       Completer<List<AddressModel>> c = Completer<List<AddressModel>>();
 
       when(
@@ -83,6 +94,11 @@ void main() {
     });
 
     testWidgets('AddressPage Loading and Success', (tester) async {
+
+      tester.view.devicePixelRatio = 1.0;
+      tester.view.physicalSize = Size(screenWidth, screenHeight);
+      addTearDown(tester.view.resetPhysicalSize);
+
       Completer<List<AddressModel>> c = Completer<List<AddressModel>>();
 
       when(
@@ -100,8 +116,6 @@ void main() {
         ),
       );
 
-      await tester.pump(const Duration(milliseconds: 10000));
-      await tester.pump(const Duration(milliseconds: 10000));
       await tester.pump(const Duration(milliseconds: 10000));
 
       await expectLater(find.byType(AddressPage), matchesGoldenFile(
