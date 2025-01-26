@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme_typography.dart';
 
-class AppTheme {
+final class AppTheme {
   static ThemeData get theme {
     return ThemeData(
       scaffoldBackgroundColor: Colors.white,
+      textTheme: TextTheme(
+        headlineLarge: ThemeTypography.semiBold16,
+        headlineMedium: ThemeTypography.semiBold14,
+        headlineSmall: ThemeTypography.semiBold12,
+        titleLarge: ThemeTypography.medium16,
+        titleMedium: ThemeTypography.medium14,
+        titleSmall: ThemeTypography.medium12,
+        bodyLarge: ThemeTypography.regular16,
+        bodyMedium: ThemeTypography.regular14,
+        bodySmall: ThemeTypography.regular12,
+        labelLarge: ThemeTypography.regular14,
+        labelMedium: ThemeTypography.regular12,
+        labelSmall: ThemeTypography.regular10,
+      ),
       colorScheme: ColorScheme.fromSwatch(
         accentColor: ThemeColors.secondary,
       ).copyWith(surface: Colors.white),
