@@ -1,10 +1,6 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/core/theme/app_theme.dart';
 import 'package:levy/features/address/data/datasources/address_datasource.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
-import 'package:levy/features/address/domain/repositories/address_repository.dart';
 import 'package:levy/features/address/domain/usecases/get_address_usecase.dart';
 import 'package:levy/features/address/external/address_mock.dart';
 import 'package:levy/features/address/presentation/pages/address_page.dart';
@@ -14,112 +10,60 @@ import 'package:mocktail/mocktail.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
-final class AddressDataSourceMock extends Mock implements AddressDataSource {}
+import '../../../helpers/golden_test_helper.dart';
 
-final class AddressRepositoryMock extends Mock implements AddressRepository {}
+final class AddressDataSourceMock extends Mock implements AddressDataSource {}
 
 final class GetAddressUseCaseMock extends Mock implements GetAddressUseCase {}
 
 void main() {
   late AddressDataSourceMock addressDataSourceMock;
-  late AddressRepositoryMock addressRepositoryMock;
   late GetAddressUseCaseMock getAddressUseCaseMock;
-  const String folder = 'golden_tests';
-  const double screenWidth = 443; 
-  const double screenHeight = 960; 
 
   setUpAll(() {
     addressDataSourceMock = AddressDataSourceMock();
-    addressRepositoryMock = AddressRepositoryMock();
     getAddressUseCaseMock = GetAddressUseCaseMock();
 
     GetIt.instance.registerFactory<AddressDataSource>(() => addressDataSourceMock);
-    GetIt.instance.registerFactory<AddressRepository>(() => addressRepositoryMock);
     GetIt.instance.registerFactory<GetAddressUseCase>(() => getAddressUseCaseMock);
   });
 
   group('Address Page Golden Test', () {
-    testWidgets('Address Page error', (tester) async {
-      tester.view.devicePixelRatio = 1.0;
-      tester.view.physicalSize = Size(screenWidth, screenHeight);
-      addTearDown(tester.view.resetPhysicalSize);
-
+    testWidgets('Address Page Error', (tester) async {
       final errorMessage = 'Failed to load addresses';
 
       when(() => getAddressUseCaseMock()).thenThrow(Exception(errorMessage));
 
-      await tester.pumpWidget(
-        ProviderScope(
-          child: MaterialApp(
-            home: ThemeErrorWidget(
-              message: errorMessage,
-            ),
-          ),
+      await runGoldenTestForDifferentScreenSizes(
+        tester: tester,
+        widget: ThemeErrorWidget(
+          message: errorMessage,
         ),
+        testName: 'AddressError',
       );
-
-      await tester.pump(const Duration(milliseconds: 10000));
-
-      await expectLater(
-          find.byType(MaterialApp),
-          matchesGoldenFile('$folder/AddressError.png'));
     });
 
-    testWidgets('AddressPage Loading and Success', (tester) async {
+    testWidgets('Address Page Loading', (tester) async {
+      await runGoldenTestForDifferentScreenSizes(
+        tester: tester,
+        widget: AddressShimmer(onPop: () {}),
+        testName: 'AddressLoading',
+      );
+    });
 
-      tester.view.devicePixelRatio = 1.0;
-      tester.view.physicalSize = Size(screenWidth, screenHeight);
-      addTearDown(tester.view.resetPhysicalSize);
+    testWidgets('Address Page Success', (tester) async {
+      final c = Completer<List<AddressModel>>();
 
-      Completer<List<AddressModel>> c = Completer<List<AddressModel>>();
+      when(() => addressDataSourceMock.get()).thenAnswer((_) async {
 
-      when(
-            () => addressDataSourceMock.get(),
-      ).thenAnswer((_) async {
         return c.future;
       });
 
-      await tester.pumpWidget(
-        ProviderScope(
-          child: MaterialApp(
-            home: AddressShimmer(onPop: (){}),
-          ),
-        ),
+      await runGoldenTestForDifferentScreenSizes(
+        tester: tester,
+        widget: AddressPage(),
+        testName: 'AddressSuccess',
       );
-
-      await tester.pump(const Duration(milliseconds: 10000));
-
-      await expectLater(find.byType(MaterialApp),
-          matchesGoldenFile('$folder/AddressLoading.png'));
-    });
-
-    testWidgets('AddressPage Loading and Success', (tester) async {
-
-      tester.view.devicePixelRatio = 1.0;
-      tester.view.physicalSize = Size(screenWidth, screenHeight);
-      addTearDown(tester.view.resetPhysicalSize);
-
-      Completer<List<AddressModel>> c = Completer<List<AddressModel>>();
-
-      when(
-            () => addressDataSourceMock.get(),
-      ).thenAnswer((_) async {
-        return c.future;
-      });
-
-      await tester.pumpWidget(
-        ProviderScope(
-          child: MaterialApp(
-            theme: AppTheme.theme,
-            home: AddressPage(),
-          ),
-        ),
-      );
-
-      await tester.pump(const Duration(milliseconds: 10000));
-
-      await expectLater(find.byType(AddressPage), matchesGoldenFile(
-          '$folder/AddressSuccess.png'));
 
       c.complete(AddressMock.response.map<AddressModel>((address) {
         return AddressModel.fromJson(address);
