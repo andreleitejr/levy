@@ -1,4 +1,7 @@
 import 'dart:async';
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
 import 'package:levy/features/address/data/datasources/address_datasource.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/usecases/get_address_usecase.dart';
@@ -7,8 +10,6 @@ import 'package:levy/features/address/presentation/pages/address_page.dart';
 import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../../helpers/golden_test_helper.dart';
 
@@ -32,7 +33,7 @@ void main() {
     testWidgets('Address Page Error', (tester) async {
       final errorMessage = 'Failed to load addresses';
 
-      when(() => getAddressUseCaseMock()).thenThrow(Exception(errorMessage));
+      when(() => getAddressUseCaseMock.call()).thenThrow(Exception(errorMessage));
 
       await runGoldenTestForDifferentScreenSizes(
         tester: tester,

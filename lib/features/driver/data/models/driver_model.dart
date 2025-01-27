@@ -15,6 +15,7 @@ final class DriverModel extends DriverEntity {
      this.licenseType = '',
      this.experienceYears = 3,
      this.address = const AddressModel(),
+     this.nationality = '',
   });
 
   @override
@@ -33,6 +34,8 @@ final class DriverModel extends DriverEntity {
   final int experienceYears;
   @override
   final AddressModel address;
+  @override
+  final String nationality;
 
   factory DriverModel.fromJson(Map<String, dynamic> data) => _$DriverModelFromJson(data);
 

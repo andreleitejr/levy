@@ -30,6 +30,10 @@ import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart'
     as _i245;
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase_impl.dart'
     as _i988;
+import 'package:levy/features/driver/data/datasources/driver_datasource.dart'
+    as _i28;
+import 'package:levy/features/driver/data/datasources/driver_datasource_mock.dart'
+    as _i220;
 import 'package:levy/features/notification/data/datasources/notification_datasource.dart'
     as _i746;
 import 'package:levy/features/notification/data/datasources/notification_datasource_mock.dart'
@@ -82,6 +86,10 @@ import 'package:levy/features/reservation/domain/usecases/get_reservation_usecas
     as _i243;
 import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase_impl.dart'
     as _i1024;
+import 'package:levy/features/route/data/datasources/route_datasource.dart'
+    as _i596;
+import 'package:levy/features/route/data/datasources/route_datasource_mock.dart'
+    as _i931;
 import 'package:levy/features/user/data/datasources/user_datasource.dart'
     as _i717;
 import 'package:levy/features/user/data/datasources/user_datasource_mock.dart'
@@ -105,6 +113,10 @@ class LevyPackageModule extends _i526.MicroPackageModule {
       () => _i23.NotificationDataSourceMock(),
       registerFor: {_mock},
     );
+    gh.factory<_i28.DriverDataSource>(
+      () => _i220.DriverDataSourceMock(),
+      registerFor: {_mock},
+    );
     gh.factory<_i717.UserDataSource>(
       () => _i968.UserDataSourceMock(),
       registerFor: {_mock},
@@ -126,6 +138,10 @@ class LevyPackageModule extends _i526.MicroPackageModule {
             gh<_i370.PaymentMethodDataSource>()));
     gh.factory<_i817.GetUserUseCase>(
         () => _i48.GetUserUseCaseImpl(gh<_i902.UserRepository>()));
+    gh.factory<_i596.RouteDataSource>(
+      () => _i931.RouteDataSourceMock(),
+      registerFor: {_mock},
+    );
     gh.factory<_i690.NotificationRepository>(() =>
         _i1035.NotificationRepositoryImpl(gh<_i746.NotificationDataSource>()));
     gh.factory<_i294.PaymentDataSource>(

@@ -1,4 +1,3 @@
-import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
@@ -9,8 +8,8 @@ import 'package:levy/features/reservation/domain/entities/reservation_entity.dar
 final class PaymentState implements GenericStateBase {
   final PaymentResult result;
   final ReservationEntity reservation;
-  final BusEntity departureBus;
-  final BusEntity returnBus;
+  final BusEntity? departureBus;
+  final BusEntity? returnBus;
   final PaymentMethodEntity? paymentMethod;
 
   @override
@@ -22,8 +21,8 @@ final class PaymentState implements GenericStateBase {
   const PaymentState({
     this.result = PaymentResult.awaiting,
     this.reservation = const ReservationModel(),
-    this.departureBus = const BusModel(),
-    this.returnBus = const BusModel(),
+    this.departureBus,
+    this.returnBus,
     this.paymentMethod,
     this.errorMessage,
     this.isLoading = false,

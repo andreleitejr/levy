@@ -22,7 +22,7 @@ void main() {
 
     test('should return List<BusEntity> when the call is successful', () async {
       final expectedBuses = [
-        const BusModel(),
+        BusModel(),
       ];
 
       when(

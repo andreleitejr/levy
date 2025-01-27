@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
 import 'package:levy/features/payment_method/presentation/providers/payment_method_notifier_provider.dart';
 import 'package:levy/features/payment_method/presentation/shimmers/payment_method_shimmer.dart';
 import 'package:levy/features/payment_method/presentation/widgets/payment_method_widget.dart';

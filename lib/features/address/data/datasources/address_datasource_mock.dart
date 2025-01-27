@@ -6,6 +6,7 @@ import 'package:levy/features/address/external/address_mock.dart';
 
 @Injectable(as: AddressDataSource, env: [InjectEnv.mock])
 final class AddressDataSourceMock implements AddressDataSource {
+
   @override
   Future<List<AddressModel>> get() async {
     await Future.delayed(const Duration(milliseconds: 600));

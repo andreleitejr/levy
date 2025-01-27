@@ -6,6 +6,7 @@ part 'address_model.g.dart';
 @JsonSerializable(createToJson: true)
 final class AddressModel extends AddressEntity {
   const AddressModel({
+    this.id = '',
     this.name = '',
     this.street = '',
     this.number = '',
@@ -16,6 +17,9 @@ final class AddressModel extends AddressEntity {
     this.latitude = 0,
     this.longitude = 0,
   });
+
+  @override
+  final String id;
 
   @override
   final String name;

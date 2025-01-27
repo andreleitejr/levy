@@ -1,6 +1,7 @@
 abstract class AddressEntity {
   const AddressEntity();
 
+  String get id;
   String get name;
   String get street;
   String get number;

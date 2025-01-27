@@ -56,8 +56,9 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
       loading: ThemeLoadingWidget(),
       success: PaymentWidget(
         reservation: state.reservation,
-        departureBus: state.departureBus,
-        returnBus: state.returnBus,
+        // TODO: Remover "!"
+        departureBus: state.departureBus!,
+        returnBus: state.returnBus!,
         paymentMethod: state.paymentMethod,
         onPop: () => context.router.back(),
         onPaymentMethodPressed: () => _onPaymentMethodPressed(notifier),
@@ -89,8 +90,9 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     if (paymentMethod != null) {
       final result = await notifier.processPayment(
         reservation: state.reservation,
-        departureBus: state.departureBus,
-        returnBus: state.returnBus,
+        // TODO: Remover "!"
+        departureBus: state.departureBus!,
+        returnBus: state.returnBus!,
         method: paymentMethod,
       );
 
@@ -119,8 +121,9 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
       userId: user.id,
       paymentId: paymentId,
       date: date,
-      departureBusId: state.departureBus.id,
-      returnBusId: state.returnBus.id,
+      // TODO: Remover "!"
+      departureBusId: state.departureBus!.id,
+      returnBusId: state.returnBus!.id,
     );
 
     await reservationUseCase.call(reservation);

@@ -11,4 +11,5 @@ abstract class DriverEntity {
   String get licenseType;
   int get experienceYears;
   AddressEntity get address;
+  String get nationality;
 }

@@ -17,6 +17,7 @@ DriverModel _$DriverModelFromJson(Map<String, dynamic> json) => DriverModel(
       address: json['address'] == null
           ? const AddressModel()
           : AddressModel.fromJson(json['address'] as Map<String, dynamic>),
+      nationality: json['nationality'] as String? ?? '',
     );
 
 Map<String, dynamic> _$DriverModelToJson(DriverModel instance) =>
@@ -29,4 +30,5 @@ Map<String, dynamic> _$DriverModelToJson(DriverModel instance) =>
       'licenseType': instance.licenseType,
       'experienceYears': instance.experienceYears,
       'address': instance.address,
+      'nationality': instance.nationality,
     };

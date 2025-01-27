@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
-import 'package:levy/features/commons/entities/route_entity.dart';
+import 'package:levy/features/route/domain/entities/route_entity.dart';
 
 part 'route_model.g.dart';
 
 @JsonSerializable(createToJson: true)
 final class RouteModel extends RouteEntity {
-  const RouteModel({
+  RouteModel({
     this.id = '',
     this.name = '',
     this.origin = const AddressModel(),
@@ -24,11 +24,11 @@ final class RouteModel extends RouteEntity {
   @override
   final String name;
   @override
-  final AddressModel origin;
+  AddressModel origin;
   @override
-  final AddressModel destination;
+  AddressModel destination;
   @override
-  final List<AddressModel> stops;
+  List<AddressModel> stops;
   @override
   final double distance;
   @override
@@ -40,7 +40,8 @@ final class RouteModel extends RouteEntity {
   @override
   final bool isActive;
 
-  factory RouteModel.fromJson(Map<String, dynamic> data) => _$RouteModelFromJson(data);
+  factory RouteModel.fromJson(Map<String, dynamic> data) =>
+      _$RouteModelFromJson(data);
 
   Map<String, dynamic> toJson() => _$RouteModelToJson(this);
 }

@@ -14,20 +14,20 @@ final class BusDataSourceMock implements BusDataSource {
   }) async {
     await Future.delayed(const Duration(milliseconds: 600));
 
-    final buses = BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
+    final buses =
+        BusMock.response.map((busData) => BusModel.fromJson(busData)).toList();
 
-    if(search != null){
-
+    if (search != null) {
       if (isReturnBus) {
         return buses.where((bus) {
           return bus.routes.any((route) =>
-          route.origin.street == search.returnAddress.street &&
+              route.origin.street == search.returnAddress.street &&
               route.departureTime.compareTo(search.returnTime) >= 0);
         }).toList();
       } else {
         return buses.where((bus) {
           return bus.routes.any((route) =>
-          route.origin.street == search.departureAddress.street &&
+              route.origin.street == search.departureAddress.street &&
               route.departureTime.compareTo(search.departureTime) >= 0);
         }).toList();
       }
