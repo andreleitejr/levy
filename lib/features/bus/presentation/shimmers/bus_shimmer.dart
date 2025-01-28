@@ -16,37 +16,38 @@ final class BusShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: ThemeAppBarWidget(
-          title: BusTranslation.header.title,
-          onLeadingPressed: onPop,
-          leadingIcon: ThemeIcons.arrowLeft,
-        ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            children: [
-              ...[1, 2, 3, 4, 5].map(
-                (item) {
-                  return Column(
-                    children: [
-                      Shimmer.fromColors(
-                        baseColor: ThemeColors.grey2,
-                        highlightColor: ThemeColors.grey1,
-                        child: Container(
-                          height: 464,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(24),
-                          ),
+      appBar: ThemeAppBarWidget(
+        title: BusTranslation.header.departureTitle,
+        onLeadingPressed: onPop,
+        leadingIcon: ThemeIcons.arrowLeft,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            ...[1, 2, 3, 4, 5].map(
+              (item) {
+                return Column(
+                  children: [
+                    Shimmer.fromColors(
+                      baseColor: ThemeColors.grey2,
+                      highlightColor: ThemeColors.grey1,
+                      child: Container(
+                        height: 464,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(24),
                         ),
                       ),
-                      const SizedBox(height: 24),
-                    ],
-                  );
-                },
-              ),
-            ],
-          ),
-        ));
+                    ),
+                    const SizedBox(height: 24),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

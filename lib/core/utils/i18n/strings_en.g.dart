@@ -247,7 +247,8 @@ class TranslationsBusHeaderEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Select Bus';
+	String get departureTitle => 'Select Departure Bus';
+	String get returnTitle => 'Select Return Bus';
 }
 
 // Path: bus.results
@@ -670,7 +671,8 @@ extension on Translations {
 			case 'commons.time.minutes': return 'Minutes';
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
-			case 'bus.header.title': return 'Select Bus';
+			case 'bus.header.departureTitle': return 'Select Departure Bus';
+			case 'bus.header.returnTitle': return 'Select Return Bus';
 			case 'bus.results.title': return 'Best Route';
 			case 'bus.selected.title': return 'Departure Info';
 			case 'bus.button.title': return 'Select';

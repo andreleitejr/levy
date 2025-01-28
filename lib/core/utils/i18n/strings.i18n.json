@@ -21,7 +21,8 @@
   },
   "bus": {
     "header": {
-      "title": "Select Bus"
+      "departureTitle": "Select Departure Bus",
+      "returnTitle": "Select Return Bus"
     },
     "results": {
       "title": "Best Route"

@@ -27,7 +27,9 @@ final class BusWidget extends StatelessWidget {
       appBar: ThemeAppBarWidget(
         leadingIcon: ThemeIcons.arrowLeft,
         onLeadingPressed: onPop,
-        title: BusTranslation.header.title,
+        title: selected != null
+            ? BusTranslation.header.returnTitle
+            : BusTranslation.header.departureTitle,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
