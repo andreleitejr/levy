@@ -3,8 +3,6 @@ import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/home/presentation/shimmers/home_search_shimmer.dart';
 import 'package:levy/features/home/presentation/widgets/home_reservation_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
-import 'package:levy/features/user/domain/entities/user_entity.dart';
 
 import '../../../helpers/golden_test_helper.dart';
 import '../../../mocks/entities_mocks.dart';
