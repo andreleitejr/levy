@@ -10,14 +10,6 @@ import '../../../helpers/golden_test_helper.dart';
 import '../../../mocks/entities_mocks.dart';
 
 void main() {
-  late ReservationEntity reservationMock;
-  late UserEntity userMock;
-
-  setUpAll(() {
-    reservationMock = ReservationEntityMock();
-    userMock = UserEntityMock();
-  });
-
   group('Home Page Golden Test', () {
     testWidgets('Home Page Error', (tester) async {
       final errorMessage = 'Failed to load Home Page';
@@ -58,8 +50,8 @@ void main() {
       await runGoldenTestForDifferentScreenSizes(
         tester: tester,
         widget: HomeReservationWidget(
-          user: userMock,
-          reservation: reservationMock,
+          user: UserEntityMock(),
+          reservation: ReservationEntityMock(),
           onNotificationButtonPressed: () {},
           onViewMapButtonPressed: () {},
           arrivalTime: '07:00',
