@@ -1,24 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:levy/core/theme/theme_images.dart';
-import 'package:levy/features/address/data/models/address_model.dart';
-import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/entities/amenity_entity.dart';
-import 'package:levy/features/commons/external/common_mock.dart';
-import 'package:levy/features/commons/models/amenity_model.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/driver/domain/entities/driver_entity.dart';
 import 'package:levy/features/home/presentation/shimmers/home_search_shimmer.dart';
 import 'package:levy/features/home/presentation/widgets/home_reservation_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
-import 'package:levy/features/route/data/models/route_model.dart';
-import 'package:levy/features/route/domain/entities/route_entity.dart';
-import 'package:levy/features/seat/data/models/seat_model.dart';
-import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';
 import '../../../mocks/entities_mocks.dart';

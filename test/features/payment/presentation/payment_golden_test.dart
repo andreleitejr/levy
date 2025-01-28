@@ -2,25 +2,14 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/entities/amenity_entity.dart';
-import 'package:levy/features/commons/external/common_mock.dart';
-import 'package:levy/features/commons/models/amenity_model.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
-import 'package:levy/features/driver/domain/entities/driver_entity.dart';
 import 'package:levy/features/payment/data/datasources/payment_datasource.dart';
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment/presentation/pages/payment_page.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
-import 'package:levy/features/route/data/models/route_model.dart';
-import 'package:levy/features/route/domain/entities/route_entity.dart';
-import 'package:levy/features/seat/data/models/seat_model.dart';
-import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';
