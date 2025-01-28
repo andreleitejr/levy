@@ -54,7 +54,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
 
     return StateBuilder(
       state: state,
-      loading: HomeSearchShimmer(),
+      loading: HomeShimmer(),
       success: Scaffold(
         body: IndexedStack(
           index: _selectedIndex,
@@ -116,8 +116,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
       return HomeReservationWidget(
         user: user,
         reservation: reservation,
-        onNotificationButtonPressed: () =>
-            context.router.push(NotificationRoute()),
+        onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
         onViewMapButtonPressed: () {
           context.router.push(MapRoute(isTargetBus: true));
         },
@@ -130,36 +129,37 @@ final class _HomePageState extends ConsumerState<HomePage> {
   }
 
   Widget _buildHomeSearchWidget(HomeState state, HomeNotifier notifier) {
+    final router = context.router;
     return HomeSearchWidget(
       user: state.user,
       departureAddress: state.departureAddress?.street,
       returnAddress: state.returnAddress?.street,
       departureTime: state.departureTime,
       returnTime: state.returnTime,
-      onNotificationButtonPressed: () => context.router.push(NotificationRoute()),
+      onNotificationButtonPressed: () => router.push(NotificationRoute()),
       onDepartureAddressSelect: () async {
-        final departureAddress = await context.router.push<AddressEntity>(AddressRoute());
+        final departureAddress = await router.push<AddressEntity>(AddressRoute());
 
         if (departureAddress != null) {
           notifier.updateDepartureAddress(departureAddress);
         }
       },
       onReturnAddressSelect: () async {
-        final returnAddress = await context.router.push<AddressEntity>(AddressRoute());
+        final returnAddress = await router.push<AddressEntity>(AddressRoute());
 
         if (returnAddress != null) {
           notifier.updateReturnAddress(returnAddress);
         }
       },
       onDepartureTimeSelect: () async {
-        final departureTime = await context.router.push<String>(TimeRoute());
+        final departureTime = await router.push<String>(TimeRoute());
 
         if (departureTime != null) {
           notifier.updateDepartureTime(departureTime);
         }
       },
       onReturnTimeSelect: () async {
-        final returnTime = await context.router.push<String>(TimeRoute());
+        final returnTime = await router.push<String>(TimeRoute());
 
         if (returnTime != null) {
           notifier.updateReturnTime(returnTime);
@@ -170,10 +170,11 @@ final class _HomePageState extends ConsumerState<HomePage> {
           final search = SearchModel(
             departureAddress: state.departureAddress as AddressModel,
             returnAddress: state.returnAddress as AddressModel,
+            // TODO: Remove "!"
             departureTime: state.departureTime!,
             returnTime: state.returnTime!,
           );
-          context.router.push(BusRoute(search: search));
+          router.push(BusRoute(search: search));
         }
       },
     );

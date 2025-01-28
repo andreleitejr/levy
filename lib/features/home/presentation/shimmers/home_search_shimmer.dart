@@ -4,8 +4,8 @@ import 'package:levy/features/home/presentation/shimmers/home_app_bar_shimmer.da
 import 'package:levy/features/home/presentation/shimmers/home_bottom_bar_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
 
-final class HomeSearchShimmer extends StatelessWidget {
-  const HomeSearchShimmer({super.key});
+final class HomeShimmer extends StatelessWidget {
+  const HomeShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

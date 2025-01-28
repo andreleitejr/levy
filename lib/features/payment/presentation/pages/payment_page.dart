@@ -54,18 +54,9 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     return StateBuilder(
       state: state,
       loading: ThemeLoadingWidget(),
-      success: PaymentWidget(
-        reservation: state.reservation,
-        // TODO: Remover "!"
-        departureBus: state.departureBus!,
-        returnBus: state.returnBus!,
-        paymentMethod: state.paymentMethod,
-        onPop: () => context.router.back(),
-        onPaymentMethodPressed: () => _onPaymentMethodPressed(notifier),
-        onButtonPressed: () => _onButtonPressed(
-          state: state,
-          notifier: notifier,
-        ),
+      success: _buildPaymentWidget(
+        state: state,
+        notifier: notifier,
       ),
       error: ThemeErrorWidget(
         message: state.errorMessage,
@@ -73,8 +64,33 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     );
   }
 
+  Widget _buildPaymentWidget({
+    required PaymentState state,
+    required PaymentNotifier notifier,
+  }) {
+    final departureBus = state.departureBus;
+    final returnBus = state.returnBus;
+
+    if (departureBus != null && returnBus != null) {
+      return PaymentWidget(
+        reservation: state.reservation,
+        departureBus: departureBus,
+        returnBus: returnBus,
+        paymentMethod: state.paymentMethod,
+        onPop: () => context.router.back(),
+        onPaymentMethodPressed: () => _onPaymentMethodPressed(notifier),
+        onButtonPressed: () => _onButtonPressed(
+          state: state,
+          notifier: notifier,
+        ),
+      );
+    }
+    return SizedBox.shrink();
+  }
+
   Future<void> _onPaymentMethodPressed(PaymentNotifier notifier) async {
-    final paymentMethod = await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
+    final paymentMethod =
+        await context.router.push<PaymentMethodEntity>(PaymentMethodRoute());
 
     if (paymentMethod != null) {
       notifier.updatePaymentMethod(paymentMethod);
@@ -85,14 +101,16 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     required PaymentState state,
     required PaymentNotifier notifier,
   }) async {
+    final reservation = state.reservation;
     final paymentMethod = state.paymentMethod;
+    final departureBus = state.departureBus;
+    final returnBus = state.returnBus;
 
-    if (paymentMethod != null) {
+    if (paymentMethod != null && departureBus != null && returnBus != null) {
       final result = await notifier.processPayment(
-        reservation: state.reservation,
-        // TODO: Remover "!"
-        departureBus: state.departureBus!,
-        returnBus: state.returnBus!,
+        reservation: reservation,
+        departureBus: departureBus,
+        returnBus: returnBus,
         method: paymentMethod,
       );
 
@@ -116,18 +134,22 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
     final paymentId = uuid.v4();
     final date = DateTime.now().toString();
 
-    final reservation = ReservationModel(
-      reservationId: reservationId,
-      userId: user.id,
-      paymentId: paymentId,
-      date: date,
-      // TODO: Remover "!"
-      departureBusId: state.departureBus!.id,
-      returnBusId: state.returnBus!.id,
-    );
+    final departureBus = state.departureBus;
+    final returnBus = state.returnBus;
 
-    await reservationUseCase.call(reservation);
+    if (departureBus != null && returnBus != null) {
+      final reservation = ReservationModel(
+        reservationId: reservationId,
+        userId: user.id,
+        paymentId: paymentId,
+        date: date,
+        departureBusId: departureBus.id,
+        returnBusId: returnBus.id,
+      );
 
-    router.replace(HomeRoute());
+      await reservationUseCase.call(reservation);
+
+      router.replace(HomeRoute());
+    }
   }
 }
