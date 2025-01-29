@@ -50,6 +50,7 @@ dev_dependencies:
   mocktail: ^1.0.4
   flutter_launcher_icons: ^0.14.2
   golden_toolkit: ^0.15.0
+  sqflite_common_ffi: ^2.3.4+4
 
 flutter_icons:
   android: true
