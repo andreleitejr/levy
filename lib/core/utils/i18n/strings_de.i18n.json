@@ -1,0 +1,175 @@
+{
+  "commons": {
+    "departureTicket": {
+      "title": "Abfahrtsticket"
+    },
+    "returnTicket": {
+      "title": "Rückfahrtticket"
+    },
+    "time": {
+      "hours": "Stunden",
+      "minutes": "Minuten"
+    }
+  },
+  "address": {
+    "header": {
+      "title": "Adresse auswählen"
+    },
+    "searchInput": {
+      "hintText": "Wie lautet Ihre Adresse?"
+    }
+  },
+  "bus": {
+    "header": {
+      "departureTitle": "Abfahrtsbus auswählen",
+      "returnTitle": "Rückfahrtsbus auswählen"
+    },
+    "results": {
+      "title": "Beste Route"
+    },
+    "selected": {
+      "title": "Abfahrtsinformationen"
+    },
+    "button": {
+      "title": "Auswählen"
+    }
+  },
+  "home": {
+    "header": {
+      "title": "Suche"
+    },
+    "guest": {
+      "title": "Gastbenutzer"
+    },
+    "form": {
+      "inputs": {
+        "departureAddress": {
+          "labelText": "Abfahrtsadresse",
+          "hintText": "Wählen Sie Ihre Abfahrtsadresse"
+        },
+        "returnAddress": {
+          "labelText": "Rückfahrtsadresse",
+          "hintText": "Wählen Sie Ihre Rückfahrtsadresse"
+        },
+        "departureTime": {
+          "labelText": "Abfahrtszeit",
+          "hintText": "05:00"
+        },
+        "returnTime": {
+          "labelText": "Rückfahrtszeit",
+          "hintText": "17:30"
+        }
+      },
+      "button": {
+        "title": "Suchen"
+      }
+    },
+    "reservation": {
+      "warning": {
+        "title": "Ihr Bus ist unterwegs",
+        "textButton": "Auf der Karte anzeigen",
+        "description": "Ihr Bus kommt in $time..."
+      },
+      "ticket": {
+        "title": "Nächste Fahrt"
+      }
+    }
+  },
+  "map": {
+    "header": {
+      "title": "Karte"
+    },
+    "inactive": {
+      "title": "Keine aktiven Fahrten",
+      "description": "Sie haben keine Reservierungen. Kaufen Sie ein Ticket, um Ihren Bus auf der Karte zu sehen.",
+      "buttonText": "Hier klicken, um eine Reservierung vorzunehmen"
+    }
+  },
+  "notification": {
+    "header": {
+      "title": "Benachrichtigungen"
+    }
+  },
+  "payment": {
+    "header": {
+      "title": "Tickets bestellen"
+    },
+    "paymentMethod": {
+      "title": "Zahlungsmethode",
+      "textButton": {
+        "title": "Ändern"
+      }
+    },
+    "priceInfo": {
+      "title": "Monatliches Abonnement",
+      "recurrence ": "Monat"
+    },
+    "button": {
+      "title": "Zahlung bestätigen"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Zahlungsmethode auswählen"
+    }
+  },
+  "reservation": {
+    "header": {
+      "title": "Reservierung"
+    },
+    "inactive": {
+      "title": "Keine Tickets verfügbar",
+      "description": "Sie haben keine Tickets. Kaufen Sie ein Ticket und kommen Sie zurück.",
+      "buttonText": "Hier klicken, um Ihre Tickets zu kaufen"
+    }
+  },
+  "seat": {
+    "header": {
+      "title": "Sitzplatz auswählen"
+    },
+    "descriptions": {
+      "selected": "Ausgewählt",
+      "available": "Verfügbar",
+      "unavailable": "Nicht verfügbar"
+    },
+    "button": {
+      "title": "Sitzplatz bestätigen"
+    }
+  },
+  "time": {
+    "header": {
+      "title": "Zeit auswählen"
+    },
+    "button": {
+      "title": "Bestätigen"
+    }
+  },
+  "user": {
+    "header": {
+      "title": "Profil",
+      "welcome": "Willkommen"
+    },
+    "items": {
+      "account": {
+        "title": "Konto",
+        "description": "Informationen zu Ihrem Konto"
+      },
+      "reservations": {
+        "title": "Reservierungen",
+        "description": "Informationen zu Ihren Reservierungen"
+      },
+      "configurations": {
+        "title": "Einstellungen & Präferenzen",
+        "description": "Verwalten Sie Ihre Einstellungen und Präferenzen"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Teilen Sie uns Ihr Problem mit, und wir helfen Ihnen"
+      },
+      "about": {
+        "title": "Über Levy",
+        "description": "Erfahren Sie mehr über unsere App"
+      }
+    }
+  }
+}

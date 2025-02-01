@@ -12,8 +12,10 @@ final getIt = GetIt.instance;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.useDeviceLocale();
   await dotenv.load();
+  LocaleSettings.useDeviceLocale();
+  print("############################################ ${LocaleSettings.currentLocale}");
+
   runApp(TranslationProvider(child: ProviderScope(child: MyApp())));
 }
 
@@ -28,7 +30,9 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.theme,
       locale: TranslationProvider.of(context).flutterLocale,
       supportedLocales: AppLocaleUtils.supportedLocales,
-      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      localizationsDelegates: [
+        ...GlobalMaterialLocalizations.delegates,
+      ],
       routerConfig: _appRouter.config(),
     );
   }

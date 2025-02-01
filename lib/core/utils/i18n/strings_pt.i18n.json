@@ -1,0 +1,175 @@
+{
+  "commons": {
+    "departureTicket": {
+      "title": "Bilhete de Ida"
+    },
+    "returnTicket": {
+      "title": "Bilhete de Volta"
+    },
+    "time": {
+      "hours": "Horas",
+      "minutes": "Minutos"
+    }
+  },
+  "address": {
+    "header": {
+      "title": "Selecionar Endereço"
+    },
+    "searchInput": {
+      "hintText": "Qual é o seu endereço?"
+    }
+  },
+  "bus": {
+    "header": {
+      "departureTitle": "Selecionar Ida",
+      "returnTitle": "Selecionar Volta"
+    },
+    "results": {
+      "title": "Melhor Rota"
+    },
+    "selected": {
+      "title": "Informações da Partida"
+    },
+    "button": {
+      "title": "Selecionar"
+    }
+  },
+  "home": {
+    "header": {
+      "title": "Buscar"
+    },
+    "guest": {
+      "title": "Usuário Convidado"
+    },
+    "form": {
+      "inputs": {
+        "departureAddress": {
+          "labelText": "Endereço de Partida",
+          "hintText": "Selecione seu endereço de partida"
+        },
+        "returnAddress": {
+          "labelText": "Endereço de Retorno",
+          "hintText": "Selecione seu endereço de retorno"
+        },
+        "departureTime": {
+          "labelText": "Horário de Partida",
+          "hintText": "05:00"
+        },
+        "returnTime": {
+          "labelText": "Horário de Retorno",
+          "hintText": "17:30"
+        }
+      },
+      "button": {
+        "title": "Buscar"
+      }
+    },
+    "reservation": {
+      "warning": {
+        "title": "Seu ônibus está a caminho",
+        "textButton": "Ver no mapa",
+        "description": "Seu ônibus chegará em $time..."
+      },
+      "ticket": {
+        "title": "Próxima Viagem"
+      }
+    }
+  },
+  "map": {
+    "header": {
+      "title": "Mapa"
+    },
+    "inactive": {
+      "title": "Nenhuma viagem ativa",
+      "description": "Você não tem nenhuma reserva. Faça uma compra para ver seu ônibus no mapa.",
+      "buttonText": "Clique aqui para fazer uma reserva"
+    }
+  },
+  "notification": {
+    "header": {
+      "title": "Notificações"
+    }
+  },
+  "payment": {
+    "header": {
+      "title": "Comprar Bilhetes"
+    },
+    "paymentMethod": {
+      "title": "Método de Pagamento",
+      "textButton": {
+        "title": "Modificar"
+      }
+    },
+    "priceInfo": {
+      "title": "Assinatura Mensal",
+      "recurrence ": "mês"
+    },
+    "button": {
+      "title": "Confirmar Pagamento"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Selecionar Método de Pagamento"
+    }
+  },
+  "reservation": {
+    "header": {
+      "title": "Reserva"
+    },
+    "inactive": {
+      "title": "Nenhum bilhete disponível",
+      "description": "Você não tem bilhetes. Faça uma compra e volte.",
+      "buttonText": "Clique aqui para comprar seus bilhetes"
+    }
+  },
+  "seat": {
+    "header": {
+      "title": "Selecionar Assento"
+    },
+    "descriptions": {
+      "selected": "Selecionado",
+      "available": "Disponível",
+      "unavailable": "Indisponível"
+    },
+    "button": {
+      "title": "Confirmar Assento"
+    }
+  },
+  "time": {
+    "header": {
+      "title": "Selecionar Horário"
+    },
+    "button": {
+      "title": "Confirmar"
+    }
+  },
+  "user": {
+    "header": {
+      "title": "Perfil",
+      "welcome": "Bem-vindo"
+    },
+    "items": {
+      "account": {
+        "title": "Conta",
+        "description": "Informações sobre sua conta"
+      },
+      "reservations": {
+        "title": "Reservas",
+        "description": "Informações sobre suas reservas"
+      },
+      "configurations": {
+        "title": "Preferências e Configurações",
+        "description": "Gerencie suas preferências e configurações"
+      },
+      "support": {
+        "title": "Suporte",
+        "description": "Conte-nos seu problema e ajudaremos você"
+      },
+      "about": {
+        "title": "Sobre o Levy",
+        "description": "Saiba mais sobre nosso aplicativo"
+      }
+    }
+  }
+}
