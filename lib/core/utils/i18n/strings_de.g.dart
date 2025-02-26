@@ -214,7 +214,9 @@ class _TranslationsCommonsTimeDe implements TranslationsCommonsTimeEn {
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
+	@override String get hour => 'Stunde';
 	@override String get hours => 'Stunden';
+	@override String get minute => 'Minute';
 	@override String get minutes => 'Minuten';
 }
 
@@ -556,7 +558,7 @@ class _TranslationsHomeReservationWarningDe implements TranslationsHomeReservati
 	// Translations
 	@override String get title => 'Ihr Bus ist unterwegs';
 	@override String get textButton => 'Auf der Karte anzeigen';
-	@override String description({required Object time}) => 'Ihr Bus kommt in ${time}...';
+	@override String description({required Object time}) => 'Ihr Bus kommt in ${time} an.';
 }
 
 // Path: home.reservation.ticket
@@ -685,7 +687,9 @@ extension on TranslationsDe {
 		switch (path) {
 			case 'commons.departureTicket.title': return 'Abfahrtsticket';
 			case 'commons.returnTicket.title': return 'Rückfahrtticket';
+			case 'commons.time.hour': return 'Stunde';
 			case 'commons.time.hours': return 'Stunden';
+			case 'commons.time.minute': return 'Minute';
 			case 'commons.time.minutes': return 'Minuten';
 			case 'address.header.title': return 'Adresse auswählen';
 			case 'address.searchInput.hintText': return 'Wie lautet Ihre Adresse?';
@@ -709,7 +713,7 @@ extension on TranslationsDe {
 			case 'home.form.button.title': return 'Suchen';
 			case 'home.reservation.warning.title': return 'Ihr Bus ist unterwegs';
 			case 'home.reservation.warning.textButton': return 'Auf der Karte anzeigen';
-			case 'home.reservation.warning.description': return ({required Object time}) => 'Ihr Bus kommt in ${time}...';
+			case 'home.reservation.warning.description': return ({required Object time}) => 'Ihr Bus kommt in ${time} an.';
 			case 'home.reservation.ticket.title': return 'Nächste Fahrt';
 			case 'map.header.title': return 'Karte';
 			case 'map.inactive.title': return 'Keine aktiven Fahrten';

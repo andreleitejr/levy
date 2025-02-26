@@ -54,42 +54,27 @@ final class HomeNotifier extends StateNotifier<HomeState> {
         state.returnTime != null;
   }
 
-  String calculateArrivalTime() {
+  Duration? calculateTimeUntilNextBus() {
     final now = DateTime.now();
     final reservation = state.reservation;
 
-    if (reservation == null) return '';
+    if (reservation == null) return null;
 
     final departureBus = reservation.departureBus;
     final returnBus = reservation.returnBus;
 
-    if (departureBus == null || returnBus == null) return '';
+    if (departureBus == null || returnBus == null) return null;
 
-    final departureBusTime = departureBus.routes.first.departureTime;
-    final returnBusTime = returnBus.routes.last.departureTime;
-
-    final departureDateTime = _parseTime(departureBusTime, now);
-    final returnDateTime = _parseTime(returnBusTime, now);
-
-    DateTime? nextBusDateTime;
+    final departureDateTime = _parseTime(departureBus.routes.first.departureTime, now);
+    final returnDateTime = _parseTime(returnBus.routes.last.departureTime, now);
 
     if (departureDateTime != null && now.isBefore(departureDateTime)) {
-      nextBusDateTime = departureDateTime;
+      return departureDateTime.difference(now);
     } else if (returnDateTime != null && now.isBefore(returnDateTime)) {
-      nextBusDateTime = returnDateTime;
+      return returnDateTime.difference(now);
     }
 
-    if (nextBusDateTime != null) {
-      final difference = nextBusDateTime.difference(now);
-
-      if (difference.inHours > 0) {
-        return '${difference.inHours} hours';
-      } else {
-        return '${difference.inMinutes} minutes';
-      }
-    }
-
-    return '';
+    return null;
   }
 
   BusEntity? getNextBus() {

@@ -7,6 +7,7 @@ import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
+import 'package:levy/features/commons/utils/commons_translation.dart';
 import 'package:levy/features/commons/widgets/state_builder.dart';
 import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
@@ -121,13 +122,29 @@ final class _HomePageState extends ConsumerState<HomePage> {
           context.router.push(MapRoute(isTargetBus: true));
         },
         bus: notifier.getNextBus(),
-        arrivalTime: notifier.calculateArrivalTime(),
+        arrivalTime: _getArrivalTimeText(notifier.calculateTimeUntilNextBus()),
       );
     } else {
       return _buildHomeSearchWidget(state, notifier);
     }
   }
 
+  String _getArrivalTimeText(Duration? duration) {
+    if (duration == null) return '';
+
+    if (duration.inHours > 0) {
+      final unit = (duration.inHours == 1
+          ? CommonsTranslation.time.hour
+          : CommonsTranslation.time.hours).toLowerCase();
+      return '${duration.inHours} $unit';
+    } else {
+      final unit = (duration.inMinutes == 1
+          ? CommonsTranslation.time.minute
+          : CommonsTranslation.time.minutes).toLowerCase();
+      return '${duration.inMinutes} $unit';
+    }
+  }
+  
   Widget _buildHomeSearchWidget(HomeState state, HomeNotifier notifier) {
     final router = context.router;
     return HomeSearchWidget(

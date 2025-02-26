@@ -7,7 +7,9 @@
       "title": "Bilhete de Volta"
     },
     "time": {
+      "hour": "Hora",
       "hours": "Horas",
+      "minute": "Minuto",
       "minutes": "Minutos"
     }
   },

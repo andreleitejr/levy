@@ -27,7 +27,7 @@ final class ThemeTicketWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          transform: Matrix4.translationValues(0.0, 1, 0.0),
+          transform: Matrix4.translationValues(0, 1, 0),
           decoration: BoxDecoration(
             border: Border.all(
               color: ThemeColors.secondary,
@@ -89,7 +89,7 @@ final class ThemeTicketWidget extends StatelessWidget {
           height: 3,
           width: MediaQuery.of(context).size.width - 74,
           padding: const EdgeInsets.symmetric(horizontal: 4),
-          transform: Matrix4.translationValues(0.0, -98.5, 0.0),
+          transform: Matrix4.translationValues(0, -98.5, 0),
           decoration: BoxDecoration(color: Colors.white),
           alignment: Alignment.center,
           child: ThemeDashedLineWidget(

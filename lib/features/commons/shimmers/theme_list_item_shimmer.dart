@@ -55,7 +55,7 @@ final class ThemeListItemShimmer extends StatelessWidget {
     );
   }
 
-  Widget? _buildLeadingImage() {
+  Widget _buildLeadingImage() {
     if (imageGeometry == ThemeImageGeometry.circle) {
       return ClipOval(
         child: Container(

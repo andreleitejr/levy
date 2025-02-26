@@ -7,7 +7,9 @@
       "title": "Rückfahrtticket"
     },
     "time": {
+      "hour": "Stunde",
       "hours": "Stunden",
+      "minute": "Minute",
       "minutes": "Minuten"
     }
   },
@@ -74,7 +76,7 @@
       "warning": {
         "title": "Ihr Bus ist unterwegs",
         "textButton": "Auf der Karte anzeigen",
-        "description": "Ihr Bus kommt in $time..."
+        "description": "Ihr Bus kommt in $time an."
       },
       "ticket": {
         "title": "Nächste Fahrt"

@@ -214,7 +214,9 @@ class _TranslationsCommonsTimeEs implements TranslationsCommonsTimeEn {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get hour => 'Hora';
 	@override String get hours => 'Horas';
+	@override String get minute => 'Minuto';
 	@override String get minutes => 'Minutos';
 }
 
@@ -685,7 +687,9 @@ extension on TranslationsEs {
 		switch (path) {
 			case 'commons.departureTicket.title': return 'Boleto de ida';
 			case 'commons.returnTicket.title': return 'Boleto de regreso';
+			case 'commons.time.hour': return 'Hora';
 			case 'commons.time.hours': return 'Horas';
+			case 'commons.time.minute': return 'Minuto';
 			case 'commons.time.minutes': return 'Minutos';
 			case 'address.header.title': return 'Seleccionar dirección';
 			case 'address.searchInput.hintText': return '¿Cuál es tu dirección?';

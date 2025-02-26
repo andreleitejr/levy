@@ -77,7 +77,7 @@ final class _MapPageState extends ConsumerState<MapPage> {
     }
 
     final targetLocation = widget.isTargetBus ? state.busLocation : state.userLocation;
-    final zoom = widget.isTargetBus ? 19.0 : 16.0;
+    final zoom = widget.isTargetBus ? 19 : 16;
 
     return FutureBuilder<void>(
       future: _initMarkers(state),
@@ -93,7 +93,7 @@ final class _MapPageState extends ConsumerState<MapPage> {
             onPop: () => context.router.back(),
             targetLocation: targetLocation,
             markers: markers,
-            zoom: zoom,
+            zoom: zoom.toDouble(),
             showLeading: widget.isTargetBus,
           );
         }

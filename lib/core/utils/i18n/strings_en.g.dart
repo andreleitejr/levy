@@ -218,7 +218,9 @@ class TranslationsCommonsTimeEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get hour => 'Hour';
 	String get hours => 'Hours';
+	String get minute => 'Minute';
 	String get minutes => 'Minutes';
 }
 
@@ -689,7 +691,9 @@ extension on Translations {
 		switch (path) {
 			case 'commons.departureTicket.title': return 'Departure Ticket';
 			case 'commons.returnTicket.title': return 'Return Ticket';
+			case 'commons.time.hour': return 'Hour';
 			case 'commons.time.hours': return 'Hours';
+			case 'commons.time.minute': return 'Minute';
 			case 'commons.time.minutes': return 'Minutes';
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
