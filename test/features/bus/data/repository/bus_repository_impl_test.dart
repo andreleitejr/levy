@@ -26,30 +26,30 @@ void main() {
       ];
 
       when(
-        () => mockDataSource.get(search: search),
+        () => mockDataSource.get(search),
       ).thenAnswer((_) async => expectedBuses);
 
-      final result = await repository.get(search: search);
+      final result = await repository.get(search);
 
       expect(result, isA<List<BusEntity>>());
       expect(result, expectedBuses);
 
       verify(
-        () => mockDataSource.get(search: search, isReturnBus: false),
+        () => mockDataSource.get(search),
       ).called(1);
     });
 
     test('should throw an exception when the call fails', () async {
       when(
-        () => mockDataSource.get(search: search),
+        () => mockDataSource.get(search),
       ).thenThrow(Exception('Generic Error'));
 
-      final call = repository.get(search: search);
+      final call = repository.get(search);
 
       expect(call, throwsA(isA<Exception>()));
 
       verify(
-        () => mockDataSource.get(search: search, isReturnBus: false),
+        () => mockDataSource.get(search),
       ).called(1);
     });
   });

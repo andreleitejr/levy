@@ -2,7 +2,7 @@ import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'address_entity_mock.dart';
+import 'entities_mocks.dart';
 
 final class UserEntityMock extends Mock implements UserEntity {
   @override

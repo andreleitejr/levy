@@ -13,6 +13,7 @@ import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';
 import '../../../mocks/entities_mocks.dart';
+import '../../../mocks/search_entity_mock.dart';
 
 
 final class BusDataSourceMock extends Mock implements BusDataSource {}
@@ -33,9 +34,9 @@ void main() {
 
   group('Bus Page Golden Test', () {
     testWidgets('Bus Page Error', (tester) async {
-      final errorMessage = 'Failed to load addresses';
+      final errorMessage = 'Failed to load buses';
 
-      when(() => getBusUseCaseMock()).thenThrow(Exception(errorMessage));
+      when(() => getBusUseCaseMock(SearchEntityMock())).thenThrow(Exception(errorMessage));
 
       await runGoldenTestForDifferentScreenSizes(
         tester: tester,
@@ -57,7 +58,7 @@ void main() {
     testWidgets('Departure Bus Page Success', (tester) async {
       final c = Completer<List<BusModel>>();
 
-      when(() => busDataSourceMock.get()).thenAnswer((_) async {
+      when(() => busDataSourceMock.get(SearchEntityMock())).thenAnswer((_) async {
         return c.future;
       });
 
@@ -83,7 +84,7 @@ void main() {
     testWidgets('Return Bus Page Success', (tester) async {
       final c = Completer<List<BusModel>>();
 
-      when(() => busDataSourceMock.get()).thenAnswer((_) async {
+      when(() => busDataSourceMock.get(SearchEntityMock())).thenAnswer((_) async {
         return c.future;
       });
 

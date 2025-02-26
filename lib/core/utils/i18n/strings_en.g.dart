@@ -86,6 +86,7 @@ class TranslationsBusEn {
 	late final TranslationsBusResultsEn results = TranslationsBusResultsEn._(_root);
 	late final TranslationsBusSelectedEn selected = TranslationsBusSelectedEn._(_root);
 	late final TranslationsBusButtonEn button = TranslationsBusButtonEn._(_root);
+	late final TranslationsBusErrorsEn errors = TranslationsBusErrorsEn._(_root);
 }
 
 // Path: home
@@ -248,7 +249,7 @@ class TranslationsAddressErrorsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get loadError => 'Failed to load addresses: {error}';
+	String get loadError => 'Failed to load addresses.';
 }
 
 // Path: bus.header
@@ -290,6 +291,16 @@ class TranslationsBusButtonEn {
 
 	// Translations
 	String get title => 'Select';
+}
+
+// Path: bus.errors
+class TranslationsBusErrorsEn {
+	TranslationsBusErrorsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get loadError => 'Failed to load buses.';
 }
 
 // Path: home.header
@@ -682,12 +693,13 @@ extension on Translations {
 			case 'commons.time.minutes': return 'Minutes';
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
-			case 'address.errors.loadError': return 'Failed to load addresses: {error}';
+			case 'address.errors.loadError': return 'Failed to load addresses.';
 			case 'bus.header.departureTitle': return 'Select Departure Bus';
 			case 'bus.header.returnTitle': return 'Select Return Bus';
 			case 'bus.results.title': return 'Best Route';
 			case 'bus.selected.title': return 'Departure Info';
 			case 'bus.button.title': return 'Select';
+			case 'bus.errors.loadError': return 'Failed to load buses.';
 			case 'home.header.title': return 'Search';
 			case 'home.guest.title': return 'Guest User';
 			case 'home.form.inputs.departureAddress.labelText': return 'Departure Address';

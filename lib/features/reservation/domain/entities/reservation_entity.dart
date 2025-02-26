@@ -7,9 +7,6 @@ abstract class ReservationEntity {
   String get userId;
   String get paymentId;
   String get date;
-  String get departureBusId;
-  String get returnBusId;
-
   BusEntity? get departureBus;
   BusEntity? get returnBus;
 }

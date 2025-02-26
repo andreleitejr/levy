@@ -82,6 +82,7 @@ class _TranslationsBusPt implements TranslationsBusEn {
 	@override late final _TranslationsBusResultsPt results = _TranslationsBusResultsPt._(_root);
 	@override late final _TranslationsBusSelectedPt selected = _TranslationsBusSelectedPt._(_root);
 	@override late final _TranslationsBusButtonPt button = _TranslationsBusButtonPt._(_root);
+	@override late final _TranslationsBusErrorsPt errors = _TranslationsBusErrorsPt._(_root);
 }
 
 // Path: home
@@ -244,7 +245,7 @@ class _TranslationsAddressErrorsPt implements TranslationsAddressErrorsEn {
 	final TranslationsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get loadError => 'Falha ao carregar os endereços: {error}';
+	@override String get loadError => 'Falha ao carregar os endereços.';
 }
 
 // Path: bus.header
@@ -286,6 +287,16 @@ class _TranslationsBusButtonPt implements TranslationsBusButtonEn {
 
 	// Translations
 	@override String get title => 'Selecionar';
+}
+
+// Path: bus.errors
+class _TranslationsBusErrorsPt implements TranslationsBusErrorsEn {
+	_TranslationsBusErrorsPt._(this._root);
+
+	final TranslationsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadError => 'Falha ao carregar os ônibus.';
 }
 
 // Path: home.header
@@ -678,12 +689,13 @@ extension on TranslationsPt {
 			case 'commons.time.minutes': return 'Minutos';
 			case 'address.header.title': return 'Selecionar Endereço';
 			case 'address.searchInput.hintText': return 'Qual é o seu endereço?';
-			case 'address.errors.loadError': return 'Falha ao carregar os endereços: {error}';
+			case 'address.errors.loadError': return 'Falha ao carregar os endereços.';
 			case 'bus.header.departureTitle': return 'Selecionar Ida';
 			case 'bus.header.returnTitle': return 'Selecionar Volta';
 			case 'bus.results.title': return 'Melhor Rota';
 			case 'bus.selected.title': return 'Informações da Partida';
 			case 'bus.button.title': return 'Selecionar';
+			case 'bus.errors.loadError': return 'Falha ao carregar os ônibus.';
 			case 'home.header.title': return 'Buscar';
 			case 'home.guest.title': return 'Usuário Convidado';
 			case 'home.form.inputs.departureAddress.labelText': return 'Endereço de Partida';

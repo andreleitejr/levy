@@ -37,6 +37,7 @@ final class ThemeRouteTitleWidget extends StatelessWidget {
               Text(
                 firstRouteTitle,
                 style: ThemeTypography.semiBold16,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(width: 16),
               ThemeIconWidget(
@@ -44,9 +45,12 @@ final class ThemeRouteTitleWidget extends StatelessWidget {
                 color: ThemeColors.primary,
               ),
               const SizedBox(width: 16),
-              Text(
-                secondRouteTitle,
-                style: ThemeTypography.semiBold16,
+              Expanded(
+                child: Text(
+                  secondRouteTitle,
+                  style: ThemeTypography.semiBold16,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),

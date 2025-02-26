@@ -43,6 +43,7 @@ final class BusWidget extends StatelessWidget {
                     BusItemWidget(
                       item: item,
                       onItemPressed: () => onItemPressed(item),
+                      isReturn: selected != null,
                     ),
                     const SizedBox(height: 24),
                   ],

@@ -15,13 +15,17 @@ final class BusItemWidget extends StatelessWidget {
     super.key,
     required this.item,
     required this.onItemPressed,
+    this.isReturn = false,
   });
 
   final BusEntity item;
   final VoidCallback onItemPressed;
+  final bool isReturn;
 
   @override
   Widget build(BuildContext context) {
+    final route = isReturn ? item.routes.last : item.routes.first;
+
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
@@ -34,19 +38,19 @@ final class BusItemWidget extends StatelessWidget {
           ThemeRouteTitleWidget(
             padding: const EdgeInsets.all(16),
             title: BusTranslation.results.title,
-            firstRouteTitle: item.routes.first.origin.street,
-            secondRouteTitle: item.routes.first.destination.street,
+            firstRouteTitle: route.origin.street,
+            secondRouteTitle: route.destination.street,
           ),
           _buildItemImage(),
           _buildItemPills(),
           ThemeDividerLine(color: ThemeColors.grey2),
           ThemeScheduleWidget(
-            departureTime: item.routes.first.departureTime,
-            arrivalTime: item.routes.first.arrivalTime,
-            departureAddressTitle: item.routes.first.origin.name,
-            arrivalAddressTitle: item.routes.first.destination.name,
-            departureAddressLine: item.routes.first.origin.line,
-            arrivalAddressLine: item.routes.first.destination.line,
+            departureTime: route.departureTime,
+            arrivalTime: route.arrivalTime,
+            departureAddressTitle: route.origin.name,
+            arrivalAddressTitle: route.destination.name,
+            departureAddressLine: route.origin.line,
+            arrivalAddressLine: route.destination.line,
           ),
           ThemeDividerLine(color: ThemeColors.grey2),
           Padding(

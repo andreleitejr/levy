@@ -22,8 +22,6 @@ void main() {
       userId: 'user_001',
       paymentId: 'payment_001',
       date: DateTime.now().toString(),
-      departureBusId: 'bus_001',
-      returnBusId: 'bus_010',
     );
 
     test('should return true when the reservation is created successfully',
@@ -63,8 +61,6 @@ void main() {
         userId: 'user_001',
         paymentId: 'payment_001',
         date: DateTime.now().toString(),
-        departureBusId: 'bus_001',
-        returnBusId: 'bus_010',
       );
 
       when(() => mockDataSource

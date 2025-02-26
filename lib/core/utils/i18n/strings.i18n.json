@@ -35,6 +35,9 @@
     },
     "button": {
       "title": "Select"
+    },
+    "errors": {
+      "loadError": "Failed to load buses."
     }
   },
   "home": {

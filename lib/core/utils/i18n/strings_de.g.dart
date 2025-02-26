@@ -81,6 +81,7 @@ class _TranslationsBusDe implements TranslationsBusEn {
 	@override late final _TranslationsBusHeaderDe header = _TranslationsBusHeaderDe._(_root);
 	@override late final _TranslationsBusResultsDe results = _TranslationsBusResultsDe._(_root);
 	@override late final _TranslationsBusSelectedDe selected = _TranslationsBusSelectedDe._(_root);
+	@override late final _TranslationsBusErrorsDe errors = _TranslationsBusErrorsDe._(_root);
 	@override late final _TranslationsBusButtonDe button = _TranslationsBusButtonDe._(_root);
 }
 
@@ -244,7 +245,7 @@ class _TranslationsAddressErrorsDe implements TranslationsAddressErrorsEn {
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get loadError => 'Fehler beim Laden der Adressen: {error}';
+	@override String get loadError => 'Fehler beim Laden der Adressen.';
 }
 
 // Path: bus.header
@@ -276,6 +277,16 @@ class _TranslationsBusSelectedDe implements TranslationsBusSelectedEn {
 
 	// Translations
 	@override String get title => 'Abfahrtsinformationen';
+}
+
+// Path: bus.errors
+class _TranslationsBusErrorsDe implements TranslationsBusErrorsEn {
+	_TranslationsBusErrorsDe._(this._root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadError => 'Fehler beim Laden der Busse.';
 }
 
 // Path: bus.button
@@ -678,11 +689,12 @@ extension on TranslationsDe {
 			case 'commons.time.minutes': return 'Minuten';
 			case 'address.header.title': return 'Adresse auswählen';
 			case 'address.searchInput.hintText': return 'Wie lautet Ihre Adresse?';
-			case 'address.errors.loadError': return 'Fehler beim Laden der Adressen: {error}';
+			case 'address.errors.loadError': return 'Fehler beim Laden der Adressen.';
 			case 'bus.header.departureTitle': return 'Abfahrtsbus auswählen';
 			case 'bus.header.returnTitle': return 'Rückfahrtsbus auswählen';
 			case 'bus.results.title': return 'Beste Route';
 			case 'bus.selected.title': return 'Abfahrtsinformationen';
+			case 'bus.errors.loadError': return 'Fehler beim Laden der Busse.';
 			case 'bus.button.title': return 'Auswählen';
 			case 'home.header.title': return 'Suche';
 			case 'home.guest.title': return 'Gastbenutzer';

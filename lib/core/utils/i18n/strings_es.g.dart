@@ -82,6 +82,7 @@ class _TranslationsBusEs implements TranslationsBusEn {
 	@override late final _TranslationsBusResultsEs results = _TranslationsBusResultsEs._(_root);
 	@override late final _TranslationsBusSelectedEs selected = _TranslationsBusSelectedEs._(_root);
 	@override late final _TranslationsBusButtonEs button = _TranslationsBusButtonEs._(_root);
+	@override late final _TranslationsBusErrorsEs errors = _TranslationsBusErrorsEs._(_root);
 }
 
 // Path: home
@@ -244,7 +245,7 @@ class _TranslationsAddressErrorsEs implements TranslationsAddressErrorsEn {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get loadError => 'Error al cargar las direcciones: {error}';
+	@override String get loadError => 'Error al cargar las direcciones.';
 }
 
 // Path: bus.header
@@ -286,6 +287,16 @@ class _TranslationsBusButtonEs implements TranslationsBusButtonEn {
 
 	// Translations
 	@override String get title => 'Seleccionar';
+}
+
+// Path: bus.errors
+class _TranslationsBusErrorsEs implements TranslationsBusErrorsEn {
+	_TranslationsBusErrorsEs._(this._root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadError => 'Error al cargar los autobuses.';
 }
 
 // Path: home.header
@@ -678,12 +689,13 @@ extension on TranslationsEs {
 			case 'commons.time.minutes': return 'Minutos';
 			case 'address.header.title': return 'Seleccionar dirección';
 			case 'address.searchInput.hintText': return '¿Cuál es tu dirección?';
-			case 'address.errors.loadError': return 'Error al cargar las direcciones: {error}';
+			case 'address.errors.loadError': return 'Error al cargar las direcciones.';
 			case 'bus.header.departureTitle': return 'Seleccionar autobús de ida';
 			case 'bus.header.returnTitle': return 'Seleccionar autobús de regreso';
 			case 'bus.results.title': return 'Mejor ruta';
 			case 'bus.selected.title': return 'Información de salida';
 			case 'bus.button.title': return 'Seleccionar';
+			case 'bus.errors.loadError': return 'Error al cargar los autobuses.';
 			case 'home.header.title': return 'Buscar';
 			case 'home.guest.title': return 'Usuario invitado';
 			case 'home.form.inputs.departureAddress.labelText': return 'Dirección de salida';

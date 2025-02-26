@@ -42,8 +42,6 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
         userId: reservation.userId,
         paymentId: reservation.paymentId,
         date: reservation.date,
-        departureBusId: reservation.departureBusId,
-        returnBusId: reservation.returnBusId,
         departureBus: departureBus as BusModel,
         returnBus: returnBus as BusModel,
       );

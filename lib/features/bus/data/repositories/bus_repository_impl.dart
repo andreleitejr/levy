@@ -11,13 +11,7 @@ final class BusRepositoryImpl implements BusRepository {
   final BusDataSource _datasource;
 
   @override
-  Future<List<BusEntity>> get({
-    SearchEntity? search,
-    bool isReturnBus = false,
-  }) async {
-    return _datasource.get(
-      search: search,
-      isReturnBus: isReturnBus,
-    );
+  Future<List<BusEntity>> get(SearchEntity search) async {
+    return _datasource.get(search);
   }
 }

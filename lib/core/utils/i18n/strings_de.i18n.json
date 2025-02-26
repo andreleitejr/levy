@@ -33,6 +33,9 @@
     "selected": {
       "title": "Abfahrtsinformationen"
     },
+    "errors": {
+      "loadError": "Fehler beim Laden der Busse."
+    },
     "button": {
       "title": "Auswählen"
     }

@@ -19,7 +19,7 @@ import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:uuid/uuid.dart';
 
 @RoutePage()
-class PaymentPage extends ConsumerStatefulWidget {
+final class PaymentPage extends ConsumerStatefulWidget {
   const PaymentPage({
     super.key,
     required this.departureBus,
@@ -33,7 +33,7 @@ class PaymentPage extends ConsumerStatefulWidget {
   ConsumerState<PaymentPage> createState() => _PaymentPageState();
 }
 
-class _PaymentPageState extends ConsumerState<PaymentPage> {
+final class _PaymentPageState extends ConsumerState<PaymentPage> {
   @override
   void initState() {
     super.initState();
@@ -143,8 +143,6 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
         userId: user.id,
         paymentId: paymentId,
         date: date,
-        departureBusId: departureBus.id,
-        returnBusId: returnBus.id,
       );
 
       await reservationUseCase.call(reservation);

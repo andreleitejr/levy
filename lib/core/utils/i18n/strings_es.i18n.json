@@ -35,6 +35,9 @@
     },
     "button": {
       "title": "Seleccionar"
+    },
+    "errors": {
+      "loadError": "Error al cargar los autobuses."
     }
   },
   "home": {
