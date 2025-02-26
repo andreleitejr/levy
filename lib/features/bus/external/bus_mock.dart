@@ -33,8 +33,8 @@ final class BusMock {
       ],
       'seats': CommonMock.seats,
       'lastLocation': {
-        'latitude': -23.543796998885878,
-        'longitude': -46.44749739832682
+        'latitude': -23.543797,
+        'longitude': -46.44749,
       },
     },
     {
@@ -55,7 +55,10 @@ final class BusMock {
         getRouteById('bff624dd-b004-4f43-8105-de96e3c4d56b'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.543797,
+        'longitude': -46.44749,
+      },
     },
     {
       'id': '10446694-e335-4daf-af45-c4754020fcc0',
@@ -75,7 +78,10 @@ final class BusMock {
         getRouteById('2d4919ef-e9f1-4396-b492-e998a4a6cf81'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.542500,
+        'longitude': -46.448000,
+      },
     },
     {
       'id': '0720276b-0940-4b4e-af99-d242748d57ba',
@@ -95,7 +101,10 @@ final class BusMock {
         getRouteById('ecaf229f-5f66-48ae-8573-32458d1f4942'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.544200,
+        'longitude': -46.446800,
+      },
     },
     {
       'id': '72162a46-75cd-4c2d-9b01-8fd6c4addfb5',
@@ -116,8 +125,8 @@ final class BusMock {
       ],
       'seats': CommonMock.seats,
       'lastLocation': {
-        'latitude': -23.543796998885878,
-        'longitude': -46.44749739832682
+        'latitude': -23.543797,
+        'longitude': -46.44749,
       },
     },
     {
@@ -138,7 +147,10 @@ final class BusMock {
         getRouteById('cf35c3db-6328-4d72-9cc2-6f353426e895'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': 40.7128,
+        'longitude': -74.0060,
+      },
     },
     {
       'id': '15361a44-b397-4d5e-b654-90139bf626bd',
@@ -158,7 +170,10 @@ final class BusMock {
         getRouteById('d86b217d-71d7-4fd0-ba77-3544bed01cfc'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.541900,
+        'longitude': -46.445600,
+      },
     },
     {
       'id': '55d46887-0b9d-4a85-b5d5-a0d4eebf6a8f',
@@ -178,7 +193,10 @@ final class BusMock {
         getRouteById('2f562132-f6d7-4fb8-a316-898c517d88fb'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.546300,
+        'longitude': -46.448500,
+      },
     },
     {
       'id': 'bc81920b-f8f6-4595-91c6-398db808f0af',
@@ -198,7 +216,10 @@ final class BusMock {
         getRouteById('aacec2ec-1994-4838-96d8-96bab77b04e7'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.546352,
+        'longitude': -46.448571,
+      },
     },
     {
       'id': '345303a0-efe7-49a3-8e4b-4f22efd320a8',
@@ -218,7 +239,10 @@ final class BusMock {
         getRouteById('aacec2ec-1994-4838-96d8-96bab77b04e7'),
       ],
       'seats': CommonMock.seats,
-      'lastLocation': {'latitude': 40.7128, 'longitude': -74.0060},
+      'lastLocation': {
+        'latitude': -23.546396,
+        'longitude': -46.448518,
+      },
     },
   ];
 }

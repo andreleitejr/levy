@@ -5,7 +5,7 @@ import 'package:levy/features/reservation/domain/entities/reservation_entity.dar
 part 'reservation_model.g.dart';
 
 @JsonSerializable(createToJson: true, includeIfNull: false)
-class ReservationModel extends ReservationEntity {
+final class ReservationModel extends ReservationEntity {
   const ReservationModel({
     this.reservationId = '',
     this.userId = '',

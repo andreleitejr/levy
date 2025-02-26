@@ -1,6 +1,8 @@
 
 import 'dart:math';
 
+import 'package:uuid/uuid.dart';
+
 final class CommonMock {
   const CommonMock._();
 
@@ -23,8 +25,7 @@ final class CommonMock {
     return List.generate(32, (index) {
       final letter = String.fromCharCode(65 + (index ~/ 4));
       final number = (index % 4) + 1;
-
-      final reservedBy = random.nextBool() ? 'user_${index.toString().padLeft(3, '0')}' : null;
+      final reservedBy = random.nextBool() ? Uuid().v4() : null;
 
       return {
         'letter': letter,

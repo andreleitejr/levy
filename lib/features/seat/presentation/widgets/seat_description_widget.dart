@@ -34,23 +34,28 @@ final class SeatDescriptionWidget extends StatelessWidget {
     required Color color,
     required String title,
   }) {
-    return Row(
-      children: [
-        Container(
-          width: 20,
-          height: 20,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(6),
+    return Expanded(
+      child: Row(
+        children: [
+          Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            alignment: Alignment.center,
           ),
-          alignment: Alignment.center,
-        ),
-        const SizedBox(width: 8),
-        Text(
-          title,
-          style: ThemeTypography.regular14,
-        ),
-      ],
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              title,
+              style: ThemeTypography.regular12,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
