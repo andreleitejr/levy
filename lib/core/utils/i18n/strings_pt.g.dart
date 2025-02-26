@@ -68,6 +68,7 @@ class _TranslationsAddressPt implements TranslationsAddressEn {
 	// Translations
 	@override late final _TranslationsAddressHeaderPt header = _TranslationsAddressHeaderPt._(_root);
 	@override late final _TranslationsAddressSearchInputPt searchInput = _TranslationsAddressSearchInputPt._(_root);
+	@override late final _TranslationsAddressErrorsPt errors = _TranslationsAddressErrorsPt._(_root);
 }
 
 // Path: bus
@@ -234,6 +235,16 @@ class _TranslationsAddressSearchInputPt implements TranslationsAddressSearchInpu
 
 	// Translations
 	@override String get hintText => 'Qual é o seu endereço?';
+}
+
+// Path: address.errors
+class _TranslationsAddressErrorsPt implements TranslationsAddressErrorsEn {
+	_TranslationsAddressErrorsPt._(this._root);
+
+	final TranslationsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadError => 'Falha ao carregar os endereços: {error}';
 }
 
 // Path: bus.header
@@ -667,6 +678,7 @@ extension on TranslationsPt {
 			case 'commons.time.minutes': return 'Minutos';
 			case 'address.header.title': return 'Selecionar Endereço';
 			case 'address.searchInput.hintText': return 'Qual é o seu endereço?';
+			case 'address.errors.loadError': return 'Falha ao carregar os endereços: {error}';
 			case 'bus.header.departureTitle': return 'Selecionar Ida';
 			case 'bus.header.returnTitle': return 'Selecionar Volta';
 			case 'bus.results.title': return 'Melhor Rota';

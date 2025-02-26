@@ -17,6 +17,9 @@
     },
     "searchInput": {
       "hintText": "Wie lautet Ihre Adresse?"
+    },
+    "errors": {
+      "loadError": "Fehler beim Laden der Adressen."
     }
   },
   "bus": {

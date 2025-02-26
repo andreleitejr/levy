@@ -48,8 +48,11 @@ final class AddressShimmer extends StatelessWidget {
             child: const SizedBox(height: 24),
           ),
           SliverList(
-            delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                return ThemeListItemShimmer(showImageShimmer: false);
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return ThemeListItemShimmer(
+                  showImageShimmer: false,
+                );
               },
               childCount: 10,
             ),

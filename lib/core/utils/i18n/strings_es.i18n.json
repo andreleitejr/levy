@@ -17,6 +17,9 @@
     },
     "searchInput": {
       "hintText": "¿Cuál es tu dirección?"
+    },
+    "errors": {
+      "loadError": "Error al cargar las direcciones."
     }
   },
   "bus": {

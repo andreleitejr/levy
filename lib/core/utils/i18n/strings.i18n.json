@@ -17,6 +17,9 @@
     },
     "searchInput": {
       "hintText": "What’s your address?"
+    },
+    "errors": {
+      "loadError": "Failed to load addresses."
     }
   },
   "bus": {
@@ -153,11 +156,11 @@
     "items": {
       "account": {
         "title": "Account",
-        "description": "Informations about your account"
+        "description": "Information about your account"
       },
       "reservations": {
         "title": "Reservations",
-        "description": "Informations about your reservations"
+        "description": "Information about your reservations"
       },
       "configurations": {
         "title": "Preferences & Configurations",

@@ -5,4 +5,5 @@ final class AddressTranslation {
 
   static final header = t.address.header;
   static final searchInput = t.address.searchInput;
+  static final errors = t.address.errors;
 }

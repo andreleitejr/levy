@@ -6,4 +6,5 @@ abstract class RegisterModule {}
 @InjectableInit.microPackage(
   preferRelativeImports: false,
 )
+
 void configureBusDependencies() {}

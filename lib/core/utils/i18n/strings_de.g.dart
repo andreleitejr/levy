@@ -68,6 +68,7 @@ class _TranslationsAddressDe implements TranslationsAddressEn {
 	// Translations
 	@override late final _TranslationsAddressHeaderDe header = _TranslationsAddressHeaderDe._(_root);
 	@override late final _TranslationsAddressSearchInputDe searchInput = _TranslationsAddressSearchInputDe._(_root);
+	@override late final _TranslationsAddressErrorsDe errors = _TranslationsAddressErrorsDe._(_root);
 }
 
 // Path: bus
@@ -234,6 +235,16 @@ class _TranslationsAddressSearchInputDe implements TranslationsAddressSearchInpu
 
 	// Translations
 	@override String get hintText => 'Wie lautet Ihre Adresse?';
+}
+
+// Path: address.errors
+class _TranslationsAddressErrorsDe implements TranslationsAddressErrorsEn {
+	_TranslationsAddressErrorsDe._(this._root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadError => 'Fehler beim Laden der Adressen: {error}';
 }
 
 // Path: bus.header
@@ -667,6 +678,7 @@ extension on TranslationsDe {
 			case 'commons.time.minutes': return 'Minuten';
 			case 'address.header.title': return 'Adresse auswählen';
 			case 'address.searchInput.hintText': return 'Wie lautet Ihre Adresse?';
+			case 'address.errors.loadError': return 'Fehler beim Laden der Adressen: {error}';
 			case 'bus.header.departureTitle': return 'Abfahrtsbus auswählen';
 			case 'bus.header.returnTitle': return 'Rückfahrtsbus auswählen';
 			case 'bus.results.title': return 'Beste Route';

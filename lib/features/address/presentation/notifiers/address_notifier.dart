@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/address/domain/usecases/get_address_usecase.dart';
 import 'package:levy/features/address/presentation/states/address_state.dart';
+import 'package:levy/features/address/presentation/utils/address_translation.dart';
 
 final class AddressNotifier extends StateNotifier<AddressState> {
   final GetAddressUseCase _usecase;
@@ -17,7 +19,8 @@ final class AddressNotifier extends StateNotifier<AddressState> {
 
       state = AddressState.success(result);
     } catch (e) {
-      state = AddressState.error('Failed to load addresses: ${e.toString()}');
+      debugPrint('Failed to load addresses: $e');
+      state = AddressState.error(AddressTranslation.errors.loadError);
     }
   }
 

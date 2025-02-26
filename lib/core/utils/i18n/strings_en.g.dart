@@ -72,6 +72,7 @@ class TranslationsAddressEn {
 	// Translations
 	late final TranslationsAddressHeaderEn header = TranslationsAddressHeaderEn._(_root);
 	late final TranslationsAddressSearchInputEn searchInput = TranslationsAddressSearchInputEn._(_root);
+	late final TranslationsAddressErrorsEn errors = TranslationsAddressErrorsEn._(_root);
 }
 
 // Path: bus
@@ -238,6 +239,16 @@ class TranslationsAddressSearchInputEn {
 
 	// Translations
 	String get hintText => 'What’s your address?';
+}
+
+// Path: address.errors
+class TranslationsAddressErrorsEn {
+	TranslationsAddressErrorsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get loadError => 'Failed to load addresses: {error}';
 }
 
 // Path: bus.header
@@ -569,7 +580,7 @@ class TranslationsUserItemsAccountEn {
 
 	// Translations
 	String get title => 'Account';
-	String get description => 'Informations about your account';
+	String get description => 'Information about your account';
 }
 
 // Path: user.items.reservations
@@ -580,7 +591,7 @@ class TranslationsUserItemsReservationsEn {
 
 	// Translations
 	String get title => 'Reservations';
-	String get description => 'Informations about your reservations';
+	String get description => 'Information about your reservations';
 }
 
 // Path: user.items.configurations
@@ -671,6 +682,7 @@ extension on Translations {
 			case 'commons.time.minutes': return 'Minutes';
 			case 'address.header.title': return 'Select address';
 			case 'address.searchInput.hintText': return 'What’s your address?';
+			case 'address.errors.loadError': return 'Failed to load addresses: {error}';
 			case 'bus.header.departureTitle': return 'Select Departure Bus';
 			case 'bus.header.returnTitle': return 'Select Return Bus';
 			case 'bus.results.title': return 'Best Route';
@@ -717,9 +729,9 @@ extension on Translations {
 			case 'user.header.title': return 'Profile';
 			case 'user.header.welcome': return 'Welcome';
 			case 'user.items.account.title': return 'Account';
-			case 'user.items.account.description': return 'Informations about your account';
+			case 'user.items.account.description': return 'Information about your account';
 			case 'user.items.reservations.title': return 'Reservations';
-			case 'user.items.reservations.description': return 'Informations about your reservations';
+			case 'user.items.reservations.description': return 'Information about your reservations';
 			case 'user.items.configurations.title': return 'Preferences & Configurations';
 			case 'user.items.configurations.description': return 'Manage your preferences and configurations';
 			case 'user.items.support.title': return 'Support';

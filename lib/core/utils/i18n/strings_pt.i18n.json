@@ -17,6 +17,9 @@
     },
     "searchInput": {
       "hintText": "Qual é o seu endereço?"
+    },
+    "errors": {
+      "loadError": "Falha ao carregar os endereços."
     }
   },
   "bus": {
