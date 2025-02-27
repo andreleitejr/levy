@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
 import 'package:levy/features/payment/data/datasources/payment_datasource.dart';
 import 'package:levy/features/payment/domain/usecases/process_payment_usecase.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';

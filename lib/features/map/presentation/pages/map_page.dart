@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,10 +7,10 @@ import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_images.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_inactive_widget.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_inactive_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
 import 'package:levy/features/map/presentation/providers/map_notifier_provider.dart';
 import 'package:levy/features/map/presentation/states/map_state.dart';
 import 'package:levy/features/map/presentation/utils/map_translation.dart';
@@ -52,7 +51,7 @@ final class _MapPageState extends ConsumerState<MapPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(mapNotifierProvider);
 
-    return StateBuilder(
+    return ThemeStateBuilder(
       state: state,
       loading: ThemeLoadingWidget(),
       success: _buildMapWidget(state),

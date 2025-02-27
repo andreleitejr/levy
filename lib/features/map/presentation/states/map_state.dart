@@ -1,5 +1,5 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
@@ -12,7 +12,7 @@ final class MapState implements GenericStateBase {
   final bool isInactive;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
@@ -23,7 +23,7 @@ final class MapState implements GenericStateBase {
     this.busLocation = const LatLng(0, 0),
     this.originLocation = const LatLng(0, 0),
     this.destinationLocation = const LatLng(0, 0),
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
     this.isInactive = true,
   });

@@ -1,11 +1,11 @@
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 
 final class PaymentMethodState implements GenericStateBase {
   final List<PaymentMethodEntity> data;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
@@ -13,7 +13,7 @@ final class PaymentMethodState implements GenericStateBase {
 
   const PaymentMethodState({
     this.data = const [],
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
   });
 

@@ -1,4 +1,3 @@
-
 import 'package:json_annotation/json_annotation.dart';
 import 'package:levy/features/commons/entities/amenity_entity.dart';
 

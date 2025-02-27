@@ -26,28 +26,28 @@ void main() {
 
     test('should return true when the reservation is created successfully',
         () async {
-      when(() => mockDataSource.createReservation(const ReservationModel()))
+      when(() => mockDataSource.set(const ReservationModel()))
           .thenAnswer((_) async => true);
 
       final result =
-          await repository.createReservation(const ReservationModel());
+          await repository.set(const ReservationModel());
 
       expect(result, isA<bool>());
       expect(result, isTrue);
 
-      verify(() => mockDataSource.createReservation(const ReservationModel()))
+      verify(() => mockDataSource.set(const ReservationModel()))
           .called(1);
     });
 
     test('should return false when the reservation creation fails', () async {
-      when(() => mockDataSource.createReservation(expectedReservation))
+      when(() => mockDataSource.set(expectedReservation))
           .thenAnswer((_) async => false);
 
-      final result = await repository.createReservation(expectedReservation);
+      final result = await repository.set(expectedReservation);
 
       expect(result, isFalse);
 
-      verify(() => mockDataSource.createReservation(expectedReservation))
+      verify(() => mockDataSource.set(expectedReservation))
           .called(1);
     });
   });
@@ -64,29 +64,29 @@ void main() {
       );
 
       when(() => mockDataSource
-              .getReservation(expectedReservation.reservationId))
+              .get(expectedReservation.reservationId))
           .thenAnswer((_) async => expectedReservation);
 
       final result = await repository
-          .getReservation(expectedReservation.reservationId);
+          .get(expectedReservation.reservationId);
 
       expect(result, isA<ReservationEntity>());
       expect(result, expectedReservation);
 
       verify(() => mockDataSource
-          .getReservation(expectedReservation.reservationId)).called(1);
+          .get(expectedReservation.reservationId)).called(1);
     });
 
     test('should throw an exception when the call fails', () async {
       const invalidId = 'invalid_id';
-      when(() => mockDataSource.getReservation(invalidId))
+      when(() => mockDataSource.get(invalidId))
           .thenThrow(Exception('Generic Error'));
 
-      final call = repository.getReservation(invalidId);
+      final call = repository.get(invalidId);
 
       expect(call, throwsA(isA<Exception>()));
 
-      verify(() => mockDataSource.getReservation(invalidId)).called(1);
+      verify(() => mockDataSource.get(invalidId)).called(1);
     });
   });
 }

@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
 import 'package:levy/features/time/presentation/providers/time_notifier_provider.dart';
 import 'package:levy/features/time/presentation/states/time_state.dart';
 import 'package:levy/features/time/presentation/widgets/time_widget.dart';
@@ -29,7 +29,7 @@ final class _TimePageState extends ConsumerState<TimePage> {
   Widget build(BuildContext context) {
     final state = ref.watch(timeNotifierProvider);
 
-    return StateBuilder(
+    return ThemeStateBuilder(
       state: state,
       loading: SizedBox.shrink(),
       success: TimeWidget(

@@ -1,5 +1,5 @@
 import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/user/data/models/user_model.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
@@ -13,7 +13,7 @@ final class HomeState implements GenericStateBase {
   final ReservationEntity? reservation;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
@@ -25,7 +25,7 @@ final class HomeState implements GenericStateBase {
     this.departureTime,
     this.returnTime,
     this.reservation,
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
   });
 

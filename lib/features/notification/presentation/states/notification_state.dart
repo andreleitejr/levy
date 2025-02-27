@@ -1,18 +1,18 @@
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 
 final class NotificationState implements GenericStateBase {
   final List<NotificationEntity> data;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
 
   const NotificationState({
     this.data = const [],
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
   });
 

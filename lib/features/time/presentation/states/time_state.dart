@@ -1,11 +1,11 @@
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 
 final class TimeState implements GenericStateBase {
   final int hour;
   final int minute;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
@@ -13,7 +13,7 @@ final class TimeState implements GenericStateBase {
   const TimeState({
     required this.hour,
     required this.minute,
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
   });
 

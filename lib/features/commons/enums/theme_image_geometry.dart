@@ -1,4 +1,0 @@
-enum ThemeImageGeometry {
-  rectangle,
-  circle,
-}

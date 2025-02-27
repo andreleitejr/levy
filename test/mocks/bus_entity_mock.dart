@@ -36,8 +36,7 @@ final class BusEntityMock extends Mock implements BusEntity {
   int get capacity => 32;
 
   @override
-  List<AmenityEntity> get amenities =>
-      [AmenityModel.fromJson(CommonMock.amenities.first)];
+  List<AmenityEntity> get amenities => [AmenityModel.fromJson(CommonMock.amenities.first)];
 
   @override
   String get licensePlate => 'PL8R4LYF';

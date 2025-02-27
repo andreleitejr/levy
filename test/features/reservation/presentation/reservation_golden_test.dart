@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_inactive_widget.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_inactive_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
 import 'package:levy/features/reservation/presentation/utils/reservation_translation.dart';
 import 'package:levy/features/reservation/presentation/widgets/reservation_widget.dart';
 

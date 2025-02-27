@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment/presentation/notifiers/payment_notifier.dart';
 import 'package:levy/features/payment/presentation/providers/payment_notifier_provider.dart';
@@ -51,7 +51,7 @@ final class _PaymentPageState extends ConsumerState<PaymentPage> {
     final state = ref.watch(paymentNotifierProvider);
     final notifier = ref.read(paymentNotifierProvider.notifier);
 
-    return StateBuilder(
+    return ThemeStateBuilder(
       state: state,
       loading: ThemeLoadingWidget(),
       success: _buildPaymentWidget(

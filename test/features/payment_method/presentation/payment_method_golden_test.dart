@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
 import 'package:levy/features/payment_method/data/datasources/payment_method_datasource.dart';
 import 'package:levy/features/payment_method/data/models/payment_method_model.dart';
 import 'package:levy/features/payment_method/domain/usecases/get_payment_method_usecase.dart';

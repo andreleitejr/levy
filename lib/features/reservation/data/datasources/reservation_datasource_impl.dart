@@ -41,7 +41,7 @@ final class ReservationDataSourceImpl implements ReservationDataSource {
   }
 
   @override
-  Future<bool> createReservation(ReservationModel reservation) async {
+  Future<bool> set(ReservationModel reservation) async {
     try {
       await _database.insert(
         'reservations',
@@ -55,7 +55,7 @@ final class ReservationDataSourceImpl implements ReservationDataSource {
   }
 
   @override
-  Future<ReservationModel?> getReservation(String userId) async {
+  Future<ReservationModel?> get(String userId) async {
     try {
       await _initializeDatabase();
 

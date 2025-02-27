@@ -11,6 +11,6 @@ class GetReservationUseCaseImpl implements GetReservationUseCase {
 
   @override
   Future<ReservationEntity?> call(String userId) async {
-    return _repository.getReservation(userId);
+    return _repository.get(userId);
   }
 }

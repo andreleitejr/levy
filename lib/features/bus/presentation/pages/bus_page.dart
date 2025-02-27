@@ -8,8 +8,8 @@ import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.d
 import 'package:levy/features/bus/presentation/shimmers/bus_shimmer.dart';
 import 'package:levy/features/bus/presentation/states/bus_state_impl.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
@@ -41,7 +41,7 @@ final class _BusPageState extends ConsumerState<BusPage> {
     final state = ref.watch(busNotifierProvider);
     final notifier = ref.read(busNotifierProvider.notifier);
 
-    return StateBuilder(
+    return ThemeStateBuilder(
       state: state,
       loading: BusShimmer(
         onPop: () => context.router.back(),

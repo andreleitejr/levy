@@ -4,11 +4,11 @@ import 'package:levy/core/theme/theme_icons.dart';
 import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
-import 'package:levy/features/commons/widgets/theme_button.dart';
-import 'package:levy/features/commons/widgets/theme_divider_line.dart';
-import 'package:levy/features/commons/widgets/theme_pill.dart';
-import 'package:levy/features/commons/widgets/theme_route_title_widget.dart';
-import 'package:levy/features/commons/widgets/theme_schedule_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_button.dart';
+import 'package:levy/features/commons/theme/widgets/theme_divider_line.dart';
+import 'package:levy/features/commons/theme/widgets/theme_pill.dart';
+import 'package:levy/features/commons/theme/widgets/theme_route_title_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_schedule_widget.dart';
 
 final class BusItemWidget extends StatelessWidget {
   const BusItemWidget({

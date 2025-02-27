@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_typography.dart';
-import 'package:levy/features/commons/widgets/theme_list_item_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_list_item_widget.dart';
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 
-class NotificationListItemWidget extends StatelessWidget {
+final class NotificationListItemWidget extends StatelessWidget {
   const NotificationListItemWidget({
     super.key,
     required this.item,

@@ -1,4 +1,4 @@
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 import 'package:levy/features/user/data/models/user_model.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
@@ -6,7 +6,7 @@ final class UserState implements GenericStateBase {
   final UserEntity data;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
@@ -14,7 +14,7 @@ final class UserState implements GenericStateBase {
 
   const UserState({
     this.data = const UserModel(),
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
   });
 

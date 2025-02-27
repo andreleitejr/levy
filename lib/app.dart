@@ -4,7 +4,7 @@ import 'package:levy/core/router/app_router.dart';
 import 'package:levy/core/theme/app_theme.dart';
 import 'package:levy/core/utils/i18n/strings.g.dart';
 
-class App extends StatelessWidget {
+final class App extends StatelessWidget {
   App({super.key});
 
   final _appRouter = AppRouter();

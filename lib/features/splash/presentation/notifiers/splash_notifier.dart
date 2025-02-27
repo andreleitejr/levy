@@ -9,12 +9,10 @@ import 'package:levy/main.dart';
 final class SplashNotifier extends StateNotifier<SplashState> {
   final GetUserUseCase _userUseCase;
   final GetReservationUseCase _reservationUseCase;
-  // final GetBusUseCase _getBusUseCase;
 
   SplashNotifier(
     this._userUseCase,
     this._reservationUseCase,
-    // this._getBusUseCase,
   ) : super(SplashState());
 
   Future<void> init() async {

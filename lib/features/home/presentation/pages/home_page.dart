@@ -8,9 +8,9 @@ import 'package:levy/core/theme/theme_images.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:levy/features/commons/utils/commons_translation.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_icon_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_icon_widget.dart';
 import 'package:levy/features/home/presentation/notifiers/home_notifier.dart';
 import 'package:levy/features/home/presentation/providers/home_notifier_provider.dart';
 import 'package:levy/features/home/presentation/shimmers/home_search_shimmer.dart';
@@ -53,7 +53,7 @@ final class _HomePageState extends ConsumerState<HomePage> {
     final state = ref.watch(searchNotifierProvider);
     final notifier = ref.read(searchNotifierProvider.notifier);
 
-    return StateBuilder(
+    return ThemeStateBuilder(
       state: state,
       loading: HomeShimmer(),
       success: Scaffold(

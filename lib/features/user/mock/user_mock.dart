@@ -1,5 +1,11 @@
+import 'package:levy/features/address/mock/address_mock.dart';
+
 final class UserMock {
   const UserMock._();
+
+  static Map<String, dynamic> getAddressById(String id) {
+    return AddressMock.response.firstWhere((address) => address['id'] == id);
+  }
 
   static final response =  {
     'id': 'f2c52cfd-c017-4491-b9b2-03f49fe64d68',
@@ -10,16 +16,6 @@ final class UserMock {
     'phoneNumber': '+1234567890',
     'birthday': '2000 -01-15T00:00:00.000',
     'image': 'user',
-    'address': {
-      'name': 'First St',
-      'street': 'First Street',
-      'number': '123',
-      'city': 'Metropolis',
-      'state': 'NY',
-      'postalCode': '10001',
-      'country': 'USA',
-      'latitude': 40.7128,
-      'longitude': -74.0060,
-    }
+    'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
   };
 }

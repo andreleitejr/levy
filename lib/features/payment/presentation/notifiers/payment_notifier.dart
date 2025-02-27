@@ -47,8 +47,7 @@ final class PaymentNotifier extends StateNotifier<PaymentState> {
       );
 
       getIt.registerSingleton<ReservationEntity>(updateReservation);
-      getIt.registerSingleton<BusEntity>(departureBus,
-          instanceName: 'departure');
+      getIt.registerSingleton<BusEntity>(departureBus, instanceName: 'departure');
       getIt.registerSingleton<BusEntity>(returnBus, instanceName: 'return');
 
       return _usecase(

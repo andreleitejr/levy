@@ -8,32 +8,40 @@ part 'driver_model.g.dart';
 final class DriverModel extends DriverEntity {
   const DriverModel({
     this.id = '',
-     this.image = '',
-     this.name = '',
-     this.birthday = '',
-     this.licenseNumber = '',
-     this.licenseType = '',
-     this.experienceYears = 3,
-     this.address = const AddressModel(),
-     this.nationality = '',
+    this.image = '',
+    this.name = '',
+    this.birthday = '',
+    this.licenseNumber = '',
+    this.licenseType = '',
+    this.experienceYears = 3,
+    this.address = const AddressModel(),
+    this.nationality = '',
   });
 
   @override
   final String id;
+
   @override
   final String image;
+
   @override
   final String name;
+
   @override
   final String birthday;
+
   @override
   final String licenseNumber;
+
   @override
   final String licenseType;
+
   @override
   final int experienceYears;
+
   @override
   final AddressModel address;
+
   @override
   final String nationality;
 

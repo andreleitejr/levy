@@ -11,12 +11,12 @@ final class ReservationRepositoryImpl implements ReservationRepository {
   final ReservationDataSource _datasource;
 
   @override
-  Future<bool> createReservation(ReservationModel reservation) async {
-    return _datasource.createReservation(reservation);
+  Future<bool> set(ReservationModel reservation) async {
+    return _datasource.set(reservation);
   }
 
   @override
-  Future<ReservationEntity?> getReservation(String userId) async {
-    return _datasource.getReservation(userId);
+  Future<ReservationEntity?> get(String userId) async {
+    return _datasource.get(userId);
   }
 }

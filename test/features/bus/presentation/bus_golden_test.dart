@@ -8,7 +8,7 @@ import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
 import 'package:levy/features/bus/mock/bus_mock.dart';
 import 'package:levy/features/bus/presentation/shimmers/bus_shimmer.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

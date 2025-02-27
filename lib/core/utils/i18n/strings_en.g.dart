@@ -758,4 +758,3 @@ extension on Translations {
 		}
 	}
 }
-

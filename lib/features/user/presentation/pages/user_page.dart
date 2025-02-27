@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
-import 'package:levy/features/commons/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/widgets/theme_loading_page.dart';
-import 'package:levy/features/user/presentation/providers/providers.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
+import 'package:levy/features/user/presentation/providers/user_providers.dart';
 import 'package:levy/features/user/presentation/widgets/user_widget.dart';
 
 @RoutePage()
@@ -29,7 +29,7 @@ final class _AddressPageState extends ConsumerState<UserPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(userNotifierProvider);
 
-    return StateBuilder(
+    return ThemeStateBuilder(
       state: state,
       loading: ThemeLoadingWidget(),
       success: UserWidget(

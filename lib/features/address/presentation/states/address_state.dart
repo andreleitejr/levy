@@ -1,11 +1,11 @@
 import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/commons/widgets/state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
 
 final class AddressState implements GenericStateBase {
   final List<AddressEntity> data;
 
   @override
-  final String? errorMessage;
+  final String errorMessage;
 
   @override
   final bool isLoading;
@@ -13,7 +13,7 @@ final class AddressState implements GenericStateBase {
 
   const AddressState({
     this.data = const [],
-    this.errorMessage,
+    this.errorMessage = '',
     this.isLoading = false,
   });
 

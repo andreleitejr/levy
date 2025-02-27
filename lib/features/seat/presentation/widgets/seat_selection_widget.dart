@@ -60,6 +60,7 @@ final class SeatSelectionWidget extends StatelessWidget {
     if (seat == null) {
       return SizedBox(width: 48, height: 48);
     }
+    
     final isSelected = selectedItem?.letter == seat.letter &&
         selectedItem?.number == seat.number;
 
