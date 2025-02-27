@@ -22,7 +22,7 @@ Future<void> runGoldenTestForDifferentScreenSizes({
     await tester.pumpWidget(
       ProviderScope(
         child: MaterialApp(
-          theme: AppTheme.theme,
+          theme: AppThemes.defaultTheme,
           home: widget,
         ),
       ),
@@ -40,4 +40,3 @@ Future<void> runGoldenTestForDifferentScreenSizes({
     );
   }
 }
-

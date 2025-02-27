@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme_colors.dart';
 import 'package:levy/core/theme/theme_typography.dart';
 
-final class AppTheme {
-  static ThemeData get theme {
+final class AppThemes {
+  static ThemeData get defaultTheme {
     return ThemeData(
       scaffoldBackgroundColor: Colors.white,
       textTheme: TextTheme(

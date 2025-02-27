@@ -5,7 +5,7 @@ import 'package:levy/features/notification/data/repositories/notification_reposi
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
-class NotificationDataSourceMock extends Mock implements NotificationDataSource {}
+final class NotificationDataSourceMock extends Mock implements NotificationDataSource {}
 
 void main() {
   late NotificationDataSourceMock mockDataSource;

@@ -5,7 +5,7 @@ import 'package:levy/features/reservation/data/repositories/reservation_reposito
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
-class ReservationDataSourceMock extends Mock implements ReservationDataSource {}
+final class ReservationDataSourceMock extends Mock implements ReservationDataSource {}
 
 void main() {
   late ReservationDataSourceMock mockDataSource;

@@ -6,7 +6,7 @@ import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:mocktail/mocktail.dart';
 
-class BusDataSourceMock extends Mock implements BusDataSource {}
+final class BusDataSourceMock extends Mock implements BusDataSource {}
 
 void main() {
   late BusDataSourceMock mockDataSource;

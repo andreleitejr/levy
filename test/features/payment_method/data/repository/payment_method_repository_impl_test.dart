@@ -5,7 +5,7 @@ import 'package:levy/features/payment_method/data/repositories/payment_method_re
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
-class PaymentMethodDataSourceMock extends Mock implements PaymentMethodDataSource {}
+final class PaymentMethodDataSourceMock extends Mock implements PaymentMethodDataSource {}
 
 void main() {
   late PaymentMethodDataSourceMock mockDataSource;

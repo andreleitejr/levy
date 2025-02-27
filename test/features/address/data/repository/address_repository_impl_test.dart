@@ -5,7 +5,7 @@ import 'package:levy/features/address/data/repositories/address_repository_impl.
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 import 'package:mocktail/mocktail.dart';
 
-class AddressDataSourceMock extends Mock implements AddressDataSource {}
+final class AddressDataSourceMock extends Mock implements AddressDataSource {}
 
 void main() {
   late AddressDataSourceMock mockDataSource;
