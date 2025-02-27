@@ -1,5 +1,11 @@
+import 'package:levy/features/address/mock/address_mock.dart';
+
 final class DriverMock {
   const DriverMock._();
+
+  static Map<String, dynamic> getAddressById(String id) {
+    return AddressMock.response.firstWhere((address) => address['id'] == id);
+  }
 
   static final response = [
     {
@@ -10,6 +16,7 @@ final class DriverMock {
       'licenseNumber': 'ABCD123456',
       'licenseType': 'B',
       'experienceYears': 5,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -20,6 +27,7 @@ final class DriverMock {
       'licenseNumber': 'XYZ987654',
       'licenseType': 'B',
       'experienceYears': 3,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -30,6 +38,7 @@ final class DriverMock {
       'licenseNumber': 'LMNOP654321',
       'licenseType': 'D',
       'experienceYears': 8,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -40,6 +49,7 @@ final class DriverMock {
       'licenseNumber': 'PQR123456',
       'licenseType': 'C',
       'experienceYears': 6,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -50,6 +60,7 @@ final class DriverMock {
       'licenseNumber': 'JKL456789',
       'licenseType': 'B',
       'experienceYears': 7,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -60,6 +71,7 @@ final class DriverMock {
       'licenseNumber': 'TUV234567',
       'licenseType': 'B',
       'experienceYears': 4,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -70,6 +82,7 @@ final class DriverMock {
       'licenseNumber': 'DFG456789',
       'licenseType': 'D',
       'experienceYears': 10,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -80,6 +93,7 @@ final class DriverMock {
       'licenseNumber': 'HIJ567890',
       'licenseType': 'D',
       'experienceYears': 12,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -90,6 +104,7 @@ final class DriverMock {
       'licenseNumber': 'XYZ987654',
       'licenseType': 'E',
       'experienceYears': 15,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
     {
@@ -100,6 +115,7 @@ final class DriverMock {
       'licenseNumber': 'LMN654321',
       'licenseType': 'D',
       'experienceYears': 14,
+      'address': getAddressById('15d9f22a-098e-4a36-8958-2c9af0120c9b'),
       'nationality': 'Brazilian',
     },
   ];

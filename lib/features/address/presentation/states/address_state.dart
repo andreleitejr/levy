@@ -1,5 +1,5 @@
 import 'package:levy/features/address/domain/entities/address_entity.dart';
-import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class AddressState implements GenericStateBase {
   final List<AddressEntity> data;

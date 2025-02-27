@@ -15,11 +15,13 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:slang/generated.dart';
 import 'package:slang_flutter/slang_flutter.dart';
-export 'package:slang_flutter/slang_flutter.dart';
 
 import 'strings_de.g.dart' deferred as l_de;
 import 'strings_es.g.dart' deferred as l_es;
 import 'strings_pt.g.dart' deferred as l_pt;
+
+export 'package:slang_flutter/slang_flutter.dart';
+
 part 'strings_en.g.dart';
 
 /// Supported locales.

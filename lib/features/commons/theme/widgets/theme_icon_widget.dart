@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class ThemeIconWidget extends StatelessWidget {
   const ThemeIconWidget({

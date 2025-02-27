@@ -22,4 +22,7 @@ abstract class BusEntity {
   List<RouteEntity> get routes;
   List<SeatEntity> get seats;
   LatLng get lastLocation;
+
+  String get title => '$brand $model';
+  String get description => '$licensePlate - Seat: ${seats.first.title}';
 }

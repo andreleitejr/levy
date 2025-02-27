@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/seat/presentation/utils/seat_translation.dart';
 
 final class SeatDescriptionWidget extends StatelessWidget {

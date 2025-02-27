@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 final class ThemeDashedLinePainter extends CustomPainter {
@@ -23,8 +21,9 @@ final class ThemeDashedLinePainter extends CustomPainter {
       ..color = color
       ..strokeWidth = thickness;
 
-    double start = 0;
     final max = direction == Axis.horizontal ? size.width : size.height;
+
+    double start = 0;
 
     while (start < max) {
       if (direction == Axis.horizontal) {

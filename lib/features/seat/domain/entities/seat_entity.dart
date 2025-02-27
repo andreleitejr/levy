@@ -6,4 +6,5 @@ abstract class SeatEntity {
   String? get reservedBy;
 
   bool get isReserved => reservedBy != null;
+  String get title => letter + number.toString();
 }

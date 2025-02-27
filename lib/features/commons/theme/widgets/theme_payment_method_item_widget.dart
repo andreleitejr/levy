@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_images.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/payment/presentation/utils/payment_translation.dart';
 
 final class ThemePaymentMethodItemWidget extends StatelessWidget {
@@ -27,7 +25,10 @@ final class ThemePaymentMethodItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 16,
+        ),
         height: 80,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

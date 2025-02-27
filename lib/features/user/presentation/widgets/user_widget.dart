@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/features/commons/theme/widgets/theme_app_bar_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_icon_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_list_item_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_user_profile_header_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/utils/user_translation.dart';
 

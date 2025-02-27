@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/commons/theme/enums/theme_image_geometry.dart';
 import 'package:shimmer/shimmer.dart';
 

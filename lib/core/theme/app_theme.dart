@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class AppThemes {
   static ThemeData get defaultTheme {
@@ -46,9 +45,7 @@ final class AppThemes {
           disabledForegroundColor: ThemeColors.grey3,
           backgroundColor: Colors.transparent,
           foregroundColor: ThemeColors.primary,
-          side: BorderSide(
-            color: ThemeColors.primary,
-          ),
+          side: BorderSide(color: ThemeColors.primary),
         ),
       ),
       appBarTheme: AppBarTheme(

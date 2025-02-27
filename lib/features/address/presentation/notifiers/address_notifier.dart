@@ -7,7 +7,7 @@ import 'package:levy/features/address/presentation/utils/address_translation.dar
 
 final class AddressNotifier extends StateNotifier<AddressState> {
   final GetAddressUseCase _usecase;
-  List<AddressEntity> _allAddresses = [];
+  final List<AddressEntity> _allAddresses = [];
 
   AddressNotifier(this._usecase) : super(const AddressState.loading());
 
@@ -15,9 +15,10 @@ final class AddressNotifier extends StateNotifier<AddressState> {
     try {
       final result = await _usecase();
 
-      _allAddresses = result;
+      _allAddresses.clear();
+      _allAddresses.addAll(result);
 
-      state = AddressState.success(result);
+      state = AddressState.success(_allAddresses);
     } catch (e) {
       debugPrint('Failed to load addresses: $e');
       state = AddressState.error(AddressTranslation.errors.loadError);

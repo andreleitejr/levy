@@ -1,4 +1,4 @@
-import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 
 final class NotificationState implements GenericStateBase {

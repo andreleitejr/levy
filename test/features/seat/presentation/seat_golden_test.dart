@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:levy/features/commons/mock/common_mock.dart';
-import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/seat/data/models/seat_model.dart';
 import 'package:levy/features/seat/presentation/pages/seat_page.dart';
 

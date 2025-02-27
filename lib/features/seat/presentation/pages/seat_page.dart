@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
-import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/seat/presentation/providers/seat_notifier_provider.dart';
 import 'package:levy/features/seat/presentation/states/seat_state.dart';

@@ -24,7 +24,5 @@ final class ThemeIcons {
   static const wifi = '$_path/ticket.svg';
   static const wind = '$_path/ticket.svg';
 
-  static String getIconByString(String name) {
-    return '$_path/$name.svg';
-  }
+  static String getIconByString(String name) => '$_path/$name.svg';
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_images.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class SplashWidget extends StatelessWidget {
   const SplashWidget({super.key});

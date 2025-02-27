@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_typography.dart';
-import 'package:levy/features/commons/theme/widgets/theme_timeline_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemeScheduleWidget extends StatelessWidget {
   const ThemeScheduleWidget({

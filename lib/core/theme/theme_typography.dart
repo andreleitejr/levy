@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_font_families.dart';
-import 'package:levy/core/theme/theme_font_sizes.dart';
-import 'package:levy/core/theme/theme_font_weights.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class ThemeTypography {
   const ThemeTypography._();

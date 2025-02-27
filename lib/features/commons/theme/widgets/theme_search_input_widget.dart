@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/core/theme/theme_typography.dart';
-import 'package:levy/features/commons/theme/widgets/theme_icon_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemeSearchInputWidget extends StatelessWidget {
   const ThemeSearchInputWidget({
@@ -62,7 +60,9 @@ final class ThemeSearchInputWidget extends StatelessWidget {
         enabled: enabled,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: ThemeTypography.regular14.copyWith(color: Colors.grey),
+          hintStyle: ThemeTypography.regular14.copyWith(
+            color: Colors.grey,
+          ),
           border: InputBorder.none,
         ),
       ),

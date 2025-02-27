@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_typography.dart';
-import 'package:levy/features/commons/theme/widgets/theme_icon_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemePill extends StatelessWidget {
   const ThemePill({
@@ -32,7 +31,9 @@ final class ThemePill extends StatelessWidget {
           const SizedBox(width: 4),
           Text(
             title,
-            style: ThemeTypography.medium10.apply(color: ThemeColors.dark),
+            style: ThemeTypography.medium10.apply(
+              color: ThemeColors.dark,
+            ),
           ),
         ],
       ),

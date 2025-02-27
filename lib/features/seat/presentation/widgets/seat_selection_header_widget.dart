@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class SeatHeaderWidget extends StatelessWidget {
   const SeatHeaderWidget({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/features/commons/theme/widgets/theme_dashed_line_painter.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemeDashedLineWidget extends StatelessWidget {
   const ThemeDashedLineWidget({
@@ -19,11 +19,11 @@ final class ThemeDashedLineWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = direction == Axis.horizontal ? double.infinity : thickness;
+    final height = direction == Axis.vertical ? double.infinity : thickness;
+
     return CustomPaint(
-      size: Size(
-        direction == Axis.horizontal ? double.infinity : thickness,
-        direction == Axis.vertical ? double.infinity : thickness,
-      ),
+      size: Size(width, height),
       painter: ThemeDashedLinePainter(
         direction: direction,
         dashLength: dashLength,

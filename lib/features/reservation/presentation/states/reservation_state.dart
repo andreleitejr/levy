@@ -1,4 +1,4 @@
-import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 
 class ReservationState implements GenericStateBase {

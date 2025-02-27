@@ -1,4 +1,4 @@
-import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 
 final class SeatState implements GenericStateBase {

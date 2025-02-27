@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/theme/widgets/theme_dashed_line.dart';
-import 'package:levy/features/commons/theme/widgets/theme_list_item_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_schedule_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemeTicketWidget extends StatelessWidget {
   const ThemeTicketWidget({
@@ -60,9 +57,7 @@ final class ThemeTicketWidget extends StatelessWidget {
                 ThemeListItemWidget(
                   image: bus.driver.image,
                   title: bus.driver.name,
-                  subtitle: '${bus.licensePlate} - '
-                      'Seat: ${bus.seats.first.letter}'
-                      '${bus.seats.first.number}',
+                  subtitle: bus.driver.description,
                   showBorder: false,
                 ),
             ],
@@ -78,10 +73,8 @@ final class ThemeTicketWidget extends StatelessWidget {
           ),
           child: ThemeListItemWidget(
             image: bus.image,
-            title: '${bus.brand} ${bus.model}',
-            subtitle: '${bus.licensePlate} - '
-                'Seat: ${bus.seats.first.letter}'
-                '${bus.seats.first.number}',
+            title: bus.title,
+            subtitle: bus.description,
             showBorder: false,
           ),
         ),

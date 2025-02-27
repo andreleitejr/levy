@@ -1,3 +1,4 @@
+import 'package:levy/core/extensions/string_extension.dart';
 import 'package:levy/features/address/domain/entities/address_entity.dart';
 
 abstract class DriverEntity {
@@ -12,4 +13,6 @@ abstract class DriverEntity {
   int get experienceYears;
   AddressEntity get address;
   String get nationality;
+
+  String get description => '${birthday.age}, ${address.city}, ${address.state}';
 }

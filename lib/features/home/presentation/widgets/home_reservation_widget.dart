@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/theme/widgets/theme_home_app_bar_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_ticket_widget.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/home/presentation/utils/home_translation.dart';
 import 'package:levy/features/home/presentation/widgets/home_warning_widget.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';

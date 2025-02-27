@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
-import 'package:levy/features/commons/theme/widgets/theme_loading_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/time/presentation/pages/time_page.dart';
 
 import '../../../helpers/golden_test_helper.dart';

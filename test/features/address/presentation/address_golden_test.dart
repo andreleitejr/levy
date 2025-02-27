@@ -8,7 +8,7 @@ import 'package:levy/features/address/domain/usecases/get_address_usecase.dart';
 import 'package:levy/features/address/mock/address_mock.dart';
 import 'package:levy/features/address/presentation/pages/address_page.dart';
 import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart';
-import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

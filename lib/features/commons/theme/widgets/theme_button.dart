@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_typography.dart';
-import 'package:levy/features/commons/theme/widgets/theme_icon_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemeButton extends StatelessWidget {
   const ThemeButton({
@@ -19,13 +18,15 @@ final class ThemeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final backgroundColor = isValid ? ThemeColors.primary : ThemeColors.grey2;
+
     return SizedBox(
       height: 50,
       width: double.infinity,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: isValid ? ThemeColors.primary : ThemeColors.grey2,
+          backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),

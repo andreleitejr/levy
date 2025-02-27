@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/notification/data/datasources/notification_datasource.dart';
 import 'package:levy/features/notification/data/models/notification_model.dart';
 import 'package:levy/features/notification/domain/usecases/get_notification_usecase.dart';

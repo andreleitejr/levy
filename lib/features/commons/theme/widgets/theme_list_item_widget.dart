@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_images.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/commons/theme/enums/theme_image_geometry.dart';
 
 final class ThemeListItemWidget extends StatelessWidget {
@@ -59,12 +57,10 @@ final class ThemeListItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildLeadingImage() {
+  Widget? _buildLeadingImage() {
     final leadingImage = image;
 
-    if (leadingImage == null) {
-      return SizedBox.shrink();
-    }
+    if (leadingImage == null) return null;
 
     if (imageGeometry == ThemeImageGeometry.circle) {
       return ClipOval(

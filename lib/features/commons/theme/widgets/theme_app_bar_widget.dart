@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_typography.dart';
-import 'package:levy/features/commons/theme/widgets/theme_icon_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const ThemeAppBarWidget({

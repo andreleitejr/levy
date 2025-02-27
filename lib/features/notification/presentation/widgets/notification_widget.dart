@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/features/commons/theme/widgets/theme_app_bar_widget.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/notification/domain/entities/notification_entity.dart';
 import 'package:levy/features/notification/presentation/utils/notification_translation.dart';
 import 'package:levy/features/notification/presentation/widgets/notification_list_item_widget.dart';

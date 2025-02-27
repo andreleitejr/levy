@@ -4,8 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
 import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart';
 import 'package:levy/features/address/presentation/widgets/address_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_state_builder.dart';
-import 'package:levy/features/commons/theme/widgets/theme_error_page.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 @RoutePage()
 final class AddressPage extends ConsumerStatefulWidget {

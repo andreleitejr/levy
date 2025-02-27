@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/features/commons/theme/widgets/theme_app_bar_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_button.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 import 'package:levy/features/seat/presentation/utils/seat_translation.dart';
 import 'package:levy/features/seat/presentation/widgets/seat_description_widget.dart';

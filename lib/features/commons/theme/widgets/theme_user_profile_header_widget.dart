@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_images.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 
 final class ThemeUserProfileHeaderWidget extends StatelessWidget {
@@ -14,13 +12,16 @@ final class ThemeUserProfileHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final completeName = '${user.name} ${user.lastName}';
+    
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Row(
         children: [
           CircleAvatar(
-            backgroundImage:
-                AssetImage(ThemeImages.getImageByString(user.image)),
+            backgroundImage: AssetImage(
+              ThemeImages.getImageByString(user.image),
+            ),
             radius: 24,
           ),
           SizedBox(width: 16),
@@ -28,7 +29,7 @@ final class ThemeUserProfileHeaderWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${user.name} ${user.lastName}',
+                completeName,
                 style: ThemeTypography.semiBold16.apply(
                   color: ThemeColors.primary,
                 ),

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_icons.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
+import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/commons/utils/commons_translation.dart';
-import 'package:levy/features/commons/theme/widgets/theme_app_bar_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_button.dart';
-import 'package:levy/features/commons/theme/widgets/theme_payment_method_item_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_ticket_widget.dart';
 import 'package:levy/features/payment/presentation/utils/payment_translation.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';

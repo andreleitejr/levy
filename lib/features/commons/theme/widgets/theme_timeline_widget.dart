@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_images.dart';
-import 'package:levy/core/theme/theme_typography.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class ThemeTimelineWidget extends StatelessWidget {
   const ThemeTimelineWidget({
@@ -74,31 +72,33 @@ final class ThemeTimelineWidget extends StatelessWidget {
 
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(dashCount, (index) {
-              final isFirst = isStart && index == 0;
-              final isLast = isEnd && index == dashCount - 1;
-              final width = isFirst || isLast ? 8 : dashWidth;
-              final height = isFirst || isLast ? 8 : 3;
+            children: List.generate(
+              dashCount,
+              (index) {
+                final isFirst = isStart && index == 0;
+                final isLast = isEnd && index == dashCount - 1;
+                final width = isFirst || isLast ? 8 : dashWidth;
+                final height = isFirst || isLast ? 8 : 3;
+                final color = isFirst || isLast ? ThemeColors.primary : ThemeColors.tertiary;
 
-              return Row(
-                children: [
-                  Container(
-                    width: width.toDouble(),
-                    height: height.toDouble(),
-                    decoration: BoxDecoration(
-                      color: isFirst || isLast
-                          ? ThemeColors.primary
-                          : ThemeColors.tertiary,
-                      shape: BoxShape.circle,
+                return Row(
+                  children: [
+                    Container(
+                      width: width.toDouble(),
+                      height: height.toDouble(),
+                      decoration: BoxDecoration(
+                        color: color,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  if (index != dashCount - 1)
-                    SizedBox(
-                      width: gapWidth.toDouble(),
-                    ),
-                ],
-              );
-            }),
+                    if (index != dashCount - 1)
+                      SizedBox(
+                        width: gapWidth.toDouble(),
+                      ),
+                  ],
+                );
+              },
+            ),
           );
         },
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:levy/core/theme/theme_colors.dart';
-import 'package:levy/core/theme/theme_images.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class ThemeBottomBarWidget extends StatelessWidget {
   const ThemeBottomBarWidget({
