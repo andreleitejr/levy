@@ -1,4 +1,4 @@
-import 'package:levy/features/address/external/address_mock.dart';
+import 'package:levy/features/address/mock/address_mock.dart';
 
 final class RouteMock {
   const RouteMock._();

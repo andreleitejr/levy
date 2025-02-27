@@ -6,7 +6,7 @@ import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/notification/data/datasources/notification_datasource.dart';
 import 'package:levy/features/notification/data/models/notification_model.dart';
 import 'package:levy/features/notification/domain/usecases/get_notification_usecase.dart';
-import 'package:levy/features/notification/external/notification_mock.dart';
+import 'package:levy/features/notification/mock/notification_mock.dart';
 import 'package:levy/features/notification/presentation/pages/notification_page.dart';
 import 'package:levy/features/notification/presentation/shimmers/notification_shimmer.dart';
 import 'package:mocktail/mocktail.dart';

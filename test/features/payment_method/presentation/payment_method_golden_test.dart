@@ -6,7 +6,7 @@ import 'package:levy/features/commons/widgets/theme_error_page.dart';
 import 'package:levy/features/payment_method/data/datasources/payment_method_datasource.dart';
 import 'package:levy/features/payment_method/data/models/payment_method_model.dart';
 import 'package:levy/features/payment_method/domain/usecases/get_payment_method_usecase.dart';
-import 'package:levy/features/payment_method/external/payment_method_mock.dart';
+import 'package:levy/features/payment_method/mock/payment_method_mock.dart';
 import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart';
 import 'package:levy/features/payment_method/presentation/shimmers/payment_method_shimmer.dart';
 import 'package:mocktail/mocktail.dart';

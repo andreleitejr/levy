@@ -1,4 +1,4 @@
-import 'package:levy/features/bus/external/bus_mock.dart';
+import 'package:levy/features/bus/mock/bus_mock.dart';
 
 final class ReservationMock {
   const ReservationMock._();
@@ -6,6 +6,7 @@ final class ReservationMock {
   static Map<String, dynamic> getBusById(String id) {
     return BusMock.response.firstWhere((bus) => bus['id'] == id);
   }
+
   static final response = {
     'reservationId': 'reservation_001',
     'userId': 'user_001',
