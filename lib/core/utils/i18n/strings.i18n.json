@@ -1,0 +1,184 @@
+{
+  "commons": {
+    "departureTicket": {
+      "title": "Departure Ticket"
+    },
+    "returnTicket": {
+      "title": "Return Ticket"
+    },
+    "time": {
+      "hour": "Hour",
+      "hours": "Hours",
+      "minute": "Minute",
+      "minutes": "Minutes"
+    }
+  },
+  "address": {
+    "header": {
+      "title": "Select address"
+    },
+    "searchInput": {
+      "hintText": "What’s your address?"
+    },
+    "errors": {
+      "loadError": "Failed to load addresses."
+    }
+  },
+  "bus": {
+    "header": {
+      "departureTitle": "Select Departure Bus",
+      "returnTitle": "Select Return Bus"
+    },
+    "results": {
+      "title": "Best Route"
+    },
+    "selected": {
+      "title": "Departure Info"
+    },
+    "button": {
+      "title": "Select"
+    },
+    "errors": {
+      "loadError": "Failed to load buses."
+    }
+  },
+  "home": {
+    "header": {
+      "title": "Search"
+    },
+    "guest": {
+      "title": "Guest User"
+    },
+    "form": {
+      "inputs": {
+        "departureAddress": {
+          "labelText": "Departure Address",
+          "hintText": "Select your departure address"
+        },
+        "returnAddress": {
+          "labelText": "Return Address",
+          "hintText": "Select your return address"
+        },
+        "departureTime": {
+          "labelText": "Departure Time",
+          "hintText": "05:00"
+        },
+        "returnTime": {
+          "labelText": "Return Time",
+          "hintText": "17:30"
+        }
+      },
+      "button": {
+        "title": "Search"
+      }
+    },
+    "reservation": {
+      "warning": {
+        "title": "Your bus in on the way",
+        "textButton": "View on map",
+        "description": "Your bus will arrive in $time..."
+      },
+
+      "ticket": {
+        "title": "Next trip"
+      }
+    }
+  },
+  "map": {
+    "header": {
+      "title": "Map"
+    },
+    "inactive": {
+      "title": "No active trips",
+      "description": "You do not have any reservations. Make a purchase to see your bus on the map.",
+      "buttonText": "Click here to make a reservation"
+    }
+  },
+  "notification": {
+    "header": {
+      "title": "Notifications"
+    }
+  },
+  "payment": {
+    "header": {
+      "title": "Order tickets"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "textButton": {
+        "title": "Modify"
+      }
+    },
+    "priceInfo": {
+      "title": "Monthly subscription",
+      "recurrence ": "month"
+    },
+    "button": {
+      "title": "Confirm Payment"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Select payment method"
+    }
+  },
+  "reservation": {
+    "header": {
+      "title": "Reservation"
+    },
+    "inactive": {
+      "title": "No tickets available",
+      "description": "You do not have any tickets. Make a purchase and come back.",
+      "buttonText": "Click here to buy your tickets"
+    }
+  },
+  "seat": {
+    "header": {
+      "title": "Select Seat"
+    },
+    "descriptions": {
+      "selected": "Selected",
+      "available": "Available",
+      "unavailable": "Unavailable"
+    },
+    "button": {
+      "title": "Confirm Seat"
+    }
+  },
+  "time": {
+    "header": {
+      "title": "Select time"
+    },
+    "button": {
+      "title": "Confirm"
+    }
+  },
+  "user": {
+    "header": {
+      "title": "Profile",
+      "welcome": "Welcome"
+    },
+    "items": {
+      "account": {
+        "title": "Account",
+        "description": "Information about your account"
+      },
+      "reservations": {
+        "title": "Reservations",
+        "description": "Information about your reservations"
+      },
+      "configurations": {
+        "title": "Preferences & Configurations",
+        "description": "Manage your preferences and configurations"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Tell us your problem and we’ll help you"
+      },
+      "about": {
+        "title": "About Levy",
+        "description": "Find out more about our app"
+      }
+    }
+  }
+}

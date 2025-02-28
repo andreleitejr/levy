@@ -1,0 +1,183 @@
+{
+  "commons": {
+    "departureTicket": {
+      "title": "Boleto de ida"
+    },
+    "returnTicket": {
+      "title": "Boleto de regreso"
+    },
+    "time": {
+      "hour": "Hora",
+      "hours": "Horas",
+      "minute": "Minuto",
+      "minutes": "Minutos"
+    }
+  },
+  "address": {
+    "header": {
+      "title": "Seleccionar dirección"
+    },
+    "searchInput": {
+      "hintText": "¿Cuál es tu dirección?"
+    },
+    "errors": {
+      "loadError": "Error al cargar las direcciones."
+    }
+  },
+  "bus": {
+    "header": {
+      "departureTitle": "Seleccionar autobús de ida",
+      "returnTitle": "Seleccionar autobús de regreso"
+    },
+    "results": {
+      "title": "Mejor ruta"
+    },
+    "selected": {
+      "title": "Información de salida"
+    },
+    "button": {
+      "title": "Seleccionar"
+    },
+    "errors": {
+      "loadError": "Error al cargar los autobuses."
+    }
+  },
+  "home": {
+    "header": {
+      "title": "Buscar"
+    },
+    "guest": {
+      "title": "Usuario invitado"
+    },
+    "form": {
+      "inputs": {
+        "departureAddress": {
+          "labelText": "Dirección de salida",
+          "hintText": "Selecciona tu dirección de salida"
+        },
+        "returnAddress": {
+          "labelText": "Dirección de regreso",
+          "hintText": "Selecciona tu dirección de regreso"
+        },
+        "departureTime": {
+          "labelText": "Hora de salida",
+          "hintText": "05:00"
+        },
+        "returnTime": {
+          "labelText": "Hora de regreso",
+          "hintText": "17:30"
+        }
+      },
+      "button": {
+        "title": "Buscar"
+      }
+    },
+    "reservation": {
+      "warning": {
+        "title": "Tu autobús está en camino",
+        "textButton": "Ver en el mapa",
+        "description": "Tu autobús llegará en $time..."
+      },
+      "ticket": {
+        "title": "Próximo viaje"
+      }
+    }
+  },
+  "map": {
+    "header": {
+      "title": "Mapa"
+    },
+    "inactive": {
+      "title": "No hay viajes activos",
+      "description": "No tienes ninguna reserva. Realiza una compra para ver tu autobús en el mapa.",
+      "buttonText": "Haz clic aquí para hacer una reserva"
+    }
+  },
+  "notification": {
+    "header": {
+      "title": "Notificaciones"
+    }
+  },
+  "payment": {
+    "header": {
+      "title": "Comprar boletos"
+    },
+    "paymentMethod": {
+      "title": "Método de pago",
+      "textButton": {
+        "title": "Modificar"
+      }
+    },
+    "priceInfo": {
+      "title": "Suscripción mensual",
+      "recurrence ": "mes"
+    },
+    "button": {
+      "title": "Confirmar pago"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Seleccionar método de pago"
+    }
+  },
+  "reservation": {
+    "header": {
+      "title": "Reservación"
+    },
+    "inactive": {
+      "title": "No hay boletos disponibles",
+      "description": "No tienes boletos. Realiza una compra y regresa.",
+      "buttonText": "Haz clic aquí para comprar tus boletos"
+    }
+  },
+  "seat": {
+    "header": {
+      "title": "Seleccionar asiento"
+    },
+    "descriptions": {
+      "selected": "Seleccionado",
+      "available": "Disponible",
+      "unavailable": "No disponible"
+    },
+    "button": {
+      "title": "Confirmar asiento"
+    }
+  },
+  "time": {
+    "header": {
+      "title": "Seleccionar hora"
+    },
+    "button": {
+      "title": "Confirmar"
+    }
+  },
+  "user": {
+    "header": {
+      "title": "Perfil",
+      "welcome": "Bienvenido"
+    },
+    "items": {
+      "account": {
+        "title": "Cuenta",
+        "description": "Información sobre tu cuenta"
+      },
+      "reservations": {
+        "title": "Reservaciones",
+        "description": "Información sobre tus reservaciones"
+      },
+      "configurations": {
+        "title": "Preferencias y configuraciones",
+        "description": "Administra tus preferencias y configuraciones"
+      },
+      "support": {
+        "title": "Soporte",
+        "description": "Cuéntanos tu problema y te ayudaremos"
+      },
+      "about": {
+        "title": "Acerca de Levy",
+        "description": "Descubre más sobre nuestra aplicación"
+      }
+    }
+  }
+}
