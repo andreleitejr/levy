@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:levy/app.dart';
 import 'package:levy/core/utils/i18n/strings.g.dart';
+import 'package:levy/micro_apps.dart';
 
 final getIt = GetIt.instance;
 
@@ -12,6 +13,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
   LocaleSettings.useDeviceLocale();
+  registerMicroApps();
 
   runApp(TranslationProvider(child: ProviderScope(child: App())));
 }

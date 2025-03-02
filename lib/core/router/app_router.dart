@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:levy/core/router/app_router.gr.dart';
+import 'package:levy_address/address.dart';
+import 'package:levy_core/core/router/micro_app_router_registry.dart';
 
 @AutoRouterConfig()
 final class AppRouter extends RootStackRouter {
@@ -16,5 +18,6 @@ final class AppRouter extends RootStackRouter {
         AutoRoute(page: ReservationRoute.page),
         AutoRoute(page: MapRoute.page),
         AutoRoute(page: UserRoute.page),
+        ...MicroAppRouterRegistry.getAllRoutes(),
       ];
 }

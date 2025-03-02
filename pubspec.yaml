@@ -15,6 +15,9 @@ dependencies:
   levy_address:
     path: ../levy_address
 
+  levy_core:
+    path: ../levy_core
+
   levy_dependencies:
     path: ../levy_dependencies
 #    git:
