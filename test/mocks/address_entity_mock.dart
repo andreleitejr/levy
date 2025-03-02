@@ -1,4 +1,4 @@
-import 'package:levy_address/address.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:mocktail/mocktail.dart';
 
 final class AddressEntityMock extends Mock implements AddressEntity {

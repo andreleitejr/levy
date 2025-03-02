@@ -20,6 +20,12 @@ dependencies:
 
   levy_dependencies:
     path: ../levy_dependencies
+
+  levy_shared_entities:
+    path: ../levy_shared_entities
+
+  levy_test_utils:
+    path: ../levy_test_utils
 #    git:
 #      url: https://github.com/andreleitejr/levy_dependencies.git
 

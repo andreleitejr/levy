@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:levy_address/address.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 part 'user_model.g.dart';
 

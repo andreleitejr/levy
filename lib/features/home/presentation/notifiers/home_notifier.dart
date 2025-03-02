@@ -4,7 +4,7 @@ import 'package:levy/features/home/home.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/main.dart';
-import 'package:levy_address/address.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 final class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier() : super(const HomeState.loading());
