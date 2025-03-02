@@ -1,5 +1,5 @@
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
+import 'package:levy_core/core.dart';
 
 final class SeatState implements GenericStateBase {
   final List<SeatEntity> data;

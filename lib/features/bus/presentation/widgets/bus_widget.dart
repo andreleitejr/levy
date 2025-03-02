@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/bus.dart';
+import 'package:levy_core/core.dart';
 
 final class BusWidget extends StatelessWidget {
   const BusWidget({

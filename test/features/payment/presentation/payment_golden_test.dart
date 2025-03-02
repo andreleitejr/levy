@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/payment/payment.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
+import 'package:levy_core/core.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

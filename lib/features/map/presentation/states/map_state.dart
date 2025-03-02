@@ -1,7 +1,7 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
+import 'package:levy_core/core.dart';
 
 final class MapState implements GenericStateBase {
   final ReservationEntity? reservation;

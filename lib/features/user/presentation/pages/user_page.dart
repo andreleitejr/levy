@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/user/presentation/providers/user_providers.dart';
 import 'package:levy/features/user/presentation/widgets/user_widget.dart';
+import 'package:levy_core/core.dart';
 
 @RoutePage()
 final class UserPage extends ConsumerStatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/payment_method/presentation/utils/payment_method_translation.dart';
+import 'package:levy_core/core.dart';
 
 final class PaymentMethodShimmer extends StatelessWidget {
   const PaymentMethodShimmer({

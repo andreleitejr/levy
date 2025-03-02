@@ -1,4 +1,4 @@
-import 'package:levy/core/extensions/string_extension.dart';
+import 'package:levy_core/core.dart';
 import 'package:levy_shared_entities/entities.dart';
 
 abstract class DriverEntity {

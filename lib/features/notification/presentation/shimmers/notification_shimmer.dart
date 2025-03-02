@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/notification/notification.dart';
+import 'package:levy_core/core.dart';
 
 final class NotificationShimmer extends StatelessWidget {
   const NotificationShimmer({

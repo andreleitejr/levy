@@ -2,14 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/theme/theme.dart';
-import 'package:levy/core/utils/commons_translation.dart';
 import 'package:levy/features/home/home.dart';
 import 'package:levy/features/map/presentation/pages/map_page.dart';
 import 'package:levy/features/reservation/presentation/pages/reservation_page.dart';
 import 'package:levy/features/search/data/models/search_model.dart';
 import 'package:levy/features/user/presentation/pages/user_page.dart';
 import 'package:levy_address/address.dart';
+import 'package:levy_core/core.dart';
 import 'package:levy_shared_entities/entities.dart';
 
 @RoutePage()

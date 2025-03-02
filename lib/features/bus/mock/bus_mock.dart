@@ -1,6 +1,6 @@
-import 'package:levy/core/commons/mock/common_mock.dart';
 import 'package:levy/features/driver/mock/driver_mock.dart';
 import 'package:levy/features/route/mock/route_mock.dart';
+import 'package:levy_core/core.dart';
 
 final class BusMock {
   const BusMock._();

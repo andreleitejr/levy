@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/seat/presentation/utils/seat_translation.dart';
+import 'package:levy_core/core.dart';
 
 final class SeatDescriptionWidget extends StatelessWidget {
   const SeatDescriptionWidget({super.key});

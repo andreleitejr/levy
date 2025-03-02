@@ -1,4 +1,4 @@
-import 'package:levy/core/utils/i18n/strings.g.dart';
+import 'package:levy_core/core.dart';
 
 final class ReservationTranslation {
   const ReservationTranslation._();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/core/theme/app_theme.dart';
+import 'package:levy_core/core.dart';
 
 const List<Size> screenSizes = [
   Size(360, 640),

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/payment/payment.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/presentation/providers/create_reservation_usecase_provider.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:levy_core/core.dart';
 import 'package:uuid/uuid.dart';
 
 @RoutePage()

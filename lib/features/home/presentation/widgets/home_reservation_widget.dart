@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/home/home.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
+import 'package:levy_core/core.dart';
 
 final class HomeReservationWidget extends StatelessWidget {
   const HomeReservationWidget({
@@ -30,7 +30,7 @@ final class HomeReservationWidget extends StatelessWidget {
 
     return Scaffold(
       appBar: ThemeHomeAppBarWidget(
-        user: user,
+        guestTitle: CommonsTranslation.texts.welcome,
         onActionPressed: onNotificationButtonPressed,
       ),
       body: Padding(
@@ -43,9 +43,20 @@ final class HomeReservationWidget extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             if (nextBus != null)
+              // TODO: Refatorar
               ThemeTicketWidget(
                 title: HomeTranslation.reservation.ticket.title,
-                bus: nextBus,
+                busImage: nextBus.image,
+                busTitle: nextBus.title,
+                busDescription: nextBus.description,
+                departureTime: nextBus.routes.first.departureTime,
+                departureAddressTitle: nextBus.routes.first.origin.name,
+                departureAddressLine: nextBus.routes.first.origin.line,
+                arrivalTime: nextBus.routes.first.arrivalTime,
+                arrivalAddressTitle: nextBus.routes.first.origin.name,
+                arrivalAddressLine: nextBus.routes.first.destination.name,
+                driverName: nextBus.driver.name,
+                driverImage: nextBus.driver.image,
                 showDriverInfo: true,
                 isReturnBus: isReturnBus,
               ),

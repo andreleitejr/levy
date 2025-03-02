@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/time/presentation/providers/time_notifier_provider.dart';
 import 'package:levy/features/time/presentation/states/time_state.dart';
 import 'package:levy/features/time/presentation/widgets/time_widget.dart';
+import 'package:levy_core/core.dart';
 
 @RoutePage()
 final class TimePage extends ConsumerStatefulWidget {

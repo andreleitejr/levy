@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/map/map.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/main.dart';
+import 'package:levy_core/core.dart';
 import 'package:widget_to_marker/widget_to_marker.dart';
 
 @RoutePage()

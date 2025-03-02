@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/payment_method/data/datasources/payment_method_datasource.dart';
 import 'package:levy/features/payment_method/data/models/payment_method_model.dart';
 import 'package:levy/features/payment_method/domain/usecases/get_payment_method_usecase.dart';
 import 'package:levy/features/payment_method/mock/payment_method_mock.dart';
 import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart';
 import 'package:levy/features/payment_method/presentation/shimmers/payment_method_shimmer.dart';
+import 'package:levy_core/core.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

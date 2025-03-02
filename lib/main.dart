@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:levy/app.dart';
-import 'package:levy/core/utils/i18n/strings.g.dart';
 import 'package:levy/micro_apps.dart';
+import 'package:levy_core/core.dart';
 
 final getIt = GetIt.instance;
 

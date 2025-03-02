@@ -1,6 +1,6 @@
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
+import 'package:levy_core/core.dart';
 
 final class BusStateImpl implements GenericStateBase {
   final List<BusEntity> data;

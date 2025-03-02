@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
+import 'package:levy_core/core.dart';
 
 @RoutePage()
 final class BusPage extends ConsumerStatefulWidget {

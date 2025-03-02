@@ -1,5 +1,5 @@
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
+import 'package:levy_core/core.dart';
 
 class ReservationState implements GenericStateBase {
   final ReservationEntity? data;

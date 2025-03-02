@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/home/home.dart';
+import 'package:levy_core/core.dart';
 
 import '../../../helpers/golden_test_helper.dart';
 import '../../../mocks/entities_mocks.dart';

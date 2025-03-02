@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/map/map.dart';
+import 'package:levy_core/core.dart';
 
 final class MapWidget extends StatelessWidget {
   const MapWidget({

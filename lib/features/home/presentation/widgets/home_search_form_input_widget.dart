@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
+import 'package:levy_core/core.dart';
 
 final class SearchFormInputWidget extends StatelessWidget {
   const SearchFormInputWidget({

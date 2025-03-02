@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/notification/notification.dart';
+import 'package:levy_core/core.dart';
 
 final class NotificationListItemWidget extends StatelessWidget {
   const NotificationListItemWidget({

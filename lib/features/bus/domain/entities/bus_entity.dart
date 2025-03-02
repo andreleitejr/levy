@@ -1,8 +1,8 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:levy/core/commons/entities/amenity_entity.dart';
 import 'package:levy/features/driver/driver.dart';
 import 'package:levy/features/route/domain/entities/route_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 abstract class BusEntity {
   const BusEntity();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/utils/user_translation.dart';
+import 'package:levy_core/core.dart';
 
 final class UserWidget extends StatelessWidget {
   const UserWidget({
@@ -19,7 +19,11 @@ final class UserWidget extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ThemeUserProfileHeaderWidget(user: user),
+          ThemeUserProfileHeaderWidget(
+            name: user.name,
+            image: user.image,
+            email: user.email,
+          ),
           const SizedBox(height: 16),
           ThemeListItemWidget(
             title: UserTranslation.items.account.title,
