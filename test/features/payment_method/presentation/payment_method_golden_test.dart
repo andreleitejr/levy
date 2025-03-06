@@ -8,7 +8,7 @@ import 'package:levy/features/payment_method/domain/usecases/get_payment_method_
 import 'package:levy/features/payment_method/mock/payment_method_mock.dart';
 import 'package:levy/features/payment_method/presentation/pages/payment_method_page.dart';
 import 'package:levy/features/payment_method/presentation/shimmers/payment_method_shimmer.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

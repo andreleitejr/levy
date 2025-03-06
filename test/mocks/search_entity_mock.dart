@@ -1,4 +1,3 @@
-import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy_shared_entities/entities.dart';
 import 'package:mocktail/mocktail.dart';
 

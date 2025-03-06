@@ -1,4 +1,4 @@
-import 'package:levy/features/route/domain/entities/route_entity.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:levy_shared_entities/entities.dart';
 import 'package:mocktail/mocktail.dart';
 

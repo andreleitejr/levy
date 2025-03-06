@@ -6,7 +6,7 @@ import 'package:levy/features/reservation/presentation/providers/reservation_not
 import 'package:levy/features/reservation/presentation/states/reservation_state.dart';
 import 'package:levy/features/reservation/presentation/utils/reservation_translation.dart';
 import 'package:levy/features/reservation/presentation/widgets/reservation_widget.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 @RoutePage()
 final class ReservationPage extends ConsumerStatefulWidget {

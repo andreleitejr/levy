@@ -15,14 +15,23 @@ dependencies:
   levy_address:
     path: ../levy_address
 
+  levy_bus:
+    path: ../levy_bus
+
   levy_core:
     path: ../levy_core
 
   levy_dependencies:
     path: ../levy_dependencies
 
+  levy_notification:
+    path: ../levy_notification
+
   levy_shared_entities:
     path: ../levy_shared_entities
+
+  levy_theme:
+    path: ../levy_theme
 
   levy_test_utils:
     path: ../levy_test_utils
@@ -38,7 +47,6 @@ dependencies:
   get_it: ^8.0.0
   rxdart: ^0.28.0
   auto_route: ^9.2.2
-  auto_route_generator: ^9.0.0
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -60,6 +68,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  auto_route_generator: ^9.0.0
   build_runner: ^2.4.13
   flutter_lints: ^5.0.0
   injectable_generator: ^2.6.2

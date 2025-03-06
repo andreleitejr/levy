@@ -1,5 +1,5 @@
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 final class PaymentMethodState implements GenericStateBase {
   final List<PaymentMethodEntity> data;

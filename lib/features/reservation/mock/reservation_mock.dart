@@ -1,4 +1,4 @@
-import 'package:levy/features/bus/mock/bus_mock.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 final class ReservationMock {
   const ReservationMock._();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/home/home.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 final class HomeFormWidget extends StatelessWidget {
   const HomeFormWidget({

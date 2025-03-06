@@ -8,7 +8,7 @@ import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/map/map.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/main.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 import 'package:widget_to_marker/widget_to_marker.dart';
 
 @RoutePage()

@@ -1,5 +1,5 @@
-import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'entities_mocks.dart';

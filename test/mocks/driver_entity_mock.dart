@@ -1,4 +1,4 @@
-import 'package:levy/features/driver/driver.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:mocktail/mocktail.dart';
 
 final class DriverEntityMock extends Mock implements DriverEntity {

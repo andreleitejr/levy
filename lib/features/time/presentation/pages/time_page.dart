@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/time/presentation/providers/time_notifier_provider.dart';
 import 'package:levy/features/time/presentation/states/time_state.dart';
 import 'package:levy/features/time/presentation/widgets/time_widget.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 @RoutePage()
 final class TimePage extends ConsumerStatefulWidget {

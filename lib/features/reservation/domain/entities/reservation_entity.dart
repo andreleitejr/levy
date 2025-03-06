@@ -1,4 +1,4 @@
-import 'package:levy/features/bus/bus.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 abstract class ReservationEntity {
   const ReservationEntity();

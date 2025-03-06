@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/presentation/utils/reservation_translation.dart';
 import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 final class ReservationWidget extends StatelessWidget {
   const ReservationWidget({

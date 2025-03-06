@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/utils/user_translation.dart';
-import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 final class UserWidget extends StatelessWidget {
   const UserWidget({

@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/bus/bus.dart';
 import 'package:levy/features/payment/payment.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/main.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 final class PaymentNotifier extends StateNotifier<PaymentState> {
   final ProcessPaymentUseCase _usecase;

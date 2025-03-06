@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/features/seat/data/models/seat_model.dart';
-import 'package:levy/features/seat/presentation/pages/seat_page.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:levy_core/core.dart';
+import 'package:levy_theme/core/theme/theme.dart';
 
 import '../../../helpers/golden_test_helper.dart';
 

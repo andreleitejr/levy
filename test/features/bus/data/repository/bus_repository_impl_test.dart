@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/features/bus/bus.dart';
-import 'package:levy/features/search/data/models/search_model.dart';
+import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:mocktail/mocktail.dart';
 
 final class BusDataSourceMock extends Mock implements BusDataSource {}

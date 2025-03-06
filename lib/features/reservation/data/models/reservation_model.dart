@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
+import 'package:levy_shared_entities/entities.dart';
 
 part 'reservation_model.g.dart';
 
