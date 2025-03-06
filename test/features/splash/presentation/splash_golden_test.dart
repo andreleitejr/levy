@@ -1,8 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:levy/features/splash/presentation/pages/splash_page.dart';
+import 'package:levy_test_utils/test_utils.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-
-import '../../../helpers/golden_test_helper.dart';
 
 void main() {
   sqfliteFfiInit();

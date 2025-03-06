@@ -1,4 +1,4 @@
-import 'package:levy_core/core.dart';
+import 'package:levy/core/utils/i18n/strings.g.dart';
 
 final class HomeTranslation {
   const HomeTranslation._();

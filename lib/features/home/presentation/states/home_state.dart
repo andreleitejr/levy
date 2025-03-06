@@ -1,6 +1,3 @@
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
-import 'package:levy/features/user/data/models/user_model.dart';
-import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy_shared_entities/entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
 

@@ -1,10 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
-import 'package:levy/features/reservation/domain/usecases/get_reservation_usecase.dart';
 import 'package:levy/features/splash/presentation/states/splash_state.dart';
-import 'package:levy/features/user/domain/entities/user_entity.dart';
-import 'package:levy/features/user/domain/usecases/get_user_usecase.dart';
 import 'package:levy/main.dart';
+import 'package:levy_reservation/reservation.dart';
+import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_user/user.dart';
 
 final class SplashNotifier extends StateNotifier<SplashState> {
   final GetUserUseCase _userUseCase;

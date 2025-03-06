@@ -1,0 +1,43 @@
+{
+  "home": {
+    "header": {
+      "title": "Buscar"
+    },
+    "guest": {
+      "title": "Usuario invitado"
+    },
+    "form": {
+      "inputs": {
+        "departureAddress": {
+          "labelText": "Dirección de salida",
+          "hintText": "Selecciona tu dirección de salida"
+        },
+        "returnAddress": {
+          "labelText": "Dirección de regreso",
+          "hintText": "Selecciona tu dirección de regreso"
+        },
+        "departureTime": {
+          "labelText": "Hora de salida",
+          "hintText": "05:00"
+        },
+        "returnTime": {
+          "labelText": "Hora de regreso",
+          "hintText": "17:30"
+        }
+      },
+      "button": {
+        "title": "Buscar"
+      }
+    },
+    "reservation": {
+      "warning": {
+        "title": "Tu autobús está en camino",
+        "textButton": "Ver en el mapa",
+        "description": "Tu autobús llegará en $time..."
+      },
+      "ticket": {
+        "title": "Próximo viaje"
+      }
+    }
+  }
+}

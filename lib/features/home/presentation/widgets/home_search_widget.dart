@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_form_widget.dart';
-import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy_core/core.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
 
 final class HomeSearchWidget extends StatelessWidget {

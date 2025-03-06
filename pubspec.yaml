@@ -24,19 +24,31 @@ dependencies:
   levy_dependencies:
     path: ../levy_dependencies
 
+  levy_map:
+    path: ../levy_map
+
   levy_notification:
     path: ../levy_notification
+
+  levy_payment:
+    path: ../levy_payment
+
+  levy_reservation:
+    path: ../levy_reservation
 
   levy_shared_entities:
     path: ../levy_shared_entities
 
+  levy_time:
+    path: ../levy_time
+
   levy_theme:
     path: ../levy_theme
 
-  levy_test_utils:
-    path: ../levy_test_utils
-#    git:
-#      url: https://github.com/andreleitejr/levy_dependencies.git
+  levy_user:
+    path: ../levy_user
+  #    git:
+  #      url: https://github.com/andreleitejr/levy_dependencies.git
 
   cupertino_icons: ^1.0.8
   json_annotation: ^4.9.0
@@ -68,6 +80,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  levy_test_utils:
+    path: ../levy_test_utils
+
   auto_route_generator: ^9.0.0
   build_runner: ^2.4.13
   flutter_lints: ^5.0.0
@@ -87,10 +103,10 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/icons/
-     - assets/images/
-     - .env
-     - assets/fonts/
+    - assets/icons/
+    - assets/images/
+    - .env
+    - assets/fonts/
 
   fonts:
     - family: Gilroy

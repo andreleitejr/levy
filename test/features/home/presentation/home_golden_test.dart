@@ -1,9 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:levy/features/home/home.dart';
+import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_test_utils/test_utils.dart';
 import 'package:levy_theme/core/theme/theme.dart';
-
-import '../../../helpers/golden_test_helper.dart';
-import '../../../mocks/entities_mocks.dart';
 
 void main() {
   group('Home Page Golden Test', () {
@@ -46,8 +45,8 @@ void main() {
       await runGoldenTestForDifferentScreenSizes(
         tester: tester,
         widget: HomeReservationWidget(
-          user: UserEntityMock(),
-          reservation: ReservationEntityMock(),
+          user: UserModel.fromJson(UserMock.response),
+          reservation: ReservationModel.fromJson(ReservationMock.response),
           onNotificationButtonPressed: () {},
           onViewMapButtonPressed: () {},
           arrivalTime: '07:00',

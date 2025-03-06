@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:levy/features/home/home.dart';
-import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
-import 'package:levy/features/user/domain/entities/user_entity.dart';
-import 'package:levy_shared_entities/entities.dart';
 import 'package:levy_core/core.dart';
+import 'package:levy_shared_entities/entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
 
 final class HomeReservationWidget extends StatelessWidget {
