@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/home/presentation/shimmers/home_search_shimmer.dart';
 import 'package:levy/features/home/presentation/widgets/home_reservation_widget.dart';
 import 'package:levy/features/home/presentation/widgets/home_search_widget.dart';

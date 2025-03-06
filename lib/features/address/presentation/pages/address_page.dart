@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/address/presentation/providers/address_notifier_provider.dart';
 import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart';
 import 'package:levy/features/address/presentation/widgets/address_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 @RoutePage()
 final class AddressPage extends ConsumerStatefulWidget {

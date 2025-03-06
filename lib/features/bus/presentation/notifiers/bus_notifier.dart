@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
-import 'package:levy/features/bus/presentation/states/bus_state_impl.dart';
+import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';

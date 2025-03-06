@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
-import 'package:levy/features/commons/utils/commons_translation.dart';
+import 'package:levy/core/theme/theme.dart';
+import 'package:levy/core/utils/commons_translation.dart';
 import 'package:levy/features/reservation/domain/entities/reservation_entity.dart';
 import 'package:levy/features/reservation/presentation/utils/reservation_translation.dart';
 

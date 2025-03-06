@@ -1,8 +1,8 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:levy/core/commons/models/amenity_model.dart';
+import 'package:levy/core/converters/lat_lng_converter.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/converters/lat_lng_converter.dart';
-import 'package:levy/features/commons/models/amenity_model.dart';
 import 'package:levy/features/driver/data/models/driver_model.dart';
 import 'package:levy/features/route/data/models/route_model.dart';
 import 'package:levy/features/seat/data/models/seat_model.dart';

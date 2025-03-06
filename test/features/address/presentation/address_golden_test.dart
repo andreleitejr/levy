@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/address/data/datasources/address_datasource.dart';
 import 'package:levy/features/address/data/models/address_model.dart';
 import 'package:levy/features/address/domain/usecases/get_address_usecase.dart';
 import 'package:levy/features/address/mock/address_mock.dart';
 import 'package:levy/features/address/presentation/pages/address_page.dart';
 import 'package:levy/features/address/presentation/shimmers/address_shimmer.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

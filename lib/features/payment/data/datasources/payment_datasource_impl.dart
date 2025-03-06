@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:levy/core/commons/domain/enums/inject_env.dart';
+import 'package:levy/core/inject/inject_env.dart';
 import 'package:levy/features/payment/data/datasources/payment_datasource.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';

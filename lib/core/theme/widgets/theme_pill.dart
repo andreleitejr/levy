@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class ThemePill extends StatelessWidget {
   const ThemePill({

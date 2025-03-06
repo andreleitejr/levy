@@ -1,5 +1,0 @@
-tags:
-  golden:
-    enabled: true
-    update: false
-    comparison: pixel-by-pixel

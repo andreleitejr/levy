@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 
 final class BusItemWidget extends StatelessWidget {
   const BusItemWidget({

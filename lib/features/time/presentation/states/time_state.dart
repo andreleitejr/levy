@@ -1,4 +1,4 @@
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class TimeState implements GenericStateBase {
   final int hour;

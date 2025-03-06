@@ -1,4 +1,4 @@
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 
 final class PaymentMethodState implements GenericStateBase {

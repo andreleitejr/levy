@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
-import 'package:levy/core/commons/domain/enums/inject_env.dart';
+import 'package:levy/core/inject/inject_env.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/mock/bus_mock.dart';

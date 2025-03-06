@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme.dart';
-import 'package:levy/features/commons/theme/enums/theme_image_geometry.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/payment_method/presentation/utils/payment_method_translation.dart';
 

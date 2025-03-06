@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:levy/core/commons/domain/enums/inject_env.dart';
+import 'package:levy/core/inject/inject_env.dart';
 import 'package:levy/features/notification/data/datasources/notification_datasource.dart';
 import 'package:levy/features/notification/data/models/notification_model.dart';
 import 'package:levy/features/notification/mock/notification_mock.dart';

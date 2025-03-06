@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/core/router/app_router.gr.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
 import 'package:levy/features/bus/presentation/notifiers/bus_notifier.dart';
 import 'package:levy/features/bus/presentation/providers/bus_notifier_provider.dart';
 import 'package:levy/features/bus/presentation/shimmers/bus_shimmer.dart';
-import 'package:levy/features/bus/presentation/states/bus_state_impl.dart';
+import 'package:levy/features/bus/presentation/states/bus_state.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/search/domain/entities/search_entity.dart';
 import 'package:levy/features/seat/domain/entities/seat_entity.dart';
 

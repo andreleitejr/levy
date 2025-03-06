@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/core/theme/theme.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/map/presentation/providers/map_notifier_provider.dart';
 import 'package:levy/features/map/presentation/states/map_state.dart';
 import 'package:levy/features/map/presentation/utils/map_translation.dart';

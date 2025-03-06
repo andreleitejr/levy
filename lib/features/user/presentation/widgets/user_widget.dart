@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/user/domain/entities/user_entity.dart';
 import 'package:levy/features/user/presentation/utils/user_translation.dart';
 

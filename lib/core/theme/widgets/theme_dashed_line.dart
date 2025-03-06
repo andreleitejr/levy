@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
+import 'package:levy/core/theme/theme.dart';
 
 final class ThemeDashedLineWidget extends StatelessWidget {
   const ThemeDashedLineWidget({

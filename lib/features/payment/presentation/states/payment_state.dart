@@ -1,5 +1,5 @@
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/domain/entities/bus_entity.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:levy/features/payment/enums/payment_result.dart';
 import 'package:levy/features/payment_method/domain/entities/payment_method_entity.dart';
 import 'package:levy/features/reservation/data/models/reservation_model.dart';

@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/data/datasources/bus_datasource.dart';
 import 'package:levy/features/bus/data/models/bus_model.dart';
 import 'package:levy/features/bus/domain/usecases/get_bus_usecase.dart';
 import 'package:levy/features/bus/mock/bus_mock.dart';
 import 'package:levy/features/bus/presentation/shimmers/bus_shimmer.dart';
 import 'package:levy/features/bus/presentation/widgets/bus_widget.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/golden_test_helper.dart';

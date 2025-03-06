@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
+import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/notification/presentation/providers/notification_notifier_provider.dart';
 import 'package:levy/features/notification/presentation/shimmers/notification_shimmer.dart';
 import 'package:levy/features/notification/presentation/widgets/notification_widget.dart';

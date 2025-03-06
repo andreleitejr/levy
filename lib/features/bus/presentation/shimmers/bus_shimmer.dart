@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/bus/presentation/utils/bus_translation.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:shimmer/shimmer.dart';
 
 final class BusShimmer extends StatelessWidget {

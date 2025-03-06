@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:levy/core/theme/theme.dart';
 import 'package:levy/features/address/presentation/utils/address_translation.dart';
-import 'package:levy/features/commons/theme/shimmers/theme_list_item_shimmer.dart';
-import 'package:levy/features/commons/theme/widgets/theme_widgets.dart';
 import 'package:shimmer/shimmer.dart';
 
 final class AddressShimmer extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:levy/core/commons/domain/enums/inject_env.dart';
+import 'package:levy/core/inject/inject_env.dart';
 import 'package:levy/features/driver/data/datasources/driver_datasource.dart';
 import 'package:levy/features/driver/data/models/driver_model.dart';
 import 'package:levy/features/driver/mock/driver_mock.dart';
