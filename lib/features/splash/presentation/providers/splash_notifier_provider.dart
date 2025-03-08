@@ -5,7 +5,7 @@ import 'package:levy_reservation/features/reservation/presentation/providers/get
 import 'package:levy_user/user.dart';
 
 final splashNotifierProvider = StateNotifierProvider<SplashNotifier, SplashState>((ref) {
-  final userUseCase = ref.read(userUseCaseProvider);
+  final userUseCase = ref.read(getUserUseCaseProvider);
   final reservationUseCase = ref.read(getReservationUseCaseProvider);
 
   return SplashNotifier(userUseCase, reservationUseCase);

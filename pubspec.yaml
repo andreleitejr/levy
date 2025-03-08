@@ -24,6 +24,9 @@ dependencies:
   levy_dependencies:
     path: ../levy_dependencies
 
+  levy_home:
+    path: ../levy_home
+
   levy_map:
     path: ../levy_map
 

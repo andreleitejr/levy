@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:levy/core/router/app_router.gr.dart';
 import 'package:levy/features/splash/presentation/providers/splash_notifier_provider.dart';
 import 'package:levy/features/splash/presentation/widgets/splash_widget.dart';
 
@@ -29,7 +28,7 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state.isLoaded) {
-        context.router.replace(HomeRoute());
+        context.router.replaceNamed('/home');
       }
     });
 

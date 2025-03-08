@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy/features/splash/presentation/states/splash_state.dart';
 import 'package:levy/main.dart';
 import 'package:levy_reservation/reservation.dart';
-import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/shared_entities.dart';
 import 'package:levy_user/user.dart';
 
 final class SplashNotifier extends StateNotifier<SplashState> {
